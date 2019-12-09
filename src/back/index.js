@@ -32,15 +32,15 @@ app.get("/", (request, response) => {
 
   //GET
 
-// app.get("/api/portfolio", (req, res) => {
-//     connection.query("SELECT * from portfolio", (err, results) => {
-//       if (err) {
-//         res.status(500).send("Erreur lors de la récupération des portfolios");
-//       } else {
-//         res.json(results);
-//       }
-//     });
-//   });
+app.get("/api/portfolio", (req, res) => {
+    connection.query("SELECT * from portfolio", (err, results) => {
+      if (err) {
+        res.status(500).send("Erreur lors de la récupération des portfolios");
+      } else {
+        res.json(results);
+      }
+    });
+  });
 
 // //POST
 
