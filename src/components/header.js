@@ -1,5 +1,5 @@
 import React from 'react';
-import logo from './IMG/logoMakeyourwish.png';
+import logo from '../img/logo/logoMakeyourwish.png';
 
 const headerStyle = {
     display : "flex",
