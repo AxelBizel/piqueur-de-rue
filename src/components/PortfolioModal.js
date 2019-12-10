@@ -5,13 +5,14 @@ import cosmic from '../img/cosmic.jpg';
 
 const PortfolioModal = (props) => {
         const {showModal} = props;
+        
         return(
             <>            
                 <div className="firstModal" style={{display : showModal? "flex" : "none"}} onClick={() => props.closeModal()}></div>
 
                 {showModal ? 
                     <aside className="secondModal"role="dialog"  >
-                        <button onClick={ props.closeModal}>X</button>
+                        <button onClick={props.closeModal}>X</button>
                         <h1>Cosmic Billie</h1>
                         <div className="textEtImg">
                             <img className="imgPresentation" src={cosmic} alt="photo de Cosmic Billie" />

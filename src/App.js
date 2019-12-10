@@ -4,7 +4,6 @@ import NavbarTest from './components/navbar';
 import Header from './components/header';
 
 
-
 class App extends Component {
   constructor(props){
     super(props);

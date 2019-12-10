@@ -10,6 +10,15 @@ class ButtonOpenPortfolio extends Component {
         };
     }
 
+
+    componentDidMount(){
+        const focus = window.addEventListener('keydown',(e)=>{
+            if(e.key === "Escape" || e.key === "Esc"){
+                return this.closeModal();
+            }
+        });
+    }
+
     openModal=(e)=> {
         let {showModal} = this.state;
         e.preventDefault()
@@ -18,13 +27,15 @@ class ButtonOpenPortfolio extends Component {
     }
 
 
-    closeModal=(e)=> {
+    closeModal=()=> {
         let {showModal} = this.state;
         showModal = false;
         this.setState({ showModal })
     }
 
+
     render(){
+
         return(
             <Fragment>
                 <button onClick={this.openModal}>Accéder à son portfolio</button>
