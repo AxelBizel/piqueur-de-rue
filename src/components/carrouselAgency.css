@@ -1,5 +1,7 @@
-.carousel-item > img { 
-    width: 100vw; 
-  }
+
+.carousel-item > img {
+  min-width: 100vw;
+  max-height: 80vh;
+}
 
   

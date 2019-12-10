@@ -1,31 +1,38 @@
 import React, { useState } from 'react';
 import { Carousel, CarouselItem, CarouselControl, CarouselIndicators, CarouselCaption } from 'reactstrap';
+import image1 from '../img/agency/1_resize.jpg'
+import image2 from '../img/agency/2_resize.jpg'
+import image3 from '../img/agency/3_resize.jpg'
+import image4 from '../img/agency/4_resize.jpg'
+import image5 from '../img/agency/5_resize.jpg'
+
+import './carrouselAgency.css'
 
 const items = [
   {
-    src: '/IMG/agency/1.jpg',
-    // altText: 'Slide 1',
-    // caption: 'Slide 1'
+    src: `${image1}`,
+    altText: 'Slide 1',
+    caption: 'Slide 1'
   },
   {
-    src: './IMG/agency/2.jpg',
-    // altText: 'Slide 2',
-    // caption: 'Slide 2'
+    src: `${image2}`,
+    altText: 'Slide 2',
+    caption: 'Slide 2'
   },
   {
-    src: './IMG/agency/3.jpg',
-    // altText: 'Slide 3',
-    // caption: 'Slide 3'
+    src: `${image3}`,
+    altText: 'Slide 3',
+    caption: 'Slide 3'
   },
   {
-    src: './IMG/agency/4.jpg',
-    // altText: 'Slide 3',
-    // caption: 'Slide 3'
+    src: `${image4}`,
+    altText: 'Slide 3',
+    caption: 'Slide 3'
   },
   {
-    src: './IMG/agency/5.jpg',
-    // altText: 'Slide 3',
-    // caption: 'Slide 3'
+    src: `${image5}`,
+    altText: 'Slide 3',
+    caption: 'Slide 3'
   }
 ];
 
@@ -64,17 +71,17 @@ const CarrouselAgency = (props) => {
   });
 
   return (
-      <div className="carrouselDiv">
-    <Carousel
-      activeIndex={activeIndex}
-      next={next}
-      previous={previous}
-    >
+    <div className="carrouselDiv">
+      <Carousel
+        activeIndex={activeIndex}
+        next={next}
+        previous={previous}
+      >
       <CarouselIndicators items={items} activeIndex={activeIndex} onClickHandler={goToIndex} />
       {slides}
       <CarouselControl direction="prev" directionText="Previous" onClickHandler={previous} />
       <CarouselControl direction="next" directionText="Next" onClickHandler={next} />
-    </Carousel>
+      </Carousel>
     </div>
   );
 }

@@ -2,6 +2,7 @@
     background-color: #786B60;
     position: fixed;
     width: 100vw;
+    box-shadow: 2px 1px 40px rgb(58, 58, 58);
 }
 
 .styleLink {
