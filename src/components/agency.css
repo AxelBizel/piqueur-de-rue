@@ -11,7 +11,7 @@
     justify-content: left;
     padding-left: 2vw;
     font-size: 8vh !important;
-    font-weight: 300;
+    font-weight: 500;
     align-items: center;
     color: rgb(255, 255, 255);
     background-color: #786B60;
@@ -25,4 +25,6 @@
     font-size: 1.4em;
     text-align: justify;
     line-height: 2em;
+    border: 1px  red;
+    text-align: center;
 }
