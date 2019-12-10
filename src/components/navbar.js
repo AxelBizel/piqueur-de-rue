@@ -9,12 +9,12 @@ const toggle = () => setIsOpen(!isOpen);
 
 return (
         <div className="styleNavbar">
-            <Navbar light expand="md">
+            <Navbar  expand="md">
                 <NavbarToggler onClick={toggle} />
                 <Collapse isOpen={isOpen} navbar>
                         <Nav className="mr-auto" navbar>
-                            <NavItem className="styleLink">
-                                <NavLink href="/components/">L'Agence</NavLink>
+                            <NavItem>
+                                <NavLink href="/components/" className="styleLink">L'Agence</NavLink>
                             </NavItem>
                             <NavItem>
                                 <NavLink href="/components/" className="styleLink">La Team</NavLink>
@@ -29,7 +29,7 @@ return (
                                 <NavLink href="/components/" className="styleLink">Contactez-nous</NavLink>
                             </NavItem>
                         </Nav>
-                    <NavLink href="/components/" className="styleLink">Login</NavLink>
+                    <NavLink href="/components/" className="loginLink">Login</NavLink>
                 </Collapse>
             </Navbar>
         </div>

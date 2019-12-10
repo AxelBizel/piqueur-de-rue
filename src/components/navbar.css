@@ -1,6 +1,22 @@
+.styleLink {
+    color: rgb(54, 53, 52);
+    transition: 0.1s;
+}
+
+.loginLink {
+    color: rgb(182, 179, 176);
+}
+
+.styleLink:hover, .loginLink:hover{
+    color: white;
+    transition: 0.1s;
+}
+
 .styleNavbar {
     background-color: #786B60;
-    position: fixed;
+    position: sticky;
+    z-index: 1;
+    top: 0;
     width: 100vw;
     box-shadow: 2px 1px 40px rgb(58, 58, 58);
 }

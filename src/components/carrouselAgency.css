@@ -1,7 +1,12 @@
-
 .carousel-item > img {
-  min-width: 100vw;
   max-height: 80vh;
 }
 
-  
+.carrouselDiv {
+  max-width: 80vw;
+  margin:auto;
+}
+
+.agencyContainer {
+  border:1px solid red;
+}
