@@ -1,5 +1,5 @@
 import React from 'react';
-import './modalPortfolio.css'
+import './modalPortfolio.css';
 import cosmic from '../img/tatoueurs/cosmic.jpg';
 
 
