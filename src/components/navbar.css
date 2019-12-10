@@ -13,6 +13,7 @@
     .styleNavbar {
         background-color: rgba(255, 255, 255, 0.493);
         position: fixed;
+        border-radius: 10px;
         width: auto;
         top: 80vh;
         right: 15vw;
