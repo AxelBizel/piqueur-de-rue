@@ -1,8 +1,8 @@
-.agencyContainer {
+.SectionContainer {
     display: flex;
     flex-direction: column;
     width: 100vw;
-    height: 100vh;
+    height: auto;
     background-color: rgb(255, 255, 255);
 }
 
@@ -18,4 +18,11 @@
     height: 20vh;
     font-size: 3em;
     margin: 0;
+}
+
+.aboutAgency {
+    padding: 2em 10em 4em 10em;
+    font-size: 1.4em;
+    text-align: justify;
+    line-height: 2em;
 }
