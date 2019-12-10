@@ -1,5 +1,4 @@
 import React, {Component} from 'react';
-import ModalPortfolios from './components/ModalPortfolios';
 import ButtonOpenPortfolio from './components/ButtonOpenPortfolio';
 
 class App extends Component {
