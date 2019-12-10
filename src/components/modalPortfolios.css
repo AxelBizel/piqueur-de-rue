@@ -5,7 +5,7 @@ body, html {
 
 *{box-sizing: border-box; }
 
-.modal {
+.firstModal {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -17,14 +17,14 @@ body, html {
     background-color: rgba(0, 0, 0, 0.8);
 }
 
-.modal-wrappeur {
-  
+.secondModal {
+    position: absolute;
     overflow: auto;
     width: 600px;
     max-width: calc(100vw - 20px);
     max-height: calc(100vh - 20px);
     padding: 20px;
-    background-color: #FFF;
+    background-color: white;
 
 }
 
