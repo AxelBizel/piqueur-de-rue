@@ -1,5 +1,5 @@
 import React, {Component, Fragment} from 'react';
-import PortfolioModal from './PortfolioModal';
+import PortfolioModal from './modalPortfolio';
 
 
 class ButtonOpenPortfolio extends Component {

@@ -2,6 +2,7 @@
     background-color: #786B60;
     position: fixed;
     width: 100vw;
+    box-shadow: 2px 1px 40px rgb(58, 58, 58);
 }
 
 .styleLink {
@@ -13,6 +14,7 @@
     .styleNavbar {
         background-color: rgba(255, 255, 255, 0.493);
         position: fixed;
+        border-radius: 10px;
         width: auto;
         top: 80vh;
         right: 15vw;
