@@ -14,9 +14,8 @@
 
 .styleNavbar {
     background-color: #786B60;
-    position: sticky;
+    position: relative;
     z-index: 1;
-    top: 0;
     width: 100vw;
     box-shadow: 1px 1px 10px rgb(58, 58, 58);
     z-index: 16;
@@ -29,7 +28,7 @@
 
 @media screen and (max-width:768px) {
     .styleNavbar {
-        background-color: rgba(255, 255, 255, 0.493);
+        background-color: rgba(255, 255, 255, 0.493) !important;
         position: fixed;
         border-radius: 10px;
         width: auto;
