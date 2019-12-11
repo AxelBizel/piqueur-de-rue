@@ -5,6 +5,8 @@ import Home from './components/home'
 import Agency from './components/agency'
 import ButtonOpenPortfolio from './components/ButtonOpenPortfolio';
 import PermanentArtists from './components/permanentArtists';
+import PermanentsArtists1 from './components/permanentsArtists1';
+
 
 class App extends Component {
   constructor(props){
@@ -20,6 +22,7 @@ class App extends Component {
         <Home />
         <Agency />
         <PermanentArtists/>
+        <PermanentsArtists1/>
         <ButtonOpenPortfolio />
       </div>
     );

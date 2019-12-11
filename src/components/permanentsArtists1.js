@@ -3,6 +3,7 @@ import { Carousel, CarouselItem, CarouselControl, CarouselIndicators, CarouselCa
 import alex290 from '../img/tatoueurs/alex290.jpg';
 import cosmic from '../img/tatoueurs/cosmic.jpg';
 import gladys from '../img/tatoueurs/gladys.jpg';
+import timmy_rodger from '../img/tatoueurs/timmy_rodger.jpg';
 import './permanentArtists.css';
 
 const items = [
@@ -58,8 +59,6 @@ const items = [
     });
   
     return (
-    <div>
-    <h1 className="title_team">Notre team permanente</h1>
       <div className="box">       
         <Carousel
           activeIndex={activeIndex}
@@ -72,10 +71,7 @@ const items = [
         <CarouselControl direction="next" directionText="Next" onClickHandler={next} />
         </Carousel>
       </div>
-    </div>  
     );
   }
   
   export default CarrouselAgency;
-
-
