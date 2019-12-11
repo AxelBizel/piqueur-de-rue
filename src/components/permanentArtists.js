@@ -4,6 +4,7 @@ import alex290 from '../img/tatoueurs/alex290.jpg';
 import cosmic from '../img/tatoueurs/cosmic.jpg';
 import gladys from '../img/tatoueurs/gladys.jpg';
 import timmy_rodger from '../img/tatoueurs/timmy_rodger.jpg';
+import './permanentArtists.css';
 
 const items = [
     {
@@ -63,18 +64,20 @@ const items = [
     });
   
     return (
-      <div className="carrouselDiv">
-        <Carousel
-          activeIndex={activeIndex}
-          next={next}
-          previous={previous}
-        >
-        <CarouselIndicators items={items} activeIndex={activeIndex} onClickHandler={goToIndex} />
-        {slides}
-        <CarouselControl direction="prev" directionText="Previous" onClickHandler={previous} />
-        <CarouselControl direction="next" directionText="Next" onClickHandler={next} />
-        </Carousel>
-      </div>
+        <div>
+            <div className="box">
+                <Carousel
+                activeIndex={activeIndex}
+                next={next}
+                previous={previous}
+                >
+                <CarouselIndicators items={items} activeIndex={activeIndex} onClickHandler={goToIndex} />
+                {slides}
+                <CarouselControl direction="prev" directionText="Previous" onClickHandler={previous} />
+                <CarouselControl direction="next" directionText="Next" onClickHandler={next} />
+                </Carousel>
+            </div>
+        </div>
     );
   }
   
