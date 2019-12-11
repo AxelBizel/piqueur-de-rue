@@ -1,14 +1,12 @@
 import React, {Component} from 'react';
-import './components/globalcss.css'
+import './index.css'
 
 import Navbar from './components/navbar';
 import Header from './components/header';
 import Home from './components/home'
 import Agency from './components/agency'
 import ButtonOpenPortfolio from './components/ButtonOpenPortfolio';
-
 import GuestHome from './components/GuestHome'
-
 import YourProject from './components/yourproject';
 
 
