@@ -58,8 +58,6 @@ const items = [
     });
   
     return (
-    <div>
-    <h1 className="title_team">Notre team permanente</h1>
       <div className="box">       
         <Carousel
           activeIndex={activeIndex}
@@ -72,7 +70,6 @@ const items = [
         <CarouselControl direction="next" directionText="Next" onClickHandler={next} />
         </Carousel>
       </div>
-    </div>  
     );
   }
   

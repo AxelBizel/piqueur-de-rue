@@ -3,17 +3,17 @@ import { Carousel, CarouselItem, CarouselControl, CarouselIndicators, CarouselCa
 import alex290 from '../img/tatoueurs/alex290.jpg';
 import cosmic from '../img/tatoueurs/cosmic.jpg';
 import gladys from '../img/tatoueurs/gladys.jpg';
-import timmy_rodger from '../img/tatoueurs/timmy_rodger.jpg';
+import CB4 from '../img/tatoueurs/CB4.jpg';
 import './permanentArtists.css';
 
 const items = [
     {
-      src: `${alex290}`,
+      src: `${cosmic}`,
       // altText: 'Slide 1',
       // caption: 'Slide 1'
     },
     {
-      src: `${cosmic}`,
+      src: `${CB4}`,
       // altText: 'Slide 2',
       // caption: 'Slide 2'
     },

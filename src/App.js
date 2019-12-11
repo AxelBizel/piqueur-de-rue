@@ -21,9 +21,10 @@ class App extends Component {
         <Header />
         <Home />
         <Agency />
-        <PermanentArtists/>
-        <PermanentsArtists1/>
         <ButtonOpenPortfolio />
+        <PermanentArtists/> 
+        <PermanentsArtists1/>
+
       </div>
     );
   }
