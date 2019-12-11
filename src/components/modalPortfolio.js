@@ -1,4 +1,4 @@
-    import React from 'react';
+import React from 'react';
 import './modalPortfolio.css';
 import cosmic from '../img/tatoueurs/cosmic.jpg';
 import indienne from '../img/tatoueurs/Indienne_gp.jpg';

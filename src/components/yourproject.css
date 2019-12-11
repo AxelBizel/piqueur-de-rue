@@ -1,0 +1,28 @@
+.ProjectSectionOne, .ProjectSectionThree {
+    display: flex;
+    background-color: rgb(80, 173, 80);
+    border:1px solid black;
+    height: 80vh;
+}
+
+.ProjectSectionTwo, .ProjectSectionFour {
+    display: flex;
+    justify-content: flex-end;
+    background-color: rgb(58, 124, 58);
+    border:1px solid black;
+    height: 60vh;
+}
+
+.LeftText {
+    background-color: rgba(255, 255, 255, 0.548);
+    width: 10vw;
+    height: 17vh;
+    border-radius: 0 0 100px 0;
+}
+
+.RightText {
+    background-color: rgba(255, 255, 255, 0.548);
+    width: 10vw;
+    height: 17vh;
+    border-radius: 0 0 0 100px;
+}
