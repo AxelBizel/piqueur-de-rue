@@ -10,7 +10,14 @@
 .secondModal {
     position: fixed;
     top: 0;
-    width:100vw;
+    left: 0;
+    transform: translate(-0%, -0%);
+    overflow: auto;
+    width: 100vw;
+    height: 100vh;
+    max-width: calc(100vw - 0px);
+    max-height: calc(100vh - 0px);
+    padding: 40px;
     background-color: white;
     z-index: 15;
 }
@@ -28,7 +35,13 @@
 }
 
 .textPresentation{
-    width: 300px;
+    width: 80 vw;
     height: auto;
-    padding: 20px;
+    max-width: calc(100vw - 30px);
+    max-height: calc(100vh - 30px);
+}
+
+.imgPrincipale {
+    width: 200px;
+    height: auto;
 }
