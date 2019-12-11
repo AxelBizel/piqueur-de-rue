@@ -4,6 +4,7 @@ import Header from './components/header';
 import Home from './components/home'
 import Agency from './components/agency'
 import ButtonOpenPortfolio from './components/ButtonOpenPortfolio';
+import GuestHome from './components/GuestHome'
 
 class App extends Component {
   constructor(props){
@@ -19,6 +20,7 @@ class App extends Component {
         <Home />
         <Agency />
         <ButtonOpenPortfolio />
+        <GuestHome/>
       </div>
     );
   }
