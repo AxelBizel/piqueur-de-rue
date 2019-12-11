@@ -11,7 +11,6 @@ class CarrouselPortfolio extends Component {
 
     }
 
-
     render() {
     var settings = {
       dots: true,
