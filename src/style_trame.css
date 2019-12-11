@@ -1,0 +1,42 @@
+/* Feuille de style de base */
+
+html,
+body,
+textarea,
+figure,
+label {
+	margin: 0;
+    padding: 0;
+}
+
+body {
+	background-color: #fff;
+	color: #1C051C;
+	font-family: 'open_sansregular', helvetica, arial, sans-serif;
+	font-size: 1.2em; 
+	line-height: 1.5; 
+}
+
+a {
+    text-decoration: none;
+}
+
+h1 {
+    font-family: 'FalkinSerifItalicPERSONAL';
+    text-align: center;
+    letter-spacing: 0.04em;
+}
+
+
+p {
+    font-family: 'open_sansregular';
+    font-size: 0.8em;
+}
+
+button {
+    background : black;
+    color : white;
+    border-radius: 50%;
+}
+
+/* Fonts______________ */
