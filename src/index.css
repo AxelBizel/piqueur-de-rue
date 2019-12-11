@@ -1,4 +1,8 @@
-*{box-sizing: border-box; }
+* { 
+  margin: O;
+  padding: O;
+  box-sizing: border-box; 
+}
 
 body, html {
   padding: 0;
