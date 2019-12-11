@@ -2,6 +2,7 @@ import React from 'react';
 import './modalPortfolio.css';
 import cosmic from '../img/tatoueurs/cosmic.jpg';
 import indienne from '../img/tatoueurs/Indienne_gp.jpg';
+import CarrouselPortfolio from './carrouselPortfolio';
 
 
 const PortfolioModal = (props) => {
@@ -10,7 +11,6 @@ const PortfolioModal = (props) => {
         return(
             <>           
                 <div className="firstModal" style={{display : showModal? "flex" : "none"}} onClick={() => props.closeModal()}></div>
-
                 {showModal ? 
                     <aside className="secondModal" role="dialog">
                         <button onClick={ props.closeModal}>X</button>
@@ -23,6 +23,7 @@ const PortfolioModal = (props) => {
                         <div className="sectionImgs">
                             <img className="imgPrincipale" src={indienne} alt="réalisation du tatoueur" />
                         </div>
+                        <CarrouselPortfolio />
                     </aside> : null
                 }
             </>
