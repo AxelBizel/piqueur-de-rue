@@ -21,7 +21,7 @@ const PortfolioModal = (props) => {
                         </div>
                         <button>Contacter tatoueur</button>
                         <div className="sectionImgs">
-                            <img className="ImgPrincipale" src={indienne} alt="réalisation du tatoueur" />
+                            <img className="imgPrincipale" src={indienne} alt="réalisation du tatoueur" />
                         </div>
                     </aside> : null
                 }

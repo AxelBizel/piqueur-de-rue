@@ -34,11 +34,14 @@ class ButtonOpenPortfolio extends Component {
 
 
     render(){
+        const styleButton= {
+            
 
+        }
         return(
             <div className="SectionContainer">
                 <h1 className="title">NOS TATOUEURS</h1>
-                <button onClick={this.openModal}>Accéder à son portfolio</button>
+                <button style={styleButton} onClick={this.openModal}>Accéder à son portfolio</button>
                 <PortfolioModal showModal={this.state.showModal} closeModal={this.closeModal} />
             </div>
         )
