@@ -1,5 +1,5 @@
-import React from 'react';
-import './modalPortfolio.css'
+    import React from 'react';
+import './modalPortfolio.css';
 import cosmic from '../img/tatoueurs/cosmic.jpg';
 
 
@@ -7,7 +7,7 @@ const PortfolioModal = (props) => {
         const {showModal} = props;
         
         return(
-            <>            
+            <>           
                 <div className="firstModal" style={{display : showModal? "flex" : "none"}} onClick={() => props.closeModal()}></div>
 
                 {showModal ? 

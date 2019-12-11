@@ -1,6 +1,5 @@
-import React, {Component, Fragment} from 'react';
+import React, {Component} from 'react';
 import PortfolioModal from './modalPortfolio';
-
 
 class ButtonOpenPortfolio extends Component {
     constructor(props) {
@@ -37,15 +36,13 @@ class ButtonOpenPortfolio extends Component {
     render(){
 
         return(
-            <Fragment>
+            <div className="SectionContainer">
+                <h1 className="title">NOS TATOUEURS</h1>
                 <button onClick={this.openModal}>Accéder à son portfolio</button>
                 <PortfolioModal showModal={this.state.showModal} closeModal={this.closeModal} />
-            </Fragment>
+            </div>
         )
     }
-
-
-
 }
 
 export default ButtonOpenPortfolio;

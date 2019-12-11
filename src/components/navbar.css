@@ -1,8 +1,24 @@
+.styleLink {
+    color: rgb(54, 53, 52);
+    transition: 0.1s;
+}
+
+.loginLink {
+    color: rgb(182, 179, 176);
+}
+
+.styleLink:hover, .loginLink:hover{
+    color: white;
+    transition: 0.1s;
+}
+
 .styleNavbar {
     background-color: #786B60;
-    position: fixed;
+    position: relative;
+    z-index: 1;
     width: 100vw;
-    box-shadow: 2px 1px 40px rgb(58, 58, 58);
+    box-shadow: 1px 1px 10px rgb(58, 58, 58);
+    z-index: 16;
 }
 
 .styleLink {
@@ -12,7 +28,7 @@
 
 @media screen and (max-width:768px) {
     .styleNavbar {
-        background-color: rgba(255, 255, 255, 0.493);
+        background-color: rgba(255, 255, 255, 0.493) !important;
         position: fixed;
         border-radius: 10px;
         width: auto;

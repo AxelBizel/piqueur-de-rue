@@ -1,0 +1,12 @@
+.containerHome {
+    display: flex;
+    flex-direction: column-reverse;
+    align-items: flex-end;
+    background-image: url("../img/divers/accueil.jpg");
+    height: 130vh;
+    background-size: cover;
+}
+
+.logo {
+    max-width: 60vw;
+}

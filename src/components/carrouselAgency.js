@@ -5,34 +5,33 @@ import image2 from '../img/agency/2_resize.jpg'
 import image3 from '../img/agency/3_resize.jpg'
 import image4 from '../img/agency/4_resize.jpg'
 import image5 from '../img/agency/5_resize.jpg'
-
 import './carrouselAgency.css'
 
 const items = [
   {
     src: `${image1}`,
-    altText: 'Slide 1',
-    caption: 'Slide 1'
+    // altText: 'Slide 1',
+    // caption: 'Slide 1'
   },
   {
     src: `${image2}`,
-    altText: 'Slide 2',
-    caption: 'Slide 2'
+    // altText: 'Slide 2',
+    // caption: 'Slide 2'
   },
   {
     src: `${image3}`,
-    altText: 'Slide 3',
-    caption: 'Slide 3'
+    // altText: 'Slide 3',
+    // caption: 'Slide 3'
   },
   {
     src: `${image4}`,
-    altText: 'Slide 3',
-    caption: 'Slide 3'
+    // altText: 'Slide 4',
+    // caption: 'Slide 4'
   },
   {
     src: `${image5}`,
-    altText: 'Slide 3',
-    caption: 'Slide 3'
+    // altText: 'Slide 5',
+    // caption: 'Slide 5'
   }
 ];
 
