@@ -24,8 +24,8 @@ class App extends Component {
         <Header />
         <Home />
         <Agency />
-        <ButtonOpenPortfolio />
-        <GuestHome/>
+        {/* <ButtonOpenPortfolio />
+        <GuestHome/> */}
         <YourProject />
       </div>
     );
