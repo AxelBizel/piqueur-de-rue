@@ -5,6 +5,7 @@ import './home.css'
 export default function Home() {
     return (
         <div className="containerHome">
+            
             <img className="logo" src={logo}/>
         </div>
     )

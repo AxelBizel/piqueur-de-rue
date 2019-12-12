@@ -1,8 +1,8 @@
 import React, { Component } from 'react'
 
 import './GuestHome.css'
-import '../style_trame.css'
-import '../style_trame.css'
+import '../index.css'
+import '../index.css'
 
 
 class GuestHome extends Component {

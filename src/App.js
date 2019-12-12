@@ -1,10 +1,15 @@
 import React, {Component} from 'react';
-import NavbarTest from './components/navbar';
+import './index.css'
+import Navbar from './components/navbar';
 import Header from './components/header';
 import Home from './components/home'
 import Agency from './components/agency'
 import ButtonOpenPortfolio from './components/ButtonOpenPortfolio';
 import GuestHome from './components/GuestHome'
+import YourProject from './components/yourproject';
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
+
 
 class App extends Component {
   constructor(props){
@@ -15,12 +20,13 @@ class App extends Component {
   render(){
     return (
       <div className="App">
-        <NavbarTest />
+        <Navbar />
         <Header />
         <Home />
         <Agency />
-        <ButtonOpenPortfolio />
-        <GuestHome/>
+        {/* <ButtonOpenPortfolio />
+        <GuestHome/> */}
+        <YourProject />
       </div>
     );
   }

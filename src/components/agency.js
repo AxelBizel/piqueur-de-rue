@@ -5,7 +5,7 @@ import './agency.css'
 export default function Agency() {
     return (
         <div className="SectionContainer">
-            <h1 className="title">L'AGENCE</h1>
+            <h1 className="HeaderSection">L'AGENCE</h1>
             <CarrouselAgency />
             <p className="aboutAgency"><h2>"Une agence de tatouage au service de vos projets"</h2><br/>Conçu comme une agence de design, le tattoo shop PIQUEUR DE RUE se veut être à l'écoute des clients et offrir un suivi de qualité.
             Vous rentrez, vous vous asseyez et nous élaborons ensemble la meilleure approche de votre projet tattoo autour d'un café. Nous tenterons de répondre à toutes vos questions et vous expliquerons toutes les étapes de réalisation de votre projet.<br/><br/>
