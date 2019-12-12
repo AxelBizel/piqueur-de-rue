@@ -5,6 +5,7 @@ import Home from './components/home'
 import Agency from './components/agency'
 import ButtonOpenPortfolio from './components/ButtonOpenPortfolio';
 import GuestHome from './components/GuestHome'
+import './style_trame.css'
 
 class App extends Component {
   constructor(props){
