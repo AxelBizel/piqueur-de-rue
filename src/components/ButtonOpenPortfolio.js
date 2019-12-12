@@ -9,6 +9,15 @@ class ButtonOpenPortfolio extends Component {
         };
     }
 
+
+    componentDidMount(){
+        const focus = window.addEventListener('keydown',(e)=>{
+            if(e.key === "Escape" || e.key === "Esc"){
+                return this.closeModal();
+            }
+        });
+    }
+
     openModal=(e)=> {
         let {showModal} = this.state;
         e.preventDefault()
@@ -17,17 +26,22 @@ class ButtonOpenPortfolio extends Component {
     }
 
 
-    closeModal=(e)=> {
+    closeModal=()=> {
         let {showModal} = this.state;
         showModal = false;
         this.setState({ showModal })
     }
 
+
     render(){
+        const styleButton= {
+            
+
+        }
         return(
             <div className="SectionContainer">
-                <h1 className="title">NOS TATOUEURS</h1>
-                <button onClick={this.openModal}>Accéder à son portfolio</button>
+                <h1 className="HeaderSection">NOS TATOUEURS</h1>
+                <button style={styleButton} onClick={this.openModal}>Accéder à son portfolio</button>
                 <PortfolioModal showModal={this.state.showModal} closeModal={this.closeModal} />
             </div>
         )
