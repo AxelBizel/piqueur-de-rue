@@ -4,11 +4,22 @@
     align-items: center;
 }
 
+.bg-image {
+    filter: blur(5px);
+    width: 100vw;
+    z-index: -1;
+}
+
+p {
+    margin-bottom: 0 !important;
+}
+
 .ProjectSectionOne, .ProjectSectionThree {
     display: flex;
     height: 70vh;
     width: 100vw;
-    background-image: url('../img/projet/1rendezvous.jpg');
+    border: 1px solid black;
+    border: 1px solid rgba(0, 0, 0, 0.200);
 }
 
 .ProjectSectionTwo, .ProjectSectionFour {
@@ -16,7 +27,7 @@
     justify-content: flex-end;
     height: 70vh;
     width: 100vw;
-    background-image: url('../img/projet/2dessin.jpg');
+    border: 1px solid rgba(0, 0, 0, 0.200);
 }
 
 .LeftTitle {
@@ -27,9 +38,9 @@
     align-self: flex-start;
     position: absolute;
     background-color: rgba(255, 255, 255, 0.911);
-    font-size: 5vw;
-    border-radius: 0 0 100px 0;
-    padding-right: 0.8em;
+    font-size: 6vw;
+    border-radius: 0 0 50px 0;
+    padding-right: 0.4em;
     padding-left: 0.2em;
 }
 
@@ -39,9 +50,9 @@
     position: absolute;
     right: 0;
     background-color: rgba(255, 255, 255, 0.911);
-    font-size: 1.8vw;
-    border-radius: 70px 0 0 0;
-    padding: 1.3em;
+    font-size: 1.5vw;
+    border-radius: 50px 0 0 0;
+    padding: 2em;
     width: 50vw;
     text-align: justify;
 }
@@ -55,10 +66,10 @@
     align-self: flex-start;
     position: absolute;
     background-color: rgba(255, 255, 255, 0.911);
-    font-size: 5vw;
+    font-size: 6vw;
     padding-left: 0.5em;
-    border-radius: 0 0 0 100px;
-    padding-left: 0.6em;
+    border-radius: 0 0 0 50px;
+    padding-left: 0.4em;
     padding-right: 0.2em;
 }
 
@@ -68,11 +79,38 @@
     position: absolute;
     left: 0;
     background-color: rgba(255, 255, 255, 0.911);
-    font-size: 1.8vw;
-    border-radius: 0 70px 0 0;
-    padding: 1.3em;
+    font-size: 1.5vw;
+    border-radius: 0 50px 0 0;
+    padding: 2em;
     width: 50vw;
     text-align: justify;
 }
 
-@media screen and (min)
+.FlexContainerButton {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.buttonProjet {
+    display: flex;
+    justify-content: center;
+    font-size: 5vh;
+    height: 10vh;
+    border-radius: 20px;
+    box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.644);
+    margin: 2vh;
+    background-color: #786B60;
+    transition: 0.2s;
+}
+
+.buttonProjet:hover {
+    display: flex;
+    justify-content: center;
+    font-size: 5vh;
+    height: 10vh;
+    border-radius: 20px;
+    box-shadow: 1px 1px 3px rgba(0, 0, 0, 0);
+    margin: 2vh;
+    background-color: #786B60;
+    transition: 0.4s;
+}

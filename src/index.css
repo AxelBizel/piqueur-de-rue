@@ -17,7 +17,7 @@ a {
 }
 
 h1 {
-  font-family: 'FalkinSerifBoldItalicPERSONAL';
+  font-family: 'arial';
   letter-spacing: 0.04em;
 }
 
@@ -45,10 +45,9 @@ code {
 
 .HeaderSection {
   display: flex;
-  justify-content: left;
+  justify-content: center;
   padding-left: 2vw;
-  font-size: 8vh !important;
-  font-family: 'FalkinSerifBoldItalicPERSONAL';
+  font-size: 7vw;
   letter-spacing: 0.1em;
   font-weight: 500;
   align-items: center;
