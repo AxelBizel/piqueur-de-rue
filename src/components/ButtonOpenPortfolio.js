@@ -9,7 +9,6 @@ class ButtonOpenPortfolio extends Component {
         };
     }
 
-
     componentDidMount(){
         const focus = window.addEventListener('keydown',(e)=>{
             if(e.key === "Escape" || e.key === "Esc"){
@@ -25,17 +24,14 @@ class ButtonOpenPortfolio extends Component {
         this.setState({ showModal })
     }
 
-
     closeModal=()=> {
         let {showModal} = this.state;
         showModal = false;
         this.setState({ showModal })
     }
 
-
     render(){
         const styleButton= {
-            
 
         }
         return(
