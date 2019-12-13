@@ -20,7 +20,7 @@ const PortfolioModal = (props) => {
                         <label class="close" ></label>
                     </div>
                         {/* <button className="buttonCloseModal" onClick={ props.closeModal}>X</button> */}
-                        <h1>Cosmic Billie</h1>
+                        <h1 className="h1Portfolio">Cosmic Billie</h1>
                         <div className="textEtImg">
                             <a href="https://www.instagram.com/cosmic.billie/?hl=fr"><img className="imgPresentation" src={cosmic} alt="photo de Cosmic Billie"/></a>
                             <a href="https://www.instagram.com/cosmic.billie/?hl=fr"><img src={insta} style={{width:"100px"}}/></a>
