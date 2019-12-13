@@ -7,7 +7,7 @@
     background-color: rgba(0, 0, 0, 0.8);
 }
 
-.secondModal {
+.secondModalPortfolio {
     position: fixed;
     top: 0;
     left: 0;
@@ -32,6 +32,7 @@
 .imgPresentation {
     width: 200px;
     height: auto;
+    margin-top: 20px;
 }
 
 .textPresentation{
@@ -44,4 +45,9 @@
 .imgPrincipale {
     width: 200px;
     height: auto;
+    margin-left: 40px;
+}
+
+.sectionImgs {
+    margin-top: 20px;
 }
