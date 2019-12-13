@@ -1,4 +1,4 @@
-.firstModal {
+.firstModalPortfolio {
     position: fixed;
     top: 0;
     left: 0;
@@ -50,4 +50,73 @@
 
 .sectionImgs {
     margin-top: 20px;
+}
+
+.buttonPortfolio {
+    border-radius:12px 0 12px 0;
+	background: #f5f5f5;
+    color:#6b5952;
+    margin: 30px auto;
+	font:bold 12px South_Gardens_Personal_Use;
+	padding:10px 10px;
+    box-shadow:1px 1px 3px #6b5952;
+}
+
+.buttonPortfolio:hover {
+	color:#F4A259;
+
+}
+
+
+/* .buttonCloseModal {
+	width: 30px;
+	height: 30px;
+	background:#fafafa;
+    box-shadow:2px 2px 4px #06497E;
+	font:bold 12px South_Gardens_Personal_Use;
+	border-radius:50%;
+	color:#6b5952;
+} */
+
+
+.close-container{
+  width: 50px;
+  height: 50px;
+}
+
+.leftright{
+  height: 4px;
+  width: 50px;
+  position: absolute;
+  margin-top: 24px;
+  background-color: #F4A259;
+  border-radius: 2px;
+  transform: rotate(45deg);
+  transition: all .3s ease-in;
+}
+
+.rightleft{
+  height: 4px;
+  width: 50px;
+  position: absolute;
+  margin-top: 24px;
+  background-color: #F4A259;
+  border-radius: 2px;
+  transform: rotate(-45deg);
+  transition: all .3s ease-in;
+}
+
+
+.close{
+  margin: 60px 0 0 5px;
+  position: absolute;
+}
+
+.close-container:hover .leftright{
+  transform: rotate(-45deg);
+  background-color: #F25C66;
+}
+.close-container:hover .rightleft{
+  transform: rotate(45deg);
+  background-color: #F25C66;
 }
