@@ -1,7 +1,7 @@
 import React from 'react';
 import './modalPortfolio.css';
+import abeille from '../img/tatoueurs/abeille.jpg';
 import cosmic from '../img/tatoueurs/cosmic.jpg';
-import indienne from '../img/tatoueurs/Indienne_gp.jpg';
 import insta from '../img/instagram.png';
 import CarrouselPortfolio from './carrouselPortfolio';
 
@@ -23,7 +23,7 @@ const PortfolioModal = (props) => {
                         </div>
                         <button>Contacter tatoueur</button>
                         <div className="sectionImgs">
-                            <img className="imgPrincipale" src={indienne} alt="réalisation du tatoueur" />
+                            <img className="imgPrincipale" src={abeille} alt="réalisation du tatoueur" />
                             <CarrouselPortfolio />
                         </div>
                     </aside> : null
