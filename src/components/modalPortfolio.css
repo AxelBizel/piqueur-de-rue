@@ -22,7 +22,11 @@
     z-index: 15;
 }
 
-.textEtImg{
+.h1Portfolio {
+    margin: 20px 0px;
+}
+
+.textEtImg {
     display: flex;
     flex-flow: column wrap;
     justify-content: space-around;
@@ -32,10 +36,10 @@
 .imgPresentation {
     width: 200px;
     height: auto;
-    margin-top: 20px;
+    margin: 10px 0px;
 }
 
-.textPresentation{
+.textPresentation {
     width: 80 vw;
     height: auto;
     max-width: calc(100vw - 30px);
@@ -56,10 +60,11 @@
     border-radius:12px 0 12px 0;
 	background: #f5f5f5;
     color:#6b5952;
-    margin: 30px auto;
+    margin: 50px auto;
 	font:bold 12px South_Gardens_Personal_Use;
 	padding:10px 10px;
     box-shadow:1px 1px 3px #6b5952;
+    letter-spacing: .15rem;
 }
 
 .buttonPortfolio:hover {
@@ -79,12 +84,12 @@
 } */
 
 
-.close-container{
+.close-container {
   width: 50px;
   height: 50px;
 }
 
-.leftright{
+.leftright {
   height: 4px;
   width: 50px;
   position: absolute;
@@ -95,7 +100,7 @@
   transition: all .3s ease-in;
 }
 
-.rightleft{
+.rightleft {
   height: 4px;
   width: 50px;
   position: absolute;
@@ -107,16 +112,16 @@
 }
 
 
-.close{
+.close {
   margin: 60px 0 0 5px;
   position: absolute;
 }
 
-.close-container:hover .leftright{
+.close-container:hover .leftright {
   transform: rotate(-45deg);
   background-color: #F25C66;
 }
-.close-container:hover .rightleft{
+.close-container:hover .rightleft {
   transform: rotate(45deg);
   background-color: #F25C66;
 }
