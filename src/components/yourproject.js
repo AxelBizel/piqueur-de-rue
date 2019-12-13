@@ -11,14 +11,14 @@ const ContactModal = (props) => {
     const {showModal} = props;
     
     return(
-        <>           
+        <div className="ModalContainer">           
             <div className="firstModal" style={{display : showModal? "flex" : "none"}} onClick={() => props.closeModal()}></div>
             {showModal ? 
-                <div className="secondModal" role="dialog">
-                    <button onClick={ props.closeModal}>Fermer</button>
+                <div className="secondModal">
+                    <button onClick={props.closeModal}>X</button>
                 </div> : null
             }
-        </>
+        </div>
     )
 
 }
@@ -81,11 +81,10 @@ export default class YourProject extends Component {
                         <p className="RightTitle">RÉALISATION</p>
                         <p className="LeftTextSub">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur et posuere dolor. Aliquam condimentum lacus a velit scelerisque, id rhoncus lorem laoreet. Morbi sollicitudin metus tellus, vulputate semper erat egestas quis. Sed interdum sed diam at finibus. Vestibulum nec sem urna. In mollis purus et libero tincidunt convallis.</p>
                     </div>
-                </div>
-                <div className="FlexContainerButton">
-                    <button className="buttonProjet" onClick={this.openModal}>NOUS CONTACTER</button>
+                    <button className="buttonContactProjet" onClick={this.openModal}>NOUS CONTACTER</button>
                     <ContactModal showModal={this.state.showModal} closeModal={this.closeModal} />
                 </div>
+                    
         </div>
     )
 }

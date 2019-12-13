@@ -93,55 +93,24 @@ p {
     justify-content: flex-end;
 }
 
-.buttonProjet {
-    display: flex;
-    justify-content: center;
+.buttonContactProjet {
     font-size: 5vh;
     height: 10vh;
-    border-radius: 20px;
+    border-radius: 25px;
     box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.644);
-    margin: 2vh;
+    margin: 1vh;
     background-color: #786B60;
-    transition: 0.2s;
-}
-
-.buttonProjet:hover {
-    display: flex;
-    justify-content: center;
-    font-size: 5vh;
-    height: 10vh;
-    border-radius: 20px;
-    box-shadow: 1px 1px 3px rgba(0, 0, 0, 0);
-    margin: 2vh;
-    background-color: #786B60;
+    padding: 0 20px;
     transition: 0.4s;
 }
 
-
-/* CSS MODAL */
-
-.firstModal {
-    display: flex;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.8);
-}
-
-.secondModal {
-    width: 80vw;
-    height: 80vh;
-    border-radius: 60px;
-    background-color: white;
-    z-index: 15;
-}
-
-button {
-    display: flex;
-    justify-content: center;
-    background-color: white;
-    color: black;
-    font-size: 3vh !important;
-    border-radius: 20px;
+.buttonContactProjet:hover {
+    font-size: 5vh;
+    height: 10vh;
+    border-radius: 25px;
+    box-shadow: 1px 1px 3px rgba(0, 0, 0, 0);
+    margin: 1vh;
+    background-color: #786B60;
+    padding: 0 20px;
+    transition: 0.4s;
 }

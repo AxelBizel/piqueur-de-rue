@@ -1,9 +1,9 @@
 import React from 'react';
 import './modalPortfolio.css';
-import cosmic from '../img/tatoueurs/cosmic.jpg';
-import indienne from '../img/tatoueurs/Indienne_gp.jpg';
 import insta from '../img/instagram.png';
+import cosmic from '../img/tatoueurs/cosmic.jpg';
 import CarrouselPortfolio from './carrouselPortfolio';
+import indienne from '../img/tatoueurs/Indienne_gp.jpg';
 
 
 const PortfolioModal = (props) => {
