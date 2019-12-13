@@ -1,7 +1,5 @@
 import React, {Component} from "react";
 import Slider from "react-slick";
-import indienne from '../img/tatoueurs/Indienne_gp.jpg';
-import neo from '../img/tatoueurs/NeoNico_color.jpg';
 import abeille from '../img/tatoueurs/abeille.jpg';
 import cover_cuisse from '../img/tatoueurs/cover_cuisse.jpg';
 import doight from '../img/tatoueurs/doight.jpg';

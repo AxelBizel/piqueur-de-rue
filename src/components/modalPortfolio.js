@@ -13,7 +13,7 @@ const PortfolioModal = (props) => {
             <>           
                 <div className="firstModal" style={{display : showModal? "flex" : "none"}} onClick={() => props.closeModal()}></div>
                 {showModal ? 
-                    <aside className="secondModal" role="dialog">
+                    <aside className="secondModalPortfolio" role="dialog">
                         <button onClick={ props.closeModal}>X</button>
                         <h1>Cosmic Billie</h1>
                         <div className="textEtImg">
