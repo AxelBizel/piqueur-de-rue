@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import PortfolioModal from './ModalPortfolio';
+import ModalPortfolio from './ModalPortfolio';
 
 class ButtonOpenPortfolio extends Component {
     constructor(props) {
