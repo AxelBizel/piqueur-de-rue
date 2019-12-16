@@ -1,7 +1,3 @@
-Insert into portfolio 
-im  ges 
-
-
 INSERT INTO `piqueurderue`.`portfolio` (pseudo , type, presentation, active , start-date,end-date)
 VALUES 
 (1,'Alex 290','Traditionnel Occidental', 'Tombé dans le tatouage grâce à la musique, j''ai remonté le fil des références jusqu''aux sources du traditionnel occidental, qui est aujourd''hui mon domaine de prédilection.'),
