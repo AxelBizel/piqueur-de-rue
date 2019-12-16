@@ -1,0 +1,147 @@
+/* CSS SECTION YOUR PROJECT */
+
+.SectionProjet {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.bg-image {
+    filter: blur(5px);
+    width: 100vw;
+    z-index: -1;
+}
+
+p {
+    margin-bottom: 0 !important;
+}
+
+.ProjectSectionOne, .ProjectSectionThree {
+    display: flex;
+    height: 70vh;
+    width: 100vw;
+    border: 1px solid black;
+    border: 1px solid rgba(0, 0, 0, 0.200);
+}
+
+.ProjectSectionTwo, .ProjectSectionFour {
+    display: flex;
+    justify-content: flex-end;
+    height: 70vh;
+    width: 100vw;
+    border: 1px solid rgba(0, 0, 0, 0.200);
+}
+
+.LeftTitle {
+    font-family: "FalkinSerifBoldPERSONAL";
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    align-self: flex-start;
+    position: absolute;
+    background-color: rgba(255, 255, 255, 0.911);
+    font-size: 6vw;
+    border-radius: 0 0 50px 0;
+    padding-right: 0.4em;
+    padding-left: 0.2em;
+}
+
+.RightTextSub {
+    display: flex;
+    align-self: flex-end;
+    position: absolute;
+    right: 0;
+    background-color: rgba(255, 255, 255, 0.911);
+    font-size: 1.5vw;
+    border-radius: 50px 0 0 0;
+    padding: 2em;
+    width: 50vw;
+    text-align: justify;
+}
+
+
+.RightTitle {
+    font-family: "FalkinSerifBoldPERSONAL";
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    align-self: flex-start;
+    position: absolute;
+    background-color: rgba(255, 255, 255, 0.911);
+    font-size: 6vw;
+    padding-left: 0.5em;
+    border-radius: 0 0 0 50px;
+    padding-left: 0.4em;
+    padding-right: 0.2em;
+}
+
+.LeftTextSub {
+    display: flex;
+    align-self: flex-end;
+    position: absolute;
+    left: 0;
+    background-color: rgba(255, 255, 255, 0.911);
+    font-size: 1.5vw;
+    border-radius: 0 50px 0 0;
+    padding: 2em;
+    width: 50vw;
+    text-align: justify;
+}
+
+.FlexContainerButton {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.buttonProjet {
+    display: flex;
+    justify-content: center;
+    font-size: 5vh;
+    height: 10vh;
+    border-radius: 20px;
+    box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.644);
+    margin: 2vh;
+    background-color: #786B60;
+    transition: 0.2s;
+}
+
+.buttonProjet:hover {
+    display: flex;
+    justify-content: center;
+    font-size: 5vh;
+    height: 10vh;
+    border-radius: 20px;
+    box-shadow: 1px 1px 3px rgba(0, 0, 0, 0);
+    margin: 2vh;
+    background-color: #786B60;
+    transition: 0.4s;
+}
+
+
+/* CSS MODAL */
+
+.firstModal {
+    display: flex;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+}
+
+.secondModal {
+    width: 80vw;
+    height: 80vh;
+    border-radius: 60px;
+    background-color: white;
+    z-index: 15;
+}
+
+button {
+    display: flex;
+    justify-content: center;
+    background-color: white;
+    color: black;
+    font-size: 3vh !important;
+    border-radius: 20px;
+}
