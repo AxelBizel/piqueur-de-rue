@@ -6,9 +6,13 @@ import Home from './components/home'
 import Agency from './components/agency'
 import ButtonOpenPortfolio from './components/ButtonOpenPortfolio';
 <<<<<<< HEAD
+<<<<<<< HEAD
 import PermanentArtists from './components/permanentArtists';
 import PermanentsArtists1 from './components/permanentsArtists1';
 =======
+=======
+import Footer from './components/Footer';
+>>>>>>> dev
 import GuestHome from './components/GuestHome'
 import YourProject from './components/yourproject';
 import "slick-carousel/slick/slick.css";
@@ -37,6 +41,10 @@ class App extends Component {
 =======
         <GuestHome/>
         <YourProject />
+<<<<<<< HEAD
+>>>>>>> dev
+=======
+        <Footer />
 >>>>>>> dev
       </div>
     );
