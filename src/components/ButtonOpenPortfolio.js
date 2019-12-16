@@ -35,7 +35,6 @@ class ButtonOpenPortfolio extends Component {
         return(
             <div className="SectionContainer">
                 <button className="buttonPortfolio" onClick={this.openModal}>Accéder au portfolio</button>
-                <button  onClick={this.openModal}>Accéder à son portfolio</button>
                 <PortfolioModal showModal={this.state.showModal} closeModal={this.closeModal} />
             </div>
         )

@@ -7,54 +7,35 @@ import image4 from '../img/projet/4realisation.jpg';
 
 /*MODAL CONTACT PROJET*/
 
-const ContactModal = (props) => {
-    const {showModal} = props;
-    
-    return(
-        <div className="ModalContainer">           
-            <div className="firstModal" style={{display : showModal? "flex" : "none"}} onClick={() => props.closeModal()}></div>
-            {showModal ? 
-                <div className="secondModal">
-                    <button onClick={props.closeModal}>X</button>
-                </div> : null
-            }
-        </div>
-    )
-
-}
+const Modal = ({ handleClose, show, children }) => {
+    const showHideClassName = show ? "modal display-block" : "modal display-none";
+  
+    return (
+      <div className={showHideClassName}>
+        <section className="modal-main">
+          {children}
+          <button onClick={handleClose}>close</button>
+        </section>
+      </div>
+    );
+  };
 
 export default class YourProject extends Component {
-    constructor(props) {
-        super(props);
-        this.state= {
-            showModal: false,
-        };
-    }
+    state = { 
+        show: false 
+    };
 
-    componentDidMount(){
-        const focus = window.addEventListener('keydown',(e)=>{
-            if(e.key === "Escape" || e.key === "Esc"){
-                return this.closeModal();
-            }
-        });
-    }
+    showModal = () => {
+        this.setState({ show: true });
+    };
 
-    openModal=(e)=> {
-        let {showModal} = this.state;
-        e.preventDefault()
-        showModal = true;
-        this.setState({ showModal })
-    }
-
-    closeModal=()=> {
-        let {showModal} = this.state;
-        showModal = false;
-        this.setState({ showModal })
-    }
+    hideModal = () => {
+        this.setState({ show: false });
+    };
 
 
     render(){
-    return (
+     return (
         <div>
             <h1 className="HeaderSection">VOTRE PROJET</h1>
                 <div className="SectionProjet">
@@ -81,8 +62,15 @@ export default class YourProject extends Component {
                         <p className="RightTitle">RÉALISATION</p>
                         <p className="LeftTextSub">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur et posuere dolor. Aliquam condimentum lacus a velit scelerisque, id rhoncus lorem laoreet. Morbi sollicitudin metus tellus, vulputate semper erat egestas quis. Sed interdum sed diam at finibus. Vestibulum nec sem urna. In mollis purus et libero tincidunt convallis.</p>
                     </div>
-                    <button className="buttonContactProjet" onClick={this.openModal}>NOUS CONTACTER</button>
-                    <ContactModal showModal={this.state.showModal} closeModal={this.closeModal} />
+
+                    <Modal show={this.state.show} handleClose={this.hideModal}>
+                        <p>Modal</p>
+                        <p>Data</p>
+                    </Modal>
+                    <button type="button" onClick={this.showModal}>
+                    NOUS CONTACTER
+                    </button>
+                
                 </div>
                     
         </div>
