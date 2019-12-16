@@ -30,7 +30,20 @@ app.get("/", (request, response) => {
 
   // ROUTES
 
-  //GET
+ //Récupération des users
+
+ app.get("/api/users", (req, res) => {
+  connection.query("SELECT * from users", (err, results) => {
+    if (err) {
+      res.status(500).send("Erreur lors de la récupération des portfolios");
+    } else {
+      res.json(results);
+    }
+  });
+});
+
+
+  //Récupération des datas portfolios
 
 app.get("/api/portfolio", (req, res) => {
     connection.query("SELECT * from portfolio", (err, results) => {
@@ -41,6 +54,20 @@ app.get("/api/portfolio", (req, res) => {
       }
     });
   });
+
+  //Récupération des images
+
+  app.get("/api/images", (req, res) => {
+    connection.query("SELECT * from images", (err, results) => {
+      if (err) {
+        res.status(500).send("Erreur lors de la récupération des portfolios");
+      } else {
+        res.json(results);
+      }
+    });
+  });
+
+
 
 // //POST
 
