@@ -1,32 +1,36 @@
-import React, { Component } from 'react'
-
-import './FormulaireGuest.css'
-import './style_trame.css'
+import React from 'react';
+import './FormulaireGuest.css';
 
 
 
-class FormulaireGuest extends Component {
-    constructor (props) {
-        super (props);
-        this.state = {
+const FormulaireGuest = (props) => {
+    const {showModal} = props;
+    return(
+        <>           
+            <div className="firstModal" style={{display : showModal? "flex" : "none"}} onClick={() => props.closeModal()}></div>
 
-        }
-    }
+            {showModal ? 
+                <aside className="secondModal" role="dialog">
+                    <button className= "button_modal_guest" onClick={ props.closeModal}>X</button>
+                    <h1>Devenez Guest</h1>
+                    <p className="text_presentation"></p>
+                    <div className="form_input">
+                        <p className="guest_presentation">"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."</p>
+                        <p className="input_title">PSEUDO</p>
+                             <input/>
+                        <p className="input_title">STYLE</p>
+                            <input/>
+                        <p className="input_title">MESSAGE</p>
+                            <textarea/>
+                            <p className="input_title">LIEN COMPTE INSTAGRAM</p>
+                            <input/>
+                    </div>
+                    <button className="button_guest">+ Devenez Guest</button>
+                </aside> : null
+            }
+        </>
+    )
 
-    render ()
-    {
-        return(
-            <div className = "container_formulaire_guest">
-            <h1 className= "title_guest"> Devenez Guest </h1>
-            <p>
-            Vous êtes tatoueur et vous cherchez un salon sur Lyon pour venir faire un guest.
-            Contactez nous et obtenez votre code d'accès pour planifier votre venu, recevoir les infos sur 
-            le fonctionnement du shop ainsi que la gestion de votre image.
-            </p>
-            <button className= "button_guest"> + Devenez Guest </button>
-            </div>
-        )
-    }
 }
+export default FormulaireGuest;
 
-export default FormulaireGuest ;
