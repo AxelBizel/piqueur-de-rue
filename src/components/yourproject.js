@@ -33,7 +33,6 @@ export default class YourProject extends Component {
         this.setState({ show: false });
     };
 
-
     render(){
      return (
         <div>
@@ -67,7 +66,7 @@ export default class YourProject extends Component {
                         <p>Modal</p>
                         <p>Data</p>
                     </Modal>
-                    <button type="button" onClick={this.showModal}>
+                    <button className="buttonContactProjet" onClick={this.showModal}>
                     NOUS CONTACTER
                     </button>
                 

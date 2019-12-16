@@ -7,7 +7,6 @@ import Agency from './components/agency'
 import ButtonOpenPortfolio from './components/ButtonOpenPortfolio';
 import PermanentArtists from './components/permanentArtists';
 import Footer from './components/Footer';
-import PermanentsArtists1 from './components/permanentsArtists1';
 import GuestHome from './components/GuestHome'
 import YourProject from './components/yourproject';
 import "slick-carousel/slick/slick.css";
@@ -29,7 +28,6 @@ class App extends Component {
         <Agency />
         <ButtonOpenPortfolio />
         <PermanentArtists/> 
-        <PermanentsArtists1/>
         <GuestHome/>
         <YourProject />
         <Footer />
