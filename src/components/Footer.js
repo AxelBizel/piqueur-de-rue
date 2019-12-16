@@ -4,7 +4,6 @@ import logo from "../img/logo/logoPiqueurWhiteFooter.png";
 const footerStyle = {
   display: "flex",
   flexDirection: "column",
-  justifyContent: "space between",
   alignItems: "Center",
   width: "100vw",
   height: "100vh",
