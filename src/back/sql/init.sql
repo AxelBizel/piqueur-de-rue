@@ -94,3 +94,10 @@ DEFAULT CHARACTER SET = utf8;
 SET SQL_MODE=@OLD_SQL_MODE;
 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;
 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;
+
+
+
+-- -----------------------------------------------------
+-- Ajout champ "style" dans table portfolio
+-- -----------------------------------------------------
+ALTER TABLE portfolio ADD style TEXT;
