@@ -7,7 +7,7 @@ import CarrouselPortfolio from './CarrouselPortfolio';
 import FormulairePortfolio from './FormulairePortfolio';
 
 
-class PortfolioModal extends Component {
+class ModalPortfolio extends Component {
         constructor(props){
             super(props);
             this.state={
@@ -16,9 +16,16 @@ class PortfolioModal extends Component {
         }
 
 
-        openFormulairePortfolio(){
-            this.state.showFormulaire = true;
+        openFormulairePortfolio = () =>{
+            let { showFormulaire } = this.state
+            showFormulaire = true;
             this.setState({showFormulaire});
+        }
+    
+        closeFormulairePortfolio=()=> {
+            let { showFormulaire } = this.state;
+            showFormulaire = false;
+            setTimeout(()=>this.setState({ showFormulaire }), 500)
         }
 
         render(){
@@ -41,7 +48,7 @@ class PortfolioModal extends Component {
                                 <p className="textPresentation">"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."</p>
                             </div>
                             <button className="buttonPortfolio" onClick={this.openFormulairePortfolio}>Contacter tatoueur</button>
-                            { this.state.showFormulaire ? <FormulairePortfolio /> : null}
+                            { this.state.showFormulaire ? <FormulairePortfolio openFormulaire={this.openFormulairePortfolio} closeFormulaire={this.closeFormulairePortfolio} /> : null}
                             <div className="sectionImgs">
                                 <img className="imgPrincipale" src={abeille} alt="réalisation du tatoueur" />
                                 <CarrouselPortfolio />
@@ -53,7 +60,7 @@ class PortfolioModal extends Component {
         }
 }
 
-export default PortfolioModal;
+export default ModalPortfolio;
 
 
 

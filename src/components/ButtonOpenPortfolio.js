@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import PortfolioModal from './ModalPortfolio';
+import ModalPortfolio from './ModalPortfolio';
 
 class ButtonOpenPortfolio extends Component {
     constructor(props) {
@@ -36,7 +37,7 @@ class ButtonOpenPortfolio extends Component {
             <div className="SectionContainer">
                 <button className="buttonPortfolio" onClick={this.openModal}>Accéder au portfolio</button>
                 {/* <button style={styleButton} onClick={this.openModal}>Accéder à son portfolio</button> */}
-                <PortfolioModal showModal={this.state.showModal} closeModal={this.closeModal} />
+                <ModalPortfolio showModal={this.state.showModal} closeModal={this.closeModal} />
             </div>
         )
     }

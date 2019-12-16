@@ -4,25 +4,27 @@ import React, {Component} from 'react';
 class FormulairePortfolio extends Component {
     constructor(props){
         super(props);
-        this.state = {
-            title : "Cosmic Billie"
-        }
-        this.handleChange = this.handleChange.bind(this);
+        this.state = {value : ""};
     }
 
-    handleSubmit(event) {
-        event.preventDefault();
-      }
 
-    handleChange(event){
-        this.setState({ title : event.target.value });
+
+    handleChange = (event) =>{
+    this.setState({value: event.target.value});
     }
+
+    handleSubmit = (event) =>{
+    alert('Le nom a été soumis : ' + this.state.value);
+    event.preventDefault();
+    }
+    
+    
 
     render(){
         return (
             <form className="formPortfolio" onSubmit={event => event.preventDefault()}>
-                <input name="fullName" type="text" onChange={this.handleChange} value={this.state.title}></input>
-                <h1>{this.state.title}</h1>
+                <h1>Formulaire de contact :</h1>
+                <input name="fullName" type="text" onChange={this.handleChange} value={this.state.value} placeholder="Votre nom, prénom"></input>
             </form>
         );
     }
