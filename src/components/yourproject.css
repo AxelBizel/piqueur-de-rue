@@ -86,31 +86,55 @@ p {
     text-align: justify;
 }
 
-.FlexContainerButton {
-    display: flex;
-    justify-content: flex-end;
-}
 
-.buttonProjet {
-    display: flex;
-    justify-content: center;
+.buttonContactProjet {
     font-size: 5vh;
     height: 10vh;
-    border-radius: 20px;
+    border-radius: 25px;
     box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.644);
-    margin: 2vh;
+    margin: 1vh;
     background-color: #786B60;
-    transition: 0.2s;
+    padding: 0 20px;
+    transition: 0.4s;
 }
 
-.buttonProjet:hover {
-    display: flex;
-    justify-content: center;
+.buttonContactProjet:hover {
     font-size: 5vh;
     height: 10vh;
-    border-radius: 20px;
+    border-radius: 25px;
     box-shadow: 1px 1px 3px rgba(0, 0, 0, 0);
-    margin: 2vh;
+    margin: 1vh;
     background-color: #786B60;
+    padding: 0 20px;
     transition: 0.4s;
+}
+
+
+/* MODAL CSS */
+
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width:100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.6);
+  }
+  
+.modal-main {
+    position:fixed;
+    background: white;
+    width: 80vw;
+    height: auto;
+    top:50%;
+    left:50%;
+    transform: translate(-50%,-50%);
+}
+
+.display-block {
+    display: block;
+}
+
+.display-none {
+    display: none;
 }

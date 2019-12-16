@@ -1,0 +1,10 @@
+.title_team{
+    text-align: center;
+    margin-bottom: 2%;
+}
+
+.box{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
