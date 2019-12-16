@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import PortfolioModal from './modalPortfolio';
+import PortfolioModal from './ModalPortfolio';
 
 class ButtonOpenPortfolio extends Component {
     constructor(props) {
@@ -9,6 +9,14 @@ class ButtonOpenPortfolio extends Component {
         };
     }
 
+    componentDidMount(){
+        const focus = window.addEventListener('keydown',(e)=>{
+            if(e.key === "Escape" || e.key === "Esc"){
+                return this.closeModal();
+            }
+        });
+    }
+
     openModal=(e)=> {
         let {showModal} = this.state;
         e.preventDefault()
@@ -16,18 +24,18 @@ class ButtonOpenPortfolio extends Component {
         this.setState({ showModal })
     }
 
-
-    closeModal=(e)=> {
+    closeModal=()=> {
         let {showModal} = this.state;
         showModal = false;
-        this.setState({ showModal })
+        setTimeout(()=>this.setState({ showModal }), 500)
     }
 
     render(){
+        
         return(
             <div className="SectionContainer">
-                <h1 className="title">NOS TATOUEURS</h1>
-                <button onClick={this.openModal}>Accéder à son portfolio</button>
+                <button className="buttonPortfolio" onClick={this.openModal}>Accéder au portfolio</button>
+                {/* <button style={styleButton} onClick={this.openModal}>Accéder à son portfolio</button> */}
                 <PortfolioModal showModal={this.state.showModal} closeModal={this.closeModal} />
             </div>
         )
