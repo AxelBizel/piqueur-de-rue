@@ -5,6 +5,7 @@ import Header from './components/header';
 import Home from './components/home'
 import Agency from './components/agency'
 import ButtonOpenPortfolio from './components/ButtonOpenPortfolio';
+import Footer from './components/Footer';
 import GuestHome from './components/GuestHome'
 import YourProject from './components/yourproject';
 import "slick-carousel/slick/slick.css";
@@ -27,6 +28,7 @@ class App extends Component {
         <ButtonOpenPortfolio />
         <GuestHome/>
         <YourProject />
+        <Footer />
       </div>
     );
   }
