@@ -1,5 +1,9 @@
 import React, { Component } from 'react';
 import FormulaireGuest from './FormulaireGuest';
+import './ButtonHomeGuest.css'
+import '../index.css'
+import header from '../img/divers/header.jpg'
+import footer from '../img/divers/footer.jpg'
 
 class ButtonHomeGuest extends Component {
     constructor(props) {
@@ -25,15 +29,18 @@ class ButtonHomeGuest extends Component {
 
     render() {
         return (
-            <div className="SectionContainer">
-                <h1 className="title">Devenez Guest</h1>
+            <div className="SectionGuestContainer"
+                 style= {{"background": "#786B60"}}>
+                <img src= {header}></img>
+                <h1 className="HeaderSection">DEVENEZ GUEST</h1>
                 <p className="text_guest">
                     Vous êtes tatoueur et vous cherchez un salon sur Lyon pour venir faire un guest.
                     Contactez nous et obtenez votre code d'accès pour planifier votre venu, recevoir les infos sur
                     le fonctionnement du shop ainsi que la gestion de votre image.
             </p>
-                <button onClick={this.openModal}>Devenez Guest</button>
+                <button className="button_guest" onClick={this.openModal}>Devenez Guest</button>
                 <FormulaireGuest showModal={this.state.showModal} closeModal={this.closeModal} />
+                <img src= {footer}></img>
             </div>
         )
     }
