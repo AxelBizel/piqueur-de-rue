@@ -42,7 +42,6 @@ CREATE TABLE IF NOT EXISTS `piqueurderue`.`images` (
   `portfolio_id` INT(11) NOT NULL,
   PRIMARY KEY (`id`),
   INDEX `fk_images_portfolio1_idx` (`portfolio_id` ASC) ,
-  CONSTRAINT `fk_images_portfolio1`
     FOREIGN KEY (`portfolio_id`)
     REFERENCES `piqueurderue`.`portfolio` (`id`)
     ON DELETE NO ACTION
@@ -94,3 +93,11 @@ DEFAULT CHARACTER SET = utf8;
 SET SQL_MODE=@OLD_SQL_MODE;
 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;
 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;
+
+
+
+-- -----------------------------------------------------
+-- Modifs
+-- -----------------------------------------------------
+ALTER TABLE portfolio ADD style TEXT;
+ALTER TABLE portfolio MODIFY presentation text;
