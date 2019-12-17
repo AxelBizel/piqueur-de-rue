@@ -1,4 +1,5 @@
-const express = require("express");
+const cors = require('cors')
+const express = require('express');
 const app = express();
 const port = 5000;
 const connection = require("./conf");
@@ -15,6 +16,13 @@ app.use(
 );
 
 
+//Cors
+app.use(cors());
+app.get('/products/:id', function (req, res, next) {
+  res.json({msg: 'This is CORS-enabled for all origins!'})
+})
+
+
 app.get("/", (request, response) => {
     response.send("Bienvenue sur Express");
   });
@@ -26,6 +34,8 @@ app.get("/", (request, response) => {
   
     console.log(`Server is listening on ${port}`);
   });
+
+
 
 
   // ROUTES

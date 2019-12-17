@@ -11,6 +11,7 @@ import GuestHome from './components/GuestHome'
 import YourProject from './components/yourproject';
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
+import PortfolioSection from './components/PortfolioSection';
 
 
 class App extends Component {
@@ -22,8 +23,8 @@ class App extends Component {
   render(){
     return (
       <div className="App">
-        <Navbar />
-        <Header />
+        {/* <Navbar /> */}
+        {/* <Header />
         <Home />
         <div id="agency">
           <Agency />
@@ -40,6 +41,9 @@ class App extends Component {
         </div>
         <div id="footer">
           <Footer />
+        </div> */}
+        <div id="">
+          <PortfolioSection />
         </div>
       </div>
     );
