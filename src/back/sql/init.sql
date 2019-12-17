@@ -101,3 +101,4 @@ SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;
 -- -----------------------------------------------------
 ALTER TABLE portfolio ADD style TEXT;
 ALTER TABLE portfolio MODIFY presentation text;
+ALTER TABLE portfolio ADD photo TEXT;
