@@ -139,3 +139,7 @@ p {
 .display-none {
     display: none;
 }
+
+.modaltest {
+    font-size: 4em;
+}

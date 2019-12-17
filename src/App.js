@@ -25,12 +25,22 @@ class App extends Component {
         <Navbar />
         <Header />
         <Home />
-        <Agency />
+        <div id="agency">
+          <Agency />
+        </div>
         <ButtonOpenPortfolio />
-        <PermanentArtists/> 
-        <GuestHome/>
-        <YourProject />
-        <Footer />
+        <div id="permanentartists">
+          <PermanentArtists/> 
+        </div>
+        <div id="guests">
+          <GuestHome/>
+        </div>
+        <div id="yourproject">
+          <YourProject />
+        </div>
+        <div id="footer">
+          <Footer />
+        </div>
       </div>
     );
   }
