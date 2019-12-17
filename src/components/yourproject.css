@@ -92,10 +92,11 @@ p {
     height: 10vh;
     border-radius: 25px;
     box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.644);
-    margin: 1vh;
+    margin: 3vh 0 3vh 0;
     background-color: #786B60;
     padding: 0 20px;
     transition: 0.4s;
+    border:1px solid rgba(0, 0, 0, 0.192);
 }
 
 .buttonContactProjet:hover {
@@ -103,7 +104,7 @@ p {
     height: 10vh;
     border-radius: 25px;
     box-shadow: 1px 1px 3px rgba(0, 0, 0, 0);
-    margin: 1vh;
+    margin: 3vh 0 3vh 0;
     background-color: #786B60;
     padding: 0 20px;
     transition: 0.4s;
@@ -137,4 +138,8 @@ p {
 
 .display-none {
     display: none;
+}
+
+.modaltest {
+    font-size: 4em;
 }

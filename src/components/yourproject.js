@@ -21,6 +21,9 @@ const Modal = ({ handleClose, show, children }) => {
   };
 
 export default class YourProject extends Component {
+    constructor() {
+        super()
+    }
     state = { 
         show: false 
     };
