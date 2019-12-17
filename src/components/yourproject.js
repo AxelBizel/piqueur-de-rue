@@ -4,41 +4,33 @@ import image1 from '../img/projet/1rendezvous.jpg';
 import image2 from '../img/projet/2dessin.jpg';
 import image3 from '../img/projet/3simulation.jpg';
 import image4 from '../img/projet/4realisation.jpg';
+import ModalContactProject from '../components/modalContactProject'
 
 /*MODAL CONTACT PROJET*/
 
-const Modal = ({ handleClose, show, children }) => {
-    const showHideClassName = show ? "modal display-block" : "modal display-none";
-  
-    return (
-      <div className={showHideClassName}>
-        <section className="modal-main">
-          {children}
-          <button onClick={handleClose}>close</button>
-        </section>
-      </div>
-    );
-  };
 
-export default class YourProject extends Component {
-    constructor() {
-        super()
+export default class YourProject extends Component{
+    constructor(props) {
+        super(props);
+        this.state= {
+            showModal: true,
+        };
     }
-    state = { 
-        show: false 
-    };
+    openModal=(e)=> {
+        let {showModal} = this.state;
+        e.preventDefault()
+        showModal = true;
+        this.setState({ showModal })
+    }
 
-    showModal = () => {
-        this.setState({ show: true });
-    };
+    closeModal=()=> {
+        let {showModal} = this.state;
+        showModal = false;
+        this.setState({ showModal })
+    }
 
-    hideModal = () => {
-        this.setState({ show: false });
-    };
-
-
-    render(){
-     return (
+    render() {
+    return (
         <div>
             <h1 className="HeaderSection">VOTRE PROJET</h1>
                 <div className="SectionProjet">
@@ -66,13 +58,8 @@ export default class YourProject extends Component {
                         <p className="LeftTextSub">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur et posuere dolor. Aliquam condimentum lacus a velit scelerisque, id rhoncus lorem laoreet. Morbi sollicitudin metus tellus, vulputate semper erat egestas quis. Sed interdum sed diam at finibus. Vestibulum nec sem urna. In mollis purus et libero tincidunt convallis.</p>
                     </div>
 
-                    <Modal show={this.state.show} handleClose={this.hideModal}>
-                        <p>Modal</p>
-                        <p>Data</p>
-                    </Modal>
-                    <button type="button" onClick={this.showModal}>
-                    NOUS CONTACTER
-                    </button>
+                    <button className="buttonContactProject" onClick={this.openModal}>NOUS CONTACTER</button>
+                    <ModalContactProject showModal={this.state.showModal} closeModal={this.closeModal} />
                 
                 </div>
                     
