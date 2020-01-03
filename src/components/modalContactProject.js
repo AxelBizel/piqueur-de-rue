@@ -4,7 +4,7 @@ import './yourproject.css';
 const ContactForm = () => (
     
     <form id="contact-form" method="post" data-format="inline">
-        <h4>NOUS CONTACTER</h4>
+        <p>NOUS CONTACTER</p>
         <input type="text" id="name" placeholder="Your name" required />
         <input type="text" id="email" placeholder="your@email.com" required />
         {/* <select id="subject" required>
