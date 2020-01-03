@@ -13,7 +13,7 @@ export default class YourProject extends Component{
     constructor(props) {
         super(props);
         this.state= {
-            showModal: true,
+            showModal: false,
         };
     }
     openModal=(e)=> {
