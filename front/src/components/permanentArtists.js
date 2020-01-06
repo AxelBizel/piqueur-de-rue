@@ -1,0 +1,80 @@
+import React, { useState } from 'react';
+import { Carousel, CarouselItem, CarouselControl, CarouselIndicators, CarouselCaption } from 'reactstrap';
+import alex290 from '../img/tatoueurs/alex290.jpg';
+import cosmic from '../img/tatoueurs/cosmic.jpg';
+import gladys from '../img/tatoueurs/gladys.jpg';
+import './permanentArtists.css';
+import ButtonOpenPortfolio from './ButtonOpenPortfolio'
+
+const items = [
+    {
+      src: `${alex290}`,
+      text: 'Alex'
+    },
+    {
+      src: `${cosmic}`,
+      text: 'cosmic'
+    },
+    {
+      src: `${gladys}`,
+      text: 'gladys'
+    }
+  ];
+  
+  const CarrouselAgency = (props) => {
+    const [activeIndex, setActiveIndex] = useState(0);
+    const [animating, setAnimating] = useState(false);
+  
+    const next = () => {
+      if (animating) return;
+      const nextIndex = activeIndex === items.length - 1 ? 0 : activeIndex + 1;
+      setActiveIndex(nextIndex);
+    }
+  
+    const previous = () => {
+      if (animating) return;
+      const nextIndex = activeIndex === 0 ? items.length - 1 : activeIndex - 1;
+      setActiveIndex(nextIndex);
+    }
+  
+    const goToIndex = (newIndex) => {
+      if (animating) return;
+      setActiveIndex(newIndex);
+    }
+  
+    const slides = items.map((item) => {
+      return (
+        <CarouselItem
+          onExiting={() => setAnimating(true)}
+          onExited={() => setAnimating(false)}
+          key={item.src}
+        >
+          <img src={item.src} alt={item.altText} />
+          <CarouselCaption captionText={item.caption} captionHeader={item.caption} />
+        </CarouselItem>
+      );
+    });
+  
+    return (
+      <div><h1 className="HeaderSection">NOS TATOUEURS</h1>
+        <div className="box">
+          <Carousel
+            activeIndex={activeIndex}
+            next={next}
+            previous={previous}
+          >
+          <CarouselIndicators items={items} activeIndex={activeIndex} onClickHandler={goToIndex} />
+          {slides}
+          <CarouselControl direction="prev" directionText="Previous" onClickHandler={previous} />
+          <CarouselControl direction="next" directionText="Next" onClickHandler={next} />
+          </Carousel>
+
+          
+        </div>
+      </div>
+    );
+  }
+  
+  export default CarrouselAgency;
+
+
