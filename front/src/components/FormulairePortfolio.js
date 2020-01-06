@@ -27,8 +27,10 @@ class FormulairePortfolio extends Component {
                         valueEmail });
     }
 
+    
+
     handleSubmit = (event) =>{
-        alert('Le nom a été soumis : ' + this.state.value);
+        alert('Le form a été soumis : ' + this.state.value);
         event.preventDefault();
     }
     
@@ -39,6 +41,7 @@ class FormulairePortfolio extends Component {
             <form className="formPortfolio" onSubmit={event => event.preventDefault()}>
                 <h1>Formulaire de contact :</h1>
                 <h2>Vous :</h2>
+
 
                 <input name="fullName" type="text" onChange={this.handleChange} valueFullname={this.state.valueFullname} placeholder="Votre nom, prénom :"  required></input>
 
@@ -66,5 +69,7 @@ class FormulairePortfolio extends Component {
         );
     }
 }
+
+
 
 export default FormulairePortfolio;
