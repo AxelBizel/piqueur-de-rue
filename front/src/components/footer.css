@@ -1,0 +1,43 @@
+.footer {
+    display: flex;
+    flex-direction: column;
+    width: 100vw;
+    height: auto;
+    background-color: black;
+}
+
+
+.adresse {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100vw;
+}
+
+
+.adresse p {
+    font-size: 1.8em;
+    color: white;
+}
+
+.RS {
+    display: flex;
+    justify-content: center;
+    width: 50vw;
+}
+
+.logoRS {
+    width: 8vw;
+    margin: 2.5em;
+}
+
+.map {
+    width: 100vw;
+    height: 50vh;
+    border: 0;
+}
+
+.logo {
+    margin-top: 2em;
+    height: 30vh;
+}
