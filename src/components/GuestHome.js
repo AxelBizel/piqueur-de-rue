@@ -12,8 +12,7 @@ class GuestHome extends Component {
         this.state = {}
         }
 
-    render ()
-    {
+    render () {
         return(
             <div>
             <ButtonHomeGuest/>

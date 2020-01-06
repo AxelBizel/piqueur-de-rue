@@ -8,9 +8,11 @@
     background : #786B60;
     padding : 100px;
 }
+
 .title_guest {
     padding-top : 10px;
 }
+
 .text_guest{
     padding-top: 61px;
     text-align: center;
@@ -23,8 +25,8 @@
     border-radius : 10%;
     padding : 20px;
     margin : 0 auto;
-
 }
+
 button .button_guest {
     display : flex;
     flex-direction : column ;
@@ -32,7 +34,6 @@ button .button_guest {
     justify-content: center;
     margin-top: 110%;
 }
-
 
 h1 {
     text-align : center;
