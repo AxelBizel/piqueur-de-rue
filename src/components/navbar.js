@@ -3,7 +3,7 @@ import { Collapse, Navbar as NavbarStrap, NavbarToggler, Nav, NavItem, NavLink }
 import Headroom from 'react-headroom'; /* https://kyleamathews.github.io/react-headroom/ */
 import './navbar.css'
 
-const Navbar = (props) => {
+const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
 
 const toggle = () => setIsOpen(!isOpen);
@@ -17,19 +17,19 @@ return (
                         <Collapse isOpen={isOpen} navbar>
                                 <Nav className="mr-auto" navbar>
                                     <NavItem>
-                                        <NavLink href="/components/" className="styleLink">L'Agence</NavLink>
+                                        <NavLink href="#agency" className="styleLink">L'Agence</NavLink>
                                     </NavItem>
                                     <NavItem>
-                                        <NavLink href="/components/" className="styleLink">La Team</NavLink>
+                                        <NavLink href="#permanentartists" className="styleLink">La Team</NavLink>
                                     </NavItem>
                                     <NavItem>
-                                        <NavLink href="/components/" className="styleLink">Les Guests</NavLink>
+                                        <NavLink href="#guests" className="styleLink">Les Guests</NavLink>
                                     </NavItem>
                                     <NavItem>
-                                        <NavLink href="/components/" className="styleLink">Votre Projet</NavLink>
+                                        <NavLink href="#yourproject" className="styleLink">Votre Projet</NavLink>
                                     </NavItem>
                                     <NavItem>
-                                        <NavLink href="/components/" className="styleLink">Contactez-nous</NavLink>
+                                        <NavLink href="#footer" className="styleLink">Contactez-nous</NavLink>
                                     </NavItem>
                                 </Nav>
                             <NavLink href="/components/" className="loginLink">Login</NavLink>
