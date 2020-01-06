@@ -74,9 +74,25 @@ const mstp = state => {
   return { names : state.names};
 }
 
+
+
 const mdtp = dispatch => ({
   addName : myName => dispatch(addName(myName)),
 })
+// const mapDispatchToProps = dispatch => {
+//   return {
+//     updateUsers : dispatch(function () {
+//       return (dispatch) => {
+//         axios.get("/api/portfolio")
+//           .then(result => {
+//           // Yay! Can invoke sync or async actions with `dispatch`
+//           dispatch({type:"UPDATE_USERS", payload:result.data});
+//         })
+//       };
+//     })
+//   }
+// // }
+// export default connect(mapStateToProps,mapDispatchToProps)(MyComp)
 
 export default connect(mstp, mdtp)(App);
 
