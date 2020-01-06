@@ -4,20 +4,22 @@ import alex290 from '../img/tatoueurs/alex290.jpg';
 import cosmic from '../img/tatoueurs/cosmic.jpg';
 import gladys from '../img/tatoueurs/gladys.jpg';
 import './permanentArtists.css';
-import ButtonOpenPortfolio from './ButtonOpenPortfolio'
 
 const items = [
     {
       src: `${alex290}`,
-      text: 'Alex'
+      // altText: 'Slide 1',
+      // caption: 'Slide 1'
     },
     {
       src: `${cosmic}`,
-      text: 'cosmic'
+      // altText: 'Slide 2',
+      // caption: 'Slide 2'
     },
     {
       src: `${gladys}`,
-      text: 'gladys'
+      // altText: 'Slide 3',
+      // caption: 'Slide 3'
     }
   ];
   
@@ -68,8 +70,6 @@ const items = [
           <CarouselControl direction="prev" directionText="Previous" onClickHandler={previous} />
           <CarouselControl direction="next" directionText="Next" onClickHandler={next} />
           </Carousel>
-
-          
         </div>
       </div>
     );
