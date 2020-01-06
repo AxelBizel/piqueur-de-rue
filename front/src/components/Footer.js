@@ -1,7 +1,7 @@
 import React from "react";
 import logo from "../img/logo/logoPiqueurWhiteFooter.png";
-import logoFB from '../img/logo/logoFB.png'
-import logoIG from '../img/logo/logoIG.png'
+// import logoFB from '../img/logo/logoFB.png'
+// import logoIG from '../img/logo/logoIG.png'
 import './footer.css'
 
 
@@ -12,7 +12,7 @@ export default function Footer() {
       <div className="footer">
             <div className="adresse">
               <img className="logo" src={logo} alt="logo Piqueur de rue" /><p>Piqueurs de Rue<br/>45 Quai de Pierre-Scize<br/>69009 Lyon<br/>contact@piqueurderue.com</p>
-              <div className="RS"><img className="logoRS" href="https://www.linkedin.com/in/ludovic-mazet/" src={logoFB} /><img className="logoRS" src={logoIG} /></div>
+              {/* <div className="RS"><img className="logoRS" href="https://www.linkedin.com/in/ludovic-mazet/" src={logoFB} /><img className="logoRS" src={logoIG} /></div> */}
             </div>
       </div>
       <div className="flexcontainermap">
