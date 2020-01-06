@@ -17,11 +17,11 @@ import axios from 'axios';
 
   render() {
     return (
-      <ul>
+      <div>
         {this.state.portfolios === null
         ? <p>loading</p>
-        : this.state.portfolios.map(portfolio => <li>{portfolio.pseudo}</li>)}
-      </ul>
+        : this.state.portfolios.map(portfolio => <div style={{widht:'100px', height:'100px'}}><img src={portfolio.photo}/></div>)}
+      </div>
     )
   }
 }
