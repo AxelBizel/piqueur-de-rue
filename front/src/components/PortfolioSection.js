@@ -1,11 +1,15 @@
 import React, { Component } from "react";
 import axios from "axios";
 import ButtonOpenPortfolio from "./ButtonOpenPortfolio";
+import gladys from "../img/tatoueurs/gladys.jpg";
 
 class PortfolioSection extends Component {
-  state = {
-    portfolios: null
-  };
+  constructor(props) {
+    super(props);
+    this.state = {
+      portfolios: null
+    };
+  }
 
   componentDidMount() {
     axios.get(`http://localhost:5000/api/portfolio`).then(res => {
@@ -16,27 +20,32 @@ class PortfolioSection extends Component {
   }
 
   render() {
+    const { portfolios } = this.state;
     return (
       <div>
-        {this.state.portfolios === null ? (
-          <p>loading</p>
-        ) : (
-          this.state.portfolios.map(portfolio => (
-            <div
-              key={portfolio.id}
-              style={{
-                widht: "500px",
-                height: "500px",
-                backgroundImage: `${portfolio.photo}`
-              }}
-            >
-              <ul>
-                <li>{portfolio.pseudo}</li>
-              </ul>
-              <ButtonOpenPortfolio />
-            </div>
-          ))
-        )}
+        <div>
+          <h1 className="HeaderSection">NOS TATOUEURS</h1>
+        </div>
+
+        <div>
+          {portfolios === null ? (
+            <p>loading</p>
+          ) : (
+            portfolios.map(portfolio => (
+              <div
+                key={portfolio.id}
+                style={{
+                  widht: "500px",
+                  height: "500px",
+                  backgroundImage: `url(${gladys}`,
+                  backgroundSize: "cover"
+                }}
+              >
+                <ButtonOpenPortfolio portfolio={portfolio} />
+              </div>
+            ))
+          )}
+        </div>
       </div>
     );
   }

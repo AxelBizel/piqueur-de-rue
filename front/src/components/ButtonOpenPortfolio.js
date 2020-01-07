@@ -34,8 +34,8 @@ class ButtonOpenPortfolio extends Component {
         return(
             <div className="SectionContainer">
                 <div className="flexContainerPortfolio">
-                    <button className="buttonPortfolio" onClick={this.openModal}>Accéder au portfolio</button>
-                    <PortfolioModal showModal={this.state.showModal} closeModal={this.closeModal} />
+                    <button className="buttonPortfolio" onClick={this.openModal}>{this.props.portfolio.pseudo}</button>
+                    <PortfolioModal portfolio={this.props.portfolio} showModal={this.state.showModal} closeModal={this.closeModal} />
                 </div>
             </div>
         )

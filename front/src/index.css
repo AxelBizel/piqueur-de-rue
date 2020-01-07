@@ -41,7 +41,6 @@ code {
   display: flex;
   flex-direction: column;
   width: 100vw;
-  background-color: rgb(255, 255, 255);
 }
 
 .HeaderSection {
