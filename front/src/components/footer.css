@@ -6,7 +6,6 @@
     background-color: black;
 }
 
-
 .adresse {
     display: flex;
     flex-direction: column;
@@ -14,10 +13,10 @@
     width: 100vw;
 }
 
-
 .adresse p {
     font-size: 1.8em;
     color: white;
+    text-align: center;
 }
 
 .RS {
@@ -27,8 +26,15 @@
 }
 
 .logoRS {
-    width: 8vw;
+    height: 8vw;
     margin: 2.5em;
+    transition: .3s;
+}
+
+.logoRS:hover {
+    height: 8vw;
+    margin: 2.5em;
+    transition: .3s;
 }
 
 .map {
