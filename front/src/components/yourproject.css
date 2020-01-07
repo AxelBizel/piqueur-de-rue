@@ -1,4 +1,4 @@
-.SectionProjet {
+.yourproject {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -36,102 +36,53 @@
 	background-position: center;
 }
 
-p {
-    margin-bottom: 0 !important;
-}
-
-.ProjectSectionOne, .ProjectSectionThree {
+.ProjectSection {
     display: flex;
+    justify-content: center;
     height: 70vh;
     width: 100vw;
 }
 
-.ProjectSectionTwo, .ProjectSectionFour {
-    display: flex;
-    justify-content: flex-end;
-    height: 70vh;
-    width: 100vw;
-}
-
-.LeftTitle {
-    font-family: "FalkinSerifBoldPERSONAL";
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    align-self: flex-start;
+.step {
     position: absolute;
     background-color: rgba(255, 255, 255, 0.911);
-    font-size: 6vw;
-    border-radius: 0 0 50px 0;
-    padding-right: 0.4em;
-    padding-left: 0.2em;
-}
-
-.RightTextSub {
-    display: flex;
-    align-self: flex-end;
-    position: absolute;
-    right: 0;
-    background-color: rgba(255, 255, 255, 0.911);
-    font-size: 1.5vw;
-    border-radius: 50px 0 0 0;
-    padding: 2em;
-    width: 50vw;
+    border-radius: 10px;
+    padding: 1.5em;
+    width: 80vw;
     text-align: justify;
 }
 
-
-.RightTitle {
-    font-family: "FalkinSerifBoldPERSONAL";
+.Title {
     display: flex;
-    justify-content: center;
+    flex-direction: column;
     align-items: center;
-    align-self: flex-start;
-    position: absolute;
-    background-color: rgba(255, 255, 255, 0.911);
-    font-size: 6vw;
-    padding-left: 0.5em;
-    border-radius: 0 0 0 50px;
-    padding-left: 0.4em;
-    padding-right: 0.2em;
+    font-family: "FalkinSerifBoldPERSONAL";
+    font-size: 4em;
 }
 
-.LeftTextSub {
-    display: flex;
-    align-self: flex-end;
-    position: absolute;
-    left: 0;
-    background-color: rgba(255, 255, 255, 0.911);
-    font-size: 1.5vw;
-    border-radius: 0 50px 0 0;
-    padding: 2em;
-    width: 50vw;
-    text-align: justify;
+.TextSub {
+    font-size: 1.4em;
 }
 
-.buttonContactProjet {
-    font-size: 5vh;
-    height: 10vh;
-    border-radius: 25px;
-    box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.644);
-    margin: 3vh 0 3vh 0;
-    background-color: #786B60;
-    padding: 0 20px;
+.buttonContactProject {
+    padding: 1em;
+    border-radius: 20px;
+    font-size: 1.7em;
+    background-color: #7A6A5D;
+    border:1px solid rgba(0, 0, 0, 0.411);
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.774);
     transition: 0.4s;
-    border:1px solid rgba(0, 0, 0, 0.192);
+    font-weight: 600;
 }
 
-.buttonContactProjet:hover {
-    font-size: 5vh;
-    height: 10vh;
-    border-radius: 25px;
-    box-shadow: 1px 1px 3px rgba(0, 0, 0, 0);
-    margin: 3vh 0 3vh 0;
-    background-color: #786B60;
-    padding: 0 20px;
-    transition: 0.4s;
+.buttonContactProject:hover {
+    padding: 1em;
+    border-radius: 20px;
+    font-size: 1.7em;
+    background-color: #7A6A5D;
+    border:1px solid rgba(0, 0, 0, 0);
+    box-shadow: none;
 }
-
 
 /* MODAL CSS */
 
@@ -143,27 +94,6 @@ form h3 {
     text-align: left;
     font-size: 2em;
     margin-bottom: 0.7em;
-}
-
-.buttonContactProject {
-    padding: 1em;
-    border-radius: 20px;
-    font-size: 1.7em;
-    background-color: #7A6A5D;
-    border:1px solid rgba(0, 0, 0, 0.411);
-    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.774);
-    transition: 0.4s;
-    margin: 1em;
-    font-weight: 600;
-}
-
-.buttonContactProject:hover {
-    padding: 1em;
-    border-radius: 20px;
-    font-size: 1.7em;
-    background-color: #7A6A5D;
-    border:1px solid rgba(0, 0, 0, 0.212);
-    box-shadow: none;
 }
 
 .background {
