@@ -22,12 +22,18 @@ class PortfolioSection extends Component {
           <p>loading</p>
         ) : (
           this.state.portfolios.map(portfolio => (
-            <div key={portfolio.id} style={{ widht: "200px", height: "200px" }}>
+            <div
+              key={portfolio.id}
+              style={{
+                widht: "500px",
+                height: "500px",
+                backgroundImage: `${portfolio.photo}`
+              }}
+            >
               <ul>
                 <li>{portfolio.pseudo}</li>
               </ul>
               <ButtonOpenPortfolio />
-              <img src={portfolio.photo} />
             </div>
           ))
         )}

@@ -33,7 +33,6 @@ app.get("/api/users", (req, res) => {
 });
 
 //Récupération des datas portfolios
-
 app.get("/api/portfolio", (req, res) => {
   connection.query("SELECT * from portfolio", (err, results) => {
     if (err) {
