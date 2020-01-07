@@ -53,19 +53,11 @@
             transform: translateX(-50%) scaleX(1);
 }
 
-nav.navbar.navbar-expand-md {
-    
-}
-
-span.navbar-toggler-icon {
-    color: black;
-}
-
 @media screen and (max-width:768px) {
     .styleNavbar {
-        background-color: rgba(255, 255, 255, 0.493) !important;
+        background-color: rgba(255, 255, 255, 0.712) !important;
         position: fixed;
-        border-radius: 10px;
+        border-radius: 5px;
         width: auto;
     }
     
