@@ -60,7 +60,7 @@ const items = [
     return (
       <div><h1 className="HeaderSection">NOS TATOUEURS</h1>
         <div className="box">
-          <Carousel
+          {/* <Carousel
             activeIndex={activeIndex}
             next={next}
             previous={previous}
@@ -69,7 +69,7 @@ const items = [
           {slides}
           <CarouselControl direction="prev" directionText="Previous" onClickHandler={previous} />
           <CarouselControl direction="next" directionText="Next" onClickHandler={next} />
-          </Carousel>
+          </Carousel> */}
         </div>
       </div>
     );
