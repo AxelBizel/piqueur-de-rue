@@ -3,7 +3,7 @@ const app = express();
 const port = 5000;
 const connection = require("./conf");
 const bodyParser = require("body-parser");
-// const cors = require("cors");
+const cors = require("cors");
 
 // bodyParser
 app.use(bodyParser.json());
@@ -14,10 +14,7 @@ app.use(
 );
 
 // //Cors
-// app.use(cors());
-// app.get("/products/:id", function(req, res, next) {
-//   res.json({ msg: "This is CORS-enabled for all origins!" });
-// });
+app.use(cors())
 
 // ROUTES
 
@@ -32,7 +29,7 @@ app.get("/api/users", (req, res) => {
   });
 });
 
-//Récupération des datas portfolios
+//Récupération des portfolios
 app.get("/api/portfolio", (req, res) => {
   connection.query("SELECT * from portfolio", (err, results) => {
     if (err) {
