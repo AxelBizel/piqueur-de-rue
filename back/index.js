@@ -4,6 +4,17 @@ const port = 5000;
 const connection = require("./conf");
 const bodyParser = require("body-parser");
 const cors = require("cors");
+var http = require('http');
+var fs = require('fs');
+
+//filesystem
+http.createServer(function (req, res) {
+  fs.readFile('demofile1.html', function(err, data) {
+    res.writeHead(200, {'Content-Type': 'text/html'});
+    res.write(data);
+    res.end();
+  });
+}).listen(8080);
 
 // bodyParser
 app.use(bodyParser.json());
@@ -31,6 +42,17 @@ app.get("/api/users", (req, res) => {
 
 //Récupération des portfolios
 app.get("/api/portfolio", (req, res) => {
+  connection.query("SELECT * from portfolio", (err, results) => {
+    if (err) {
+      res.status(500).send("Erreur lors de la récupération des portfolios");
+    } else {
+      res.json(results);
+    }
+  });
+});
+
+//Récupération des photos homepage portfolios
+app.get("/api/portfolio/:id/{name}", (req, res) => {
   connection.query("SELECT * from portfolio", (err, results) => {
     if (err) {
       res.status(500).send("Erreur lors de la récupération des portfolios");
