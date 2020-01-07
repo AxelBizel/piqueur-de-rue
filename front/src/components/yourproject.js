@@ -28,37 +28,30 @@ export default class YourProject extends Component{
     render() {
     return (
         <div>
-            <h1 className="HeaderSection">VOTRE PROJET</h1>
-                <div className="SectionProjet">
-                    <div className="ProjectSectionOne">
+            <h1 className="HeaderSection">VOTRE PROJET EN ÉTAPE</h1>
+                <div className="yourproject">
+                    <div className="ProjectSection">
                         <img className="bg-image1"/>
-                        <p className="LeftTitle">RENDEZ-VOUS</p>
-                        <p className="RightTextSub">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur et posuere dolor. Aliquam condimentum lacus a velit scelerisque, id rhoncus lorem laoreet. Morbi sollicitudin metus tellus, vulputate semper erat egestas quis. Sed interdum sed diam at finibus. Vestibulum nec sem urna. In mollis purus et libero tincidunt convallis.</p>
+                        <div className="step"><h3 className="Title">LE RENDEZ-VOUS</h3><p className="TextSub">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur et posuere dolor. Aliquam condimentum lacus a velit scelerisque, id rhoncus lorem laoreet. Morbi sollicitudin metus tellus, vulputate semper erat egestas quis. Sed interdum sed diam at finibus. Vestibulum nec sem urna. In mollis purus et libero tincidunt convallis.</p></div>
                     </div>
                 
-                    <div className="ProjectSectionTwo">
+                    <div className="ProjectSection">
                         <img className="bg-image2"/>
-                        <p className="RightTitle">DESSIN</p>
-                        <p className="LeftTextSub">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur et posuere dolor. Aliquam condimentum lacus a velit scelerisque, id rhoncus lorem laoreet. Morbi sollicitudin metus tellus, vulputate semper erat egestas quis. Sed interdum sed diam at finibus. Vestibulum nec sem urna. In mollis purus et libero tincidunt convallis.</p>
+                        <div className="step"><h3 className="Title">DESSIN</h3><p className="TextSub">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur et posuere dolor. Aliquam condimentum lacus a velit scelerisque, id rhoncus lorem laoreet. Morbi sollicitudin metus tellus, vulputate semper erat egestas quis. Sed interdum sed diam at finibus. Vestibulum nec sem urna. In mollis purus et libero tincidunt convallis.</p></div>
                     </div>
                 
-                    <div className="ProjectSectionThree">
+                    <div className="ProjectSection">
                         <img className="bg-image3"/>
-                        <p className="LeftTitle">SIMULATION</p>
-                        <p className="RightTextSub">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur et posuere dolor. Aliquam condimentum lacus a velit scelerisque, id rhoncus lorem laoreet. Morbi sollicitudin metus tellus, vulputate semper erat egestas quis. Sed interdum sed diam at finibus. Vestibulum nec sem urna. In mollis purus et libero tincidunt convallis.</p>
+                        <div className="step"><h3 className="Title">SIMULATION</h3><p className="TextSub">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur et posuere dolor. Aliquam condimentum lacus a velit scelerisque, id rhoncus lorem laoreet. Morbi sollicitudin metus tellus, vulputate semper erat egestas quis. Sed interdum sed diam at finibus. Vestibulum nec sem urna. In mollis purus et libero tincidunt convallis.</p></div>
                     </div>
                 
-                    <div className="ProjectSectionFour">
+                    <div className="ProjectSection">
                         <img className="bg-image4"/>
-                        <p className="RightTitle">RÉALISATION</p>
-                        <p className="LeftTextSub">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur et posuere dolor. Aliquam condimentum lacus a velit scelerisque, id rhoncus lorem laoreet. Morbi sollicitudin metus tellus, vulputate semper erat egestas quis. Sed interdum sed diam at finibus. Vestibulum nec sem urna. In mollis purus et libero tincidunt convallis.</p>
+                        <div className="step"><h3 className="Title">RÉALISATION</h3><p className="TextSub">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur et posuere dolor. Aliquam condimentum lacus a velit scelerisque, id rhoncus lorem laoreet. Morbi sollicitudin metus tellus, vulputate semper erat egestas quis. Sed interdum sed diam at finibus. Vestibulum nec sem urna. In mollis purus et libero tincidunt convallis.</p></div>
                     </div>
-
                     <button className="buttonContactProject" onClick={this.openModal}>NOUS CONTACTER</button>
                     <ModalContactProject showModal={this.state.showModal} closeModal={this.closeModal} />
-                
                 </div>
-                    
         </div>
     )
 }

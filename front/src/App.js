@@ -4,7 +4,6 @@ import Navbar from "./components/navbar";
 import Header from "./components/header";
 import Home from "./components/home";
 import Agency from "./components/agency";
-import ButtonOpenPortfolio from "./components/ButtonOpenPortfolio";
 import PermanentArtists from "./components/permanentArtists";
 import Footer from "./components/Footer";
 import GuestHome from "./components/GuestHome";
@@ -28,7 +27,6 @@ class App extends Component {
         <div id="agency">
           <Agency />
         </div>
-        <ButtonOpenPortfolio />
         <div id="permanentartists">
           <PermanentArtists />
         </div>
