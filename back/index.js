@@ -57,7 +57,7 @@ app.get("/api/images", (req, res) => {
 
 //Server
 app.get("/", (request, response) => {
-  response.send("Bienvenue sur Express");
+  response.send("Bienvenue sur Express de piqueur de rue");
 });
 
 app.listen(port, err => {
