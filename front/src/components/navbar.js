@@ -10,7 +10,7 @@ const toggle = () => setIsOpen(!isOpen);
 
 return (
         <div>
-            <Headroom style={{transition: 'all 1s ease-in-out'}}>
+            <Headroom style={{transition: 'all 0.4s ease-in-out'}}>
                 <div className="styleNavbar">
                     <NavbarStrap  expand="md">
                         <NavbarToggler onClick={toggle} />

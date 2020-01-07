@@ -14,15 +14,15 @@
 .GuestText {
     background-color: rgba(255, 255, 255, 0.616);
     border-radius: 10px;
-    font-size: 2em;
+    font-size: 1.7em;
     text-align: center;
     padding: 1em;
-    width: 80vw;
+    width: 70vw;
     border: 1px solid black;
 }
 
-p {
-    margin-bottom: 0 !important;
+p.GuestText {
+    margin-bottom: 2em !important;
 }
 
 .buttonContactProjet {
