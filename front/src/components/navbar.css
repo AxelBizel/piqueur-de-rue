@@ -29,8 +29,9 @@
     position: relative;
     font-size: 1.4em;
     margin-right: 1vw;
-  }
-  .styleLink::after {
+}
+
+.styleLink::after {
     content: '';
     position: absolute;
     left: 50%;
@@ -45,11 +46,12 @@
     transition: -webkit-transform 250ms;
     transition: transform 250ms;
     transition: transform 250ms, -webkit-transform 250ms;
-  }
-  .styleLink:hover::after {
+}
+
+.styleLink:hover::after {
     -webkit-transform: translateX(-50%) scaleX(1);
             transform: translateX(-50%) scaleX(1);
-  }
+}
 
 @media screen and (max-width:768px) {
     .styleNavbar {
