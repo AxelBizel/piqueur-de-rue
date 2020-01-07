@@ -181,3 +181,46 @@ select:required:invalid {
 input:placeholder{
     color: silver;
 }
+
+@media screen and (max-width:768px) {
+    .SectionGuestContainer {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        text-align: center;
+        align-items: center;
+        height: 100vh;
+        background-image: url('../img/agency/5.jpg');
+        background-size: cover;
+        background-repeat: no-repeat;
+        color: rgb(0, 0, 0);
+    }
+
+    .GuestText {
+        background-color: rgba(255, 255, 255, 0.616);
+        border-radius: 10px;
+        font-size: 1.3em;
+        text-align: center;
+        padding: 1em;
+        width: 70vw;
+        border: 1px solid black;
+    }
+
+    p.GuestText {
+        margin-bottom: 2em !important;
+        text-align: justify;
+    }
+
+    .buttonContactProjet {
+        font-size: 5vh;
+        height: 10vh;
+        border-radius: 25px;
+        box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.644);
+        margin: 3vh 0 3vh 0;
+        background-color: #786B60;
+        padding: 0 20px;
+        transition: 0.4s;
+        width: 70vw;
+        border:1px solid rgba(0, 0, 0, 0.192);
+    }
+}
