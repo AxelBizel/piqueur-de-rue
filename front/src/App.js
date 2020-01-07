@@ -27,9 +27,6 @@ class App extends Component {
         <div id="agency">
           <Agency />
         </div>
-        {/* <div id="permanentartists">
-          <PermanentArtists />
-        </div> */}
         <div>
           <PortfolioSection />
         </div>
