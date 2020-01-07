@@ -12,28 +12,12 @@ import YourProject from "./components/yourproject";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import PortfolioSection from "./components/PortfolioSection";
-import {connect} from 'react-redux';
-import {addName} from './actions';
 
 class App extends Component {
   constructor(props) {
     super(props);
-    this.state = {
-      myName:"",
-    };
+    this.state = {};
   }
-
-
-  handleChangeTest = (e) => {
-    let {myName} = this.state;
-    myName = e.target.value;
-    this.setState({myName})
-  }
-
-  onClickTest = (e) => {
-    this.props.addName(this.state.myName);
-  }
-
 
   render() {
     return (
@@ -41,10 +25,6 @@ class App extends Component {
         <Navbar />
         <Header />
         <Home />
-        {/* test pour redux */}
-        <input name="myName" type="text" onChange={this.handleChangeTest} placeholder="test redux entrez un nom" ></input>
-        <button  onClick={this.onClickTest}>Ajouter</button>
-        {/* redux */}
         <div id="agency">
           <Agency />
         </div>
@@ -69,16 +49,8 @@ class App extends Component {
   }
 }
 
-const mstp = state => {
-  console.log('Voici mon GS :',state);
-  return { names : state.names};
-}
-
-const mdtp = dispatch => ({
-  addName : myName => dispatch(addName(myName)),
-})
 
 
 
-export default connect(mstp, mdtpR)(App);
+export default App;
 

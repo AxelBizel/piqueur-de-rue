@@ -38,8 +38,8 @@ CREATE TABLE IF NOT EXISTS `piqueurderue`.`images` (
   `alt_text` VARCHAR(255) NULL DEFAULT NULL,
   `active` TINYINT(4) NOT NULL,
   `path` VARCHAR(255) NOT NULL,
-  `main_img` TINYINT(4) NULL DEFAULT NULL,
-  `portfolio_id` INT(11) NOT NULL,
+  `main_img` VARCHAR(255) NULL DEFAULT NULL,
+  `portfolio_id` INT(11) NULL,
   PRIMARY KEY (`id`),
   INDEX `fk_images_portfolio1_idx` (`portfolio_id` ASC) ,
     FOREIGN KEY (`portfolio_id`)
