@@ -4,6 +4,8 @@ const port = 5000;
 const connection = require("./conf");
 const bodyParser = require("body-parser");
 const nodemailer = require("nodemailer");
+const smtpTransport = require('nodemailer-smtp-transport');
+const xoauth2 = require('xoauth2');
 
 // const cors = require("cors");
 const cors = require("cors");
@@ -77,8 +79,19 @@ app.get("/api/images", (req, res) => {
 });
 
 // Récupération des données du formulaire de contactTatoueur
-app.post('/contacterLeTatoueur', (req, res) => {
-  res.json
+app.post('/api/formulaire/tatoueur', (req, res) => {
+  const formData = req.body;
+  connection.query('INSERT INTO ')
+  console.log(req.body.firstname);
+  console.log(req.body.lastname);
+  console.log(req.body.age);
+  console.log(req.body.phone);
+  console.log(req.body.email);
+  console.log(req.body.tattoolocation);
+  console.log(req.body.dimension);
+DEFAULT CHARACTER SET = utf8;
+console.log(req.body.budget);
+  console.log(req.body.story);
 });
 
 //Server
@@ -97,18 +110,28 @@ app.listen(port, err => {
 
 
 // Création de la méthode de transport de l'email NODEMAILER
-const transporter = nodemailer.createTransport("SMTP",{
-    service: "Gmail",
-    auth: {
-        user: "chadieleman@gmail.com",
-        pass: "userpass"
+// const transporter = nodemailer.createTransport("SMTP",{
+//     service: "Gmail",
+//     auth: {
+//         user: "chadieleman@gmail.com",
+//         pass: "userpass"
+//     }
+// });
+
+var transporter = nodemailer.createTransport(smtpTransport({
+    service: 'Gmail',
+    auth:{
+            xoauth2: xoauth2.createXOAuth2Generator({
+            user: 'abc@gmail.com',
+            })
     }
-});
+  }))
+
 
 transporter.sendMail({
-    from: "test.nodemailer@gmail.com", // Expediteur
+    from: "test@gmail.com", // Expediteur
     to: "chadieleman@gmail.com", // Destinataires
-    subject: "Coucou !", // Sujet
+    subject: "", // Sujet
     text: "Hello world ✔", // plaintext body
     html: "<b>Hello world ✔</b>" // html body
 }, (error, res) => {
