@@ -3,6 +3,8 @@ const app = express();
 const port = 5000;
 const connection = require("./conf");
 const bodyParser = require("body-parser");
+const nodemailer = require("nodemailer");
+
 // const cors = require("cors");
 
 // bodyParser
@@ -55,6 +57,11 @@ app.get("/api/images", (req, res) => {
   });
 });
 
+// Récupération des données du formulaire de contactTatoueur
+app.post('/contacterLeTatoueur', (req, res) => {
+  res.json
+});
+
 //Server
 app.get("/", (request, response) => {
   response.send("Bienvenue sur Express de piqueur de rue");
@@ -66,4 +73,38 @@ app.listen(port, err => {
   }
 
   console.log(`Server is listening on ${port}`);
+});
+
+
+
+// Création de la méthode de transport de l'email NODEMAILER
+const transporter = nodemailer.createTransport("SMTP",{
+    service: "Gmail",
+    auth: {
+        user: "chadieleman@gmail.com",
+        pass: "userpass"
+    }
+});
+
+transporter.sendMail({
+    from: "test.nodemailer@gmail.com", // Expediteur
+    to: "chadieleman@gmail.com", // Destinataires
+    subject: "Coucou !", // Sujet
+    text: "Hello world ✔", // plaintext body
+    html: "<b>Hello world ✔</b>" // html body
+}, (error, res) => {
+    if(error){
+        console.log(error);
+    }else{
+        console.log("Message sent: " + res.message);
+    }
+});
+
+// verify connection configuration
+transporter.verify(function(error, success) {
+  if (error) {
+    console.log(error);
+  } else {
+    console.log("Server is ready to take our messages");
+  }
 });
