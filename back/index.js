@@ -79,20 +79,39 @@ app.get("/api/images", (req, res) => {
 });
 
 // Récupération des données du formulaire de contactTatoueur
-app.post('/api/formulaire/tatoueur', (req, res) => {
-  const formData = req.body;
-  connection.query('INSERT INTO ')
-  console.log(req.body.firstname);
-  console.log(req.body.lastname);
-  console.log(req.body.age);
-  console.log(req.body.phone);
-  console.log(req.body.email);
-  console.log(req.body.tattoolocation);
-  console.log(req.body.dimension);
-DEFAULT CHARACTER SET = utf8;
-console.log(req.body.budget);
-  console.log(req.body.story);
+app.get("/api/customers", (req, res) => {
+  connection.query("SELECT * from customers", (err, results) => {
+    if (err) {
+      res.status(500).send("Erreur lors de la récupération des customers");
+    } else {
+      res.json(results);
+    }
+  });
 });
+
+app.post('/api/customers', (req, res) => {
+  const formData = req.body;
+  connection.query('INSERT INTO customers SET?',formData, (err,results)=>{
+    if(err){
+      console.log(err);
+      res.status(500).send("erreur de récupération des données du formulaire");
+    }else{
+      console.log('YES ça fonctionne !!!!!!!!!!!!!')
+      res.sendStatus(200);
+    }
+  })
+});
+
+  // console.log(req.body.firstname);
+  // console.log(req.body.lastname);
+  // console.log(req.body.age);
+  // console.log(req.body.phone);
+  // console.log(req.body.email);
+  // console.log(req.body.tattoolocation);
+  // console.log(req.body.hauteur);
+  // console.log(req.body.largeur);
+  // console.log(req.body.budget);
+  // console.log(req.body.story)
 
 //Server
 app.get("/", (request, response) => {
@@ -106,8 +125,6 @@ app.listen(port, err => {
 
   console.log(`Server is listening on ${port}`);
 });
-
-
 
 // Création de la méthode de transport de l'email NODEMAILER
 // const transporter = nodemailer.createTransport("SMTP",{
