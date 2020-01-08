@@ -3,7 +3,18 @@ const app = express();
 const port = 5000;
 const connection = require("./conf");
 const bodyParser = require("body-parser");
-// const cors = require("cors");
+const cors = require("cors");
+var http = require('http');
+var fs = require('fs');
+
+//filesystem
+http.createServer(function (req, res) {
+  fs.readFile('demofile1.html', function(err, data) {
+    res.writeHead(200, {'Content-Type': 'text/html'});
+    res.write(data);
+    res.end();
+  });
+}).listen(8080);
 
 // bodyParser
 app.use(bodyParser.json());
@@ -14,10 +25,7 @@ app.use(
 );
 
 // //Cors
-// app.use(cors());
-// app.get("/products/:id", function(req, res, next) {
-//   res.json({ msg: "This is CORS-enabled for all origins!" });
-// });
+app.use(cors())
 
 // ROUTES
 
@@ -32,9 +40,19 @@ app.get("/api/users", (req, res) => {
   });
 });
 
-//Récupération des datas portfolios
-
+//Récupération des portfolios
 app.get("/api/portfolio", (req, res) => {
+  connection.query("SELECT * from portfolio", (err, results) => {
+    if (err) {
+      res.status(500).send("Erreur lors de la récupération des portfolios");
+    } else {
+      res.json(results);
+    }
+  });
+});
+
+//Récupération des photos homepage portfolios
+app.get("/api/portfolio/:id/{name}", (req, res) => {
   connection.query("SELECT * from portfolio", (err, results) => {
     if (err) {
       res.status(500).send("Erreur lors de la récupération des portfolios");

@@ -27,8 +27,8 @@ class App extends Component {
         <div id="agency">
           <Agency />
         </div>
-        <div id="permanentartists">
-          <PermanentArtists />
+        <div>
+          <PortfolioSection />
         </div>
         <div id="guests">
           <GuestHome />
@@ -39,9 +39,7 @@ class App extends Component {
         <div id="footer">
           <Footer />
         </div>
-        <div>
-          <PortfolioSection />
-        </div>
+      
       </div>
     );
   }
