@@ -33,6 +33,10 @@ code {
   background-color: rgb(255, 255, 255);
 } */
 
+div.headroom-wrapper {
+  background-color: black;
+}
+
 .HeaderSection {
   display: flex;
   font-family: FalkinSerifBoldItalicPERSONAL;

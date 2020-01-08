@@ -2,54 +2,70 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    background: linear-gradient(326deg, rgba(236, 236, 236,0.04) 0%, rgba(236, 236, 236,0.04) 6%,rgba(157, 157, 157,0.04) 6%, rgba(157, 157, 157,0.04) 29%,rgba(77, 77, 77,0.04) 29%, rgba(77, 77, 77,0.04) 100%),linear-gradient(164deg, rgba(236, 236, 236,0.04) 0%, rgba(236, 236, 236,0.04) 36%,rgba(157, 157, 157,0.04) 36%, rgba(157, 157, 157,0.04) 61%,rgba(77, 77, 77,0.04) 61%, rgba(77, 77, 77,0.04) 100%),linear-gradient(336deg, rgba(236, 236, 236,0.04) 0%, rgba(236, 236, 236,0.04) 64%,rgba(157, 157, 157,0.04) 64%, rgba(157, 157, 157,0.04) 69%,rgba(77, 77, 77,0.04) 69%, rgba(77, 77, 77,0.04) 100%),linear-gradient(90deg, rgb(0,0,0),rgb(0,0,0));
 }
 
-.bg-image1 {
-    width: 100vw;
-    z-index: -1;
-    background: linear-gradient(rgba(10,10,10,0),rgba(0,0,0,.5)),  url('../img/projet/1rendezvous.jpg');
+.ProjectSection1 {
+    background: radial-gradient(circle at 50% 50%, rgba(0,0,0,0) 0%,  rgba(0,0,0,0) 50%, rgba(0, 0, 0, 0.7)), url('../img/projet/1rendezvous.jpg');
     background-size: cover;
-	background-position: center;
-}
-
-.bg-image2 {
-    width: 100vw;
-    z-index: -1;
-    background: linear-gradient(rgba(10,10,10,0),rgba(0,0,0,.5)),  url('../img/projet/2dessin.jpg');
-    background-size: cover;
-	background-position: center;
-}
-
-.bg-image3 {
-    width: 100vw;
-    z-index: -1;
-    background: linear-gradient(rgba(10,10,10,0),rgba(0,0,0,.5)),  url('../img/projet/3simulation.jpg');
-    background-size: cover;
-	background-position: center;
-}
-
-.bg-image4 {
-    width: 100vw;
-    z-index: -1;
-    background: linear-gradient(rgba(10,10,10,0),rgba(0,0,0,.5)),  url('../img/projet/4realisation.jpg');
-    background-size: cover;
-	background-position: center;
-}
-
-.ProjectSection {
+	background-attachment: fixed;
     display: flex;
     justify-content: center;
-    height: 70vh;
+    flex-direction: column;
+    align-items: center;
+    height: 100vh;
     width: 100vw;
+    border:3px solid black;
+}
+
+.ProjectSection2 {
+    background: radial-gradient(circle at 50% 50%, rgba(0,0,0,0) 0%,  rgba(0,0,0,0) 50%, rgba(0, 0, 0, 0.7)), url('../img/projet/2dessin.jpg');
+    background-size: cover;
+	background-attachment: fixed;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    height: 100vh;
+    width: 100vw;
+    border-bottom:3px solid black;
+}
+
+.ProjectSection3 {
+    background: radial-gradient(circle at 50% 50%, rgba(0,0,0,0) 0%,  rgba(0,0,0,0) 50%, rgba(0, 0, 0, 0.7)), url('../img/projet/3simulation.jpg');
+    background-size: cover;
+	background-attachment: fixed;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    height: 100vh;
+    width: 100vw;
+}
+
+.ProjectSection4 {
+    background: radial-gradient(circle at 50% 50%, rgba(0,0,0,0) 0%,  rgba(0,0,0,0) 50%, rgba(0, 0, 0, 0.7)), url('../img/projet/4realisation.jpg');
+    background-size: cover;
+	background-attachment: fixed;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    height: 100vh;
+    width: 100vw;
+    border:3px solid black;
 }
 
 .step {
     position: absolute;
-    background-color: rgba(255, 255, 255, 0.911);
-    border-radius: 10px;
-    padding: 1.5em;
+    background: linear-gradient(326deg, rgba(236, 236, 236,0.04) 0%, rgba(236, 236, 236,0.04) 6%,rgba(157, 157, 157,0.04) 6%, rgba(157, 157, 157,0.04) 29%,rgba(77, 77, 77,0.04) 29%, rgba(77, 77, 77,0.04) 100%),linear-gradient(164deg, rgba(236, 236, 236,0.04) 0%, rgba(236, 236, 236,0.04) 36%,rgba(157, 157, 157,0.04) 36%, rgba(157, 157, 157,0.04) 61%,rgba(77, 77, 77,0.04) 61%, rgba(77, 77, 77,0.04) 100%),linear-gradient(336deg, rgba(236, 236, 236,0.04) 0%, rgba(236, 236, 236,0.04) 64%,rgba(157, 157, 157,0.04) 64%, rgba(157, 157, 157,0.04) 69%,rgba(77, 77, 77,0.04) 69%, rgba(77, 77, 77,0.04) 100%),linear-gradient(90deg, rgb(0,0,0),rgb(0,0,0));
+    border-radius: 3px;
     width: 80vw;
-    text-align: justify;
+    padding: 3em;
+    text-align: center;
+    color: white;
+    border: 1px solid black;
+    box-shadow: 2px 2px 10px black;
 }
 
 .Title {
@@ -58,6 +74,7 @@
     align-items: center;
     font-family: "FalkinSerifBoldPERSONAL";
     font-size: 4em;
+    color: white;
 }
 
 .TextSub {
@@ -66,22 +83,24 @@
 
 .buttonContactProject {
     padding: 1em;
-    border-radius: 20px;
+    border-radius: 3px;
     font-size: 1.7em;
     background-color: #7A6A5D;
     border:1px solid rgba(0, 0, 0, 0.411);
     box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.774);
     transition: 0.4s;
     font-weight: 600;
+    margin: 2em 0 1em 0;
 }
 
 .buttonContactProject:hover {
     padding: 1em;
-    border-radius: 20px;
+    border-radius: 3px;
     font-size: 1.7em;
     background-color: #7A6A5D;
     border:1px solid rgba(0, 0, 0, 0);
     box-shadow: none;
+    margin: 2em 0 1em 0;
 }
 
 /* MODAL CSS */
@@ -107,7 +126,7 @@ form h3 {
 
 .closeButton {
     color: rgba(0, 0, 0, 0.452);
-    border-radius: 10px;
+    border-radius: 3px;
     padding: 0.5em;
     background-color: rgb(255, 255, 255);
     border: 1px solid rgba(0, 0, 0, 0.315);
@@ -117,12 +136,13 @@ form h3 {
 
 .closeButton:hover {
     color: rgba(0, 0, 0, 0.733);
-    border-radius: 10px;
+    border-radius: 3px;
     padding: 0.5em;
     background-color: rgb(255, 255, 255);
     border: 1px solid rgba(0, 0, 0, 0.315);
     box-shadow: none;
     transition: .1s;
+    
 }
 
 .ContactModal {
@@ -198,4 +218,45 @@ select:required:invalid {
 
 input:placeholder{
     color: silver;
+}
+
+@media screen and (max-width:768px) {
+
+    .ProjectSection1 {
+        font-size: 3.5vw;
+    }
+
+    .ProjectSection2 {
+        font-size: 3.5vw;
+    }
+
+    .ProjectSection3 {
+        font-size: 3.5vw;
+    }
+
+    .ProjectSection4 {
+        font-size: 3.5vw;
+    }
+
+    .step {
+        position: absolute;
+    background-color: rgba(0, 0, 0, 0.932);
+    border-radius: 3px;
+    width: 80vw;
+    text-align: justify;
+    color: white;
+    }
+    
+    .Title {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        font-family: "FalkinSerifBoldPERSONAL";
+        font-size: 4em;
+        color: white;
+    }
+    
+    .TextSub {
+        font-size: 1.4em;
+    }
 }
