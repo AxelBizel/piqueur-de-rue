@@ -1,15 +1,9 @@
-.flexContainerPortfolio {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
 .firstModalPortfolio {
   position: fixed;
   top: 0;
   left: 0;
-  width: 100vw;
-  height: 100vw;
+  min-width: 100vw;
+  min-height: 100vh;
   background-color: rgba(0, 0, 0, 0.8);
 }
 
@@ -23,39 +17,82 @@
   height: 100vh;
   max-width: calc(100vw - 0px);
   max-height: calc(100vh - 0px);
-  padding: 40px;  
-  background-color: white;
+  padding: 2vw;
+  background: repeating-linear-gradient(
+      135deg,
+      rgba(145, 145, 145, 0.02) 0px,
+      rgba(145, 145, 145, 0.02) 39px,
+      rgba(140, 140, 140, 0.02) 39px,
+      rgba(140, 140, 140, 0.02) 57px,
+      rgba(9, 9, 9, 0.02) 57px,
+      rgba(9, 9, 9, 0.02) 91px,
+      rgba(217, 217, 217, 0.02) 91px,
+      rgba(217, 217, 217, 0.02) 119px,
+      rgba(45, 45, 45, 0.02) 119px,
+      rgba(45, 45, 45, 0.02) 141px,
+      rgba(227, 227, 227, 0.02) 141px,
+      rgba(227, 227, 227, 0.02) 184px,
+      rgba(236, 236, 236, 0.02) 184px,
+      rgba(236, 236, 236, 0.02) 227px,
+      rgba(124, 124, 124, 0.02) 227px,
+      rgba(124, 124, 124, 0.02) 244px
+    ),
+    repeating-linear-gradient(
+      135deg,
+      rgba(39, 39, 39, 0.02) 0px,
+      rgba(39, 39, 39, 0.02) 23px,
+      rgba(2, 2, 2, 0.02) 23px,
+      rgba(2, 2, 2, 0.02) 55px,
+      rgba(13, 13, 13, 0.02) 55px,
+      rgba(13, 13, 13, 0.02) 71px,
+      rgba(44, 44, 44, 0.02) 71px,
+      rgba(44, 44, 44, 0.02) 98px,
+      rgba(240, 240, 240, 0.02) 98px,
+      rgba(240, 240, 240, 0.02) 134px,
+      rgba(182, 182, 182, 0.02) 134px,
+      rgba(182, 182, 182, 0.02) 159px,
+      rgba(246, 246, 246, 0.02) 159px,
+      rgba(246, 246, 246, 0.02) 174px,
+      rgba(157, 157, 157, 0.02) 174px,
+      rgba(157, 157, 157, 0.02) 190px
+    ),
+    repeating-linear-gradient(
+      135deg,
+      rgba(145, 145, 145, 0.02) 0px,
+      rgba(145, 145, 145, 0.02) 35px,
+      rgba(217, 217, 217, 0.02) 35px,
+      rgba(217, 217, 217, 0.02) 53px,
+      rgba(199, 199, 199, 0.02) 53px,
+      rgba(199, 199, 199, 0.02) 70px,
+      rgba(196, 196, 196, 0.02) 70px,
+      rgba(196, 196, 196, 0.02) 114px,
+      rgba(137, 137, 137, 0.02) 114px,
+      rgba(137, 137, 137, 0.02) 143px,
+      rgba(249, 249, 249, 0.02) 143px,
+      rgba(249, 249, 249, 0.02) 191px,
+      rgba(247, 247, 247, 0.02) 191px,
+      rgba(247, 247, 247, 0.02) 239px,
+      rgba(38, 38, 38, 0.02) 239px,
+      rgba(38, 38, 38, 0.02) 273px
+    ),
+    linear-gradient(90deg, rgb(69, 69, 69), rgb(3, 3, 3));
   z-index: 15;
 }
 
 .h1Portfolio {
-  margin: 20px 0px;
-}
-
-.textEtImg {
-  display: flex;
-  flex-flow: column wrap;
-  justify-content: space-around;
-  align-items: center;
-}
-
-.imgPresentation {
-  width: 200px;
-  height: auto;
-  margin: 10px 0px;
+  font-size: 30px;
+  color: white;
 }
 
 .textPresentation {
-  width: 80vw;
-  height: auto;
-  max-width: calc(100vw - 30px);
-  max-height: calc(100vh - 30px);
+  font-size: 20px;
+  color: white;
 }
 
 .imgPrincipale {
-  width: 200px;
+  width: 80vw;
   height: auto;
-  margin-left: 40px;
+  margin: 0 5vw;
 }
 
 .sectionImgs {
@@ -73,27 +110,23 @@
 } */
 
 .buttonPortfolio {
-  font-family: Arial, Helvetica, sans-serif;
-  font-size: 2em;
-  height: 10vh;
+  font-size: 1em;
+  height: 5vh;
   border-radius: 25px;
   box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.644);
-  margin: 3vh 0 3vh 0;
-  background-color: #786B60;
+  margin: 3% 3%;
+  background-color: #786b60;
   padding: 0 20px;
   transition: 0.4s;
-  border:1px solid rgba(0, 0, 0, 0.192);
+  border: 1px solid rgba(0, 0, 0, 0.192);
 }
 
 .buttonPortfolio:hover {
-  font-size: 2em;
-  height: 10vh;
-  border-radius: 25px;
   box-shadow: 1px 1px 3px rgba(0, 0, 0, 0);
   margin: 3vh 0 3vh 0;
   background-color: #786B60;
   padding: 0 20px;
-  transition: 0.4s;
+  transition: 0.4s; 
 }
 
 .close-container {
@@ -106,10 +139,10 @@
   width: 50px;
   position: absolute;
   margin-top: 24px;
-  background-color: #F4A259;
+  background-color: #f4a259;
   border-radius: 2px;
   transform: rotate(45deg);
-  transition: all .3s ease-in;
+  transition: all 0.3s ease-in;
 }
 
 .rightleft {
@@ -117,10 +150,10 @@
   width: 50px;
   position: absolute;
   margin-top: 24px;
-  background-color: #F4A259;
+  background-color: #f4a259;
   border-radius: 2px;
   transform: rotate(-45deg);
-  transition: all .3s ease-in;
+  transition: all 0.3s ease-in;
 }
 
 .close {
@@ -130,9 +163,9 @@
 
 .close-container:hover .leftright {
   transform: rotate(-45deg);
-  background-color: #F25C66;
+  background-color: #f25c66;
 }
 .close-container:hover .rightleft {
   transform: rotate(45deg);
-  background-color: #F25C66;
+  background-color: #f25c66;
 }

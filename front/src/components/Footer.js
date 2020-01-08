@@ -11,7 +11,7 @@ export default function Footer() {
       <h1 className="HeaderSection">OÙ NOUS TROUVER</h1>
       <div className="footer">
             <div className="adresse">
-              <img className="logo" src={logo} alt="logo Piqueur de rue" /><p>contact@piqueurderue.com<br/>Piqueurs de Rue<br/>45 Quai de Pierre-Scize<br/>69009 Lyon<br/></p>
+              <img className="logo" src={logo} alt="logo Piqueur de rue" /><p>contact@piqueurderue.com<br/>Piqueur de Rue<br/>45 Quai de Pierre-Scize<br/>69009 Lyon<br/></p>
               <div className="RS"><a href="https://www.facebook.com/piqueurderue/" target="_blank"><img className="logoRS" src={logoFB} /></a><a href="https://www.instagram.com/piqueurderue/?hl=fr" target="_blank"><img className="logoRS" src={logoIG} /></a></div>
             </div>
       </div>
