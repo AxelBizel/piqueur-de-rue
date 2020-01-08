@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+const axios = require('axios');
 
 
 class FormulairePortfolio extends Component {
@@ -26,7 +27,11 @@ class FormulairePortfolio extends Component {
     
 
     handleSubmit = (event) =>{
-        console.log('Le form a été soumis : ', this.state.valueEmail);
+        console.log('Le form a été soumis : ', this.state);
+        let customer = this.state;
+        axios
+            .post("http://localhost:5000/api/customers", customer)
+            .then(console.log("add customer ok"))
         event.preventDefault();
     }
     
@@ -35,14 +40,14 @@ class FormulairePortfolio extends Component {
     render(){
         return (
             <>
-                <form className="formPortfolio" onSubmit={this.handleSubmit} method="POST" action="contacterLeTatoueur">
+                <form className="formPortfolio" onSubmit={this.handleSubmit} method="POST" action='/api/customers'>
                     <h1>Formulaire de contact :</h1>
                     
                     <h2>Vous :</h2>
                     <input name="firstname" type="text" onChange={this.handleChange} value={this.state.firstname} placeholder="Votre prénom :"  required></input>
                     <input name="lastname" type="text" onChange={this.handleChange} value={this.state.lastname} placeholder="Votre nom :"  required></input>
-                    <input name="age" type="number" onChange={this.handleChange} value={this.state.age} placeholder="Votre âge :" ></input>
-                    {/* <input name="phone" type="tel" onChange={this.handleChange} value={this.state.phone} size={10} minlength={1} maxlength={10} pattern="[0-9]{2} [0-9]{2} [0-9]{2} [0-9]{2} [0-9]{2}" placeholder="Votre numéro de téléphone :"  required></input> */}
+                    <input name="age" type="number" onChange={this.handleChange} value={this.state.age} placeholder="Votre âge :" required></input>
+                    <input name="phone" type="tel" onChange={this.handleChange} value={this.state.phone} size={10} minlength={1} maxlength={10}  placeholder="Votre numéro de téléphone :"  required></input>
                     <input name="email" type="email" onChange={this.handleChange} value={this.state.email} placeholder="Votre adresse mail :" required></input>
                     
                     <h2>Votre projet :</h2>
