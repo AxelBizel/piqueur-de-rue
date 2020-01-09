@@ -1,20 +1,13 @@
-.footer {
-    display: flex;
-    flex-direction: column;
-    width: 100vw;
-    height: auto;
-    background-color: black;
-}
 
 .adresse {
     display: flex;
     flex-direction: column;
     align-items: center;
-    width: 100vw;
+    margin-bottom: 5vh;
 }
 
 .adresse p {
-    font-size: 1.8em;
+    font-size: 1.4em;
     color: white;
     text-align: center;
 }
@@ -22,39 +15,27 @@
 .RS {
     display: flex;
     justify-content: center;
-    width: 50vw;
 }
 
 .logoRS {
-    height: 8vw;
-    margin: 2.5em;
-    transition: .3s;
+    height: 5vw;
+    margin: 0 2.5em;
 }
 
-.logoRS:hover {
-    height: 8vw;
-    margin: 2.5em;
-    transition: .3s;
-}
+/* .logoRS:hover {
+    height: 7vw;
+    margin: 0 2.5em;
+    transition: 0.1s;
+} */
 
 .map {
-    width: 100vw;
-    height: 50vh;
+
     border: 0;
+    width: 100%;
+    min-height: 400px;
+    margin-bottom: 5vh;
 }
 
-.logo {
-    margin-top: 2em;
-    height: 30vh;
-}
-
-
-@media screen and (max-width:768px) {
-    .adresse {
-    }
-
-    .logoRS {
-        height: 20vw;
-        margin: 2em;
-    }
+.logo{
+    width: 80%;
 }
