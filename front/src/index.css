@@ -85,7 +85,7 @@ src: url("./fonts/South_Gardens_Personal_Use.ttf") format("truetype");
 @import "~react-image-gallery/styles/css/image-gallery.css";
 
 
-@media screen and (max-width:768px) {
+/* @media screen and (max-width:768px) {
   .HeaderSection {
     display: flex;
     font-family: FalkinSerifBoldItalicPERSONAL;
@@ -98,4 +98,4 @@ src: url("./fonts/South_Gardens_Personal_Use.ttf") format("truetype");
     margin: 5vh;
     transition: .3s;
   }
-}
+} */

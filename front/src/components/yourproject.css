@@ -193,10 +193,6 @@ input:focus, select:focus,textarea:focus {
     display:none !important;
 }
 
-p {
-    font-size: 3em;
-}
-
 button.btn {
     color: white;
     background-color: #7A6A5D;
