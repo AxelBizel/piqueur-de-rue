@@ -116,7 +116,7 @@ CREATE TABLE IF NOT EXISTS `piqueurderue`.`customers` (
   `firstName` VARCHAR(70) NOT NULL,
   `lastName` VARCHAR(70) NOT NULL,
   `age` INT(11) NULL,
-  `phone` INT(10) NOT NULL,
+  `phone` VARCHAR(15) NOT NULL,
   `email` VARCHAR(150) NOT NULL,
   `tattoolocation` TEXT NULL,
   `hauteur` INT(11) NULL,

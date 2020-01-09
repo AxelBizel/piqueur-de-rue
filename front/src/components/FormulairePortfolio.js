@@ -4,23 +4,27 @@ const axios = require('axios');
 class FormulairePortfolio extends Component {
     constructor(props){
         super(props);
-        this.state = {  firstname : "",
+        this.state = this.getInitialState;
+    }
+
+    getInitialState = () => ({
+                        firstname : "",
                         lastname : "",
-                        age : null,
-                        phone : null,
+                        age : "",
+                        phone : "",
                         email : "",
                         tattoolocation : "",
-                        hauteur : null,
-                        largeur : null,
-                        budget : null,
+                        hauteur : "",
+                        largeur : "",
+                        budget : "",
                         story : "",
-                        };
-    }
+    })
 
 
     handleChange = (e) =>{
         console.log(this.state)
         this.setState({ [e.target.name]:e.target.value })
+
     }
 
     handleSubmit = (event) =>{
@@ -29,9 +33,11 @@ class FormulairePortfolio extends Component {
         axios
             .post("http://localhost:5000/api/customers", customer)
             .then(console.log("add customer ok"))
+            this.setState(this.getInitialState);
         event.preventDefault();
     }
-    
+  
+
     render(){
         return (
             <>
