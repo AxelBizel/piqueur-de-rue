@@ -102,17 +102,6 @@ app.post('/api/customers', (req, res) => {
   })
 });
 
-  // console.log(req.body.firstname);
-  // console.log(req.body.lastname);
-  // console.log(req.body.age);
-  // console.log(req.body.phone);
-  // console.log(req.body.email);
-  // console.log(req.body.tattoolocation);
-  // console.log(req.body.hauteur);
-  // console.log(req.body.largeur);
-  // console.log(req.body.budget);
-  // console.log(req.body.story)
-
 //Server
 app.get("/", (request, response) => {
   response.send("Bienvenue sur Express de piqueur de rue");
@@ -135,35 +124,35 @@ app.listen(port, err => {
 //     }
 // });
 
-var transporter = nodemailer.createTransport(smtpTransport({
-    service: 'Gmail',
-    auth:{
-            xoauth2: xoauth2.createXOAuth2Generator({
-            user: 'abc@gmail.com',
-            })
-    }
-  }))
+// var transporter = nodemailer.createTransport(smtpTransport({
+//     service: 'Gmail',
+//     auth:{
+//             xoauth2: xoauth2.createXOAuth2Generator({
+//             user: 'abc@gmail.com',
+//             })
+//     }
+//   }))
 
 
-transporter.sendMail({
-    from: "test@gmail.com", // Expediteur
-    to: "chadieleman@gmail.com", // Destinataires
-    subject: "", // Sujet
-    text: "Hello world ✔", // plaintext body
-    html: "<b>Hello world ✔</b>" // html body
-}, (error, res) => {
-    if(error){
-        console.log(error);
-    }else{
-        console.log("Message sent: " + res.message);
-    }
-});
+// transporter.sendMail({
+//     from: "test@gmail.com", // Expediteur
+//     to: "chadieleman@gmail.com", // Destinataires
+//     subject: "", // Sujet
+//     text: "Hello world ✔", // plaintext body
+//     html: "<b>Hello world ✔</b>" // html body
+// }, (error, res) => {
+//     if(error){
+//         console.log(error);
+//     }else{
+//         console.log("Message sent: " + res.message);
+//     }
+// });
 
-// verify connection configuration
-transporter.verify(function(error, success) {
-  if (error) {
-    console.log(error);
-  } else {
-    console.log("Server is ready to take our messages");
-  }
-});
+// // verify connection configuration
+// transporter.verify(function(error, success) {
+//   if (error) {
+//     console.log(error);
+//   } else {
+//     console.log("Server is ready to take our messages");
+//   }
+// });
