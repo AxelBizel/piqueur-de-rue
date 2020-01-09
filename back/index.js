@@ -89,6 +89,7 @@ app.get("/api/customers", (req, res) => {
   });
 });
 
+
 app.post('/api/customers', (req, res) => {
   const formData = req.body;
   connection.query('INSERT INTO customers SET?',formData, (err,results)=>{
@@ -97,7 +98,7 @@ app.post('/api/customers', (req, res) => {
       res.status(500).send("erreur de récupération des données du formulaire");
     }else{
       console.log('YES ça fonctionne !!!!!!!!!!!!!')
-      res.sendStatus(200);
+      res.sendStatus(201);
     }
   })
 });
