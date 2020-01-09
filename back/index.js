@@ -89,6 +89,7 @@ app.get("/api/customers", (req, res) => {
   });
 });
 
+
 app.post('/api/customers', (req, res) => {
   const formData = req.body;
   connection.query('INSERT INTO customers SET?',formData, (err,results)=>{
@@ -97,21 +98,10 @@ app.post('/api/customers', (req, res) => {
       res.status(500).send("erreur de récupération des données du formulaire");
     }else{
       console.log('YES ça fonctionne !!!!!!!!!!!!!')
-      res.sendStatus(200);
+      res.sendStatus(201);
     }
   })
 });
-
-  // console.log(req.body.firstname);
-  // console.log(req.body.lastname);
-  // console.log(req.body.age);
-  // console.log(req.body.phone);
-  // console.log(req.body.email);
-  // console.log(req.body.tattoolocation);
-  // console.log(req.body.hauteur);
-  // console.log(req.body.largeur);
-  // console.log(req.body.budget);
-  // console.log(req.body.story)
 
 //Server
 app.get("/", (request, response) => {
@@ -135,35 +125,35 @@ app.listen(port, err => {
 //     }
 // });
 
-var transporter = nodemailer.createTransport(smtpTransport({
-    service: 'Gmail',
-    auth:{
-            xoauth2: xoauth2.createXOAuth2Generator({
-            user: 'abc@gmail.com',
-            })
-    }
-  }))
+// var transporter = nodemailer.createTransport(smtpTransport({
+//     service: 'Gmail',
+//     auth:{
+//             xoauth2: xoauth2.createXOAuth2Generator({
+//             user: 'abc@gmail.com',
+//             })
+//     }
+//   }))
 
 
-transporter.sendMail({
-    from: "test@gmail.com", // Expediteur
-    to: "chadieleman@gmail.com", // Destinataires
-    subject: "", // Sujet
-    text: "Hello world ✔", // plaintext body
-    html: "<b>Hello world ✔</b>" // html body
-}, (error, res) => {
-    if(error){
-        console.log(error);
-    }else{
-        console.log("Message sent: " + res.message);
-    }
-});
+// transporter.sendMail({
+//     from: "test@gmail.com", // Expediteur
+//     to: "chadieleman@gmail.com", // Destinataires
+//     subject: "", // Sujet
+//     text: "Hello world ✔", // plaintext body
+//     html: "<b>Hello world ✔</b>" // html body
+// }, (error, res) => {
+//     if(error){
+//         console.log(error);
+//     }else{
+//         console.log("Message sent: " + res.message);
+//     }
+// });
 
-// verify connection configuration
-transporter.verify(function(error, success) {
-  if (error) {
-    console.log(error);
-  } else {
-    console.log("Server is ready to take our messages");
-  }
-});
+// // verify connection configuration
+// transporter.verify(function(error, success) {
+//   if (error) {
+//     console.log(error);
+//   } else {
+//     console.log("Server is ready to take our messages");
+//   }
+// });
