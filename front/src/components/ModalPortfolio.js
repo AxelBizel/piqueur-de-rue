@@ -65,7 +65,7 @@ class ModalPortfolio extends Component {
                     {this.props.portfolio.presentation}
                   </p>
                   <a href="https://www.instagram.com/cosmic.billie/?hl=fr">
-                    <img src={insta} style={{ width: "100px" }} />
+                    <img src={insta} style={{ width: "100px" }} alt={"InstagramLogo"}/>
                   </a>
                 </Col>
               </Row>

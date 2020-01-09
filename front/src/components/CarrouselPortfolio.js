@@ -11,11 +11,6 @@ import "./carrouselPortfolio.css";
 
 
 class CarrouselPortfolio extends Component {
-    constructor(props){
-        super(props);
-
-    }
-
       // onSwipeStart(event) {
       //   console.log('Start swiping...', event);
       // }

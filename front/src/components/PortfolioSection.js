@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import axios from "axios";
 import ButtonOpenPortfolio from "./ButtonOpenPortfolio";
-import { Container, Row, Col } from "reactstrap";
+import { Row, Col } from "reactstrap";
 import gladys from "../img/tatoueurs/gladys.jpg";
 
 class PortfolioSection extends Component {
