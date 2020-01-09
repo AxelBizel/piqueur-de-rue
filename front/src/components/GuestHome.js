@@ -28,20 +28,19 @@ class GuestHome extends Component {
     return (
       <div>
         <h1 className="HeaderSection">NOS GUESTS</h1>
-        <div className="SectionGuestContainer">
-          <Container>
+        <Container>
+          <div className="SectionGuestContainer">
             <Row>
-              <Col xs='12' md='6'>
-              
-              <div className="GuestText">
-                <h3 className="Title-Guest">DEVENEZ GUEST</h3>
+              <Col xs="12" md="6">
+                <div className="GuestText">
+                  <h3 className="Title-Guest">DEVENEZ GUEST</h3>
 
-              <p className="TextSub" >
-                Vous êtes tatoueur et vous cherchez un salon sur Lyon pour venir
-                faire un guest. Contactez nous et obtenez votre code d'accès
-                pour planifier votre venu, recevoir les infos sur le
-                fonctionnement du shop ainsi que la gestion de votre image.
-              </p>
+                  <p className="TextSub">
+                    Vous êtes tatoueur et vous cherchez un salon sur Lyon pour
+                    venir faire un guest. Contactez nous et obtenez votre code
+                    d'accès pour planifier votre venu, recevoir les infos sur le
+                    fonctionnement du shop ainsi que la gestion de votre image.
+                  </p>
                 </div>
               </Col>
             </Row>
@@ -52,10 +51,10 @@ class GuestHome extends Component {
               <ModalContactGuest
                 showModal={this.state.showModal}
                 closeModal={this.closeModal}
-                />
+              />
             </Row>
-          </Container>
-        </div>
+          </div>
+        </Container>
       </div>
     );
   }
