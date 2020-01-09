@@ -10,7 +10,7 @@ class ButtonOpenPortfolio extends Component {
   }
 
   componentDidMount() {
-    const focus = window.addEventListener("keydown", e => {
+    window.addEventListener("keydown", e => {
       if (e.key === "Escape" || e.key === "Esc") {
         return this.closeModal();
       }

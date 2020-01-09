@@ -33,9 +33,9 @@ class App extends Component {
         <div id="guests">
           <GuestHome />
         </div>
-        {/* <div id="yourproject">
+        <div id="yourproject">
           <YourProject />
-        </div> */}
+        </div>
         <div id="footer">
           <Footer />
         </div>
