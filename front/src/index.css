@@ -79,6 +79,11 @@ font-family: "South_Gardens_Personal_Use";
 src: url("./fonts/South_Gardens_Personal_Use.ttf") format("truetype");
 }
 
+/* ReactImageGallery_______ */
+
+@import "~react-image-gallery/styles/css/image-gallery.css";
+
+
 @media screen and (max-width:768px) {
   .HeaderSection {
     display: flex;
