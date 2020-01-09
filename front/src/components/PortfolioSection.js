@@ -42,7 +42,7 @@ class PortfolioSection extends Component {
                       backgroundImage: `url(${gladys}`,
                       backgroundPosition: "center",
                       backgroundSize: "cover",
-                      backgroundRepeat: "no-repeat"
+                      backgroundRepeat: "no-repeat",
                     }}
                   >
                     <ButtonOpenPortfolio portfolio={portfolio} />

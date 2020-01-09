@@ -5,8 +5,10 @@
     height: 100vh; 
     background: linear-gradient(rgba(10,10,10,.2),rgba(0,0,0,.4)), repeating-linear-gradient(0, transparent, transparent 2px, black 3px, black 3px), url("../img/divers/accueil.jpg");
     background-size: cover;
-	background-position: center;
+    background-position: center;
+    z-index: 5;
 }
+
 
 .HomeLogo {
     width: 60vw;

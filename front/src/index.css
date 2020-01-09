@@ -26,15 +26,29 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New", monospace;
 }
 
-/* .SectionContainer {
-  display: flex;
-  flex-direction: column;
-  width: 100vw;
-  background-color: rgb(255, 255, 255);
-} */
-
 div.headroom-wrapper {
   background-color: black;
+}
+
+.header {
+  position: absolute;
+  display: none;
+  animation: headeranimation 5s;
+}
+
+@keyframes headeranimation {
+  0% {
+      opacity: 1;
+  }
+
+  50% {
+    opacity: 1;
+  }
+
+  100% {
+      opacity: 0;
+      visibility: hidden
+  }
 }
 
 .HeaderSection {

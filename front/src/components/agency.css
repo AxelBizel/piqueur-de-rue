@@ -16,4 +16,8 @@
         line-height: 1.5em;
         border: 1px  red;
     }
+
+    .CarrouselAgency {
+        height: 40vh;
+    }
 }

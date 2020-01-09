@@ -26,13 +26,13 @@
 }
 
 .logoRS {
-    height: 8vw;
+    height: 6vw;
     margin: 2.5em;
     transition: .3s;
 }
 
 .logoRS:hover {
-    height: 8vw;
+    height: 6vw;
     margin: 2.5em;
     transition: .3s;
 }

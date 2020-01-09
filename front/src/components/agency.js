@@ -7,8 +7,8 @@ export default function Agency() {
   return (
     <div className="SectionContainer">
       <h1 className="HeaderSection">L'AGENCE</h1>
-      <Container>
-        <CarrouselAgency />
+        <CarrouselAgency className="CarrouselAgency"/>
+        <Container>
         <p className="aboutAgency">
           <h2>"Une agence de tatouage au service de vos projets"</h2>
           <br />
