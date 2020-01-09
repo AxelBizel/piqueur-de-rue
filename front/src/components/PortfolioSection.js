@@ -43,6 +43,7 @@ class PortfolioSection extends Component {
                       backgroundPosition: "center",
                       backgroundSize: "cover",
                       backgroundRepeat: "no-repeat",
+                      margin:'2vh 2vw'
                     }}
                   >
                     <ButtonOpenPortfolio portfolio={portfolio} />

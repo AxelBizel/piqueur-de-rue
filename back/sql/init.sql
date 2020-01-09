@@ -94,7 +94,36 @@ SET SQL_MODE=@OLD_SQL_MODE;
 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;
 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;
 
+-- -----------------------------------------------------
+-- Table `piqueurderue`.`users_status`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `piqueurderue`.`users_status` (
+  `id` INT(11) NOT NULL AUTO_INCREMENT,
+  `permanent` TINYINT(4) NULL DEFAULT NULL,
+  `guest` TINYINT(4) NULL DEFAULT NULL,
+  `inactive` TINYINT(4) NULL DEFAULT NULL,
+  `admin` TINYINT(4) NULL DEFAULT NULL,
+  PRIMARY KEY (`id`))
+ENGINE = InnoDB
+DEFAULT CHARACTER SET = utf8;
 
+
+-- -----------------------------------------------------
+-- Table `piqueurderue`.`customers`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `piqueurderue`.`customers` (
+  `id` INT(11) PRIMARY KEY NOT NULL AUTO_INCREMENT,
+  `firstName` VARCHAR(70) NOT NULL,
+  `lastName` VARCHAR(70) NOT NULL,
+  `age` INT(11) NULL,
+  `phone` VARCHAR(15) NOT NULL,
+  `email` VARCHAR(150) NOT NULL,
+  `tattoolocation` TEXT NULL,
+  `hauteur` INT(11) NULL,
+  `largeur` INT(11) NULL,
+  `budget` DECIMAL NULL,
+  `story` TEXT NULL
+);
 
 -- -----------------------------------------------------
 -- Modifs

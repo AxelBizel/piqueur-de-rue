@@ -75,7 +75,7 @@ class ModalPortfolio extends Component {
 
               <Row className='mt-0'>
                 <button
-                  className="buttonPortfolio"
+                  className="buttonContactPortfolio"
                   onClick={this.openFormulairePortfolio}
                 >
                   Contacter tatoueur

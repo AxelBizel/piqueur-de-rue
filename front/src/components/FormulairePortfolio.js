@@ -1,64 +1,67 @@
 import React, {Component} from 'react';
+const axios = require('axios');
 
 class FormulairePortfolio extends Component {
     constructor(props){
         super(props);
-        this.state = {  valueFullname : "",
-                        valueAge : null,
-                        valueTel : null,
-                        valueEmail : null,
-                        valueTattooLocation : "",
-                        };
+        this.state = this.getInitialState;
     }
 
-    handleChange = (event) =>{
-        const { valueFullname, valueAge, valueTel, valueEmail } = this.state;
-        this.state.valueFullname = event.target.valueFullname;
-        this.state.valueAge = event.target.valueAge;
-        this.state.valueTel = event.target.valueTel;
-        this.state.valueAge = event.target.valueAge;
-        this.state.valueTattooLocation = event.target.valueTattooLocation;
-        this.setState({ valueFullname,
-                        valueAge,
-                        valueTel,
-                        valueEmail });
+    getInitialState = () => ({
+                        firstname : "",
+                        lastname : "",
+                        age : "",
+                        phone : "",
+                        email : "",
+                        tattoolocation : "",
+                        hauteur : "",
+                        largeur : "",
+                        budget : "",
+                        story : "",
+    })
+
+
+    handleChange = (e) =>{
+        console.log(this.state)
+        this.setState({ [e.target.name]:e.target.value })
+
     }
 
     handleSubmit = (event) =>{
-        alert('Le form a été soumis : ' + this.state.value);
+        console.log('Le form a été soumis : ', this.state);
+        let customer = this.state;
+        axios
+            .post("http://localhost:5000/api/customers", customer)
+            .then(console.log("add customer ok"))
+            this.setState(this.getInitialState);
         event.preventDefault();
     }
-    
+  
+
     render(){
         return (
-            <form className="formPortfolio" onSubmit={event => event.preventDefault()}>
-                <h1>Formulaire de contact :</h1>
-                <h2>Vous :</h2>
-
-
-                <input name="fullName" type="text" onChange={this.handleChange} valueFullname={this.state.valueFullname} placeholder="Votre nom, prénom :"  required></input>
-
-                <input name="age" type="number" onChange={this.handleChange} valueAge={this.state.valueAge} placeholder="Votre âge :"  required></input>
-
-                <input name="phone" type="tel" onChange={this.handleChange} valueTel={this.state.valueTel} size={10} minlength={1} maxlength={10} pattern="[0-9]{2} [0-9]{2} [0-9]{2} [0-9]{2} [0-9]{2}" placeholder="Votre numéro de téléphone :"  required></input>
-                  
-                <input name="email" type="email" onChange={this.handleChange} valueEmail={this.state.valueEmail} placeholder="Votre adresse mail :" required></input>
-                
-                <h2>Votre projet :</h2>
-
-                <input name="tattoolocation" type="text" onChange={this.handleChange} valueTattooLocation={this.state.valueTatooLocation} placeholder="Emplacement du tatouage souhaitée :"  required></input>
-
-                <input name="dimension" type="number" onChange={this.handleChange} valueDimension={this.state.valueDimension} placeholder="La dimension du tatouage souhaité en centimètres :"  required></input>
-
-                <input name="budget" type="number" onChange={this.handleChange} valueBudget={this.state.valueBudget} placeholder="Votre budget :"  required></input>
-
-                <textarea id="story" name="story" rows="5" cols="33">
-                Dîtes-nous en plus sur votre projet ici :
-                </textarea>
-
-                <label id="labelPhone">Pourquoi avons-nous besoin de ces informations ?</label>
-
-            </form>
+            <>
+                <form className="formPortfolio" onSubmit={this.handleSubmit} method="POST" action='/api/customers'>
+                    <h1>Formulaire de contact :</h1>
+                    
+                    <h2>Vous :</h2>
+                    <input name="firstname" type="text" onChange={this.handleChange} value={this.state.firstname} placeholder="Votre prénom :"  required></input>
+                    <input name="lastname" type="text" onChange={this.handleChange} value={this.state.lastname} placeholder="Votre nom :"  required></input>
+                    <input name="age" type="number" onChange={this.handleChange} value={this.state.age} placeholder="Votre âge :" required></input>
+                    <input name="phone" type="tel" onChange={this.handleChange} value={this.state.phone} size={10} minlength={1} maxlength={10}  placeholder="Votre numéro de téléphone :"  required></input>
+                    <input name="email" type="email" onChange={this.handleChange} value={this.state.email} placeholder="Votre adresse mail :" required></input>
+                    
+                    <h2>Votre projet :</h2>
+                    <input name="tattoolocation" type="text" onChange={this.handleChange} value={this.state.tattoolocation} placeholder="Emplacement du tatouage souhaitée :" ></input>
+                    <input name="hauteur" type="number" onChange={this.handleChange} value={this.state.hauteur} placeholder="Dimension de tatouage souhaitée (hauteur en centimètres):" ></input>
+                    <input name="largeur" type="number" onChange={this.handleChange} value={this.state.largeur} placeholder="Dimension de tatouage souhaitée (largeur en centimètres):" ></input>
+                    <input name="budget" type="number" onChange={this.handleChange} value={this.state.budget} placeholder="Votre budget :" ></input>
+                    <textarea id="story" name="story" rows="5" cols="33" onChange={this.handleChange} value={this.state.story} placeholder="Dîtes-nous en plus ici : ">
+                    </textarea>
+                    <label id="labelPhone">Pourquoi avons-nous besoin de ces informations ?</label>
+                    <button className="buttonSubmit" type="submit">Envoyer mes infos au tatoueur</button>
+                </form>
+            </>
         );
     }
 }
