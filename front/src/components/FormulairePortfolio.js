@@ -1,6 +1,5 @@
 import React, {Component} from 'react';
 
-
 class FormulairePortfolio extends Component {
     constructor(props){
         super(props);
@@ -11,8 +10,6 @@ class FormulairePortfolio extends Component {
                         valueTattooLocation : "",
                         };
     }
-
-
 
     handleChange = (event) =>{
         const { valueFullname, valueAge, valueTel, valueEmail } = this.state;
@@ -27,15 +24,11 @@ class FormulairePortfolio extends Component {
                         valueEmail });
     }
 
-    
-
     handleSubmit = (event) =>{
         alert('Le form a été soumis : ' + this.state.value);
         event.preventDefault();
     }
     
-    
-
     render(){
         return (
             <form className="formPortfolio" onSubmit={event => event.preventDefault()}>
@@ -69,7 +62,5 @@ class FormulairePortfolio extends Component {
         );
     }
 }
-
-
 
 export default FormulairePortfolio;
