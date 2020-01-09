@@ -47,3 +47,14 @@
     margin-top: 2em;
     height: 30vh;
 }
+
+
+@media screen and (max-width:768px) {
+    .adresse {
+    }
+
+    .logoRS {
+        height: 20vw;
+        margin: 2em;
+    }
+}

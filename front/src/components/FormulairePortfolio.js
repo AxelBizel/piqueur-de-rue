@@ -1,7 +1,6 @@
 import React, {Component} from 'react';
 const axios = require('axios');
 
-
 class FormulairePortfolio extends Component {
     constructor(props){
         super(props);
@@ -24,8 +23,6 @@ class FormulairePortfolio extends Component {
         this.setState({ [e.target.name]:e.target.value })
     }
 
-    
-
     handleSubmit = (event) =>{
         console.log('Le form a été soumis : ', this.state);
         let customer = this.state;
@@ -35,8 +32,6 @@ class FormulairePortfolio extends Component {
         event.preventDefault();
     }
     
-    
-
     render(){
         return (
             <>
@@ -64,7 +59,5 @@ class FormulairePortfolio extends Component {
         );
     }
 }
-
-
 
 export default FormulairePortfolio;

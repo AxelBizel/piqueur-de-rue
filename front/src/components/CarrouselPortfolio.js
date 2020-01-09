@@ -7,15 +7,9 @@ import fleur from '../img/tatoueurs/fleur.jpg';
 import fleur_genou from '../img/tatoueurs/fleur_genou.jpg';
 import oeil from '../img/tatoueurs/oeil.jpg';
 import "./carrouselPortfolio.css";
-// import Swipe from 'react-easy-swipe';
 
 
 class CarrouselPortfolio extends Component {
-    constructor(props){
-        super(props);
-
-    }
-
       // onSwipeStart(event) {
       //   console.log('Start swiping...', event);
       // }

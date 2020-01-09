@@ -85,18 +85,34 @@
 }
 
 .textPresentation {
-  font-size: 20px;
+  font-size: 16px;
   color: white;
+  margin: 5% auto;
+  text-align: justify;
+  max-width: 350px;
+  display: flex;
+  align-self: center;
+}
+
+.tatoueur-header {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: space-evenly;
+  margin : 5%;
+}
+
+.photo-tatoueur {
+  width: 250px;
+  margin : 5% auto;
+  display: flex;
+  align-items: center;
 }
 
 .imgPrincipale {
-  width: 80vw;
+  width: 70%;
   height: auto;
-  margin: 0 5vw;
-}
-
-.sectionImgs {
-  margin-top: 20px;
+  margin: 5% 15%;
 }
 
 /* .buttonCloseModal {
@@ -114,7 +130,7 @@
   height: 5vh;
   border-radius: 25px;
   box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.644);
-  margin: 3% 3%;
+  margin: 3% auto;
   background-color: #786b60;
   padding: 0 20px;
   transition: 0.4s;
@@ -123,10 +139,9 @@
 
 .buttonPortfolio:hover {
   box-shadow: 1px 1px 3px rgba(0, 0, 0, 0);
-  margin: 3vh 0 3vh 0;
-  background-color: #786B60;
+  background-color: #786b60;
   padding: 0 20px;
-  transition: 0.4s; 
+  transition: 0.4s;
 }
 
 .close-container {
@@ -168,4 +183,10 @@
 .close-container:hover .rightleft {
   transform: rotate(45deg);
   background-color: #f25c66;
+}
+
+
+.imgCarrousel {
+  margin-bottom: 15px;
+  padding: 0 0 20px 5px;
 }
