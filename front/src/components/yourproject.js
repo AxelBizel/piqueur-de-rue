@@ -28,7 +28,7 @@ export default class YourProject extends Component {
   render() {
     return (
       <div>
-        <h1 className="HeaderSection">VOTRE PROJET EN ÉTAPE</h1>
+        <h1 className="HeaderSection">VOTRE PROJET</h1>
         <div className="yourproject">
           <div className="ProjectSection1">
             <Container>
@@ -122,7 +122,7 @@ export default class YourProject extends Component {
                   className="buttonContactProject"
                   onClick={this.openModal}
                 >
-                  NOUS CONTACTER
+                  Nous contacter
                 </button>
                 <ModalContactProject
                   showModal={this.state.showModal}
