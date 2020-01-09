@@ -1,11 +1,10 @@
 import React, { Component } from "react";
 import "./modalPortfolio.css";
-import abeille from "../img/tatoueurs/abeille.jpg";
-import cosmic from "../img/tatoueurs/cosmic.jpg";
-import insta from "../img/instagram.png";
-import CarrouselPortfolio from "./CarrouselPortfolio";
+import timmy_rodger from "../img/tatoueurs/portraits-500px/timmy_rodger.jpg";
+import insta from "../img/logo/logoIG.png";
 import FormulairePortfolio from "./FormulairePortfolio";
 import { Container, Row, Col } from "reactstrap";
+import GalleryPortfolio from "./GalleryPortfolio";
 
 class ModalPortfolio extends Component {
   constructor(props) {
@@ -43,52 +42,52 @@ class ModalPortfolio extends Component {
               <div class="rightleft"></div>
               <label class="close"></label>
             </div>
-            {/* <button className="buttonCloseModal" onClick={ props.closeModal}>X</button> */}
+
+         
             <Container>
               <Row>
-                <Col xs="6">
-                  <Col
-                    xs="12"
-                    style={{
-                      width: "100%",
-                      height: "500px",
-                      backgroundImage: `url(${cosmic})`,
-                      backgroundPosition: "center",
-                      backgroundSize: "cover",
-                      backgroundRepeat: "no-repeat"
-                    }}
-                  ></Col>
-                </Col>
-                <Col xs="6">
-                  <h1 className="h1Portfolio">{this.props.portfolio.pseudo}</h1>
+
+                <Col xs="12" md="6">
+                  <img src={timmy_rodger} className="photo-tatoueur" />
+                  <div className="tatoueur-header">
+                    <h1 className="h1Portfolio">
+                      {this.props.portfolio.pseudo}
+                    </h1>
+                    <img
+                      src={insta}
+                      style={{ width: "40px", height: "40px" }}
+                    />
+                  </div>
                   <p className="textPresentation">
                     {this.props.portfolio.presentation}
                   </p>
-                  <a href="https://www.instagram.com/cosmic.billie/?hl=fr">
-                    <img src={insta} style={{ width: "100px" }} alt={"InstagramLogo"}/>
-                  </a>
+                  <a href="https://www.instagram.com/cosmic.billie/?hl=fr"></a>
+                </Col>
+
+
+                <Col xs="12" md="6">
+                  <div style={{ width: "80%", margin: "5% auto" }}>
+                    <GalleryPortfolio />
+                  </div>
                 </Col>
               </Row>
-              <button
-                className="buttonPortfolio"
-                onClick={this.openFormulairePortfolio}
-              >
-                Contacter tatoueur
-              </button>
-              {this.state.showFormulaire ? (
-                <FormulairePortfolio
-                  openFormulaire={this.openFormulairePortfolio}
-                  closeFormulaire={this.closeFormulairePortfolio}
-                />
-              ) : null}
-              <div className="sectionImgs">
-                <img
-                  className="imgPrincipale"
-                  src={abeille}
-                  alt="réalisation du tatoueur"
-                />
-                <CarrouselPortfolio />
-              </div>
+
+
+              <Row className='mt-0'>
+                <button
+                  className="buttonPortfolio"
+                  onClick={this.openFormulairePortfolio}
+                >
+                  Contacter tatoueur
+                </button>
+                {this.state.showFormulaire ? (
+                  <FormulairePortfolio
+                    openFormulaire={this.openFormulairePortfolio}
+                    closeFormulaire={this.closeFormulairePortfolio}
+                  />
+                ) : null}
+              </Row>
+
             </Container>
           </aside>
         ) : null}

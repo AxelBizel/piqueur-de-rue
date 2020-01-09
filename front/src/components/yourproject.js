@@ -1,33 +1,35 @@
-import React, {Component} from 'react';
-import './yourproject.css';
-import ModalContactProject from '../components/modalContactProject'
+import React, { Component } from "react";
+import "./yourproject.css";
+import ModalContactProject from "../components/modalContactProject";
+import { Container } from "reactstrap";
 
 /*MODAL CONTACT PROJET*/
 
-export default class YourProject extends Component{
-    constructor(props) {
-        super(props);
-        this.state= {
-            showModal: false,
-        };
-    }
-    openModal=(e)=> {
-        let {showModal} = this.state;
-        e.preventDefault()
-        showModal = true;
-        this.setState({ showModal })
-    }
+export default class YourProject extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      showModal: false
+    };
+  }
+  openModal = e => {
+    let { showModal } = this.state;
+    e.preventDefault();
+    showModal = true;
+    this.setState({ showModal });
+  };
 
-    closeModal=()=> {
-        let {showModal} = this.state;
-        showModal = false;
-        this.setState({ showModal })
-    }
+  closeModal = () => {
+    let { showModal } = this.state;
+    showModal = false;
+    this.setState({ showModal });
+  };
 
-    render() {
+  render() {
     return (
         <div>
             <h1 className="HeaderSection">VOTRE PROJET EN ÉTAPE</h1>
+            <Container>
                 <div className="yourproject">
                     <div className="ProjectSection1">
                         <div className="step"><h3 className="Title">LE RENDEZ-VOUS</h3><p className="TextSub">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur et posuere dolor. Aliquam condimentum lacus a velit scelerisque, id rhoncus lorem laoreet. Morbi sollicitudin metus tellus, vulputate semper erat egestas quis. Sed interdum sed diam at finibus. Vestibulum nec sem urna. In mollis purus et libero tincidunt convallis.</p></div>
@@ -47,9 +49,9 @@ export default class YourProject extends Component{
                             <ModalContactProject showModal={this.state.showModal} closeModal={this.closeModal}
                         />
                         </div>
-                    </div>
-                    
+                    </div>     
                 </div>
+            </Container>
         </div>
     )
 }
