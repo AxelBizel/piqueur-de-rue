@@ -57,11 +57,9 @@
 }
 
 .step {
-    position: absolute;
     background: linear-gradient(326deg, rgba(236, 236, 236,0.04) 0%, rgba(236, 236, 236,0.04) 6%,rgba(157, 157, 157,0.04) 6%, rgba(157, 157, 157,0.04) 29%,rgba(77, 77, 77,0.04) 29%, rgba(77, 77, 77,0.04) 100%),linear-gradient(164deg, rgba(236, 236, 236,0.04) 0%, rgba(236, 236, 236,0.04) 36%,rgba(157, 157, 157,0.04) 36%, rgba(157, 157, 157,0.04) 61%,rgba(77, 77, 77,0.04) 61%, rgba(77, 77, 77,0.04) 100%),linear-gradient(336deg, rgba(236, 236, 236,0.04) 0%, rgba(236, 236, 236,0.04) 64%,rgba(157, 157, 157,0.04) 64%, rgba(157, 157, 157,0.04) 69%,rgba(77, 77, 77,0.04) 69%, rgba(77, 77, 77,0.04) 100%),linear-gradient(90deg, rgb(0,0,0),rgb(0,0,0));
     border-radius: 3px;
-    width: 80vw;
-    padding: 3em;
+    padding: 5%;
     text-align: center;
     color: white;
     border: 1px solid black;
@@ -73,12 +71,12 @@
     flex-direction: column;
     align-items: center;
     font-family: "FalkinSerifBoldPERSONAL";
-    font-size: 4em;
+    font-size: 2.5em;
     color: white;
 }
 
 .TextSub {
-    font-size: 1.4em;
+    font-size: 1.3em;
 }
 
 .buttonContactProject {
@@ -90,7 +88,7 @@
     box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.774);
     transition: 0.4s;
     font-weight: 600;
-    margin: 2em 0 1em 0;
+    margin: 5vh;
 }
 
 .buttonContactProject:hover {
@@ -100,8 +98,10 @@
     background-color: #7A6A5D;
     border:1px solid rgba(0, 0, 0, 0);
     box-shadow: none;
-    margin: 2em 0 1em 0;
 }
+
+
+
 
 /* MODAL CSS */
 
@@ -218,45 +218,4 @@ select:required:invalid {
 
 input:placeholder{
     color: silver;
-}
-
-@media screen and (max-width:768px) {
-
-    .ProjectSection1 {
-        font-size: 3.5vw;
-    }
-
-    .ProjectSection2 {
-        font-size: 3.5vw;
-    }
-
-    .ProjectSection3 {
-        font-size: 3.5vw;
-    }
-
-    .ProjectSection4 {
-        font-size: 3.5vw;
-    }
-
-    .step {
-        position: absolute;
-    background-color: rgba(0, 0, 0, 0.932);
-    border-radius: 3px;
-    width: 80vw;
-    text-align: justify;
-    color: white;
-    }
-    
-    .Title {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        font-family: "FalkinSerifBoldPERSONAL";
-        font-size: 4em;
-        color: white;
-    }
-    
-    .TextSub {
-        font-size: 1.4em;
-    }
 }

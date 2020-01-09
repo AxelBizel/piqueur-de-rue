@@ -95,7 +95,7 @@ src: url("./fonts/South_Gardens_Personal_Use.ttf") format("truetype");
     color: rgb(255, 255, 255);
     text-shadow: 4px 4px 10px black;
     height: 10vh;
-    margin: 0;
+    margin: 5vh;
     transition: .3s;
   }
 }
