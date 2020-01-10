@@ -1,7 +1,8 @@
 import React, { Component } from "react";
+import { Container, Col, Row } from "reactstrap";
+import { Parallax, Background } from 'react-parallax';
 import ModalContactGuest from "./modalContactGuest";
 import "./GuestHome.css";
-import { Container, Col, Row } from "reactstrap";
 
 class GuestHome extends Component {
   constructor(props) {
@@ -28,8 +29,13 @@ class GuestHome extends Component {
     return (
       <div>
         <h1 className="HeaderSection">NOS GUESTS</h1>
+        <Parallax
+            bgImage={require('../img/agency/5.jpg')}
+            bgImageAlt="the cat"
+            strength={400}
+          >
+        <div className="SectionGuestContainer">
         <Container>
-          <div className="SectionGuestContainer">
             <Row>
               <Col xs="12" md="6">
                 <div className="GuestText">
@@ -53,8 +59,10 @@ class GuestHome extends Component {
                 closeModal={this.closeModal}
               />
             </Row>
-          </div>
+          
         </Container>
+        </div>
+          </Parallax>
       </div>
     );
   }

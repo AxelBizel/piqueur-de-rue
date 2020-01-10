@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import "./yourproject.css";
 import ModalContactProject from "../components/modalContactProject";
 import { Container, Row, Col } from "reactstrap";
+import { Parallax } from 'react-parallax';
 
 /*MODAL CONTACT PROJET*/
 
@@ -30,6 +31,13 @@ export default class YourProject extends Component {
       <div>
         <h1 className="HeaderSection">VOTRE PROJET</h1>
         <div className="yourproject">
+
+          <Parallax
+            bgImage={require('../img/projet/1rendezvous.jpg')}
+            bgImageAlt="the cat"
+            strength={400}
+            blur={2}
+          >
           <div className="ProjectSection1">
             <Container>
               <Row>
@@ -51,7 +59,14 @@ export default class YourProject extends Component {
               </Row>
             </Container>
           </div>
+          </Parallax>
 
+          <Parallax
+            bgImage={require('../img/projet/2dessin.jpg')}
+            bgImageAlt="the cat"
+            strength={400}
+            blur={2}
+          >
           <div className="ProjectSection2">
             <Container>
               <Row>
@@ -73,7 +88,14 @@ export default class YourProject extends Component {
               </Row>
             </Container>
           </div>
+          </Parallax>
 
+          <Parallax
+            bgImage={require('../img/projet/3simulation.jpg')}
+            bgImageAlt="the cat"
+            strength={400}
+            blur={2}
+          >
           <div className="ProjectSection3">
             <Container>
               <Row>
@@ -95,7 +117,14 @@ export default class YourProject extends Component {
               </Row>
             </Container>
           </div>
+          </Parallax>
 
+          <Parallax
+            bgImage={require('../img/projet/4realisation.jpg')}
+            bgImageAlt="the cat"
+            strength={400}
+            blur={2}
+          >
           <div className="ProjectSection4">
             <Container>
               <Row>
@@ -115,8 +144,6 @@ export default class YourProject extends Component {
                   </div>
                 </Col>
               </Row>
-              
-              
             </Container>
                 <button
                   className="buttonContactProject"
@@ -129,6 +156,7 @@ export default class YourProject extends Component {
                   closeModal={this.closeModal}
                 />
           </div>
+          </Parallax>
         </div>
       </div>
     );
