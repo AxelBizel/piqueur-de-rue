@@ -12,8 +12,6 @@
   color: rgb(0, 0, 0);
 }
 
-
-
 .GuestText {
     background: rgba(255, 255, 255, 0.918);
     border-radius: 3px;
@@ -21,7 +19,6 @@
     text-align: justify;
     color: black;
 }
-
 
 .Title-Guest {
     text-align: left;
