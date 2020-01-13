@@ -43,7 +43,6 @@ class ModalPortfolio extends Component {
               <label class="close"></label>
             </div>
 
-         
             <Container>
               <Row>
 
