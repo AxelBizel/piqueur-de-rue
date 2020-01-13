@@ -45,7 +45,7 @@ app.post('/login', function(request, response) {
             login : results[0].login,
           } 
         }, 
-       'toto', 
+       'toto', {expiresIn : '15sec'},
         (err,token) => {
           console.log(err, token)
           response.json({token})
