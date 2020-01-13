@@ -6,18 +6,9 @@ import { Container, Row, Col } from "reactstrap";
 export default function Agency() {
   return (
     <div className="SectionContainer">
-      <h1 className="HeaderSection">L'AGENCE</h1>
+      <h1 className="HeaderSection"><div className="FirstLineAgency">Une agence</div><div className="SecondLineAgency">de TATOUAGE</div><div className="ThirdLineAgency">au service de vos projets</div></h1>
       <Container>
       <CarrouselAgency />
-        <Row>
-          <Col>
-           
-              <h3 className="Title-Agency">
-                UNE AGENCE DE TATOUAGE AU SERVICE DE VOS PROJETS
-              </h3>
-        
-          </Col>
-        </Row>
         <Row>
           <Col xs="12" md="6">
             <div className="aboutAgency">
