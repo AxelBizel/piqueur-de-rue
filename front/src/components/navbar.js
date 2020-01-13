@@ -32,11 +32,11 @@ return (
                                         <NavLink href="#footer" className="styleLink">Contactez-nous</NavLink>
                                     </NavItem>
                                 </Nav>
-                            <NavLink href="/components/" className="loginLink">Login</NavLink>
+                            <NavLink href="/login" className="loginLink">Login</NavLink>
                         </Collapse>
                     </NavbarStrap>
                 </div>
-            </Headroom>
+            </Headroom>      
         </div>
     )
 }
