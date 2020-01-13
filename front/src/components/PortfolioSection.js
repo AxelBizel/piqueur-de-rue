@@ -25,7 +25,7 @@ class PortfolioSection extends Component {
     return (
       <div id="permanentartists">
         <div>
-          <h1 className="HeaderSection">NOS TATOUEURS</h1>
+          <h1 className="HeaderSection">NOTRE TEAM</h1>
         </div>
         <Container>
           <Row>
@@ -38,11 +38,12 @@ class PortfolioSection extends Component {
                     key={portfolio.id}
                     style={{
                       width: "100%",
-                      height: "500px",
+                      height: "450px",
                       backgroundImage: `url(${gladys}`,
                       backgroundPosition: "center",
                       backgroundSize: "cover",
-                      backgroundRepeat: "no-repeat"
+                      backgroundRepeat: "no-repeat",
+                      margin:'2vh 2vw'
                     }}
                   >
                     <ButtonOpenPortfolio portfolio={portfolio} />

@@ -1,19 +1,22 @@
 .aboutAgency {
-    padding: 2em 10em 1em 10em;
-    font-size: 1.4em;
-    text-align: justify;
-    line-height: 2em;
-    border: 1px  red;
-    text-align: center;
-    margin-bottom: 5vh;
+    /* background: linear-gradient(326deg, rgba(236, 236, 236,0.04) 0%, rgba(236, 236, 236,0.04) 6%,rgba(157, 157, 157,0.04) 6%, rgba(157, 157, 157,0.04) 29%,rgba(77, 77, 77,0.04) 29%, rgba(77, 77, 77,0.04) 100%),linear-gradient(164deg, rgba(236, 236, 236,0.04) 0%, rgba(236, 236, 236,0.04) 36%,rgba(157, 157, 157,0.04) 36%, rgba(157, 157, 157,0.04) 61%,rgba(77, 77, 77,0.04) 61%, rgba(77, 77, 77,0.04) 100%),linear-gradient(336deg, rgba(236, 236, 236,0.04) 0%, rgba(236, 236, 236,0.04) 64%,rgba(157, 157, 157,0.04) 64%, rgba(157, 157, 157,0.04) 69%,rgba(77, 77, 77,0.04) 69%, rgba(77, 77, 77,0.04) 100%),linear-gradient(90deg, rgb(0,0,0),rgb(0,0,0)); */
+    border-radius: 3px;
+    padding: 5%;
+    color: black;
+    border: 1px solid black;
+    margin-bottom: 3vh;
 }
 
-@media screen and (max-width:768px) {
-    .aboutAgency {
-        padding: 2em 2em 4em 2em;
-        font-size: 1.2em;
-        text-align: justify;
-        line-height: 1.5em;
-        border: 1px  red;
-    }
+.Title-Agency {
+    text-align: center;
+    font-family: "FalkinSerifBoldPERSONAL";
+    font-size: 2.5em;
+    color: black;
+    margin-bottom: 3vh;
+}
+
+.TextSub-Agency {
+    font-size: 1em;
+    text-align: justify;
+    margin: 0;
 }

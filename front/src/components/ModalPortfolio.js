@@ -48,23 +48,22 @@ class ModalPortfolio extends Component {
               <Row>
 
                 <Col xs="12" md="6">
+                  <div className="infoTatoueur" >
                   <img src={timmy_rodger} className="photo-tatoueur" />
                   <div className="tatoueur-header">
                     <h1 className="h1Portfolio">
                       {this.props.portfolio.pseudo}
                     </h1>
-                    <img
+                    <a href="https://www.instagram.com/cosmic.billie/?hl=fr"><img
                       src={insta}
                       style={{ width: "40px", height: "40px" }}
-                    />
+                    /></a>
                   </div>
                   <p className="textPresentation">
                     {this.props.portfolio.presentation}
                   </p>
-                  <a href="https://www.instagram.com/cosmic.billie/?hl=fr"></a>
+                  </div>
                 </Col>
-
-
                 <Col xs="12" md="6">
                   <div style={{ width: "80%", margin: "5% auto" }}>
                     <GalleryPortfolio />
@@ -72,14 +71,7 @@ class ModalPortfolio extends Component {
                 </Col>
               </Row>
 
-
-              <Row className='mt-0'>
-                <button
-                  className="buttonPortfolio"
-                  onClick={this.openFormulairePortfolio}
-                >
-                  Contacter tatoueur
-                </button>
+              <Row className='mt-0'>                
                 {this.state.showFormulaire ? (
                   <FormulairePortfolio
                     openFormulaire={this.openFormulairePortfolio}

@@ -1,7 +1,8 @@
 import React, { Component } from "react";
+import { Container, Col, Row } from "reactstrap";
+import { Parallax, Background } from 'react-parallax';
 import ModalContactGuest from "./modalContactGuest";
 import "./GuestHome.css";
-import { Container } from "reactstrap";
 
 class GuestHome extends Component {
   constructor(props) {
@@ -27,24 +28,41 @@ class GuestHome extends Component {
   render() {
     return (
       <div>
-        <h1 className="HeaderSection">DEVENEZ GUEST</h1>
+        <h1 className="HeaderSection">NOS GUESTS</h1>
+        <Parallax
+            bgImage={require('../img/agency/5.jpg')}
+            bgImageAlt="the cat"
+            strength={400}
+          >
+        <div className="SectionGuestContainer">
         <Container>
-          <div className="SectionGuestContainer">
-            <p className="GuestText">
-              Vous êtes tatoueur et vous cherchez un salon sur Lyon pour venir
-              faire un guest. Contactez nous et obtenez votre code d'accès pour
-              planifier votre venu, recevoir les infos sur le fonctionnement du
-              shop ainsi que la gestion de votre image.
-            </p>
-            <button className="buttonContactProject" onClick={this.openModal}>
-              DEVENEZ GUEST
-            </button>
-            <ModalContactGuest
-              showModal={this.state.showModal}
-              closeModal={this.closeModal}
-            />
-          </div>
+            <Row>
+              <Col xs="12" md="6">
+                <div className="GuestText">
+                  <h3 className="Title-Guest">DEVENEZ GUEST</h3>
+
+                  <p className="TextSub">
+                    Vous êtes tatoueur et vous cherchez un salon sur Lyon pour
+                    venir faire un guest. Contactez nous et obtenez votre code
+                    d'accès pour planifier votre venu, recevoir les infos sur le
+                    fonctionnement du shop ainsi que la gestion de votre image.
+                  </p>
+                </div>
+              </Col>
+            </Row>
+            <Row>
+              <button className="buttonContactProject" onClick={this.openModal}>
+                Contactez-nous
+              </button>
+              <ModalContactGuest
+                showModal={this.state.showModal}
+                closeModal={this.closeModal}
+              />
+            </Row>
+          
         </Container>
+        </div>
+          </Parallax>
       </div>
     );
   }

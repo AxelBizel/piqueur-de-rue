@@ -10,6 +10,7 @@ import PortfolioSection from "./components/PortfolioSection";
 import "./index.css";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
+import YourProjectAccordion from "./components/YourProjectAccordion";
 
 class App extends Component {
   constructor(props) {
@@ -20,7 +21,6 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        
         <Navbar />
         <Header />
         <Home />
@@ -33,8 +33,11 @@ class App extends Component {
         <div id="guests">
           <GuestHome />
         </div>
-        <div id="yourproject">
+        {/* <div id="yourproject">
           <YourProject />
+        </div> */}
+        <div id="yourproject">
+          <YourProjectAccordion />
         </div>
         <div id="footer">
           <Footer />

@@ -1,3 +1,10 @@
+.styleNavbar {
+    background-color: #786B60;
+    position: relative;
+    width: 100vw;
+    box-shadow: 1px 1px 10px rgb(58, 58, 58);
+}
+
 .styleLink {
     color: rgb(54, 53, 52);
     transition: 0.1s;
@@ -10,14 +17,6 @@
 .styleLink:hover, .loginLink:hover{
     color: white;
     transition: 0.1s;
-}
-
-.styleNavbar {
-    background-color: #786B60;
-    position: relative;
-    z-index: 1;
-    width: 100vw;
-    box-shadow: 1px 1px 10px rgb(58, 58, 58);
 }
 
 .styleLink {
@@ -55,14 +54,29 @@
 
 @media screen and (max-width:768px) {
     .styleNavbar {
-        background-color: rgba(255, 255, 255, 0.712) !important;
-        position: fixed;
-        border-radius: 5px;
-        width: auto;
+        background-color: #786B60;
+        position: relative;
+        z-index: 1;
+        width: 100vw;
+        box-shadow: 1px 1px 10px rgb(58, 58, 58);
     }
     
     .styleLink {
         font-size: 1.4em;
         margin-right: 1vw;
+    }
+
+    .loginLink {
+        color: rgb(182, 179, 176);
+    }
+
+    .styleLink::after {
+        display: none;
+    }
+
+    .loginLink {
+        padding-left: none;
+        font-size: 1.4em;
+        color: rgb(182, 179, 176);
     }
 }
