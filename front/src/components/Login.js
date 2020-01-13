@@ -1,66 +1,59 @@
-import React, { Component } from 'react';
+import React , {Component} from "react"
+import { Redirect } from "react-router-dom"
+import Axios from "axios"
 
-export default class Login extends Component {
-  constructor(props) {
-    super(props)
-    this.state = {
-      login : '',
-      password: ''
-    };
+      class Login extends Component {
+        constructor(props) {
+          super(props)
+          let loggedIn = false
+          const token = localStorage.getItem("token")
+          if (token) loggedIn = true
+            this.state = {
+            login: "",
+            password: "",
+            loggedIn,
+            error: ""
+            }
+        this.onChange = this.onChange.bind(this)
+        this.formSubmit = this.formSubmit.bind(this)
   }
 
-  handleInputChange = (event) => {
-    const { value, name } = event.target;
+  onChange(ev) {
     this.setState({
-      [name]: value
-    });
+      [ev.target.name]: ev.target.value
+    })
   }
 
-  onSubmit = (event) => {
-    event.preventDefault();
-    fetch('/api/authenticate', {
-      method: 'POST',
-      body: JSON.stringify(this.state),
-      headers: {
-        'Content-Type': 'application/json'
-      }
-    })
-    .then(res => {
-      if (res.status === 200) {
-        this.props.history.push('/');
-      } else {
-        const error = new Error(res.error);
-        throw error;
-      }
-    })
-    .catch(err => {
-      console.error(err);
-      alert('Error logging in please try again');
-    });
+  async formSubmit(ev) {
+    ev.preventDefault()
+    const { login, password } = this.state
+    try {
+      const token = await Axios.post("http://localhost:5000/login", { login, password })
+      localStorage.setItem("token", token)
+      this.setState({
+        loggedIn: true
+      })
+    } catch (err) {
+      console.log(err)
+      this.setState({
+        error: err.message
+      })
+    }
   }
 
   render() {
+    if (this.state.loggedIn === true) {
+      return <Redirect to="/user" />
+    }
     return (
-      <form onSubmit={this.onSubmit}>
-        <h1>Login Below!</h1>
-        <input
-          type="login"
-          name="login"
-          placeholder="Enter email"
-          value={this.state.login}
-          onChange={this.handleInputChange}
-          required
-        />
-        <input
-          type="password"
-          name="password"
-          placeholder="Enter password"
-          value={this.state.password}
-          onChange={this.handleInputChange}
-          required
-        />
-        <input type="submit" value="Submit"/>
+      <form onSubmit={this.formSubmit}>
+        <input type="text" placeholder="username" value={this.state.login} onChange={this.onChange} name="login" />
+        <input type="password" placeholder="password" value={this.state.password} onChange={this.onChange} name="password" />
+        <input type="submit" />
+        {this.state.error}
       </form>
-    );
+    )
   }
 }
+
+export default Login;

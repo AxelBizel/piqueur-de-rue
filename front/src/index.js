@@ -6,12 +6,15 @@ import * as serviceWorker from './serviceWorker';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { BrowserRouter as Router, Route , Switch } from 'react-router-dom';
 import Login from './components/Login'
-
+import User from './components/User'
+import Logout from './components/Logout'
 
 ReactDOM.render(<Router>
     <div>
       <Route  exact path='/' component={App} />
       <Route path="/login" component={Login} />
+      <Route path="/user" component={User} />
+      <Route path = "logout" component = {Logout}/>
     </div>
     </Router>, document.getElementById('root'));
 

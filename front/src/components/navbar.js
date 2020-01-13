@@ -4,39 +4,39 @@ import Headroom from 'react-headroom'; /* https://kyleamathews.github.io/react-h
 import './navbar.css'
 
 const Navbar = () => {
-  const [isOpen, setIsOpen] = useState(false);
+    const [isOpen, setIsOpen] = useState(false);
 
-const toggle = () => setIsOpen(!isOpen);
+    const toggle = () => setIsOpen(!isOpen);
 
-return (
+    return (
         <div>
-            <Headroom style={{transition: 'all 1s ease-in-out'}}>
+            <Headroom style={{ transition: 'all 1s ease-in-out' }}>
                 <div className="styleNavbar">
-                    <NavbarStrap  expand="md">
+                    <NavbarStrap expand="md">
                         <NavbarToggler onClick={toggle} />
                         <Collapse isOpen={isOpen} navbar>
-                                <Nav className="mr-auto" navbar>
-                                    <NavItem>
-                                        <NavLink href="#agency" className="styleLink">L'Agence</NavLink>
-                                    </NavItem>
-                                    <NavItem>
-                                        <NavLink href="#permanentartists" className="styleLink">La Team</NavLink>
-                                    </NavItem>
-                                    <NavItem>
-                                        <NavLink href="#guests" className="styleLink">Les Guests</NavLink>
-                                    </NavItem>
-                                    <NavItem>
-                                        <NavLink href="#yourproject" className="styleLink">Votre Projet</NavLink>
-                                    </NavItem>
-                                    <NavItem>
-                                        <NavLink href="#footer" className="styleLink">Contactez-nous</NavLink>
-                                    </NavItem>
-                                </Nav>
+                            <Nav className="mr-auto" navbar>
+                                <NavItem>
+                                    <NavLink href="#agency" className="styleLink">L'Agence</NavLink>
+                                </NavItem>
+                                <NavItem>
+                                    <NavLink href="#permanentartists" className="styleLink">La Team</NavLink>
+                                </NavItem>
+                                <NavItem>
+                                    <NavLink href="#guests" className="styleLink">Les Guests</NavLink>
+                                </NavItem>
+                                <NavItem>
+                                    <NavLink href="#yourproject" className="styleLink">Votre Projet</NavLink>
+                                </NavItem>
+                                <NavItem>
+                                    <NavLink href="#footer" className="styleLink">Contactez-nous</NavLink>
+                                </NavItem>
+                            </Nav>
                             <NavLink href="/login" className="loginLink">Login</NavLink>
                         </Collapse>
                     </NavbarStrap>
                 </div>
-            </Headroom>      
+            </Headroom>
         </div>
     )
 }
