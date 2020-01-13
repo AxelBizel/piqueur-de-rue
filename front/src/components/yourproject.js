@@ -1,8 +1,8 @@
 import React, { Component } from "react";
-import "./yourproject.css";
 import ModalContactProject from "../components/modalContactProject";
 import { Container, Row, Col } from "reactstrap";
 import { Parallax } from 'react-parallax';
+import "./yourproject.css";
 
 /*MODAL CONTACT PROJET*/
 
