@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import PortfolioModal from "./ModalPortfolio";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faMousePointer } from '@fortawesome/free-solid-svg-icons'
 
 class ButtonOpenPortfolio extends Component {
   constructor(props) {
@@ -36,7 +35,7 @@ class ButtonOpenPortfolio extends Component {
     return (
       <div>
         <button className="buttonPortfolio" onClick={this.openModal}>
-        {this.props.portfolio.pseudo}       <FontAwesomeIcon icon={faMousePointer} />
+        {this.props.portfolio.pseudo}      
         </button>
         <PortfolioModal
           portfolio={this.props.portfolio}
