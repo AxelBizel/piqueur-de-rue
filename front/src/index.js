@@ -10,12 +10,12 @@ import User from './components/User'
 import Logout from './components/Logout'
 
 ReactDOM.render(<Router>
-    <div>
-      <Route  exact path='/' component={App} />
-      <Route path="/login" component={Login} />
-      <Route path="/user" component={User} />
-      <Route path = "logout" component = {Logout}/>
-    </div>
+    <Switch>
+    <Route exact path= "/" component={App} />
+      <Route exact path= "/login" component={Login} />
+      <Route path= "/user" component={User} />
+      <Route path= "/logout" component={Logout} />
+    </Switch>
     </Router>, document.getElementById('root'));
 
 // If you want your app to work offline and load faster, you can change
