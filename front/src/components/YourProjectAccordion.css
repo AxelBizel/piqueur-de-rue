@@ -103,7 +103,8 @@ form h3 {
     transform: translate(-50%, -50%);
     width: 60vw;
     height: auto !important;
-    border-radius: 10px;
+    border-radius: 0 30px 0 30px;
+    border: 4px #7A6A5D;
     padding: 40px;
     background: white !important;
     z-index: 15;

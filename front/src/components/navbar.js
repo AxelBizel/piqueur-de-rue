@@ -10,13 +10,7 @@ const toggle = () => setIsOpen(!isOpen);
 
 return (
         <div>
-            <Headroom 
-            style={{
-                webkitTransition: 'all .4s ease-in-out',
-                mozTransition: 'all .4s ease-in-out',
-                oTransition: 'all .4s ease-in-out',
-                transition: 'all .4s ease-in-out',
-            }}>
+            <Headroom >
                 <div className="styleNavbar" >
                     <NavbarStrap light expand="md">
                         <NavbarToggler onClick={toggle} />
