@@ -38,7 +38,7 @@ class PortfolioSection extends Component {
                     key={portfolio.id}
                     style={{
                       width: "100%",
-                      height: "500px",
+                      height: "450px",
                       backgroundImage: `url(${gladys}`,
                       backgroundPosition: "center",
                       backgroundSize: "cover",
