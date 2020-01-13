@@ -6,8 +6,7 @@ const bodyParser = require("body-parser");
 const path = require ('path');
 const session = require ('express-session');
 const jwt = require ('jsonwebtoken')
-
-// const cors = require("cors");
+const cors = require("cors");
 
 // bodyParser
 app.use(bodyParser.json());
@@ -21,17 +20,17 @@ app.use(bodyParser.json());
 
 app.use(express.json())
 
+app.use(cors())
 
 //Authetification avec Express-Session 
 
 app.get('/', function(request, response) {
-  response.sendFile(path.join(__dirname + '/login.html'));
-  console.log(request.headers.authorization)
-  // const user = {}
-  // response.json(user)
+  const user = {}
+  response.json(user)
 });
 
-app.post('/auth', function(request, response) {
+
+app.post('/login', function(request, response) {
   const login = request.body.login;
 	const password = request.body.password;
 	if (login && password) {
@@ -46,7 +45,7 @@ app.post('/auth', function(request, response) {
             login : results[0].login,
           } 
         }, 
-        require('./conf').secret , 
+       'toto', 
         (err,token) => {
           console.log(err, token)
           response.json({token})
@@ -60,6 +59,7 @@ app.post('/auth', function(request, response) {
 	}
 });
 
+
 app.get('/home', function(request, response) {
 	if (request.session.loggedin) {
 		response.send('Bienvenue, ' + request.session.login + '!');
@@ -68,6 +68,9 @@ app.get('/home', function(request, response) {
 	}
 	response.end();
 });
+
+
+
 
 
   // //Cors
@@ -124,3 +127,4 @@ app.get('/home', function(request, response) {
 
     console.log(`Server is listening on ${port}`);
   })
+

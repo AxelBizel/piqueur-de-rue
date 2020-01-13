@@ -8,7 +8,7 @@ INSERT INTO portfolio (pseudo, type, presentation, style, active, photo) VALUES 
 
 --Insert Users // Test JWT
 
-INSERT INTO users (login , password) VALUES ('Timmy Rodger', 'timmyrodger1900'),
-INSERT INTO users (login , password) VALUES ('Cosmic Billie', 'cosmicbillie1960'),
-INSERT INTO users (login , password) VALUES ('Galdysmeetyou', 'gladysmeetyou1990'),
-INSERT INTO users (login , password) VALUES ('Alex 290', 'alex2901010');
+INSERT INTO users (login , password) VALUES ('TimmyRodger', 'timmyrodger'),
+INSERT INTO users (login , password) VALUES ('CosmicBillie', 'cosmicbillie'),
+INSERT INTO users (login , password) VALUES ('Gladysmeetyou', 'gladysmeetyou'),
+INSERT INTO users (login , password) VALUES ('Alex290', 'alex290');
