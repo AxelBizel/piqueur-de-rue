@@ -25,7 +25,7 @@ class PortfolioSection extends Component {
     return (
       <div id="permanentartists">
         <div>
-          <h1 className="HeaderSection">NOTRE TEAM</h1>
+          <h1 className="HeaderSection"><div className="FirstLineTeam">Notre</div><div className="SecondLineTeam">Team</div></h1>
         </div>
         <Container>
           <Row>
@@ -34,7 +34,7 @@ class PortfolioSection extends Component {
             ) : (
               portfolios.map(portfolio => (
                 <Col xs="12" md="6" xl="3">
-                  <div
+                  <div className="Artists"
                     key={portfolio.id}
                     style={{
                       width: "100%",
@@ -43,7 +43,6 @@ class PortfolioSection extends Component {
                       backgroundPosition: "center",
                       backgroundSize: "cover",
                       backgroundRepeat: "no-repeat",
-                      margin:'2vh 2vw'
                     }}
                   >
                     <ButtonOpenPortfolio portfolio={portfolio} />
