@@ -1,9 +1,10 @@
 import React, { Component } from "react";
+import AOS from 'aos'
 import { Container, Col, Row } from "reactstrap";
 import { Parallax, Background } from 'react-parallax';
 import ModalContactGuest from "./modalContactGuest";
 import "./GuestHome.css";
-import { Carousel, CarouselItem, CarouselControl, CarouselIndicators, CarouselCaption } from 'reactstrap';
+import 'aos/dist/aos.css';
 
 class GuestHome extends Component {
   constructor(props) {
@@ -29,7 +30,7 @@ class GuestHome extends Component {
   render() {
     return (
       <div>
-        <h1 className="HeaderSectionGuest"><div className="FirstLineGuest">Guest</div><div className="SecondLineGuest">spot</div></h1>
+        <h1 className="HeaderSectionGuest"><div className="FirstLineGuest" data-aos="fade-right" data-aos-offset="1100" data-aos-duration="1000">Guest</div><div className="SecondLineGuest" data-aos="fade-left" data-aos-offset="1100" data-aos-duration="1000">spot</div></h1>
         <Parallax
             bgImage={require('../img/agency/5.jpg')}
             bgImageAlt="the cat"
