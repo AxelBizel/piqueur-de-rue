@@ -18,7 +18,7 @@ class FormulairePortfolio extends Component {
         hauteur: null,
         largeur: null,
         budget: null,
-        story: "",
+        story: "", 
     })
 
 
@@ -65,7 +65,7 @@ class FormulairePortfolio extends Component {
                     <textarea id="story" name="story" rows="5" cols="33" onChange={this.handleChange} value={this.state.story} placeholder="Dîtes-nous en plus ici : ">
                     </textarea>
                     <label id="labelPhone">Pourquoi avons-nous besoin de ces informations ?</label>
-                    <button className="buttonSubmit" type="submit">Envoyer mes infos au tatoueur</button>
+                    <button className="buttonSubmit" type="submit" style={{color:"black"}}>Envoyer mes infos au tatoueur</button>
                 </form>
             </>
         );
