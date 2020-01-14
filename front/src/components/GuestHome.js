@@ -3,6 +3,7 @@ import { Container, Col, Row } from "reactstrap";
 import { Parallax, Background } from 'react-parallax';
 import ModalContactGuest from "./modalContactGuest";
 import "./GuestHome.css";
+import { Carousel, CarouselItem, CarouselControl, CarouselIndicators, CarouselCaption } from 'reactstrap';
 
 class GuestHome extends Component {
   constructor(props) {
@@ -28,7 +29,7 @@ class GuestHome extends Component {
   render() {
     return (
       <div>
-        <h1 className="HeaderSection">NOS GUESTS</h1>
+        <h1 className="HeaderSectionGuest"><div className="FirstLineGuest">Guest</div><div className="SecondLineGuest">spot</div></h1>
         <Parallax
             bgImage={require('../img/agency/5.jpg')}
             bgImageAlt="the cat"

@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import PortfolioModal from "./ModalPortfolio";
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 class ButtonOpenPortfolio extends Component {
   constructor(props) {
