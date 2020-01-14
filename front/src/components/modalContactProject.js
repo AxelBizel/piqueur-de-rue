@@ -31,7 +31,7 @@ class ModalContactProject extends Component {
                 <div className="background" style={{display : showModal? "flex" : "none"}} onClick={() => this.props.closeModal()}></div>
                 {showModal ? 
                     <div className="ContactModal" role="dialog">
-                    <button className="closeButton" onClick={ this.props.closeModal}>Close</button>
+                    <button className="closeButton" onClick={ this.props.closeModal}>Fermer</button>
                     <ContactForm />
                     </div> : null
                 }

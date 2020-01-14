@@ -80,11 +80,11 @@ class YourProjectAccordion extends Component {
 
     return (
       <div>
-        <h1 className="HeaderSection">VOTRE PROJET</h1>
+        <h1 className="HeaderSectionProject"><div className="FirstLineProject" data-aos="fade-right" data-aos-offset="800" data-aos-duration="1000">Votre</div><div className="SecondLineProject" data-aos="fade-right" data-aos-offset="1200" data-aos-duration="800">Projet</div><div className="ThirdLineProject" data-aos="fade-left" data-aos-offset="800" data-aos-duration="1000">TATTOO</div></h1>
         <Container>
           {sections.map(section => {
             return (
-              <Card style={{ marginBottom: "1rem" }} key={section.id}>
+              <Card style={{ marginBottom: "1rem" }} key={section.id} >
                 <CardHeader
                   onClick={this.toggle}
                   data-event={section.id}
@@ -121,7 +121,7 @@ class YourProjectAccordion extends Component {
             <button className="buttonContactProject" onClick={this.openModal}>
               Nous contacter
             </button>
-            <ModalContactProject
+            <ModalContactProject 
               showModal={this.state.showModal}
               closeModal={this.closeModal}
             />

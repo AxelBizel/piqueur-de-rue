@@ -26,25 +26,33 @@
 }
 
 .FirstLineAgency {
+    width: max-content;
     font-family: South_Gardens_Personal_Use;
+    /* animation: slidein1 1s; */
 }
 
 .SecondLineAgency {
+    width: max-content;
     font-family: FalkinSerifItalicPERSONAL;
     font-weight: 600;
     font-size: 95px;
+    animation: slidein2 1s;
 }
 
 .ThirdLineAgency {
+    width: max-content;
     font-family: FalkinSerifItalicPERSONAL;
     font-size: 50px;
     line-height: 0.9em;
+    color: rgb(97, 85, 74);
     letter-spacing: 0 !important;
+    animation: slidein3 1s;
 }
 
 .FirstLineTeam {
     font-family: South_Gardens_Personal_Use;
     letter-spacing: 0 !important;
+    color: rgb(97, 85, 74);
 }
 
 .SecondLineTeam {
@@ -53,3 +61,39 @@
     font-size: 130px;
     margin-top: 10px;
 }
+
+/* @keyframes slidein1 {
+    from {
+        margin-left: 200%;
+        opacity: 0;
+    }
+
+    to {
+        margin-left: 0%;
+        opacity: 1;
+    }
+}
+
+@keyframes slidein2 {
+    from {
+        margin-right: 200%;
+        opacity: 0;
+    }
+
+    to {
+        margin-left: 0%;
+        opacity: 1;
+    }
+}
+
+@keyframes slidein3 {
+    from {
+        margin-left: 200%;
+        opacity: 0;
+    }
+
+    to {
+        margin-left: 0%;
+        opacity: 1;
+    }
+} */

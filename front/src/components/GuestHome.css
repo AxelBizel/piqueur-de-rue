@@ -55,6 +55,7 @@ div.Artists {
   font-weight: 600;
   font-size: 50px;
   margin-left: 18%;
+  color: rgb(97, 85, 74);
   letter-spacing: 0 !important;
 }
 
@@ -85,8 +86,6 @@ form h3 {
   font-size: 2em;
   margin-bottom: 0.7em;
 }
-
-
 
 .background {
   position: fixed;
