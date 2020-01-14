@@ -37,10 +37,10 @@ class ModalPortfolio extends Component {
         ></div>
         {showModal ? (
           <aside className="secondModalPortfolio" role="dialog">
-            <div class="close-container" onClick={this.props.closeModal}>
-              <div class="leftright"></div>
-              <div class="rightleft"></div>
-              <label class="close"></label>
+            <div className="close-container" onClick={this.props.closeModal}>
+              <div className="leftright"></div>
+              <div className="rightleft"></div>
+              <label className="close"></label>
             </div>
 
             <Container>
@@ -70,7 +70,8 @@ class ModalPortfolio extends Component {
                 </Col>
               </Row>
 
-              <Row className='mt-0'>                
+              <Row className='mt-0'>      
+                <button style={{color:"black"}} onClick={this.openFormulairePortfolio} >contacter le tatoueur</button>
                 {this.state.showFormulaire ? (
                   <FormulairePortfolio
                     openFormulaire={this.openFormulairePortfolio}
