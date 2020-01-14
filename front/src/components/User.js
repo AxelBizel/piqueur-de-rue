@@ -1,5 +1,6 @@
 import React from "react"
 import {Redirect} from "react-router-dom"
+import AdminProfile from "./AdminProfile"
 
 export default class User extends React.Component{
 
@@ -27,7 +28,7 @@ export default class User extends React.Component{
         }
         return(
             <div>
-                <h1 style={{color:'black'}}>User authenticated</h1>
+                <AdminProfile/>
                 <button onClick={this.logout}>Logout</button>
             </div>
         )

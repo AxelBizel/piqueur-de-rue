@@ -68,23 +68,37 @@ export default class Login extends React.Component{
     constructor(){
         super()
         let loggedIn = false
-        
         const token = localStorage.getItem("token")
         if(token) loggedIn = true
 
         this.state = {
             login: "",
             password: "",
+            return:true,
+            createProfile:true,
             loggedIn,
             error: ""
         }
         this.onChange =  this.onChange.bind(this)
         this.formSubmit = this.formSubmit.bind(this)
+        this.onReturn=this.onReturn.bind(this)
+        this.onCreateProfile = this.onCreateProfile.bind(this)
     }
 
     onChange(ev){
         this.setState({
             [ev.target.name]: ev.target.value
+        })
+    }
+
+    onCreateProfile(){
+        this.setState({
+            createProfile : true
+        })
+    }
+    onReturn(){
+        this.setState({
+            return : false
         })
     }
 
@@ -108,13 +122,22 @@ export default class Login extends React.Component{
         if(this.state.loggedIn === true){
             return <Redirect to="/user" />
         }
+        if(this.state.return === false){
+            return <Redirect to="/" />
+        }
+        // if(this.state.createProfile === true){
+        //     return <Redirect to="/profile" />
+        // }
         return(
             <form onSubmit={this.formSubmit}>
                 <input type="text" placeholder="username" value={this.state.username} onChange={this.onChange} name="username" />
                 <input type="password" placeholder="password" value={this.state.password} onChange={this.onChange} name="password" />
                 <input type="submit" />
                 {this.state.error}
+                <button onClick ={this.onCreateProfile}>Create your profile</button>
+                <button onClick={this.onReturn}>Retour</button>
             </form>
+            
         )
     }
 }

@@ -8,6 +8,7 @@ import { BrowserRouter as Router, Route , Switch } from 'react-router-dom';
 import Login from './components/Login'
 import User from './components/User'
 import Logout from './components/Logout'
+import AdminProfile from './components/AdminProfile'
 
 ReactDOM.render(<Router>
     <Switch>
@@ -15,6 +16,7 @@ ReactDOM.render(<Router>
       <Route exact path= "/login" component={Login} />
       <Route path= "/user" component={User} />
       <Route path= "/logout" component={Logout} />
+      <Route path="/admin" component = {AdminProfile} />
     </Switch>
     </Router>, document.getElementById('root'));
 
