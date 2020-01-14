@@ -119,9 +119,9 @@ CREATE TABLE IF NOT EXISTS `piqueurderue`.`customers` (
   `phone` VARCHAR(15) NOT NULL,
   `email` VARCHAR(150) NOT NULL,
   `tattoolocation` TEXT NULL,
-  `hauteur` INT(11) NULL,
-  `largeur` INT(11) NULL,
-  `budget` DECIMAL NULL,
+  `hauteur` INT NULL,
+  `largeur` INT NULL,
+  `budget` INT NULL,
   `story` TEXT NULL
 );
 
