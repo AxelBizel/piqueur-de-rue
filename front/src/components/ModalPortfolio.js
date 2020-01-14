@@ -1,9 +1,18 @@
 import React, { Component } from "react";
 import "./modalPortfolio.css";
-import timmy_rodger from "../img/tatoueurs/portraits-500px/timmy_rodger.jpg";
 import insta from "../img/logo/logoIG.png";
 import FormulairePortfolio from "./FormulairePortfolio";
-import { Container, Row, Col } from "reactstrap";
+import {
+  Container,
+  Row,
+  Col,
+  Card,
+  CardImg,
+  CardText,
+  CardBody,
+  CardTitle,
+  Button
+} from "reactstrap";
 import GalleryPortfolio from "./GalleryPortfolio";
 
 class ModalPortfolio extends Component {
@@ -45,32 +54,54 @@ class ModalPortfolio extends Component {
 
             <Container>
               <Row>
-
-                <Col xs="12" md="6">
-                  <div className="infoTatoueur" >
-                  <img src={timmy_rodger} className="photo-tatoueur" />
-                  <div className="tatoueur-header">
-                    <h1 className="h1Portfolio">
-                      {this.props.portfolio.pseudo}
-                    </h1>
-                    <a href="https://www.instagram.com/cosmic.billie/?hl=fr"><img
-                      src={insta}
-                      style={{ width: "40px", height: "40px" }}
-                    /></a>
-                  </div>
-                  <p className="textPresentation">
-                    {this.props.portfolio.presentation}
-                  </p>
+                <Col xs="12" md="5">
+                  <div className="infoTatoueur">
+                    <Card style={{width:'80%', margin: '0 auto'}}>
+                      <CardImg
+                        top
+                        width="100%"
+                        src={require("../img/tatoueurs/portraits-500px/" +
+                          `${this.props.portfolio.id}` +
+                          ".jpg")}
+                        alt="Portrait du tatoueur"
+                      />
+                      <CardBody>
+                        <CardTitle>
+                          <div className="tatoueur-header">
+                            <h1 className="h1Portfolio">
+                              {this.props.portfolio.pseudo}
+                            </h1>
+                            <a href="https://www.instagram.com/cosmic.billie/?hl=fr">
+                              <img
+                                src={insta}
+                                style={{ width: "35px", height: "35px" }}
+                              />
+                            </a>
+                          </div>
+                        </CardTitle>
+                        <CardText>
+                          <p className="tatoueur-subtitle">
+                            Style : {this.props.portfolio.style}
+                          </p>
+                          <p className="textPresentation">
+                            {this.props.portfolio.presentation}
+                          </p>
+                        </CardText>
+                        <button>Contact</button>
+                      </CardBody>
+                    </Card>
                   </div>
                 </Col>
-                <Col xs="12" md="6">
-                  <div style={{ width: "80%", margin: "5% auto" }}>
+                <Col xs="12" md="7">
+                  <div 
+                  style={{ width: "80%", margin: "0 auto" }}
+                  >
                     <GalleryPortfolio />
                   </div>
                 </Col>
               </Row>
 
-              <Row className='mt-0'>                
+              <Row className="mt-0">
                 {this.state.showFormulaire ? (
                   <FormulairePortfolio
                     openFormulaire={this.openFormulairePortfolio}
@@ -78,7 +109,6 @@ class ModalPortfolio extends Component {
                   />
                 ) : null}
               </Row>
-
             </Container>
           </aside>
         ) : null}
