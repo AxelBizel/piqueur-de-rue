@@ -11,13 +11,13 @@ class FormulairePortfolio extends Component {
     getInitialState = () => ({
         firstname: "",
         lastname: "",
-        age: "",
+        age: null,
         phone: "",
         email: "",
         tattoolocation: "",
-        hauteur: "",
-        largeur: "",
-        budget: "",
+        hauteur: null,
+        largeur: null,
+        budget: null,
         story: "",
     })
 
@@ -28,9 +28,7 @@ class FormulairePortfolio extends Component {
 
     }
     handleChangeInteger = (e) => {
-        console.log(this.state)
         this.setState({ [e.target.name]: parseInt(e.target.value) })
-
     }
 
 

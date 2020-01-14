@@ -71,7 +71,8 @@ class ModalPortfolio extends Component {
                 </Col>
               </Row>
 
-              <Row className='mt-0'>                
+              <Row className='mt-0'>      
+                <button style={{color:"black"}} onClick={this.openFormulairePortfolio} >contacter le tatoueur</button>
                 {this.state.showFormulaire ? (
                   <FormulairePortfolio
                     openFormulaire={this.openFormulairePortfolio}
