@@ -1,8 +1,10 @@
 import React, { Component } from "react";
 import axios from "axios";
+import AOS from 'aos'
 import ButtonOpenPortfolio from "./ButtonOpenPortfolio";
 import { Container, Row, Col } from "reactstrap";
 import gladys from "../img/tatoueurs/gladys.jpg";
+import 'aos/dist/aos.css';
 import './PortfolioSection.css';
 
 class PortfolioSection extends Component {
@@ -26,7 +28,7 @@ class PortfolioSection extends Component {
     return (
       <div id="permanentartists">
         <div>
-          <h1 className="HeaderSection"><div className="FirstLineTeam">Notre</div><div className="SecondLineTeam">Team</div></h1>
+        <h1 className="HeaderSection"><div className="FirstLineTeam" data-aos="fade-right" data-aos-offset="700" data-aos-duration="800">Notre</div><div className="SecondLineTeam" data-aos="fade-left" data-aos-offset="700" data-aos-duration="800">Team</div></h1>
         </div>
         <Container>
           <Row>
