@@ -1,10 +1,10 @@
 import React, { Component } from "react";
 import axios from "axios";
-import AOS from 'aos'
+import AOS from "aos";
 import ButtonOpenPortfolio from "./ButtonOpenPortfolio";
 import { Container, Row, Col, Spinner } from "reactstrap";
 import "./PortfolioSection.css";
-import 'aos/dist/aos.css';
+import "aos/dist/aos.css";
 
 class PortfolioSection extends Component {
   constructor(props) {
@@ -27,7 +27,24 @@ class PortfolioSection extends Component {
     return (
       <div id="permanentartists">
         <div>
-        <h1 className="HeaderSection"><div className="FirstLineTeam" data-aos="fade-right" data-aos-offset="700" data-aos-duration="800">Notre</div><div className="SecondLineTeam" data-aos="fade-left" data-aos-offset="700" data-aos-duration="800">Team</div></h1>
+          <h1 className="HeaderSection">
+            <div
+              className="FirstLineTeam"
+              data-aos="fade-right"
+              data-aos-offset="700"
+              data-aos-duration="800"
+            >
+              Notre
+            </div>
+            <div
+              className="SecondLineTeam"
+              data-aos="fade-left"
+              data-aos-offset="700"
+              data-aos-duration="800"
+            >
+              Team
+            </div>
+          </h1>
         </div>
         <Container>
           <Row>
@@ -45,7 +62,8 @@ class PortfolioSection extends Component {
                     className="Artists"
                     key={portfolio.id}
                     style={{
-                      margin:'2vh auto', backgroundImage: `url(${require("../img/tatoueurs/portraits-500px/" +
+                      margin: "2vh auto",
+                      backgroundImage: `url(${require("../img/tatoueurs/portraits-500px/" +
                         `${portfolio.id}` +
                         ".jpg")})`
                     }}

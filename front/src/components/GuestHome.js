@@ -30,8 +30,11 @@ class GuestHome extends Component {
   render() {
     return (
       <div>
-        <h1 className="HeaderSectionGuest"><div className="FirstLineGuest" data-aos="fade-right" data-aos-offset="1100" data-aos-duration="1000">Guest</div><div className="SecondLineGuest" data-aos="fade-left" data-aos-offset="1100" data-aos-duration="1000">spot</div></h1>
-        <Parallax
+        <h1 className="HeaderSectionGuest">
+          <div className="FirstLineGuest" data-aos="fade-right" data-aos-offset="1100" data-aos-duration="1000">Guest</div>
+          <div className="SecondLineGuest" data-aos="fade-left" data-aos-offset="1100" data-aos-duration="1000">spot</div>
+        </h1>
+          <Parallax
             bgImage={require('../img/agency/5.jpg')}
             bgImageAlt="the cat"
             strength={400}
@@ -61,7 +64,6 @@ class GuestHome extends Component {
                 closeModal={this.closeModal}
               />
             </Row>
-          
         </Container>
         </div>
           </Parallax>

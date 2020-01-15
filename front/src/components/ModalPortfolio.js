@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import insta from "../img/logo/logoIG.png";
-import FormulairePortfolio from "./FormulairePortfolio";
 import {
   Container,
   Row,
@@ -12,27 +11,16 @@ import {
   CardTitle,
   Button
 } from "reactstrap";
+import ButtonOpenFormTatoueurs from "./ButtonOpenFormTatoueurs";
 import GalleryPortfolio from "./GalleryPortfolio";
 
 class ModalPortfolio extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      showFormulaire: false
     };
   }
 
-  openFormulairePortfolio = () => {
-    let { showFormulaire } = this.state;
-    showFormulaire = true;
-    this.setState({ showFormulaire });
-  };
-
-  closeFormulairePortfolio = () => {
-    let { showFormulaire } = this.state;
-    showFormulaire = false;
-    setTimeout(() => this.setState({ showFormulaire }), 500);
-  };
 
   render() {
     const { showModal } = this.props;
@@ -85,19 +73,8 @@ class ModalPortfolio extends Component {
                           <p className="textPresentation">
                             {this.props.portfolio.presentation}
                           </p>
+                        {/* < ButtonOpenFormTatoueurs/> */}
                         </CardText>
-                        <button
-                  style={{ color: "black" }}
-                  onClick={this.openFormulairePortfolio}
-                >
-                  contacter le tatoueur
-                </button>
-                {this.state.showFormulaire ? (
-                  <FormulairePortfolio
-                    openFormulaire={this.openFormulairePortfolio}
-                    closeFormulaire={this.closeFormulairePortfolio}
-                  />
-                ) : null}
                       </CardBody>
                     </Card>
                   </div>
@@ -107,10 +84,10 @@ class ModalPortfolio extends Component {
                     <GalleryPortfolio />
                   </div>
                 </Col>
-              </Row>
 
-              <Row className="mt-0">
+              
                 
+             
               </Row>
             </Container>
           </aside>
