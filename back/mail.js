@@ -1,7 +1,7 @@
 //---------------------------------------------------------------------------------
 //partie concernant Sengrid = gérer l'envoi du mail
 //---------------------------------------------------------------------------------
-const SENDGRID_API_KEY = require('./sengrid_api_key_env');
+// const SENDGRID_API_KEY = require('./sengrid_api_key_env');
 const sgMail = require('@sendgrid/mail')
 
 const sendMail = async (customer) => {
