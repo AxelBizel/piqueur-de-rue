@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import "./modalPortfolio.css";
 import timmy_rodger from "../img/tatoueurs/portraits-500px/timmy_rodger.jpg";
 import insta from "../img/logo/logoIG.png";
-import FormulairePortfolio from "./FormulairePortfolio";
+import ButtonOpenFormTatoueurs from "./ButtonOpenFormTatoueurs";
 import { Container, Row, Col } from "reactstrap";
 import GalleryPortfolio from "./GalleryPortfolio";
 
@@ -10,21 +10,9 @@ class ModalPortfolio extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      showFormulaire: false
     };
   }
 
-  openFormulairePortfolio = () => {
-    let { showFormulaire } = this.state;
-    showFormulaire = true;
-    this.setState({ showFormulaire });
-  };
-
-  closeFormulairePortfolio = () => {
-    let { showFormulaire } = this.state;
-    showFormulaire = false;
-    setTimeout(() => this.setState({ showFormulaire }), 500);
-  };
 
   render() {
     const { showModal } = this.props;
@@ -71,13 +59,7 @@ class ModalPortfolio extends Component {
               </Row>
 
               <Row className='mt-0'>      
-                <button style={{color:"black"}} onClick={this.openFormulairePortfolio} >contacter le tatoueur</button>
-                {this.state.showFormulaire ? (
-                  <FormulairePortfolio
-                    openFormulaire={this.openFormulairePortfolio}
-                    closeFormulaire={this.closeFormulairePortfolio}
-                  />
-                ) : null}
+                < ButtonOpenFormTatoueurs />
               </Row>
 
             </Container>

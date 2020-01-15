@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import PortfolioModal from "./ModalPortfolio";
+import ModalPortfolio from "./ModalPortfolio";
 
 class ButtonOpenPortfolio extends Component {
   constructor(props) {
@@ -36,7 +36,7 @@ class ButtonOpenPortfolio extends Component {
         <button className="buttonPortfolio" onClick={this.openModal}>
         {this.props.portfolio.pseudo}      
         </button>
-        <PortfolioModal
+        <ModalPortfolio
           portfolio={this.props.portfolio}
           showModal={this.state.showModal}
           closeModal={this.closeModal}
