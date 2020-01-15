@@ -4,8 +4,6 @@ const port = 5000;
 const connection = require("./conf");
 const bodyParser = require("body-parser");
 const sendMail = require('./mail')
-
-// const cors = require("cors");
 const cors = require("cors");
 var http = require('http');
 var fs = require('fs');
