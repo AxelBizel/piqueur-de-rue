@@ -29,7 +29,7 @@ export default class YourProject extends Component {
   render() {
     return (
       <div>
-        <h1 className="HeaderSection">VOTRE PROJET</h1>
+        <h1 className="HeaderSectionProject">Votre Projet TATTOO</h1>
         <div className="yourproject">
 
           <Parallax

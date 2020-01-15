@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import "./modalPortfolio.css";
 import insta from "../img/logo/logoIG.png";
 import FormulairePortfolio from "./FormulairePortfolio";
 import {
@@ -46,20 +45,20 @@ class ModalPortfolio extends Component {
         ></div>
         {showModal ? (
           <aside className="secondModalPortfolio" role="dialog">
-            <div class="close-container" onClick={this.props.closeModal}>
-              <div class="leftright"></div>
-              <div class="rightleft"></div>
-              <label class="close"></label>
+            <div className="close-container" onClick={this.props.closeModal}>
+              <div className="leftright"></div>
+              <div className="rightleft"></div>
+              <label className="close"></label>
             </div>
 
             <Container>
               <Row>
-                <Col xs="12" md="5">
+                <Col xs="12" lg="5">
                   <div className="infoTatoueur">
-                    <Card style={{width:'80%', margin: '0 auto'}}>
+                    <Card style={{ width: "100%", margin: "0 auto", border:'0' }}>
                       <CardImg
+                      style={{width:'66%', margin:'0 auto'}}
                         top
-                        width="100%"
                         src={require("../img/tatoueurs/portraits-500px/" +
                           `${this.props.portfolio.id}` +
                           ".jpg")}
@@ -74,7 +73,7 @@ class ModalPortfolio extends Component {
                             <a href="https://www.instagram.com/cosmic.billie/?hl=fr">
                               <img
                                 src={insta}
-                                style={{ width: "35px", height: "35px" }}
+                                style={{ width: "36px", height: "36px" }}
                               />
                             </a>
                           </div>
@@ -87,27 +86,31 @@ class ModalPortfolio extends Component {
                             {this.props.portfolio.presentation}
                           </p>
                         </CardText>
-                        <button>Contact</button>
-                      </CardBody>
-                    </Card>
-                  </div>
-                </Col>
-                <Col xs="12" md="7">
-                  <div 
-                  style={{ width: "80%", margin: "0 auto" }}
-                  >
-                    <GalleryPortfolio />
-                  </div>
-                </Col>
-              </Row>
-
-              <Row className="mt-0">
+                        <button
+                  style={{ color: "black" }}
+                  onClick={this.openFormulairePortfolio}
+                >
+                  contacter le tatoueur
+                </button>
                 {this.state.showFormulaire ? (
                   <FormulairePortfolio
                     openFormulaire={this.openFormulairePortfolio}
                     closeFormulaire={this.closeFormulairePortfolio}
                   />
                 ) : null}
+                      </CardBody>
+                    </Card>
+                  </div>
+                </Col>
+                <Col xs="12" lg="7">
+                  <div style={{ width: "85%", margin: "0 auto" }}>
+                    <GalleryPortfolio />
+                  </div>
+                </Col>
+              </Row>
+
+              <Row className="mt-0">
+                
               </Row>
             </Container>
           </aside>
