@@ -40,7 +40,7 @@ class FormulairePortfolio extends Component {
         this.setState(this.getInitialState());
     
         event.preventDefault();
-    }
+    } 
 
 
     render() {

@@ -9,7 +9,7 @@ const sendMail = async (customer) => {
     const msg = {
       to: 'chadieleman@gmail.com',
       from: 'fredCarillo@piqueurderuetest.com',
-      subject: 'Test verification email',
+      subject: 'Votre contact :',
       html: `${customer.firstname} ${customer.lastname} (${customer.age} ans) vous a envoyé son projet.
       emplacement souhaité du tatouage : ${customer.tattoolocation},
       dimensions : ${customer.hauteur} x ${customer.largeur} cm,

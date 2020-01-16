@@ -218,7 +218,7 @@ app.post('/api/customers', (req, res) => {
 // Route pour l'envoi de Mails avec sengrid : --------------------------------------------
 
 app.post('/project', async (req, res) => {
-  try {
+  try { 
     //je mets dans mysql
     const sent = await sendMail(req.body)
     if (sent) {

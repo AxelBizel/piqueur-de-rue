@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import AOS from 'aos'
 import { Container, Col, Row } from "reactstrap";
 import { Parallax, Background } from 'react-parallax';
-import ModalContactGuest from "./modalContactGuest";
+import ButtonOpenFormGuests from "./ButtonOpenFormGuests";
 import "./GuestHome.css";
 import 'aos/dist/aos.css';
 
@@ -56,13 +56,7 @@ class GuestHome extends Component {
               </Col>
             </Row>
             <Row>
-              <button className="buttonContactProject" onClick={this.openModal}>
-                Contactez-nous
-              </button>
-              <ModalContactGuest
-                showModal={this.state.showModal}
-                closeModal={this.closeModal}
-              />
+              <ButtonOpenFormGuests />
             </Row>
         </Container>
         </div>

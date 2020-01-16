@@ -1,31 +1,31 @@
 import React, { Component } from "react";
-import "./modalFormTatoueurs.css";
-import FormulairePortfolio from "./FormulairePortfolio";
-import { Container, Row, Col } from "reactstrap";
+// import "./modalFormGuests.css";
+import FormGuests from "./FormGuests";
+import { Container } from "reactstrap";
 
 
-class ModalFormTatoueurs extends Component {
+class ModalFormGuests extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      showFormulaire: false
+      showFormGuests: false
     }; 
   }
 
 
   render() {
-    const { showModalFormTatoueurs } = this.props;
+    const { showModalFormGuests } = this.props;
     return (
       <>
-        {showModalFormTatoueurs ? (
+        {showModalFormGuests ? (
           <aside className="mainModalFormTatoueurs" role="dialog">
-            <div className="close-container" onClick={this.props.closeModalFormTatoueurs}>
+            <div className="close-container" onClick={this.props.closeModalFormGuests}>
               <div className="leftright"></div>
               <div className="rightleft"></div>
               <label className="close"></label>
             </div>
             <Container >
-              <FormulairePortfolio />
+              <FormGuests />
             </Container>
           </aside> 
         ) : null}
@@ -34,4 +34,4 @@ class ModalFormTatoueurs extends Component {
   }
 }
 
-export default ModalFormTatoueurs;
+export default ModalFormGuests;
