@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import axios from 'axios';
-import { CustomInput, Form, FormGroup, Label } from 'reactstrap';
 
 class AdminProfile extends Component {
     state = {
@@ -10,27 +9,34 @@ class AdminProfile extends Component {
     }
 
     async componentDidMount() {
+        this.getPortfolio();
+        this.handleClick = this.handleClick.bind(this);
+        this.togglePortfolio = this.togglePortfolio.bind(this);
+    }
+
+    getPortfolio = async ()=>{
         try {
             const result = await axios.get(`http://localhost:5000/api/portfolios`)
+            console.log("gg",result.data)
             this.setState({ portfolios: result.data })
         } catch (err) {
             this.setState({
                 error: err.message
             })
         }
-        this.handleClick = this.handleClick.bind(this);
-        this.togglePortfolio = this.togglePortfolio.bind(this);
     }
 
-handleClick = (ev) =>{
+    handleClick= (ev) => {
         ev.preventDefault()
-        this.setState({portfoliosActive : true});
-    }
+        this.setState({ portfoliosActive :!this.state.portfoliosActive });
+      }
+    
 
-    async togglePortfolio(id) {
+    async togglePortfolio(id, active) {
         try {
-            const result = await axios.put(`http://localhost:5000/api/portfolio/${id}/active`)
+            const result = await axios.put(`http://localhost:5000/api/portfolio/${id}`, {active:!active})
             console.log(result.data)
+            this.getPortfolio();
         } catch (err) {
             this.setState({
                 error: err.message
@@ -48,20 +54,19 @@ handleClick = (ev) =>{
 
 
     render() {
+        console.log(this.state.portfolios)
         return (
             <div>
-              
-                <button onClick={this.handleClick}> {this.state.portfoliosActive ? 'Active' : 'Desactive'}</button>
-
+              <button onClick={this.handleClick}>{this.state.portfoliosActive ? 'active' : 'desactive'}</button>
                 {
                     this.state.portfolios
-                        .filter(pf => pf.active === this.state.portfoliosActive)
+                        // .filter(pf => pf.active === this.state.portfoliosActive)
                         .map((pf, index) =>
-                            <div
-                                onClick={() => this.togglePortfolio(pf.id)}
+                            <button
+                                onClick={() => this.togglePortfolio(pf.id,pf.active)}
                                 style={{ border: "1px solid black " }}>
                                 {pf.pseudo} {pf.active}
-                            </div>
+                            </button>
                         )
                 }
 

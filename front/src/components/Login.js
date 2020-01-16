@@ -104,10 +104,11 @@ export default class Login extends React.Component{
 
     async formSubmit(ev){
         ev.preventDefault()
-        const {login, password} = this.state
+        const {username, password} = this.state
         try {
-            const token = await Axios.post("http://localhost:5000/login", {login, password})
-            localStorage.setItem("token", token)
+            const result = await Axios.post("http://localhost:5000/login", {login:username, password})
+            // if(result.data.token)
+                localStorage.setItem("token", result.data.token)
             this.setState({
                 loggedIn: true
             })
