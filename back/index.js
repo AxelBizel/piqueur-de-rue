@@ -61,6 +61,21 @@ app.post('/login', function (request, response) {
   }
 });
 
+//Verfication du token
+function verifyToken (req,res,next) {
+  console.log (req.headers.authorizaton)
+  const token = req.headers.authorization.split ('') [1]
+  jwt.verify (token,'toto', (err,payload) => {
+    if(err){
+      console.log(err)
+      res.sendStatus(401)
+    }else {
+      req.user = payload.user
+      console.log(req.user , payload.user)
+      next()
+    }
+  })
+}
 
 
 // ROUTES : Partie Admin
@@ -80,7 +95,8 @@ app.get("/api/portfolios", (req, res) => {
   }
 })
 
-app.get("/api/portfolios/:id", (req, res) => {
+
+app.get("/api/portfolios/:id",verifyToken, (req, res) => {
   connection.query(" SELECT * from portfolio where id = ?", req.user.portfolio_id, (err, results) => {
     if (err) {
       console.log(err)
@@ -92,7 +108,7 @@ app.get("/api/portfolios/:id", (req, res) => {
 })
 
 app.put("/api/portfolio/:id", (req, res) => {
-  connection.query(" UPDATE portfolio SET active = ? WHERE id = ?", [req.body.active, req.params.id], (err, results) => {
+  connection.query("UPDATE portfolio SET active = ? WHERE id = ?", [req.body.active, req.params.id], (err, results) => {
     if (err) {
       console.log(err)
       res.status(500).send("Erreur 500");
@@ -103,19 +119,9 @@ app.put("/api/portfolio/:id", (req, res) => {
 });
 
 
+;
 
-
-
-
-// //Cors
-// app.use(cors());
-// app.get("/products/:id", function(req, res, next) {
-//   res.json({ msg: "This is CORS-enabled for all origins!" });
-// });
-
-// ROUTES
-
-//Récupération des users
+//ROUTES : Récupération des users
 app.get("/api/users", (req, res) => {
   connection.query("SELECT * from users", (err, results) => {
     if (err) {
@@ -126,7 +132,7 @@ app.get("/api/users", (req, res) => {
   });
 });
 
-//Récupération des datas portfolios
+// ROUTES : Récupération des datas portfolios
 
 app.get("/api/portfolio", (req, res) => {
   connection.query("SELECT * from portfolio", (err, results) => {
@@ -138,7 +144,7 @@ app.get("/api/portfolio", (req, res) => {
   });
 });
 
-//Récupération des images
+//ROUTES : Récupération des images
 app.get("/api/images", (req, res) => {
   connection.query("SELECT * from images", (err, results) => {
     if (err) {
