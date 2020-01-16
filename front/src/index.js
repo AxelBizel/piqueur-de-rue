@@ -1,5 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import AOS from 'aos'
 import './index.css';
 import Login from './components/Login'
 import User from './components/User'
@@ -14,6 +15,13 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 
 const store = createStore(rootReducer);
+
+AOS.init({
+    mirror: true,
+    duration: 600
+})
+  
+window.addEventListener('load', AOS.refresh);
 
 ReactDOM.render(
     <Provider store={store}>
