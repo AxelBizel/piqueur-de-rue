@@ -2,8 +2,8 @@ import React, { Component } from "react";
 import { Container, Col, Row, Spinner } from "reactstrap";
 import { Parallax, Background } from "react-parallax";
 import ModalContactGuest from "./modalContactGuest";
+import ButtonPortfolioGuest from "./ButtonPortfolioGuest";
 import axios from "axios";
-import ButtonOpenPortfolio from "./ButtonOpenPortfolio";
 import "./GuestHome.css";
 import "aos/dist/aos.css";
 
@@ -12,7 +12,7 @@ class GuestHome extends Component {
     super(props);
     this.state = {
       showModal: false,
-      portfolios:null
+      portfolios: null
     };
   }
 
@@ -37,10 +37,8 @@ class GuestHome extends Component {
     });
   }
 
-  
-
   render() {
-    const {portfolios} = this.state
+    const { portfolios } = this.state;
     return (
       <div>
         <h1 className="HeaderSectionGuest">
@@ -62,10 +60,9 @@ class GuestHome extends Component {
           </div>
         </h1>
         <Container>
-
-        <Row>
+          <Row>
             {portfolios === null ? (
-              <div className="Artists-Loader">
+              <div className="Guests-Loader">
                 <Spinner type="grow" color="dark" />
                 <Spinner type="grow" color="dark" />
                 <Spinner type="grow" color="dark" />
@@ -75,7 +72,7 @@ class GuestHome extends Component {
               portfolios.map(portfolio => (
                 <Col xs="12">
                   <div
-                    className="Artists"
+                    className="Guests"
                     key={portfolio.id}
                     style={{
                       margin: "2vh auto",
@@ -84,25 +81,32 @@ class GuestHome extends Component {
                         ".jpg")})`
                     }}
                   >
-                    <ButtonOpenPortfolio portfolio={portfolio} />
+                    <Row>
+                      <Col xs="12">
+                        <div className="GuestText">
+                          <h4>Next guest</h4>
+                          <h3 className="Title-Guest">{portfolio.pseudo}</h3>
+
+                          <p className="TextSub">Du {portfolio.startdate} au {portfolio.enddate}.</p>
+                          <ButtonPortfolioGuest portfolio={portfolio} />
+                        </div>
+                      </Col>
+                      <Col xs="12"></Col>
+                    </Row>
                   </div>
                 </Col>
               ))
             )}
           </Row>
-
-
-
-
           <Parallax
             bgImage={require("../img/agency/5.jpg")}
-            bgImageAlt="the cat"
+            bgImageAlt="guest section"
             strength={400}
           >
             <div className="SectionGuestContainer">
               <Row>
                 <Col xs="12" md="6">
-                  <div className="GuestText">
+                  <div className="GuestTextSpot">
                     <h3 className="Title-Guest">DEVENEZ GUEST</h3>
 
                     <p className="TextSub">
