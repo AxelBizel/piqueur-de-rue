@@ -1,10 +1,8 @@
 import React, { Component } from "react";
 import "./modalFormTatoueurs.css";
-import timmy_rodger from "../img/tatoueurs/portraits-500px/timmy_rodger.jpg";
-import insta from "../img/logo/logoIG.png";
 import FormulairePortfolio from "./FormulairePortfolio";
 import { Container, Row, Col } from "reactstrap";
-import GalleryPortfolio from "./GalleryPortfolio";
+
 
 class ModalFormTatoueurs extends Component {
   constructor(props) {

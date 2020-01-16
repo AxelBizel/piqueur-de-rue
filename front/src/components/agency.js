@@ -7,7 +7,7 @@ import 'aos/dist/aos.css';
 
 export default function Agency() {
   
-  AOS.init()
+  AOS.init({mirror:true})
 
   return (
     <div className="SectionContainer">
