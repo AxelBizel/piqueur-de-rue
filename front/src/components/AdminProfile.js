@@ -57,14 +57,18 @@ class AdminProfile extends Component {
         console.log(this.state.portfolios)
         return (
             <div>
-              <button onClick={this.handleClick}>{this.state.portfoliosActive ? 'active' : 'desactive'}</button>
+              <button 
+             
+              onClick={this.handleClick}>{this.state.portfoliosActive ? 'active' : 'desactive'}</button>
                 {
                     this.state.portfolios
                         // .filter(pf => pf.active === this.state.portfoliosActive)
                         .map((pf, index) =>
                             <button
                                 onClick={() => this.togglePortfolio(pf.id,pf.active)}
-                                style={{ border: "1px solid black " }}>
+                                style={{ border: "1px solid black " ,
+                                        'background' : 'black',
+                                        'color': 'white',}}>
                                 {pf.pseudo} {pf.active}
                             </button>
                         )

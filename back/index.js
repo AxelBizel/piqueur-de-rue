@@ -92,8 +92,25 @@ function verifyToken (req,res,next) {
 
 // ROUTES : Partie Admin
 
+// app.get("/api/portfolios", (req, res) => {
+//   if (req.user.id === 1) {// a modifier avec role admin dans le meilleur des mondes
+//     connection.query(" SELECT * from portfolio", (err, results) => {
+//       if (err) {
+//         console.log(err)
+//         res.status(500).send('Error 500');
+//       } else {
+//         res.json(results);
+//       }
+//     })
+//   } else {
+//     res.sendStatus(401)
+//   }
+// })
+
+// Routes test
+
 app.get("/api/portfolios", (req, res) => {
-  if (req.user.id === 1) {// a modifier avec role admin dans le meilleur des mondes
+  // a modifier avec role admin dans le meilleur des mondes
     connection.query(" SELECT * from portfolio", (err, results) => {
       if (err) {
         console.log(err)
@@ -102,9 +119,6 @@ app.get("/api/portfolios", (req, res) => {
         res.json(results);
       }
     })
-  } else {
-    res.sendStatus(401)
-  }
 })
 
 
