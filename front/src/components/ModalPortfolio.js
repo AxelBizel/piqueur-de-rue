@@ -9,7 +9,6 @@ import {
   CardText,
   CardBody,
   CardTitle,
-  Button
 } from "reactstrap";
 import ButtonOpenFormTatoueurs from "./ButtonOpenFormTatoueurs";
 import GalleryPortfolio from "./GalleryPortfolio";
@@ -23,7 +22,7 @@ class ModalPortfolio extends Component {
 
 
   render() {
-    const { showModal } = this.props;
+    const { showModal, portfolio } = this.props;
     return (
       <>
         <div
@@ -48,7 +47,7 @@ class ModalPortfolio extends Component {
                       style={{width:'66%', margin:'0 auto'}}
                         top
                         src={require("../img/tatoueurs/portraits-500px/" +
-                          `${this.props.portfolio.id}` +
+                          `${portfolio.id}` +
                           ".jpg")}
                         alt="Portrait du tatoueur"
                       />
@@ -56,11 +55,12 @@ class ModalPortfolio extends Component {
                         <CardTitle>
                           <div className="tatoueur-header">
                             <h1 className="h1Portfolio">
-                              {this.props.portfolio.pseudo}
+                              {portfolio.pseudo}
                             </h1>
-                            <a href="https://www.instagram.com/cosmic.billie/?hl=fr">
+                            <a href= {portfolio.insta} target='_blank'>
                               <img
                                 src={insta}
+                                alt='instagram logo'
                                 style={{ width: "36px", height: "36px" }}
                               />
                             </a>
@@ -68,10 +68,10 @@ class ModalPortfolio extends Component {
                         </CardTitle>
                         <CardText>
                           <p className="tatoueur-subtitle">
-                            Style : {this.props.portfolio.style}
+                            Style : {portfolio.style}
                           </p>
                           <p className="textPresentation">
-                            {this.props.portfolio.presentation}
+                            {portfolio.presentation}
                           </p>
                         {/* < ButtonOpenFormTatoueurs/> */}
                         </CardText>

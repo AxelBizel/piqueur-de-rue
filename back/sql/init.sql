@@ -22,6 +22,7 @@ CREATE TABLE IF NOT EXISTS `piqueurderue`.`portfolio` (
   `pseudo` VARCHAR(255) NOT NULL,
   `type` VARCHAR(255) NULL DEFAULT NULL,
   `presentation` VARCHAR(255) NULL DEFAULT NULL,
+  `insta` VARCHAR(255) NULL DEFAULT NULL,
   `active` TINYINT(4) NOT NULL,
   `start-date` DATETIME NULL DEFAULT NULL,
   `end-date` DATETIME NULL DEFAULT NULL,
