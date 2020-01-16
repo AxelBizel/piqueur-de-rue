@@ -9,3 +9,6 @@ VALUES ('Gladystomeetyou', 'team', 'Agée de 22 ans, Gladys a su nourrir son uni
 
 INSERT INTO portfolio (pseudo, type, presentation, style, active, photo, insta)
 VALUES ('Alex 290', 'team', 'Tombé dans le tatouage grâce à la musique, j''ai remonté le fil des références jusqu''aux sources du traditionnel occidental, qui est aujourd''hui mon domaine de prédilection.', 'Traditionnel Occidental', '1', '/back/img/photos_tatoueurs/alex290.jpg', 'https://www.instagram.com/alex290_tattoo/');
+
+INSERT INTO portfolio (pseudo, type, presentation, active, insta)
+VALUES ('Fernando Madeira', 'guest', 'Artiste Brésilien spécialisé dans les tatouages aquarelle.', '1', 'https://www.instagram.com/fernandomadeira/?hl=fr');
