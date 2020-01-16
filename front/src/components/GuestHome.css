@@ -1,44 +1,283 @@
-.container_guest {
-    margin-top : 30px;
-    display : flex;
-    flex-direction : column;
-    align-items : center;
-    justify-content : center;
-    width : 100% ;
-    background : #786B60;
-    padding : 100px;
-}
-.title_guest {
-    padding-top : 10px;
-}
-.text_guest{
-    padding-top: 61px;
-    text-align: center;
-    margin: 0 auto;
-    padding: 70px;
+.HeaderSectionGuest {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  font-family: FalkinSerifBoldItalicPERSONAL;
+  font-size: 5rem;
+  color: black(255, 255, 255);
+  height: auto;
+  margin-top: 15vh;
+  margin-bottom: 5vh;
+  line-height: 1em;
 }
 
-.button_guest{
-    padding-top : 40px;
-    border-radius : 10%;
-    padding : 20px;
-    margin : 0 auto;
-
+.SectionGuestContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+  align-items: center;
+  height: 100vh;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  color: rgb(0, 0, 0);
 }
-button .button_guest {
-    display : flex;
-    flex-direction : column ;
-    align-items : center ;
+
+div.Artists {
+  margin-bottom: 5em;
+}
+
+.GuestText {
+  background: rgba(255, 255, 255, 0.918);
+  border-radius: 3px;
+  padding: 5%;
+  text-align: justify;
+  color: black;
+}
+
+.Title-Guest {
+  text-align: left;
+  font-family: "FalkinSerifBoldPERSONAL";
+  font-size: 2.5em;
+  color: black;
+}
+
+.FirstLineGuest {
+  font-family: South_Gardens_Personal_Use;
+  letter-spacing: 0 !important;
+  line-height: 0.2em;
+  font-size: 90px;
+}
+
+.SecondLineGuest {
+  font-family: FalkinSerifItalicPERSONAL;
+  font-weight: 600;
+  font-size: 50px;
+  margin-left: 18%;
+  color: rgb(97, 85, 74);
+  letter-spacing: 0 !important;
+}
+
+.TextSub {
+    font-size: 1.3em;
+}
+
+.buttonContactProject {
+    padding: 1em;
+    border-radius: 3px;
+    font-size: 1.7em;
+    background-color: #7A6A5D;
+    border:1px solid rgba(0, 0, 0, 0.411);
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.774);
+    transition: 0.4s;
+    font-weight: 600;
+    margin: 5vh;
+}
+
+/* MODAL CSS */
+
+form#contact-form {
+  margin: 0;
+}
+
+form h3 {
+  text-align: left;
+  font-size: 2em;
+  margin-bottom: 0.7em;
+}
+
+.background {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.699);
+}
+
+.closeButton {
+  color: rgba(0, 0, 0, 0.452);
+  border-radius: 10px;
+  padding: 0.5em;
+  background-color: rgb(255, 255, 255);
+  border: 1px solid rgba(0, 0, 0, 0.315);
+  box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.507);
+  transition: 0.1s;
+}
+
+.closeButton:hover {
+  color: rgba(0, 0, 0, 0.733);
+  border-radius: 10px;
+  padding: 0.5em;
+  background-color: rgb(255, 255, 255);
+  border: 1px solid rgba(0, 0, 0, 0.315);
+  box-shadow: none;
+  transition: 0.1s;
+}
+
+.ContactModal {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 60vw;
+  height: auto !important;
+  border-radius: 10px;
+  padding: 40px;
+  background: white !important;
+  z-index: 15;
+}
+
+/* CONTACT FORM CSS */
+
+form,
+input,
+select,
+textarea,
+.btn {
+  display: block;
+  margin: 3rem 0;
+  padding: 0.5em;
+  width: 100% !important;
+  align-items: flex-start;
+  box-sizing: border-box;
+}
+
+input,
+select,
+textarea {
+  color: darkslategray;
+  background-color: white;
+  background-clip: padding-box;
+  line-height: 1.5;
+  border-radius: 0.5rem;
+  border: 1px solid #ced4da;
+  transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+  border-color: royalblue;
+  box-shadow: none;
+  -webkit-box-shadow: none;
+}
+
+
+button.btn {
+  color: white;
+  background-color: #7a6a5d;
+  border-color: royalblue;
+  user-select: none;
+  line-height: 1.5;
+  border-radius: 0.5rem;
+  border: 1px solid transparent;
+  transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out,
+    border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
+
+.btn:hover {
+  filter: brightness(80%);
+}
+
+select:required:invalid {
+  color: silver;
+}
+
+input:placeholder {
+  color: silver;
+}
+
+/* @media screen and (max-width: 768px) {
+  .SectionGuestContainer {
+    display: flex;
+    flex-direction: column;
     justify-content: center;
-    margin-top: 110%;
-}
+    text-align: center;
+    align-items: center;
+    height: 100vh;
+    background-image: url("../img/agency/5.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    color: rgb(0, 0, 0);
+  }
 
+  .GuestText {
+    background-color: rgba(255, 255, 255, 0.616);
+    border-radius: 10px;
+    font-size: 1.3em;
+    text-align: center;
+    padding: 1em;
+    width: 85vw;
+    border: 1px solid black;
+  }
 
-h1 {
-    text-align : center;
-}
+  p.GuestText {
+    margin-bottom: 2em !important;
+    text-align: justify;
+  }
 
-p { 
-    text-align : center;
-}
+  .buttonContactProjet {
+    font-size: 5vh;
+    height: 10vh;
+    border-radius: 25px;
+    box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.644);
+    margin: 3vh 0 3vh 0;
+    background-color: #786b60;
+    padding: 0 20px;
+    transition: 0.4s;
+    width: 70vw;
+    border: 1px solid rgba(0, 0, 0, 0.192);
+  }
 
+  .buttonContactProject {
+    padding: 1em;
+    border-radius: 20px;
+    font-size: 1.7em;
+    background-color: #7a6a5d;
+    border: 1px solid rgba(0, 0, 0, 0.411);
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.774);
+    transition: 0.4s;
+    margin: 1em;
+    font-weight: 600;
+  }
+
+  .closeButton {
+    color: rgba(0, 0, 0, 0.452);
+    border-radius: 10px;
+    padding: 0.5em;
+    background-color: rgb(255, 0, 0);
+    border: 1px solid rgba(0, 0, 0, 0.315);
+    box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.507);
+    transition: 0.1s;
+  }
+
+  .closeButton:hover {
+    color: rgba(0, 0, 0, 0.733);
+    border-radius: 10px;
+    padding: 0.5em;
+    background-color: rgb(255, 255, 255);
+    border: 1px solid rgba(0, 0, 0, 0.315);
+    box-shadow: none;
+    transition: 0.1s;
+  }
+
+  .ContactModal {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 90vw !important;
+    border-radius: 10px;
+    padding: 1em !important;
+    background: white !important;
+    z-index: 15;
+  }
+} */

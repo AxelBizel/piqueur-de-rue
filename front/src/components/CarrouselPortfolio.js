@@ -10,10 +10,19 @@ import "./carrouselPortfolio.css";
 
 
 class CarrouselPortfolio extends Component {
-    constructor(props){
-        super(props);
-
-    }
+      // onSwipeStart(event) {
+      //   console.log('Start swiping...', event);
+      // }
+     
+      // onSwipeMove(position, event) {
+      //   console.log(`Moved ${position.x} pixels horizontally`, event);
+      //   console.log(`Moved ${position.y} pixels vertically`, event);
+      // }
+     
+      // onSwipeEnd(event) {
+      //   console.log('End swiping...', event);
+      // }
+     
       
     render() {
     var settings = {
@@ -26,6 +35,10 @@ class CarrouselPortfolio extends Component {
 
 
     return (
+      // <Swipe
+      // onSwipeStart={this.onSwipeStart}
+      // onSwipeMove={this.onSwipeMove}
+      // onSwipeEnd={this.onSwipeEnd}>
       <Slider {...settings}>
                 <img src={abeille} className="imgCarrousel" alt="..."/>
                 <img src={oeil} className="imgCarrousel" alt="..."/>
@@ -34,6 +47,7 @@ class CarrouselPortfolio extends Component {
                 <img src={fleur} className="imgCarrousel" alt="..."/>
                 <img src={cover_cuisse} className="imgCarrousel" alt="..."/>
       </Slider>
+      // </Swipe>
 
     );
   }

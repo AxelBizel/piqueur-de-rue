@@ -1,5 +1,6 @@
 .carousel-item > img {
-  max-height: 100vh;
+  max-height: 70vh;
+  width: 100vw;
 }
 
 .carrouselDiv {

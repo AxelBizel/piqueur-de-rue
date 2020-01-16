@@ -1,3 +1,10 @@
+.styleNavbar {
+    background-color: #786B60;
+    position: relative;
+    width: 100vw;
+    box-shadow: 1px 1px 10px rgb(58, 58, 58);
+}
+
 .styleLink {
     color: rgb(54, 53, 52);
     transition: 0.1s;
@@ -12,33 +19,64 @@
     transition: 0.1s;
 }
 
-.styleNavbar {
-    background-color: #786B60;
-    position: relative;
-    z-index: 1;
-    width: 100vw;
-    box-shadow: 1px 1px 10px rgb(58, 58, 58);
-}
-    
-/* .headroom--scrolled {
-    transition: transform 2000ms ease-in-out;
-} */
-
 .styleLink {
     font-size: 1.4em;
     margin-right: 1vw;
 }
 
+.styleLink {
+    position: relative;
+    font-size: 1.4em;
+    margin-right: 1vw;
+}
+
+.styleLink::after {
+    content: '';
+    position: absolute;
+    left: 50%;
+    bottom: 0;
+    -webkit-transform: translateX(-50%) scaleX(0);
+            transform: translateX(-50%) scaleX(0);
+    -webkit-transform-origin: 50% 50%;
+            transform-origin: 50% 50%;
+    width: 100%;
+    height: 1px;
+    background-color: rgba(255, 255, 255, 0.8);
+    transition: -webkit-transform 250ms;
+    transition: transform 250ms;
+    transition: transform 250ms, -webkit-transform 250ms;
+}
+
+.styleLink:hover::after {
+    -webkit-transform: translateX(-50%) scaleX(1);
+            transform: translateX(-50%) scaleX(1);
+}
+
 @media screen and (max-width:768px) {
     .styleNavbar {
-        background-color: rgba(255, 255, 255, 0.493) !important;
-        position: fixed;
-        border-radius: 10px;
-        width: auto;
+        background-color: #786B60;
+        position: relative;
+        z-index: 1;
+        width: 100vw;
+        box-shadow: 1px 1px 10px rgb(58, 58, 58);
     }
     
     .styleLink {
         font-size: 1.4em;
         margin-right: 1vw;
+    }
+
+    .loginLink {
+        color: rgb(182, 179, 176);
+    }
+
+    .styleLink::after {
+        display: none;
+    }
+
+    .loginLink {
+        padding-left: none;
+        font-size: 1.4em;
+        color: rgb(182, 179, 176);
     }
 }

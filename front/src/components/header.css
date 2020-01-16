@@ -1,26 +1,39 @@
 .header {
+    position: absolute;
     display: flex;
     justify-content: Center;
     align-items: Center;
     width: 100vw;
     height: 100vh;
     background-color: black;
+    opacity: 0;
 }
 
-.logoheader {
-    animation-duration: 3s;
-    animation-name: logotransition;
+.logoheader {   
     height : 70vh;
+    animation: logotransition 5s;
+    overflow-x: hidden;
 }
+
+/* .logoheader {
+    height : 70vh;
+    animation: animate 3s linear infinite;
+} */
 
 @keyframes logotransition {
     from {
         opacity: 0;
-        height: 100vh;
+        transform: scale(2);
     }
 
     to {
         opacity: 1;
-        height: 70vh;
+        transform: scale(1);   
+    }
+}
+
+@media screen and (max-width:768px) {
+    .logoheader {
+         
     }
 }

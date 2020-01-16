@@ -4,7 +4,7 @@ import './yourproject.css';
 const ContactForm = () => (
     
     <form id="contact-form" method="post" data-format="inline">
-        <p>NOUS CONTACTER</p>
+        <h3>NOUS CONTACTER</h3>
         <input type="text" id="name" placeholder="Your name" required />
         <input type="text" id="email" placeholder="your@email.com" required />
         {/* <select id="subject" required>
@@ -31,7 +31,7 @@ class ModalContactProject extends Component {
                 <div className="background" style={{display : showModal? "flex" : "none"}} onClick={() => this.props.closeModal()}></div>
                 {showModal ? 
                     <div className="ContactModal" role="dialog">
-                    <button className="closeButton" onClick={ this.props.closeModal}>Close</button>
+                    <button className="closeButton" onClick={ this.props.closeModal}>Fermer</button>
                     <ContactForm />
                     </div> : null
                 }

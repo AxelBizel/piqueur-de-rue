@@ -1,43 +1,37 @@
-.footer {
-    display: flex;
-    flex-direction: column;
-    width: 100vw;
-    height: auto;
-    background-color: black;
-}
-
-
 .adresse {
     display: flex;
     flex-direction: column;
     align-items: center;
-    width: 100vw;
+    margin-bottom: 5vh;
+    border-radius: 3px;
 }
 
-
 .adresse p {
-    font-size: 1.8em;
-    color: white;
+    font-size: 1.4em;
+    color: black;
+    text-align: center;
 }
 
 .RS {
     display: flex;
     justify-content: center;
-    width: 50vw;
 }
 
 .logoRS {
-    width: 8vw;
-    margin: 2.5em;
+    height: 50px;
+    margin: 1em 1em;
 }
 
 .map {
-    width: 100vw;
-    height: 50vh;
     border: 0;
+    width: 100%;
+    min-height: 400px;
+    margin-bottom: 5vh;
+    border-radius: 3px;
+    color: white;
+    margin-bottom: 3vh;
 }
 
-.logo {
-    margin-top: 2em;
-    height: 30vh;
+.logo{
+    width: 80%;
 }

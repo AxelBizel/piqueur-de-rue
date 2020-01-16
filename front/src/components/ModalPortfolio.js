@@ -1,68 +1,100 @@
-import React, {Component} from 'react';
-import './modalPortfolio.css';
-import abeille from '../img/tatoueurs/abeille.jpg';
-import cosmic from '../img/tatoueurs/cosmic.jpg';
-import insta from '../img/instagram.png';
-import CarrouselPortfolio from './CarrouselPortfolio';
-import FormulairePortfolio from './FormulairePortfolio';
-
+import React, { Component } from "react";
+import insta from "../img/logo/logoIG.png";
+import {
+  Container,
+  Row,
+  Col,
+  Card,
+  CardImg,
+  CardText,
+  CardBody,
+  CardTitle,
+  Button
+} from "reactstrap";
+import ButtonOpenFormTatoueurs from "./ButtonOpenFormTatoueurs";
+import GalleryPortfolio from "./GalleryPortfolio";
 
 class ModalPortfolio extends Component {
-        constructor(props){
-            super(props);
-            this.state={
-                showFormulaire : false,
-            };
-        }
+  constructor(props) {
+    super(props);
+    this.state = {
+    };
+  }
 
 
-        openFormulairePortfolio = () =>{
-            let { showFormulaire } = this.state
-            showFormulaire = true;
-            this.setState({showFormulaire});
-        }
-    
-        closeFormulairePortfolio=()=> {
-            let { showFormulaire } = this.state;
-            showFormulaire = false;
-            setTimeout(()=>this.setState({ showFormulaire }), 500)
-        }
+  render() {
+    const { showModal } = this.props;
+    return (
+      <>
+        <div
+          className="firstModalPortfolio"
+          style={{ display: showModal ? "flex" : "none" }}
+          onClick={() => this.props.closeModal()}
+        ></div>
+        {showModal ? (
+          <aside className="secondModalPortfolio" role="dialog">
+            <div className="close-container" onClick={this.props.closeModal}>
+              <div className="leftright"></div>
+              <div className="rightleft"></div>
+              <label className="close"></label>
+            </div>
 
-        render(){
-            const {showModal} = this.props;
-            return(
-                <>           
-                    <div className="firstModalPortfolio" style={{display : showModal? "flex" : "none"}} onClick={() => this.props.closeModal()}></div>
-                    {showModal ? 
-                        <aside className="secondModalPortfolio" role="dialog">
-                        <div class="close-container" onClick={ this.props.closeModal}>
-                            <div class="leftright"></div>
-                            <div class="rightleft"></div>
-                            <label class="close" ></label>
-                        </div>
-                            {/* <button className="buttonCloseModal" onClick={ props.closeModal}>X</button> */}
-                            <h1 className="h1Portfolio">Cosmic Billie</h1>
-                            <div className="textEtImg">
-                                <a href="https://www.instagram.com/cosmic.billie/?hl=fr"><img className="imgPresentation" src={cosmic} alt="photo de Cosmic Billie"/></a>
-                                <a href="https://www.instagram.com/cosmic.billie/?hl=fr"><img src={insta} style={{width:"100px"}}/></a>
-                                <p className="textPresentation">"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."</p>
-                            </div>
-                            <button className="buttonPortfolio" onClick={this.openFormulairePortfolio}>Contacter tatoueur</button>
-                            { this.state.showFormulaire ? <FormulairePortfolio openFormulaire={this.openFormulairePortfolio} closeFormulaire={this.closeFormulairePortfolio} /> : null}
-                            <div className="sectionImgs">
-                                <img className="imgPrincipale" src={abeille} alt="réalisation du tatoueur" />
-                                <CarrouselPortfolio />
-                            </div>
-                        </aside> : null
-                    }
-                </>
-            )
-        }
+            <Container>
+              <Row>
+                <Col xs="12" lg="5">
+                  <div className="infoTatoueur">
+                    <Card style={{ width: "100%", margin: "0 auto", border:'0' }}>
+                      <CardImg
+                      style={{width:'66%', margin:'0 auto'}}
+                        top
+                        src={require("../img/tatoueurs/portraits-500px/" +
+                          `${this.props.portfolio.id}` +
+                          ".jpg")}
+                        alt="Portrait du tatoueur"
+                      />
+                      <CardBody>
+                        <CardTitle>
+                          <div className="tatoueur-header">
+                            <h1 className="h1Portfolio">
+                              {this.props.portfolio.pseudo}
+                            </h1>
+                            <a href="https://www.instagram.com/cosmic.billie/?hl=fr">
+                              <img
+                                src={insta}
+                                style={{ width: "36px", height: "36px" }}
+                              />
+                            </a>
+                          </div>
+                        </CardTitle>
+                        <CardText>
+                          <p className="tatoueur-subtitle">
+                            Style : {this.props.portfolio.style}
+                          </p>
+                          <p className="textPresentation">
+                            {this.props.portfolio.presentation}
+                          </p>
+                        {/* < ButtonOpenFormTatoueurs/> */}
+                        </CardText>
+                      </CardBody>
+                    </Card>
+                  </div>
+                </Col>
+                <Col xs="12" lg="7">
+                  <div style={{ width: "85%", margin: "0 auto" }}>
+                    <GalleryPortfolio />
+                  </div>
+                </Col>
+
+              
+                
+             
+              </Row>
+            </Container>
+          </aside>
+        ) : null}
+      </>
+    );
+  }
 }
 
 export default ModalPortfolio;
-
-
-
-
-

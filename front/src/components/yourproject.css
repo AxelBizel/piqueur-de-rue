@@ -1,136 +1,135 @@
-.SectionProjet {
+
+
+.yourproject {
     display: flex;
     flex-direction: column;
     align-items: center;
+    background: linear-gradient(326deg, rgba(236, 236, 236,0.04) 0%, rgba(236, 236, 236,0.04) 6%,rgba(157, 157, 157,0.04) 6%, rgba(157, 157, 157,0.04) 29%,rgba(77, 77, 77,0.04) 29%, rgba(77, 77, 77,0.04) 100%),linear-gradient(164deg, rgba(236, 236, 236,0.04) 0%, rgba(236, 236, 236,0.04) 36%,rgba(157, 157, 157,0.04) 36%, rgba(157, 157, 157,0.04) 61%,rgba(77, 77, 77,0.04) 61%, rgba(77, 77, 77,0.04) 100%),linear-gradient(336deg, rgba(236, 236, 236,0.04) 0%, rgba(236, 236, 236,0.04) 64%,rgba(157, 157, 157,0.04) 64%, rgba(157, 157, 157,0.04) 69%,rgba(77, 77, 77,0.04) 69%, rgba(77, 77, 77,0.04) 100%),linear-gradient(90deg, rgb(0,0,0),rgb(0,0,0));
 }
 
-.bg-image {
-    filter: blur(5px);
-    width: 100vw;
-    z-index: -1;
-}
+.ProjectSection1 { 
+    background: radial-gradient(circle at 50% 50%, rgba(0,0,0,0) 0%,  rgba(0,0,0,0) 50%, rgba(0,0,0,.5));
 
-p {
-    margin-bottom: 0 !important;
-}
+    /* background: linear-gradient(rgba(10,10,10,.1),rgba(0,0,0,.2)), repeating-linear-gradient(0, transparent, transparent 2px, black 3px, black 3px); */
 
-.ProjectSectionOne, .ProjectSectionThree {
-    display: flex;
-    height: 70vh;
-    width: 100vw;
-    border: 1px solid black;
-    border: 1px solid rgba(0, 0, 0, 0.200);
-}
-
-.ProjectSectionTwo, .ProjectSectionFour {
-    display: flex;
-    justify-content: flex-end;
-    height: 70vh;
-    width: 100vw;
-    border: 1px solid rgba(0, 0, 0, 0.200);
-}
-
-.LeftTitle {
-    font-family: "FalkinSerifBoldPERSONAL";
+    /* background: radial-gradient(circle at 50% 50%, rgba(0,0,0,0) 0%,  rgba(0,0,0,0) 50%, rgba(0, 0, 0, 0.7)), url('../img/projet/1rendezvous.jpg'); */
+    
+    background-size: cover;
+	background-attachment: fixed;
     display: flex;
     justify-content: center;
+    flex-direction: column;
     align-items: center;
-    align-self: flex-start;
-    position: absolute;
-    background-color: rgba(255, 255, 255, 0.911);
-    font-size: 6vw;
-    border-radius: 0 0 50px 0;
-    padding-right: 0.4em;
-    padding-left: 0.2em;
+    height: 100vh;
+    width: 100vw;
 }
 
-.RightTextSub {
-    display: flex;
-    align-self: flex-end;
-    position: absolute;
-    right: 0;
-    background-color: rgba(255, 255, 255, 0.911);
-    font-size: 1.5vw;
-    border-radius: 50px 0 0 0;
-    padding: 2em;
-    width: 50vw;
-    text-align: justify;
-}
+.ProjectSection2 {
+    background: radial-gradient(circle at 50% 50%, rgba(0,0,0,0) 0%,  rgba(0,0,0,0) 50%, rgba(0,0,0,.5));
 
+    /* background: linear-gradient(rgba(10,10,10,.1),rgba(0,0,0,.2)), repeating-linear-gradient(0, transparent, transparent 2px, black 3px, black 3px); */
 
-.RightTitle {
-    font-family: "FalkinSerifBoldPERSONAL";
+    /* background: radial-gradient(circle at 50% 50%, rgba(0,0,0,0) 0%,  rgba(0,0,0,0) 50%, rgba(0, 0, 0, 0.7)), url('../img/projet/3simulation.jpg'); */
+    
+    background-size: cover;
+	background-attachment: fixed;
     display: flex;
     justify-content: center;
+    flex-direction: column;
     align-items: center;
-    align-self: flex-start;
-    position: absolute;
-    background-color: rgba(255, 255, 255, 0.911);
-    font-size: 6vw;
-    padding-left: 0.5em;
-    border-radius: 0 0 0 50px;
-    padding-left: 0.4em;
-    padding-right: 0.2em;
+    height: 100vh;
+    width: 100vw;
 }
 
-.LeftTextSub {
+.ProjectSection3 {
+    background: radial-gradient(circle at 50% 50%, rgba(0,0,0,0) 0%,  rgba(0,0,0,0) 50%, rgba(0,0,0,.5));
+
+    /* background: linear-gradient(rgba(10,10,10,.1),rgba(0,0,0,.2)), repeating-linear-gradient(0, transparent, transparent 2px, black 3px, black 3px); */
+
+    /* background: radial-gradient(circle at 50% 50%, rgba(0,0,0,0) 0%,  rgba(0,0,0,0) 50%, rgba(0, 0, 0, 0.7)), url('../img/projet/3simulation.jpg'); */
+    
+    background-size: cover;
+	background-attachment: fixed;
     display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    height: 100vh;
+    width: 100vw;
+}
+
+.ProjectSection4 {
+    background: radial-gradient(circle at 50% 50%, rgba(0,0,0,0) 0%,  rgba(0,0,0,0) 50%, rgba(0,0,0,.5));
+
+    /* background: linear-gradient(rgba(10,10,10,.1),rgba(0,0,0,.2)), repeating-linear-gradient(0, transparent, transparent 2px, black 3px, black 3px); */
+
+    /* background: radial-gradient(circle at 50% 50%, rgba(0,0,0,0) 0%,  rgba(0,0,0,0) 50%, rgba(0, 0, 0, 0.7)), url('../img/projet/3simulation.jpg'); */
+    
+    background-size: cover;
+	background-attachment: fixed;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    height: 100vh;
+    width: 100vw;   
+}
+
+.step {
+    background: rgba(255, 255, 255, 0.918);
+    border-radius: 3px;
+    padding: 5%;
+    text-align: justify;
+    color: black;
     align-self: flex-end;
-    position: absolute;
-    left: 0;
-    background-color: rgba(255, 255, 255, 0.911);
-    font-size: 1.5vw;
-    border-radius: 0 50px 0 0;
-    padding: 2em;
-    width: 50vw;
+    align-items: flex-end;
+}
+
+.Title {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-family: "FalkinSerifBoldPERSONAL";
+    font-size: 2.5em;
+    color: black;
+}
+
+.TextSub {
+    font-size: 1.3em;
     text-align: justify;
 }
-
-.buttonContactProjet {
-    font-size: 5vh;
-    height: 10vh;
-    border-radius: 25px;
-    box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.644);
-    margin: 3vh 0 3vh 0;
-    background-color: #786B60;
-    padding: 0 20px;
-    transition: 0.4s;
-    border:1px solid rgba(0, 0, 0, 0.192);
-}
-
-.buttonContactProjet:hover {
-    font-size: 5vh;
-    height: 10vh;
-    border-radius: 25px;
-    box-shadow: 1px 1px 3px rgba(0, 0, 0, 0);
-    margin: 3vh 0 3vh 0;
-    background-color: #786B60;
-    padding: 0 20px;
-    transition: 0.4s;
-}
-
-
-/* MODAL CSS */
 
 .buttonContactProject {
     padding: 1em;
-    border-radius: 20px;
-    font-size: 1.7em;
+    border-radius: 3px;
+    font-size: 1.4em;
     background-color: #7A6A5D;
     border:1px solid rgba(0, 0, 0, 0.411);
     box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.774);
     transition: 0.4s;
-    margin: 1em;
     font-weight: 600;
+    margin: 5vh auto;
 }
 
 .buttonContactProject:hover {
-    padding: 1em;
-    border-radius: 20px;
-    font-size: 1.7em;
-    background-color: #7A6A5D;
-    border:1px solid rgba(0, 0, 0, 0.212);
+    border:1px solid rgba(0, 0, 0, 0);
     box-shadow: none;
+    transition: 0.4s;
+}
+
+
+
+
+/* MODAL CSS */
+
+form#contact-form {
+    margin: 0;
+}
+
+form h3 {
+    text-align: left;
+    font-size: 2em;
+    margin-bottom: 0.7em;
 }
 
 .background {
@@ -144,7 +143,7 @@ p {
 
 .closeButton {
     color: rgba(0, 0, 0, 0.452);
-    border-radius: 10px;
+    border-radius: 3px;
     padding: 0.5em;
     background-color: rgb(255, 255, 255);
     border: 1px solid rgba(0, 0, 0, 0.315);
@@ -154,12 +153,13 @@ p {
 
 .closeButton:hover {
     color: rgba(0, 0, 0, 0.733);
-    border-radius: 10px;
+    border-radius: 3px;
     padding: 0.5em;
     background-color: rgb(255, 255, 255);
     border: 1px solid rgba(0, 0, 0, 0.315);
     box-shadow: none;
     transition: .1s;
+    
 }
 
 .ContactModal {
@@ -171,12 +171,13 @@ p {
     left: 50%;
     transform: translate(-50%, -50%);
     width: 60vw;
-    height: 80vh;
+    height: auto !important;
     border-radius: 10px;
     padding: 40px;
-    background-color: rgb(255, 255, 255);
+    background: white !important;
     z-index: 15;
 }
+
 
 /* CONTACT FORM CSS */
 
@@ -209,10 +210,6 @@ input:focus, select:focus,textarea:focus {
     display:none !important;
 }
 
-p {
-    font-size: 3em;
-}
-
 button.btn {
     color: white;
     background-color: #7A6A5D;
@@ -235,12 +232,3 @@ select:required:invalid {
 input:placeholder{
     color: silver;
 }
-
-/* option[value=""][disabled] {
-      display: none;
-    color: silver;
-}
-
-option {
-    color: black;
-} */

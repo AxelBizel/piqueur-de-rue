@@ -2,11 +2,31 @@
     display: flex;
     flex-direction: column-reverse;
     align-items: flex-end;
-    background-image: url("../img/divers/accueil.jpg");
-    height: 130vh;
+    height: 100vh; 
+    background: linear-gradient(rgba(10,10,10,.2),rgba(0,0,0,.4)), /*repeating-linear-gradient(0, transparent, transparent 2px, black 3px, black 3px), */ url("../img/divers/accueil.jpg");
     background-size: cover;
+    background-position: center;
+    z-index: 5;
 }
 
-.logo {
-    max-width: 60vw;
+
+.HomeLogo {
+    width: 60vw;
+}
+
+@media screen and (max-width:768px) {
+    .containerHome {
+        display: flex;
+        flex-direction: column-reverse;
+        align-items: flex-end;
+        height: 100vh; 
+        background: linear-gradient(rgba(10,10,10,.2),rgba(0,0,0,.4)), repeating-linear-gradient(0, transparent, transparent 2px, black 3px, black 3px), url("../img/divers/accueil.jpg");
+        background-size: cover;
+        background-position: center;
+    }
+
+    .HomeLogo {
+        width: 100vw;
+        transition: .5s;
+    }
 }

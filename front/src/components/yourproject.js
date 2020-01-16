@@ -1,69 +1,164 @@
-import React, {Component} from 'react';
-import './yourproject.css';
-import image1 from '../img/projet/1rendezvous.jpg';
-import image2 from '../img/projet/2dessin.jpg';
-import image3 from '../img/projet/3simulation.jpg';
-import image4 from '../img/projet/4realisation.jpg';
-import ModalContactProject from '../components/modalContactProject'
+import React, { Component } from "react";
+import ModalContactProject from "../components/modalContactProject";
+import { Container, Row, Col } from "reactstrap";
+import { Parallax } from 'react-parallax';
+import "./yourproject.css";
 
 /*MODAL CONTACT PROJET*/
 
+export default class YourProject extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      showModal: false
+    };
+  }
+  openModal = e => {
+    let { showModal } = this.state;
+    e.preventDefault();
+    showModal = true;
+    this.setState({ showModal });
+  };
 
-export default class YourProject extends Component{
-    constructor(props) {
-        super(props);
-        this.state= {
-            showModal: false,
-        };
-    }
-    openModal=(e)=> {
-        let {showModal} = this.state;
-        e.preventDefault()
-        showModal = true;
-        this.setState({ showModal })
-    }
+  closeModal = () => {
+    let { showModal } = this.state;
+    showModal = false;
+    this.setState({ showModal });
+  };
 
-    closeModal=()=> {
-        let {showModal} = this.state;
-        showModal = false;
-        this.setState({ showModal })
-    }
-
-    render() {
+  render() {
     return (
-        <div>
-            <h1 className="HeaderSection">VOTRE PROJET</h1>
-                <div className="SectionProjet">
-                    <div className="ProjectSectionOne">
-                        <img className="bg-image" src={image1} />
-                        <p className="LeftTitle">RENDEZ-VOUS</p>
-                        <p className="RightTextSub">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur et posuere dolor. Aliquam condimentum lacus a velit scelerisque, id rhoncus lorem laoreet. Morbi sollicitudin metus tellus, vulputate semper erat egestas quis. Sed interdum sed diam at finibus. Vestibulum nec sem urna. In mollis purus et libero tincidunt convallis.</p>
-                    </div>
-                
-                    <div className="ProjectSectionTwo">
-                        <img className="bg-image" src={image2} />
-                        <p className="RightTitle">DESSIN</p>
-                        <p className="LeftTextSub">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur et posuere dolor. Aliquam condimentum lacus a velit scelerisque, id rhoncus lorem laoreet. Morbi sollicitudin metus tellus, vulputate semper erat egestas quis. Sed interdum sed diam at finibus. Vestibulum nec sem urna. In mollis purus et libero tincidunt convallis.</p>
-                    </div>
-                
-                    <div className="ProjectSectionThree">
-                        <img className="bg-image" src={image3} />
-                        <p className="LeftTitle">SIMULATION</p>
-                        <p className="RightTextSub">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur et posuere dolor. Aliquam condimentum lacus a velit scelerisque, id rhoncus lorem laoreet. Morbi sollicitudin metus tellus, vulputate semper erat egestas quis. Sed interdum sed diam at finibus. Vestibulum nec sem urna. In mollis purus et libero tincidunt convallis.</p>
-                    </div>
-                
-                    <div className="ProjectSectionFour">
-                        <img className="bg-image" src={image4} />
-                        <p className="RightTitle">RÉALISATION</p>
-                        <p className="LeftTextSub">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur et posuere dolor. Aliquam condimentum lacus a velit scelerisque, id rhoncus lorem laoreet. Morbi sollicitudin metus tellus, vulputate semper erat egestas quis. Sed interdum sed diam at finibus. Vestibulum nec sem urna. In mollis purus et libero tincidunt convallis.</p>
-                    </div>
+      <div>
+        <h1 className="HeaderSectionProject">Votre Projet TATTOO</h1>
+        <div className="yourproject">
 
-                    <button className="buttonContactProject" onClick={this.openModal}>NOUS CONTACTER</button>
-                    <ModalContactProject showModal={this.state.showModal} closeModal={this.closeModal} />
-                
-                </div>
-                    
+          <Parallax
+            bgImage={require('../img/projet/1rendezvous.jpg')}
+            bgImageAlt="the cat"
+            strength={400}
+            blur={2}
+          >
+          <div className="ProjectSection1">
+            <Container>
+              <Row>
+                <Col xs="12" md="6">
+                  <div className="step">
+                    <h3 className="Title">LE RENDEZ-VOUS</h3>
+                    <p className="TextSub">
+                      Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                      Curabitur et posuere dolor. Aliquam condimentum lacus a
+                      velit scelerisque, id rhoncus lorem laoreet. Morbi
+                      sollicitudin metus tellus, vulputate semper erat egestas
+                      quis.
+                    </p>
+                  </div>
+                </Col>
+                <Col xs="12" md="6">
+                  <div></div>
+                </Col>
+              </Row>
+            </Container>
+          </div>
+          </Parallax>
+
+          <Parallax
+            bgImage={require('../img/projet/2dessin.jpg')}
+            bgImageAlt="the cat"
+            strength={400}
+            blur={2}
+          >
+          <div className="ProjectSection2">
+            <Container>
+              <Row>
+                <Col xs="12" md="6">
+                  <div></div>
+                </Col>
+                <Col xs="12" md="6">
+                  <div className="step">
+                    <h3 className="Title">DESSIN</h3>
+                    <p className="TextSub">
+                      Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                      Curabitur et posuere dolor. Aliquam condimentum lacus a
+                      velit scelerisque, id rhoncus lorem laoreet. Morbi
+                      sollicitudin metus tellus, vulputate semper erat egestas
+                      quis.
+                    </p>
+                  </div>
+                </Col>
+              </Row>
+            </Container>
+          </div>
+          </Parallax>
+
+          <Parallax
+            bgImage={require('../img/projet/3simulation.jpg')}
+            bgImageAlt="the cat"
+            strength={400}
+            blur={2}
+          >
+          <div className="ProjectSection3">
+            <Container>
+              <Row>
+                <Col xs="12" md="6">
+                  <div className="step">
+                    <h3 className="Title">SIMULATION</h3>
+                    <p className="TextSub">
+                      Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                      Curabitur et posuere dolor. Aliquam condimentum lacus a
+                      velit scelerisque, id rhoncus lorem laoreet. Morbi
+                      sollicitudin metus tellus, vulputate semper erat egestas
+                      quis.
+                    </p>
+                  </div>
+                </Col>
+                <Col xs="12" md="6">
+                  <div></div>
+                </Col>
+              </Row>
+            </Container>
+          </div>
+          </Parallax>
+
+          <Parallax
+            bgImage={require('../img/projet/4realisation.jpg')}
+            bgImageAlt="the cat"
+            strength={400}
+            blur={2}
+          >
+          <div className="ProjectSection4">
+            <Container>
+              <Row>
+                <Col xs="12" md="6">
+                  <div></div>
+                </Col>
+                <Col xs="12" md="6">
+                  <div className="step">
+                    <h3 className="Title">RÉALISATION</h3>
+                    <p className="TextSub">
+                      Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                      Curabitur et posuere dolor. Aliquam condimentum lacus a
+                      velit scelerisque, id rhoncus lorem laoreet. Morbi
+                      sollicitudin metus tellus, vulputate semper erat egestas
+                      quis.
+                    </p>
+                  </div>
+                </Col>
+              </Row>
+            </Container>
+                <button
+                  className="buttonContactProject"
+                  onClick={this.openModal}
+                >
+                  Nous contacter
+                </button>
+                <ModalContactProject
+                  showModal={this.state.showModal}
+                  closeModal={this.closeModal}
+                />
+          </div>
+          </Parallax>
         </div>
-    )
-}
+      </div>
+    );
+  }
 }
