@@ -8,9 +8,8 @@ const session = require('express-session');
 const jwt = require('jsonwebtoken')
 const cors = require("cors");
 const sendMail = require('./mail')
-const cors = require("cors");
-var http = require('http');
-var fs = require('fs');
+const http = require('http');
+const fs = require('fs');
 
 //filesystem
 // http.createServer(function (req, res) {
