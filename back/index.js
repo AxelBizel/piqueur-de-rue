@@ -110,7 +110,6 @@ function verifyToken (req,res,next) {
 // Routes test
 
 app.get("/api/portfolios", (req, res) => {
-  // a modifier avec role admin dans le meilleur des mondes
     connection.query(" SELECT * from portfolio", (err, results) => {
       if (err) {
         console.log(err)
@@ -144,10 +143,20 @@ app.put("/api/portfolio/:id", (req, res) => {
   });
 });
 
-// //Cors
-app.use(cors())
+//ROUTES : Profile Portfolio Bouton
 
-;
+// app.get("/api/adminprofile", (req,res) => {
+//   connection.query("SELECT * from portfolio", (err, results) => {
+//     if (err){
+//       res.status(500).send ("Error");
+//     } else {
+//       res.json(results);
+//     }
+//   })
+// })
+
+
+
 
 //ROUTES : Récupération des users
 app.get("/api/users", (req, res) => {
@@ -181,6 +190,18 @@ app.get("/api/portfolio/:id/{name}", (req, res) => {
     }
   });
 });
+
+// Poste des images 
+
+app.post("/api/portfolio", (req,res) => {
+  connection.query("SELECT * from portfolio", (err, results) => {
+    if (err){
+      res.status(500).send ("Error");
+    } else {
+      res.json(results);
+    }
+  })
+})
 
 //Récupération des images
 app.get("/api/images", (req, res) => {
