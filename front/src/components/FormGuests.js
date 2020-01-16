@@ -41,7 +41,7 @@ class FormGuests extends Component {
         return (
             <>
                 <form className="formPortfolio" onSubmit={this.handleSubmitFormGuest} method="POST" action='/api/guests'>
-                    <h1>Nous contacter pour devenir GUEST :</h1>
+                    <h1>Devenez GUEST :</h1>
                     <input name="firstnameG" type="text" onChange={this.handleChangeInputGuest} value={this.state.firstnameG} placeholder="Votre prénom :" required></input>
                     <input name="lastnameG" type="text" onChange={this.handleChangeInputGuest} value={this.state.lastnameG} placeholder="Votre nom :" required></input>
                     <input name="pseudoG" type="text" onChange={this.handleChangeInputGuest} value={this.state.pseudoG} placeholder="Votre pseudo :" ></input>

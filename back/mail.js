@@ -38,7 +38,11 @@ const sendMailGuest = async (guest) => {
       to: 'chadieleman@gmail.com',
       from: 'fredCarillo@piqueurderuetest.com',
       subject: 'Votre contact Guest :',
-      html: `${guest.firstnameG}`, 
+      html: ` ${guest.firstnameG} ${guest.lastnameG} vous a envoyé un mail.
+              Son pseudo est ${guest.pseudoG} (son compte Insta ou autre = ${guest.compteG}).
+              Son message : ${guest.storyG}.
+              Vous pouvez le joindre au ${guest.phoneG} ou par mail ${guest.emailG}.
+              Bonne journée !`, 
     }
     sgMail.setApiKey(SENDGRID_API_KEY)
     return sgMail.send(msg)

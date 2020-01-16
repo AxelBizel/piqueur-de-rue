@@ -270,19 +270,6 @@ app.post('/project', async (req, res) => {
   }
 })
 
-// // Route pour l'envoi de Mails des guests avec sengrid : --------------------------------------------
-
-// app.post('/projectGuests', async (req, res) => {
-//   try { 
-//     const sent = await sendMailGuest(req.body)
-//     if (sent) {
-//       res.send({ message: 'email Guests envoyé avec succès' })
-//     }
-//   } catch (error) {
-//     throw new Error(error.message)
-//   }
-// })
-
 //Server
 app.get("/", (request, response) => {
   response.send("Bienvenue sur Express de piqueur de rue");
