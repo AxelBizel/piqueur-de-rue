@@ -8,6 +8,7 @@ const session = require('express-session');
 const jwt = require('jsonwebtoken')
 const cors = require("cors");
 const sendMail = require('./mail')
+const sendMailGuest = require('./mail')
 const http = require('http');
 const fs = require('fs');
 
@@ -179,7 +180,8 @@ app.get("/api/images", (req, res) => {
   });
 });
 
-// Récupération des données du formulaire de contactTatoueur
+// Récupération des données du formulaire client de contactTatoueur
+//envoi du mail client au tatoueur
 app.get("/api/customers", (req, res) => {
   connection.query("SELECT * from customers", (err, results) => {
     if (err) {
@@ -196,30 +198,69 @@ app.post('/api/customers', (req, res) => {
   connection.query('INSERT INTO customers SET?', formData, async (err, results) => {
     if (err) {
       console.log(err);
-      res.status(500).send("erreur de récupération des données du formulaire");
+      res.status(500).send("erreur de récupération des données du formulaire Client");
     } else {
-      console.log('YES ça fonctionne !!!!!!!!!!!!!')
+      console.log('YES ça fonctionne côté client !!!!!!!!!!!!!')
       try {
         //je mets dans mysql
+        //j'envoie mon mail
         const sent = await sendMail(req.body)
         if (sent) {
-          res.send({ message: 'email envoyé avec succès' })
+          res.send({ message: 'email client envoyé avec succès' })
         }
       } catch (error) {
         console.log("gg1", error)
         // throw new Error(error.message)
-        res.status(500).send("erreur d'envoie du mail");
+        res.status(500).send("erreur d'envoie du mail client");
 
       }
     }
   })
 });
 
-// Route pour l'envoi de Mails avec sengrid : --------------------------------------------
+
+// Récupération des données du formulaire guest de contactTatoueur
+//envoi du mail guest au tatoueur
+app.get("/api/guests", (req, res) => {
+  connection.query("SELECT * from guests", (err, results) => {
+    if (err) {
+      res.status(500).send("Erreur lors de la récupération des guests");
+    } else {
+      res.json(results);
+    }
+  });
+});
+
+
+app.post('/api/guests', (req, res) => {
+  const formData = req.body;
+  connection.query('INSERT INTO guests SET?', formData, async (err, results) => {
+    if (err) {
+      console.log(err);
+      res.status(500).send("erreur de récupération des données du formulaire Guest");
+    } else {
+      console.log('YES ça fonctionne côté guest !!!!!!!!!!!!!')
+      try {
+        //je mets dans mysql
+        //j'envoie mon mail
+        const sent = await sendMailGuest(req.body)
+        if (sent) {
+          res.send({ message: 'email guest envoyé avec succès' })
+        }
+      } catch (error) {
+        console.log("gg2", error)
+        // throw new Error(error.message)
+        res.status(500).send("erreur d'envoie du mail guest");
+
+      }
+    }
+  })
+});
+
+// Route pour l'envoi de Mails des clients avec sengrid : --------------------------------------------
 
 app.post('/project', async (req, res) => {
   try { 
-    //je mets dans mysql
     const sent = await sendMail(req.body)
     if (sent) {
       res.send({ message: 'email envoyé avec succès' })
@@ -228,6 +269,19 @@ app.post('/project', async (req, res) => {
     throw new Error(error.message)
   }
 })
+
+// // Route pour l'envoi de Mails des guests avec sengrid : --------------------------------------------
+
+// app.post('/projectGuests', async (req, res) => {
+//   try { 
+//     const sent = await sendMailGuest(req.body)
+//     if (sent) {
+//       res.send({ message: 'email Guests envoyé avec succès' })
+//     }
+//   } catch (error) {
+//     throw new Error(error.message)
+//   }
+// })
 
 //Server
 app.get("/", (request, response) => {

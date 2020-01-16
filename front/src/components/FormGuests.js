@@ -31,7 +31,6 @@ class FormGuests extends Component {
         let guest = this.state;
         axios
             .post("http://localhost:5000/api/guests", guest)
-            .then(console.log("add guest on table guests ok"))
         this.setState(this.getInitialState());
     
         event.preventDefault();
@@ -49,7 +48,7 @@ class FormGuests extends Component {
                     <input name="phoneG" type="tel" onChange={this.handleChangeInputGuest} value={this.state.phoneG} size={10} minLength={1} maxLength={10} placeholder="Votre numéro de téléphone :" required></input>
                     <input name="emailG" type="email" onChange={this.handleChangeInputGuest} value={this.state.emailG} placeholder="Votre adresse mail :" required></input>
                     <input name="compteG" type="text" onChange={this.handleChangeInputGuest} value={this.state.compteG} placeholder="Votre compte Instagram / Facebook / autres :"></input>
-                    <textarea id="storyG" name="story" rows="5" cols="33" onChange={this.handleChangeInputGuest} value={this.state.storyG} placeholder="Dîtes-nous en plus ici : ">
+                    <textarea id="storyG" name="storyG" rows="5" cols="33" onChange={this.handleChangeInputGuest} value={this.state.storyG} placeholder="Dîtes-nous en plus ici : ">
                     </textarea>
                     <button className="buttonSubmit" type="submit" style={{color:"black"}}>Envoyer ma candidature</button>
                 </form>
