@@ -23,7 +23,6 @@ class FormulairePortfolio extends Component {
 
 
     handleChange = (e) => {
-        console.log(this.state)
         this.setState({ [e.target.name]: e.target.value })
 
     }
@@ -38,7 +37,7 @@ class FormulairePortfolio extends Component {
         axios
             .post("http://localhost:5000/api/customers", customer)
             .then(console.log("add customer on table customers ok"))
-        this.setState(this.getInitialState);
+        this.setState(this.getInitialState());
     
         event.preventDefault();
     }
