@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import axios from 'axios';
+import { CustomInput } from 'reactstrap';
 
 class AdminProfile extends Component {
     state = {
@@ -14,10 +15,10 @@ class AdminProfile extends Component {
         this.togglePortfolio = this.togglePortfolio.bind(this);
     }
 
-    getPortfolio = async ()=>{
+    getPortfolio = async () => {
         try {
             const result = await axios.get(`http://localhost:5000/api/portfolios`)
-            console.log("gg",result.data)
+            console.log("gg", result.data)
             this.setState({ portfolios: result.data })
         } catch (err) {
             this.setState({
@@ -26,15 +27,16 @@ class AdminProfile extends Component {
         }
     }
 
-    handleClick= (ev) => {
+    handleClick = (ev) => {
         ev.preventDefault()
-        this.setState({ portfoliosActive :!this.state.portfoliosActive });
-      }
-    
+        this.setState({ portfoliosActive: !this.state.portfoliosActive });
+    }
+
 
     async togglePortfolio(id, active) {
+        console.log(id,active)
         try {
-            const result = await axios.put(`http://localhost:5000/api/portfolio/${id}`, {active:!active})
+            const result = await axios.put(`http://localhost:5000/api/portfolio/${id}`, { active: !active })
             console.log(result.data)
             this.getPortfolio();
         } catch (err) {
@@ -57,22 +59,23 @@ class AdminProfile extends Component {
         console.log(this.state.portfolios)
         return (
             <div>
-              <button 
-             
-              onClick={this.handleClick}>{this.state.portfoliosActive ? 'active' : 'desactive'}</button>
+                <button onClick={this.handleClick}>{this.state.portfoliosActive ? 'active' : 'desactive'}</button>
                 {
                     this.state.portfolios
                         // .filter(pf => pf.active === this.state.portfoliosActive)
                         .map((pf, index) =>
-                            <button
-                                onClick={() => this.togglePortfolio(pf.id,pf.active)}
-                                style={{ border: "1px solid black " ,
-                                        'background' : 'black',
-                                        'color': 'white',}}>
-                                {pf.pseudo} {pf.active}
-                            </button>
+                            <CustomInput
+                                key={`ci-${index}`}
+                                onChange={() => {console.log(pf.id);this.togglePortfolio(pf.id, pf.active)}}
+                                // label=""
+                                type="switch"
+                                id={`ci-${index}`}
+                                // name={`ci-${index}`}
+                                checked={pf.active}>
+                                {pf.id} {pf.pseudo} {pf.active}
+                            </CustomInput>
                         )
-                }
+                }s
 
             </div>
         )
