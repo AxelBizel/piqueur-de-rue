@@ -69,10 +69,10 @@ DEFAULT CHARACTER SET = utf8;
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `piqueurderue`.`users` (
   `id` INT(11) NOT NULL AUTO_INCREMENT,
-  `login` VARCHAR(70) NOT NULL,
-  `password` VARCHAR(70) NOT NULL,
-  `users_status_id1` INT(11) NOT NULL,
-  `portfolio_id` INT(11) NOT NULL,
+  `login` VARCHAR(70) NULL,
+  `password` VARCHAR(70) NULL,
+  `users_status_id1` INT(11) NULL,
+  `portfolio_id` INT(11) NULL,
   PRIMARY KEY (`id`),
   INDEX `fk_users_users_status1_idx` (`users_status_id1` ASC) ,
   INDEX `fk_users_portfolio1_idx` (`portfolio_id` ASC) ,
