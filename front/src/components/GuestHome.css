@@ -64,7 +64,14 @@
   color: black;
   margin: 10% auto;
 }
+.GuestSubtitle{
+  text-align: center;
+  margin-top: 5vh;
+  font-size: 1.3em;
+  font-weight: 600;
 
+
+}
 .Title-Guest {
   text-align: left;
   font-family: "FalkinSerifBoldPERSONAL";

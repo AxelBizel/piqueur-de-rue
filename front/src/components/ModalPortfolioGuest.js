@@ -71,7 +71,7 @@ class ModalPortfolioGuest extends Component {
                           <p className="textPresentation">
                             {portfolio.presentation}
                           </p>
-                          <p className="tatoueur-subtitle">Disponibilités : <br/> du {portfolio.startdate} au {portfolio.enddate}.</p>
+                          <p className="GuestSubtitle">Disponibilités : <br/> du {portfolio.startdate} au {portfolio.enddate}.</p>
                         {/* < ButtonOpenFormTatoueurs/> */}
                         </CardText>
                       </CardBody>
