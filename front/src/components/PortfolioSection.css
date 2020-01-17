@@ -17,12 +17,12 @@
     flex-direction: row;
     justify-content: space-evenly;
     height: 200px;
-   
 }
+
 /* .Artists:hover {
     cursor: pointer;
     filter: opacity(70%);
-    transition: .2s;
+    transition: .1s;
     background-position: center;
     background-size: cover;
     background-repeat: no-repeat;
@@ -162,7 +162,6 @@
     transform: rotate(45deg);
     background-color: #f25c66;
   }
-  
   
   .imgCarrousel {
     margin-bottom: 15px;
