@@ -1,7 +1,7 @@
 import React, { Component } from "react";
-import ModalPortfolio from "./ModalPortfolio";
+import ModalPortfolioGuest from "./ModalPortfolioGuest";
 
-class ButtonOpenPortfolio extends Component {
+class ButtonPortfolioGuest extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -33,10 +33,10 @@ class ButtonOpenPortfolio extends Component {
   render() {
     return (
       <div>
-        <button className="buttonPortfolio" onClick={this.openModal}>
-         {this.props.portfolio.pseudo}      
+        <button className="buttonPortfolioGuest" onClick={this.openModal}>
+         En savoir plus      
         </button>
-        <ModalPortfolio
+        <ModalPortfolioGuest
           portfolio={this.props.portfolio}
           showModal={this.state.showModal}
           closeModal={this.closeModal}
@@ -46,4 +46,4 @@ class ButtonOpenPortfolio extends Component {
   }
 }
 
-export default ButtonOpenPortfolio;
+export default ButtonPortfolioGuest;
