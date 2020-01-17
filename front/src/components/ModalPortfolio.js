@@ -73,7 +73,7 @@ class ModalPortfolio extends Component {
                           <p className="textPresentation">
                             {portfolio.presentation}
                           </p>
-                        {/* < ButtonOpenFormTatoueurs/> */}
+                        < ButtonOpenFormTatoueurs/>
                         </CardText>
                       </CardBody>
                     </Card>
