@@ -42,20 +42,10 @@ class GuestHome extends Component {
     return (
       <div>
         <h1 className="HeaderSectionGuest">
-          <div
-            className="FirstLineGuest"
-            data-aos="fade-right"
-            data-aos-offset="1100"
-            data-aos-duration="1000"
-          >
+          <div className="FirstLineGuest" data-aos="fade-right">
             Guest
           </div>
-          <div
-            className="SecondLineGuest"
-            data-aos="fade-left"
-            data-aos-offset="1100"
-            data-aos-duration="1000"
-          >
+          <div className="SecondLineGuest" data-aos="fade-left">
             spot
           </div>
         </h1>
@@ -87,7 +77,9 @@ class GuestHome extends Component {
                           <h4>Next guest</h4>
                           <h3 className="Title-Guest">{portfolio.pseudo}</h3>
 
-                          <p className="TextSub">Du {portfolio.startdate} au {portfolio.enddate}.</p>
+                          <p className="TextSub">
+                            Du {portfolio.startdate} au {portfolio.enddate}.
+                          </p>
                           <ButtonPortfolioGuest portfolio={portfolio} />
                         </div>
                       </Col>
