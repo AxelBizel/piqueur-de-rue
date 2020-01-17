@@ -1,6 +1,6 @@
-import React from 'react'
+import React , { Component }from 'react'
 
-class AdminPortfolio extends Components {
+class AdminPortfolio extends Component {
     constructor (props){
         super (props);
         this.state = {

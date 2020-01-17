@@ -12,7 +12,7 @@ import App from './App';
 import * as serviceWorker from './serviceWorker';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
-
+import AdminPortfolio from './components/AdminPortfolio';
 const store = createStore(rootReducer);
 
 ReactDOM.render(
@@ -24,6 +24,7 @@ ReactDOM.render(
                 <Route path="/user" component={User} />
                 <Route path="/logout" component={Logout} />
                 <Route path="/admin" component={AdminProfile} />
+                <Route path="/adminportfolio" component ={AdminPortfolio}/>
             </Switch>
         </Router>
     </Provider>, document.getElementById('root'));
