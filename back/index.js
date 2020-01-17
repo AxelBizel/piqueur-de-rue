@@ -4,7 +4,6 @@ const port = 5000;
 const connection = require("./conf");
 const bodyParser = require("body-parser");
 const path = require('path');
-const session = require('express-session');
 const jwt = require('jsonwebtoken')
 const cors = require("cors");
 const sendMail = require('./mail')
@@ -22,11 +21,6 @@ const fs = require('fs');
 
 // bodyParser
 app.use(bodyParser.json());
-app.use(session({
-  secret: 'secret',
-  resave: true,
-  saveUninitialized: true
-}));
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
@@ -146,9 +140,20 @@ app.get("/api/users", (req, res) => {
   });
 });
 
-//Récupération des portfolios
-app.get("/api/portfolio", (req, res) => {
-  connection.query("SELECT * from portfolio", (err, results) => {
+//Récupération des portfolios team
+app.get("/api/portfolio/team", (req, res) => {
+  connection.query("SELECT * from portfolio WHERE type='team'", (err, results) => {
+    if (err) {
+      res.status(500).send("Erreur lors de la récupération des portfolios");
+    } else {
+      res.json(results);
+    }
+  });
+});
+
+//Récupération des portfolios guests
+app.get("/api/portfolio/guest", (req, res) => {
+  connection.query("SELECT * from portfolio WHERE type='guest'", (err, results) => {
     if (err) {
       res.status(500).send("Erreur lors de la récupération des portfolios");
     } else {

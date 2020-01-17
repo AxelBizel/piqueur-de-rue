@@ -13,7 +13,7 @@ import {
 import ButtonOpenFormTatoueurs from "./ButtonOpenFormTatoueurs";
 import GalleryPortfolio from "./GalleryPortfolio";
 
-class ModalPortfolio extends Component {
+class ModalPortfolioGuest extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -67,12 +67,11 @@ class ModalPortfolio extends Component {
                           </div>
                         </CardTitle>
                         <CardText>
-                          <p className="tatoueur-subtitle">
-                            Style : {portfolio.style}
-                          </p>
+                         
                           <p className="textPresentation">
                             {portfolio.presentation}
                           </p>
+                          <p className="GuestSubtitle">Disponibilités : <br/> du {portfolio.startdate} au {portfolio.enddate}.</p>
                         {/* < ButtonOpenFormTatoueurs/> */}
                         </CardText>
                       </CardBody>
@@ -97,4 +96,4 @@ class ModalPortfolio extends Component {
   }
 }
 
-export default ModalPortfolio;
+export default ModalPortfolioGuest;

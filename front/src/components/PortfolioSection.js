@@ -15,7 +15,7 @@ class PortfolioSection extends Component {
   }
 
   componentDidMount() {
-    axios.get(`http://localhost:5000/api/portfolio`).then(res => {
+    axios.get(`http://localhost:5000/api/portfolio/team`).then(res => {
       const portfoliosData = res.data;
       this.setState({ portfolios: portfoliosData });
       console.log(this.state);
