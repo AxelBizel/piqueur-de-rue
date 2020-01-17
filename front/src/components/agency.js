@@ -12,10 +12,12 @@ export default function Agency() {
         <div className="SecondLineAgency" data-aos="fade-left">de TATOUAGE</div>
         <div className="ThirdLineAgency" data-aos="fade-right">au service de vos projets</div>
       </h1>
-        <Container data-aos="zoom-in">
+        <Container >
+          <div data-aos="zoom-in">
           <CarrouselAgency />
+          </div>
             <Row>
-              <Col xs="12" md="6">
+              <Col xs="12" md="6" data-aos="fade-right">
                 <div className="aboutAgency">
                   <p className="TextSub-Agency">
                     Conçu comme une agence de design, le tattoo shop PIQUEUR DE RUE
@@ -29,7 +31,7 @@ export default function Agency() {
                 </div>
               </Col>
               <Col xs="12" md="6">
-                <div className="aboutAgency">
+                <div className="aboutAgency" data-aos="fade-left">
                   <p className="TextSub-Agency">
                     Pour que vous puissiez avoir le meilleur recul sur ce que pourra
                     rendre votre tatouage une fois terminé, nous réaliserons une

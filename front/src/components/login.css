@@ -12,6 +12,15 @@
 
 #formLogin {
     margin: 0px;
+    padding: 30px;
+}
+
+.underlineHover {
+    color: #786B60;
+}
+
+.underlineHover:hover {
+    color:rgb(97, 86, 77) ;
 }
   
 .wrapper {
@@ -63,7 +72,8 @@ h2.active {
 /* FORM TYPOGRAPHY*/
 
 input[type=button], input[type=submit], input[type=reset]  {
-    background-color: #56baed;
+    background-color: #786B60;
+    /* background-color: #56baed; */
     border: none;
     color: white;
     padding: 15px 80px;
@@ -72,8 +82,10 @@ input[type=button], input[type=submit], input[type=reset]  {
     display: inline-block;
     text-transform: uppercase;
     font-size: 13px;
-    -webkit-box-shadow: 0 10px 30px 0 rgba(95,186,233,0.4);
-    box-shadow: 0 10px 30px 0 rgba(95,186,233,0.4);
+    -webkit-box-shadow: 0 10px 30px 0 rgba(120, 107, 96, 0.8);
+    box-shadow: 0 10px 30px 0 rgba(120, 107, 96, 0.8);
+    /* -webkit-box-shadow: 0 10px 30px 0 rgba(95,186,233,0.4);
+    box-shadow: 0 10px 30px 0 rgba(95,186,233,0.4); */
     -webkit-border-radius: 5px 5px 5px 5px;
     border-radius: 5px 5px 5px 5px;
     margin: 5px 0px;
@@ -85,7 +97,8 @@ input[type=button], input[type=submit], input[type=reset]  {
 }
   
 input[type=button]:hover, input[type=submit]:hover, input[type=reset]:hover  {
-    background-color: #39ace7;
+    background-color: rgb(97, 86, 77);
+    /* background-color: #39ace7; */
 }
 
 input[type=button]:active, input[type=submit]:active, input[type=reset]:active  {
@@ -181,33 +194,33 @@ input[type=text]:placeholder {
     -moz-animation-fill-mode:forwards;
     animation-fill-mode:forwards;
 
-    -webkit-animation-duration:1s;
-    -moz-animation-duration:1s;
-    animation-duration:1s;
+    -webkit-animation-duration:0.5s;
+    -moz-animation-duration:0.5s;
+    animation-duration:0.5s;
 }
 
 .fadeIn.first {
-    -webkit-animation-delay: 0.4s;
-    -moz-animation-delay: 0.4s;
-    animation-delay: 0.4s;
+    -webkit-animation-delay: 0.3s;
+    -moz-animation-delay: 0.3s;
+    animation-delay: 0.3s;
 }
   
 .fadeIn.second {
-    -webkit-animation-delay: 0.6s;
-    -moz-animation-delay: 0.6s;
-    animation-delay: 0.6s;
+    -webkit-animation-delay: 0.3s;
+    -moz-animation-delay: 0.3s;
+    animation-delay: 0.3s;
 }
 
 .fadeIn.third {
-    -webkit-animation-delay: 0.8s;
-    -moz-animation-delay: 0.8s;
-    animation-delay: 0.8s;
+    -webkit-animation-delay: 0.3s;
+    -moz-animation-delay: 0.3s;
+    animation-delay: 0.3s;
 }
 
 .fadeIn.fourth {
-    -webkit-animation-delay: 1s;
-    -moz-animation-delay: 1s;
-    animation-delay: 1s;
+    -webkit-animation-delay: 0.3s;
+    -moz-animation-delay: 0.3s;
+    animation-delay: 0.3s;
 }
   
 /* Simple CSS3 Fade-in Animation */
@@ -224,7 +237,8 @@ input[type=text]:placeholder {
     bottom: -10px;
     width: 0;
     height: 2px;
-    background-color: #56baed;
+    background-color: rgba(120, 107, 96, 0.493);
+    /* background-color: #56baed; */
     content: "";
     transition: width 0.2s;
 }
