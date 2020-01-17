@@ -1,39 +1,29 @@
 import React, { Component } from 'react';
 import axios from 'axios';
-import { CustomInput, Button } from 'reactstrap';
-import {Redirect} from 'react-router-dom'
-import AdminPortfolio from './AdminPortfolio'
+import { CustomInput } from 'reactstrap';
+
+
+import ButtonAdminPortfolio from './ButtonAdminPortfolio';
 
 class AdminProfile extends Component {
     state = {
         active: false,
         portfoliosActive: false,
         portfolios: [],
-        
-        createProfile:true,
+        selectedPortfolio: {},
+
+        adminportfolio: null,
+        createProfile: true,
 
     }
 
     async componentDidMount() {
         this.getPortfolio();
-        // this.getProfile();
-        this.handleClick = this.handleClick.bind(this);
-        // this.formSubmit = this.formSubmit.bind(this)
         this.togglePortfolio = this.togglePortfolio.bind(this);
-       
+
     }
-//Partie : Statue - Portfolio 
-    
-    handleClick = (ev) => {
-        ev.preventDefault()
-        this.setState({ portfoliosActive: !this.state.portfoliosActive });
-        }
-    
-    onCreateProfile(){
-        this.setState({
-        createProfile : true
-        })
-        }
+    //Partie : Statue - Portfolio 
+
 
     getPortfolio = async () => {
         try {
@@ -59,25 +49,23 @@ class AdminProfile extends Component {
             })
         }
     }
-// Partie : Profile
-  
-    // async formSubmit(ev){
-    //     ev.preventDefault()
-    //     const {pseudo} = this.state
-    //     try {
-    //         const result = await axios.post(`http://localhost:5000/api/portfolio`,{pseudo})
-    //         console.log(result.data)
-    //         this.getProfile();
-    //     } catch (err) {
-    //         this.setState({
-    //             error: err.message
-    //         })
-    //     }
-    // }
+    // Partie : Profile
+
+    getProfile = async (id) => {
+        console.log("youpi",id)
+        try {
+            const result = await axios.get(`http://localhost:5000/api/portfolios/${id}`)
+            console.log("gg", result.data)
+            this.setState({ selectedPortfolio: result.data[0] })
+        } catch (err) {
+            console.log(err)
+            this.setState({
+                error: err.message
+            })
+        }
+    }
 
     render() {
-       
-      
         return (
             <div>
                 {
@@ -94,22 +82,22 @@ class AdminProfile extends Component {
                         )
                 }
                 {
-                    this.state.portfolios 
-                        .map ((p,i) =>(
-                            <Button 
-                                key= {`pro-${i}`}
-                                checked = {p.id}
-                                href="/adminportfolio"> + <AdminPortfolio /> 
-                                
-                            </Button>
-                        )   
-                    )
-                    
+                    this.state.portfolios
+                        .map((p, i) => (
+                            <ButtonAdminPortfolio
+                                key={`profile-${i}`}
+                                getCurrentProfile={()=>this.getProfile(p.id)}
+                                portfolio={this.state.selectedPortfolio}>
+                                {p.id} {p.pseudo} {p.active}
+                            </ButtonAdminPortfolio>
+                        )
+                        )
+
                 }
-            
-          
-               
-                
+
+
+
+
             </div>
         )
     }

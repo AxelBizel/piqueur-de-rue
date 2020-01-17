@@ -76,7 +76,7 @@ app.post('/login', function (request, response) {
 //Verfication du token
 function verifyToken (req,res,next) {
   console.log (req.headers.authorizaton)
-  const token = req.headers.authorization.split ('') [1]
+  const token = req.headers.authorization && req.headers.authorization.split ('') [1]
   jwt.verify (token,'toto', (err,payload) => {
     if(err){
       console.log(err)
@@ -121,8 +121,8 @@ app.get("/api/portfolios", (req, res) => {
 })
 
 
-app.get("/api/portfolios/:id",verifyToken, (req, res) => {
-  connection.query(" SELECT * from portfolio where id = ?", req.user.portfolio_id, (err, results) => {
+app.get("/api/portfolios/:id", (req, res) => {
+  connection.query(" SELECT * from portfolio where id = ?", [req.params.id], (err, results) => {
     if (err) {
       console.log(err)
       res.status(500).send('Error 500');
@@ -143,17 +143,18 @@ app.put("/api/portfolio/:id", (req, res) => {
   });
 });
 
-//ROUTES : Profile Portfolio Bouton
+//ROUTES : Profile Portfolio 
 
-// app.get("/api/adminprofile", (req,res) => {
-//   connection.query("SELECT * from portfolio", (err, results) => {
-//     if (err){
-//       res.status(500).send ("Error");
-//     } else {
-//       res.json(results);
-//     }
-//   })
-// })
+app.post("/api/portfolio/:id", (req, res) => {
+  connection.query("SELECT * from portfolio SET active = ? WHERE id = ?", [req.body.active, req.params.id], (err, results) => {
+    if (err) {
+      console.log(err)
+      res.status(500).send("Erreur 500");
+    } else {
+      res.json(results);
+    }
+  });
+});
 
 
 
@@ -191,17 +192,7 @@ app.get("/api/portfolio/:id/{name}", (req, res) => {
   });
 });
 
-// Poste des images 
 
-app.post("/api/portfolio", (req,res) => {
-  connection.query("SELECT * from portfolio", (err, results) => {
-    if (err){
-      res.status(500).send ("Error");
-    } else {
-      res.json(results);
-    }
-  })
-})
 
 //Récupération des images
 app.get("/api/images", (req, res) => {

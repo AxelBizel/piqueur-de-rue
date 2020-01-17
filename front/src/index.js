@@ -12,7 +12,7 @@ import App from './App';
 import * as serviceWorker from './serviceWorker';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
-import AdminPortfolio from './components/AdminPortfolio';
+import AdminPortfolio from './components/ButtonAdminPortfolio';
 const store = createStore(rootReducer);
 
 ReactDOM.render(
