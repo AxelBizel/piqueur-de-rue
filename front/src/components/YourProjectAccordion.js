@@ -78,30 +78,9 @@ class YourProjectAccordion extends Component {
     return (
       <div>
         <h1 className="HeaderSectionProject">
-          <div
-            className="FirstLineProject"
-            data-aos="fade-right"
-            data-aos-offset="800"
-            data-aos-duration="1000"
-          >
-            Votre
-          </div>
-          <div
-            className="SecondLineProject"
-            data-aos="fade-right"
-            data-aos-offset="800"
-            data-aos-duration="800"
-          >
-            Projet
-          </div>
-          <div
-            className="ThirdLineProject"
-            data-aos="fade-left"
-            data-aos-offset="800"
-            data-aos-duration="1000"
-          >
-            TATTOO
-          </div>
+          <div className="FirstLineProject" data-aos="fade-right">Votre</div>
+          <div className="SecondLineProject" data-aos="fade-right">Projet</div>
+          <div className="ThirdLineProject" data-aos="fade-left">TATTOO</div>
         </h1>
         <Container>
           {sections.map(section => {

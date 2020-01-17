@@ -28,22 +28,9 @@ class PortfolioSection extends Component {
       <div id="permanentartists">
         <div>
           <h1 className="HeaderSection">
-            <div
-              className="FirstLineTeam"
-              data-aos="fade-right"
-              data-aos-offset="700"
-              data-aos-duration="800"
-            >
-              Notre
+            <div className="FirstLineTeam" data-aos="fade-right">Notre
             </div>
-            <div
-              className="SecondLineTeam"
-              data-aos="fade-left"
-              data-aos-offset="700"
-              data-aos-duration="800"
-            >
-              Team
-            </div>
+            <div className="SecondLineTeam" data-aos="fade-left">Team</div>
           </h1>
         </div>
         <Container>
