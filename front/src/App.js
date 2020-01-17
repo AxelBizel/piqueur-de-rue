@@ -5,7 +5,6 @@ import Home from "./components/home";
 import Agency from "./components/agency";
 import Footer from "./components/Footer";
 import GuestHome from "./components/GuestHome";
-import YourProject from "./components/yourproject";
 import PortfolioSection from "./components/PortfolioSection";
 import "./index.css";
 import "slick-carousel/slick/slick.css";
