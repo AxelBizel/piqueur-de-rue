@@ -6,8 +6,7 @@ const bodyParser = require("body-parser");
 const path = require('path');
 const jwt = require('jsonwebtoken')
 const cors = require("cors");
-const sendMail = require('./mail')
-const sendMailGuest = require('./mail')
+const {sendMail,sendMailGuest} = require('./mail')
 const http = require('http');
 const fs = require('fs');
 

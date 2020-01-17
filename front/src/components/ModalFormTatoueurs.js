@@ -30,7 +30,7 @@ class ModalFormTatoueurs extends Component {
           </aside> 
         ) : null}
       </>
-    );
+    ); 
   }
 }
 

@@ -6,7 +6,7 @@ const sgMail = require('@sendgrid/mail')
 
 const sendMail = async (customer) => {
   try {
-    const msg = {
+    const msg1 = {
       to: 'chadieleman@gmail.com',
       from: 'fredCarillo@piqueurderuetest.com',
       subject: 'Votre contact Client :',
@@ -19,14 +19,13 @@ const sendMail = async (customer) => {
       Bonne journée !`, 
     }
     sgMail.setApiKey(SENDGRID_API_KEY)
-    return sgMail.send(msg)
+    return sgMail.send(msg1)
   } catch (error) {
     console.log("gg",error)
     throw new Error(error.message)
   }
 }
 
-module.exports = sendMail
 
 //---------------------------------------------------------------------------------
 //partie concernant Sengrid = gérer l'envoi du mail guest
@@ -34,7 +33,7 @@ module.exports = sendMail
 
 const sendMailGuest = async (guest) => {
   try {
-    const msg = {
+    const msg2 = {
       to: 'chadieleman@gmail.com',
       from: 'fredCarillo@piqueurderuetest.com',
       subject: 'Votre contact Guest :',
@@ -45,11 +44,12 @@ const sendMailGuest = async (guest) => {
               Bonne journée !`, 
     }
     sgMail.setApiKey(SENDGRID_API_KEY)
-    return sgMail.send(msg)
+    return sgMail.send(msg2)
   } catch (error) {
     console.log("guest",error)
     throw new Error(error.message)
   }
-}
+} 
 
-module.exports = sendMailGuest
+module.exports.sendMail = sendMail;
+module.exports.sendMailGuest = sendMailGuest;

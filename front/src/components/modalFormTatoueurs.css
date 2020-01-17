@@ -1,6 +1,18 @@
   .mainModalFormTatoueurs {
     position: fixed;
     top: 0;
+    left: 0; 
+    overflow: scroll;
+    min-width: 100vw;
+    min-height: 100vh;
+    padding: 7vw;
+    background: #F1F1F0;
+    z-index: 100;
+  }
+
+  .mainModalFormTatoueurs2 {
+    position: fixed;
+    top: 0;
     left: 0;
     overflow-y: scroll;
     min-width: 100vw;
@@ -8,7 +20,7 @@
     max-height: 100vh;
     padding: 7vw;
     background: #F1F1F0;
-    z-index: 40;
+    z-index: 100;
   }
   
   .close-container {
@@ -17,7 +29,6 @@
     top: 25px;
     width: 50px;
     height: 50px;
-    z-index: 30;
   }
   
   .leftright {

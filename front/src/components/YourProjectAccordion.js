@@ -12,7 +12,7 @@ import section1 from "../img/projet/1rendezvous.jpg";
 import section2 from "../img/projet/2dessin.jpg";
 import section3 from "../img/projet/3simulation.jpg";
 import section4 from "../img/projet/4realisation.jpg";
-import ButtonOpenFormTatoueurs from "./ButtonOpenFormTatoueurs";
+import ButtonOpenFormFred from "./ButtonOpenFormFred";
 import "./YourProjectAccordion.css";
 
 class YourProjectAccordion extends Component {
@@ -122,7 +122,7 @@ class YourProjectAccordion extends Component {
               </Card>
             );
           })}
-          <ButtonOpenFormTatoueurs />
+          <ButtonOpenFormFred />
         </Container>
       </div>
     );
