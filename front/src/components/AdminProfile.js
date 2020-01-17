@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import axios from 'axios';
 import { CustomInput, Button } from 'reactstrap';
 import {Redirect} from 'react-router-dom'
+import AdminPortfolio from './AdminPortfolio'
 
 class AdminProfile extends Component {
     state = {
@@ -9,17 +10,15 @@ class AdminProfile extends Component {
         portfoliosActive: false,
         portfolios: [],
         
-        profile: [],
-        presentation:true,
         createProfile:true,
-        error:''
+
     }
 
     async componentDidMount() {
         this.getPortfolio();
-        this.getProfile();
+        // this.getProfile();
         this.handleClick = this.handleClick.bind(this);
-        this.formSubmit = this.formSubmit.bind(this)
+        // this.formSubmit = this.formSubmit.bind(this)
         this.togglePortfolio = this.togglePortfolio.bind(this);
        
     }
@@ -62,28 +61,23 @@ class AdminProfile extends Component {
     }
 // Partie : Profile
   
-    async formSubmit(ev){
-        ev.preventDefault()
-        const {pseudo} = this.state
-        try {
-            const result = await axios.post(`http://localhost:5000/api/portfolio`,{pseudo})
-            console.log(result.data)
-            this.getProfile();
-        } catch (err) {
-            this.setState({
-                error: err.message
-            })
-        }
-    }
+    // async formSubmit(ev){
+    //     ev.preventDefault()
+    //     const {pseudo} = this.state
+    //     try {
+    //         const result = await axios.post(`http://localhost:5000/api/portfolio`,{pseudo})
+    //         console.log(result.data)
+    //         this.getProfile();
+    //     } catch (err) {
+    //         this.setState({
+    //             error: err.message
+    //         })
+    //     }
+    // }
 
     render() {
-        if(this.state.active === true){
-            return <Redirect to="/profile" />
-        }
-        if(this.state.return === false){
-            return <Redirect to="/user" />
-        }
-        console.log(this.state.portfolios)
+       
+      
         return (
             <div>
                 {
@@ -100,21 +94,20 @@ class AdminProfile extends Component {
                         )
                 }
                 {
-                    this.state.profile
-                        .map((p, index) =>
-                        <form onSubmit={this.formSubmit}>
-                            <Button
-                                key={`ci-${index}`}
-                                onChange={() => { console.log(p.id); this.togglePortfolio(p.id, p.active) }}
-                                id={`ci-${index}`}
-                                onClick ={this.onCreateProfile}
-                                checked={p.active}
-                                color ="secondary">{' '}
-                                {p.id} {p.pseudo} {p.active}
+                    this.state.portfolios 
+                        .map ((p,i) =>(
+                            <Button 
+                                key= {`pro-${i}`}
+                                checked = {p.id}
+                                href="/adminportfolio"> + <AdminPortfolio /> 
+                                
                             </Button>
-                        </form>
-                        )
+                        )   
+                    )
+                    
                 }
+            
+          
                
                 
             </div>
