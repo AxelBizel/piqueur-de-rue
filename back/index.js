@@ -4,7 +4,6 @@ const port = 5000;
 const connection = require("./conf");
 const bodyParser = require("body-parser");
 const path = require('path');
-// const session = require('express-session');
 const jwt = require('jsonwebtoken')
 const cors = require("cors");
 const sendMail = require('./mail')
@@ -22,11 +21,6 @@ const fs = require('fs');
 
 // bodyParser
 app.use(bodyParser.json());
-// app.use(session({
-//   secret: 'secret',
-//   resave: true,
-//   saveUninitialized: true
-// }));
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
