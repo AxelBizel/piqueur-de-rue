@@ -6,11 +6,11 @@ import Agency from "./components/agency";
 import Footer from "./components/Footer";
 import GuestHome from "./components/GuestHome";
 import PortfolioSection from "./components/PortfolioSection";
+import YourProjectAccordion from "./components/YourProjectAccordion";
 import "./index.css";
+import 'aos/dist/aos.css';
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-import YourProjectAccordion from "./components/YourProjectAccordion";
-
 
 
 
@@ -35,9 +35,6 @@ class App extends Component {
         <div id="guests">
           <GuestHome />
         </div>
-        {/* <div id="yourproject">
-          <YourProject />
-        </div> */}
         <div id="yourproject">
           <YourProjectAccordion />
         </div>

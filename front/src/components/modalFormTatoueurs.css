@@ -2,9 +2,10 @@
     position: fixed;
     top: 0;
     left: 0;
-    overflow: scroll;
+    overflow-y: scroll;
     min-width: 100vw;
-    min-height: 100vh;
+    min-height: 99vh;
+    max-height: 100vh;
     padding: 7vw;
     background: #F1F1F0;
     z-index: 40;

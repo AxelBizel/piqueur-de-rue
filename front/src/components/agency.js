@@ -1,22 +1,18 @@
 import React from "react";
-import AOS from 'aos'
 import { Container, Row, Col } from "reactstrap";
 import CarrouselAgency from "./carrouselAgency";
 import "./agency.css";
-import 'aos/dist/aos.css';
 
 export default function Agency() {
-  
-  AOS.init({mirror:true})
 
   return (
     <div className="SectionContainer">
       <h1 className="HeaderSection">
-        <div className="FirstLineAgency" data-aos="fade-right" data-aos-duration="800">Une agence</div>
-        <div className="SecondLineAgency" data-aos="fade-left" data-aos-duration="800">de TATOUAGE</div>
-        <div className="ThirdLineAgency" data-aos="fade-right" data-aos-duration="800">au service de vos projets</div>
+        <div className="FirstLineAgency" data-aos="fade-right">Une agence</div>
+        <div className="SecondLineAgency" data-aos="fade-left">de TATOUAGE</div>
+        <div className="ThirdLineAgency" data-aos="fade-right">au service de vos projets</div>
       </h1>
-        <Container data-aos="zoom-in" data-aos-duration="800">
+        <Container data-aos="zoom-in">
           <CarrouselAgency />
             <Row>
               <Col xs="12" md="6">
