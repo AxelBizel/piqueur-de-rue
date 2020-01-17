@@ -16,8 +16,6 @@ import GalleryPortfolio from "./GalleryPortfolio";
 class ModalPortfolio extends Component {
   constructor(props) {
     super(props);
-    this.state = {
-    };
   }
 
 
@@ -81,7 +79,7 @@ class ModalPortfolio extends Component {
                 </Col>
                 <Col xs="12" lg="7">
                   <div style={{ width: "85%", margin: "0 auto" }}>
-                    <GalleryPortfolio />
+                    <GalleryPortfolio portfolio={portfolio} />
                   </div>
                 </Col>
 
