@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import './formulaireChacha.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCoffee } from '@fortawesome/free-solid-svg-icons';
+import { faHome } from '@fortawesome/free-solid-svg-icons';
 import { NavItem, NavLink } from 'reactstrap';
 
 const axios = require('axios');
@@ -68,7 +69,7 @@ class FormGuests extends Component {
                     <FontAwesomeIcon icon={faCoffee} />
                     <p>Thank you</p>
                     <NavItem>
-                        <NavLink href="/" className="styleLink">Reprendre ma navigation</NavLink>
+                        <NavLink href="/" className="styleLink"><FontAwesomeIcon icon={faHome} /></NavLink>
                     </NavItem>
                 </div>
                 )}
