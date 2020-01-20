@@ -10,16 +10,7 @@ const {sendMail,sendMailGuest} = require('./mail')
 const http = require('http');
 const fs = require('fs');
 
-//filesystem
-// http.createServer(function (req, res) {
-//   fs.readFile('demofile1.html', function(err, data) {
-//     res.writeHead(200, {'Content-Type': 'text/html'});
-//     res.write(data);
-//     res.end();
-//   });
-// }).listen(8080);
-
-// bodyParser
+// Middlewares
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
@@ -27,6 +18,12 @@ app.use(bodyParser.json());
 app.use(express.json())
 
 app.use(cors())
+
+// filesystem
+app.use('/img', express.static(__dirname + '/img'));
+
+
+
 
 //ROUTES : Partie Authentification 
 
