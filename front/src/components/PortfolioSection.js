@@ -4,12 +4,14 @@ import ButtonOpenPortfolio from "./ButtonOpenPortfolio";
 import { Container, Row, Col, Spinner } from "reactstrap";
 import "./PortfolioSection.css";
 import "aos/dist/aos.css";
+import { urlencoded } from "body-parser";
 
 class PortfolioSection extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      portfolios: null
+      portfolios: null, 
+      img:null
     };
   }
 
@@ -17,7 +19,6 @@ class PortfolioSection extends Component {
     axios.get(`http://localhost:5000/api/portfolio/team`).then(res => {
       const portfoliosData = res.data;
       this.setState({ portfolios: portfoliosData });
-      console.log(this.state);
     });
   }
 
@@ -51,10 +52,7 @@ class PortfolioSection extends Component {
                     key={portfolio.id}
                     style={{
                       margin: "2vh auto",
-                      backgroundImage: `url(${require("../img/tatoueurs/portraits-500px/" +
-                        `${portfolio.id}` +
-                        ".jpg")})`
-                    }}
+                      backgroundImage:'url(http://localhost:5000/img/'+`${portfolio.id}`+'/portrait.jpg)'}}                    
                   >
                     <ButtonOpenPortfolio portfolio={portfolio} />
                   </div>
