@@ -64,7 +64,7 @@ class ModalPortfolio extends Component {
                             </a>
                           </div>
                         </CardTitle>
-                        <CardText>
+                        <CardBody>
                           <p className="tatoueur-subtitle">
                             Style : {portfolio.style}
                           </p>
@@ -72,7 +72,7 @@ class ModalPortfolio extends Component {
                             {portfolio.presentation}
                           </p>
                         < ButtonOpenFormTatoueurs/>
-                        </CardText>
+                        </CardBody>
                       </CardBody>
                     </Card>
                   </div>

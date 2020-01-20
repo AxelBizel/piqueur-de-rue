@@ -31,7 +31,7 @@ class ButtonOpenFormTatoueurs extends Component {
   };
 
   render() {
-    return (
+    return (    
       <div>
         <button className="buttonPortfolio" onClick={this.openModalFormTatoueurs}>
         Nous contacter    
