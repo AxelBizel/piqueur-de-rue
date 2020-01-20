@@ -1,12 +1,19 @@
 import React, { Component } from 'react';
 import './formulaireChacha.css';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faCoffee } from '@fortawesome/free-solid-svg-icons';
+import { NavItem, NavLink } from 'reactstrap';
+
 const axios = require('axios');
 
 
 class FormGuests extends Component {
     constructor(props) {
         super(props);
-        this.state = this.getInitialState();
+        this.state = {
+            guest: this.getInitialState(),
+            showConfirmation: false,
+        }
     }
 
     getInitialState = () => ({
@@ -21,26 +28,27 @@ class FormGuests extends Component {
 
 
     handleChangeInputGuest = (e) => {
-        this.setState({ [e.target.name]: e.target.value })
-
-    }   
-    
-
+        const {guest} = this.state;
+        guest[e.target.name]=e.target.value
+        this.setState({ guest })
+    }
 
     handleSubmitFormGuest = (event) => {
         console.log('Le formGuests a été soumis : ', this.state);
-        let guest = this.state;
+        let { guest } = this.state;
         axios
             .post("http://localhost:5000/api/guests", guest)
-        this.setState(this.getInitialState());
-    
+        this.setState({
+            guest: this.getInitialState(),
+            showConfirmation: true
+        })
         event.preventDefault();
     } 
 
-
     render() {
         return (
-            <>
+            <div>
+                {this.state.showConfirmation === false ? (
                 <form className="formPortfolio" onSubmit={this.handleSubmitFormGuest} method="POST" action='/api/guests'>
                     <h1 className="h1formCha">- Devenez GUEST -</h1>
                     <input className="inputCha" name="firstnameG" type="text" onChange={this.handleChangeInputGuest} value={this.state.firstnameG} placeholder="Votre prénom :" required></input>
@@ -53,7 +61,18 @@ class FormGuests extends Component {
                     </textarea>
                     <button className="buttonForm" type="submit" style={{color:"black"}}>Envoyer ma candidature</button>
                 </form>
-            </>
+                ) : (
+                <div>
+                    <p>Votre demande a bien été envoyée</p>
+                    <p>Nous vous répondrons dans les plus brefs délais</p>
+                    <FontAwesomeIcon icon={faCoffee} />
+                    <p>Thank you</p>
+                    <NavItem>
+                        <NavLink href="/" className="styleLink">Reprendre ma navigation</NavLink>
+                    </NavItem>
+                </div>
+                )}
+            </div>
         );
     }
 }
