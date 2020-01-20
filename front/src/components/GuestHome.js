@@ -1,7 +1,8 @@
 import React, { Component } from "react";
+import { Parallax } from 'react-parallax';
+import ButtonOpenFormGuests from "./ButtonOpenFormGuests";
 import { Container, Col, Row, Spinner } from "reactstrap";
-import { Parallax, Background } from "react-parallax";
-import ModalContactGuest from "./modalContactGuest";
+import ModalContactGuest from "./ModalContactGuest";
 import ButtonPortfolioGuest from "./ButtonPortfolioGuest";
 import axios from "axios";
 import "./GuestHome.css";
@@ -113,16 +114,7 @@ class GuestHome extends Component {
                 <Col xs="12" md="6"></Col>
               </Row>
               <Row>
-                <button
-                  className="buttonContactProject"
-                  onClick={this.openModal}
-                >
-                  Contactez-nous
-                </button>
-                <ModalContactGuest
-                  showModal={this.state.showModal}
-                  closeModal={this.closeModal}
-                />
+                <ButtonOpenFormGuests />  
               </Row>
             </div>
           </Parallax>

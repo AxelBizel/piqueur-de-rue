@@ -3,7 +3,7 @@ import './formulaireChacha.css';
 const axios = require('axios');
 
 
-class FormulairePortfolio extends Component {
+class FormulaireFred extends Component {
     constructor(props) {
         super(props);
         this.state = this.getInitialState();
@@ -20,7 +20,7 @@ class FormulairePortfolio extends Component {
         largeur: null,
         budget: null,
         story: "", 
-    })      
+    })
 
 
     handleChange = (e) => {
@@ -41,7 +41,7 @@ class FormulairePortfolio extends Component {
         this.setState(this.getInitialState());
     
         event.preventDefault();
-    } 
+    }  
 
 
     render() {
@@ -75,4 +75,4 @@ class FormulairePortfolio extends Component {
     }
 }
 
-export default FormulairePortfolio;
+export default FormulaireFred;

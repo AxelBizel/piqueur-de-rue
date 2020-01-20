@@ -127,6 +127,21 @@ CREATE TABLE IF NOT EXISTS `piqueurderue`.`customers` (
 );
 
 -- -----------------------------------------------------
+-- Table `piqueurderue`.`guests`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `piqueurderue`.`guests` (
+  `id` INT(11) PRIMARY KEY NOT NULL AUTO_INCREMENT,
+  `firstNameG` VARCHAR(70) NOT NULL,
+  `lastNameG` VARCHAR(70) NOT NULL,
+  `pseudoG` VARCHAR(70) NULL,
+  `phoneG` VARCHAR(15) NOT NULL,
+  `emailG` VARCHAR(150) NOT NULL,
+  `compteG` VARCHAR(70) NULL,
+  `storyG` TEXT NULL
+);
+
+
+-- -----------------------------------------------------
 -- Modifs
 -- -----------------------------------------------------
 ALTER TABLE portfolio ADD style TEXT;

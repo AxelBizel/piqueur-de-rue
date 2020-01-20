@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import axios from "axios";
-import AOS from "aos";
 import ButtonOpenPortfolio from "./ButtonOpenPortfolio";
 import { Container, Row, Col, Spinner } from "reactstrap";
 import "./PortfolioSection.css";
@@ -43,9 +42,11 @@ class PortfolioSection extends Component {
                 <Spinner type="grow" color="dark" />
               </div>
             ) : (
-              portfolios.map(portfolio => (
+              portfolios.map((portfolio, index) => (
                 <Col xs="12" md="6" lg="3">
-                  <div
+                  <div 
+                    // data-aos-duration= {index*800}
+                    // data-aos="fade-up"
                     className="Artists"
                     key={portfolio.id}
                     style={{

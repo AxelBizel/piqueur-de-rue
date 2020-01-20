@@ -12,7 +12,7 @@ import section1 from "../img/projet/1rendezvous.jpg";
 import section2 from "../img/projet/2dessin.jpg";
 import section3 from "../img/projet/3simulation.jpg";
 import section4 from "../img/projet/4realisation.jpg";
-import ButtonOpenFormTatoueurs from "./ButtonOpenFormTatoueurs";
+import ButtonOpenFormFred from "./ButtonOpenFormFred";
 import "./YourProjectAccordion.css";
 
 class YourProjectAccordion extends Component {
@@ -76,17 +76,18 @@ class YourProjectAccordion extends Component {
     const { collapse, sections } = this.state;
 
     return (
-      <div>
+      <div >
         <h1 className="HeaderSectionProject">
           <div className="FirstLineProject" data-aos="fade-right">Votre</div>
           <div className="SecondLineProject" data-aos="fade-right">Projet</div>
           <div className="ThirdLineProject" data-aos="fade-left">TATTOO</div>
         </h1>
         <Container>
-          {sections.map(section => {
+          {sections.map((section, index) => {
             return (
               <Card style={{ marginBottom: "1rem" }} key={section.id}>
                 <CardHeader
+                  data-aos-duration= {index*800}
                   onClick={this.toggle}
                   data-event={section.id}
                   style={{
@@ -122,10 +123,12 @@ class YourProjectAccordion extends Component {
               </Card>
             );
           })}
-          <ButtonOpenFormTatoueurs />
+          <div className="divButton">
+          <ButtonOpenFormFred />
+          </div>
         </Container>
       </div>
-    );
+          );
   }
 }
 
