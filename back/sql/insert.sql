@@ -74,6 +74,8 @@ INSERT INTO images (alt_text , active , path , portfolio_id)
 VALUES('timmyrodger_19',1,'http://localhost:5000/img/1/Stitch_gp.jpg', 1);
 INSERT INTO images (alt_text , active , path , portfolio_id) 
 VALUES('timmyrodger_20',1,'http://localhost:5000/img/1/Stitch.jpg', 1);
+INSERT INTO images (alt_text , active , path , portfolio_id) 
+VALUES('portrait',0,'http://localhost:5000/img/1/portrait.jpg', 1);
 
 INSERT INTO images (alt_text , active , path , portfolio_id) 
 VALUES('cosmic_billie_6',1,'http://localhost:5000/img/2/CB1.jpg',2);
@@ -87,6 +89,8 @@ INSERT INTO images (alt_text , active , path , portfolio_id)
 VALUES('cosmic_billie_10',1,'http://localhost:5000/img/2/CB5.jpg',2);
 INSERT INTO images (alt_text , active , path , portfolio_id) 
 VALUES('cosmic_billie_11',1,'http://localhost:5000/img/2/CB6.jpg',2);
+INSERT INTO images (alt_text , active , path , portfolio_id) 
+VALUES('portrait',0,'http://localhost:5000/img/2/portrait.jpg', 2);
 
 
 INSERT INTO images (alt_text , active , path , portfolio_id) 
@@ -131,6 +135,8 @@ INSERT INTO images (alt_text , active , path , portfolio_id)
 VALUES('gladystomeetyou_20',1,'http://localhost:5000/img/3/G32.jpg', 3);
 INSERT INTO images (alt_text , active , path , portfolio_id) 
 VALUES('gladystomeetyou_21',1,'http://localhost:5000/img/3/G33.jpg', 3);
+INSERT INTO images (alt_text , active , path , portfolio_id) 
+VALUES('portrait',0,'http://localhost:5000/img/3/portrait.jpg', 3);
 
 INSERT INTO images (alt_text , active , path , portfolio_id) 
 VALUES ('A290_1',1,'http://localhost:5000/img/4/A290_1.jpg',4);
@@ -162,6 +168,8 @@ INSERT INTO images (alt_text , active , path , portfolio_id)
 VALUES('A290_13',1,'http://localhost:5000/img/4/A290_14.jpg',4);
 INSERT INTO images (alt_text , active , path , portfolio_id) 
 VALUES('A290_14',1,'http://localhost:5000/img/4/A290_15.jpg',4);
+INSERT INTO images (alt_text , active , path , portfolio_id) 
+VALUES('portrait',0,'http://localhost:5000/img/4/portrait.jpg', 4);
 
 
 INSERT INTO images (alt_text , active , path , portfolio_id) 
@@ -182,3 +190,5 @@ INSERT INTO images (alt_text , active , path , portfolio_id)
 VALUES('FM8',1,'http://localhost:5000/img/5/FM8.jpg', 5);
 INSERT INTO images (alt_text , active , path , portfolio_id) 
 VALUES('FM9',1,'http://localhost:5000/img/5/FM9.jpg', 5);
+INSERT INTO images (alt_text , active , path , portfolio_id) 
+VALUES('portrait',0,'http://localhost:5000/img/5/portrait.jpg', 5);
