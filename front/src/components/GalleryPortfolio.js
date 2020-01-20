@@ -1,46 +1,50 @@
 import React, { Component } from "react";
 import ImageGallery from 'react-image-gallery';
-import abeille from '../img/tatoueurs/abeille.jpg';
-import cover_cuisse from '../img/tatoueurs/cover_cuisse.jpg';
-import doight from '../img/tatoueurs/doight.jpg';
-import fleur from '../img/tatoueurs/fleur.jpg';
-import fleur_genou from '../img/tatoueurs/fleur_genou.jpg';
-import oeil from '../img/tatoueurs/oeil.jpg';
- 
+import axios from "axios";
+
 
 class GalleryPortfolio extends Component {
   constructor(props){
     super(props);
+    this.state = {
+      img: null
+    };
+    this.getImages=this.getImages.bind(this);
+
   }
-  
+
+  getImages = () => {
+    let images = [];
+    this.state.img.map(img => images.push({
+       original:`${img.path}`,
+       thumbnail: `${img.path}`,}));
+       console.log('img', images)
+      return images
+  }
+
+  componentDidMount() {
+    axios.get(`http://localhost:5000/api/images/+${this.props.portfolio.id}`).then(res => {
+      const imgData = res.data;
+      this.setState({ img: imgData });
+      console.log(this.state);
+      this.getImages();
+    });
+  }
+
+ 
   render() {
-    const images = [
-      {
-        original: `${abeille}`,
-        thumbnail: `${cover_cuisse}`,
-      },
-      {
-        original: `${cover_cuisse}`,
-        thumbnail:`${cover_cuisse}`,
-      },
-      {
-        original: `${doight}`,
-        thumbnail: `${doight}`,
-      },
-      {
-        original: `${fleur}`,
-        thumbnail: `${fleur}`,
-      },
-      {
-        original: `${fleur_genou}`,
-        thumbnail:`${fleur_genou}`,
-      },
-      {
-        original: `${oeil}`,
-        thumbnail:`${oeil}`,
-      },
-    ];
-    return <ImageGallery items={images} />;
+          
+    // const images = [  {
+    //        original: 'http://localhost:5000/img/4/A290_1.jpg',
+    //        thumbnail:'http://localhost:5000/img/4/A290_1.jpg'
+    //      }]
+
+      const {img} =  this.state
+    return  (<div>
+
+      {img === null ?  <p> loading </p> : <ImageGallery items={this.getImages()} />}
+    </div>
+    )
   }
 }
 

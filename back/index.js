@@ -174,7 +174,18 @@ app.get("/api/portfolio/:id/{name}", (req, res) => {
 app.get("/api/images", (req, res) => {
   connection.query("SELECT * from images", (err, results) => {
     if (err) {
-      res.status(500).send("Erreur lors de la récupération des portfolios");
+      res.status(500).send("Erreur lors de la récupération des images");
+    } else {
+      res.json(results);
+    }
+  });
+});
+
+//Récupération des images par tatoueur
+app.get("/api/images/:id", (req, res) => {
+  connection.query("SELECT * from images WHERE portfolio_id = ?", req.params.id, (err, results) => {
+    if (err) {
+      res.status(500).send("Erreur lors de la récupération des images");
     } else {
       res.json(results);
     }

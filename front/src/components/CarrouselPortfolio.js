@@ -6,7 +6,7 @@ import doight from '../img/tatoueurs/doight.jpg';
 import fleur from '../img/tatoueurs/fleur.jpg';
 import fleur_genou from '../img/tatoueurs/fleur_genou.jpg';
 import oeil from '../img/tatoueurs/oeil.jpg';
-import "./carrouselPortfolio.css";
+// import "./carrouselPortfolio.css";
 
 
 class CarrouselPortfolio extends Component {
