@@ -124,7 +124,6 @@ INSERT INTO images (alt_text , active , path , portfolio_id)
 VALUES('timmyrodger_19',1,'http://localhost:5000/img/1/Stitch_gp.jpg', 1);
 INSERT INTO images (alt_text , active , path , portfolio_id) 
 VALUES('timmyrodger_20',1,'http://localhost:5000/img/1/Stitch.jpg', 1);
-
 INSERT INTO images (alt_text , active , path , portfolio_id) 
 VALUES('FM1',1,'http://localhost:5000/img/5/FM1.jpg', 5);
 INSERT INTO images (alt_text , active , path , portfolio_id) 

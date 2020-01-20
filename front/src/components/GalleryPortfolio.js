@@ -34,11 +34,6 @@ class GalleryPortfolio extends Component {
  
   render() {
           
-    // const images = [  {
-    //        original: 'http://localhost:5000/img/4/A290_1.jpg',
-    //        thumbnail:'http://localhost:5000/img/4/A290_1.jpg'
-    //      }]
-
       const {img} =  this.state
     return  (<div>
 
