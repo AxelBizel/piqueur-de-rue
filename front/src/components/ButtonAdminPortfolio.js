@@ -17,7 +17,7 @@ const ButtonAdminPortfolio = (props) => {
 
   return (
     <div>
-      <Button color="danger" onClick={toggle}>{props.children}</Button>
+      <Button onClick={toggle} style={{margin:'0', padding:'0', width:'auto'}}>{props.children}</Button>
       <Modal isOpen={modal} fade={false} toggle={toggle} className={className}>
         <ModalHeader toggle={toggle}>Modal title</ModalHeader>
         <ModalBody>
