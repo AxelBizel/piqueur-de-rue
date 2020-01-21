@@ -1,14 +1,14 @@
-INSERT INTO users (login , password) 
-VALUES('TimmyRodger', 'timmyrodger');
+INSERT INTO users (login , password, active) 
+VALUES('TimmyRodger', 'timmyrodger', 1);
 
-INSERT INTO users (login , password)
-VALUES('CosmicBillie', 'cosmicbillie');
+INSERT INTO users (login , password, active) 
+VALUES('CosmicBillie', 'cosmicbillie', 1);
 
-INSERT INTO users (login , password)
-VALUES ('Gladysmeetyou', 'gladysmeetyou');
+INSERT INTO users (login , password, active) 
+VALUES ('Gladysmeetyou', 'gladysmeetyou', 1);
 
-INSERT INTO users (login , password)
-VALUES ('Alex290', 'alex290');
+INSERT INTO users (login , password, active) 
+VALUES ('Alex290', 'alex290', 1);
 
 
 
