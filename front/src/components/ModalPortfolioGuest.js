@@ -46,9 +46,7 @@ class ModalPortfolioGuest extends Component {
                       <CardImg
                       style={{width:'66%', margin:'0 auto'}}
                         top
-                        src={require("../img/tatoueurs/portraits-500px/" +
-                          `${portfolio.id}` +
-                          ".jpg")}
+                        src={`http://localhost:5000/img/${portfolio.id}/portrait.jpg`}
                         alt="Portrait du tatoueur"
                       />
                       <CardBody>
@@ -80,7 +78,7 @@ class ModalPortfolioGuest extends Component {
                 </Col>
                 <Col xs="12" lg="7">
                   <div style={{ width: "85%", margin: "0 auto" }}>
-                    <GalleryPortfolio />
+                  <GalleryPortfolio portfolio={portfolio} />
                   </div>
                 </Col>
 

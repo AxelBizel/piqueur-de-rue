@@ -27,7 +27,7 @@ class ButtonOpenFormProject extends Component {
   closeModalProject = () => {
     let { showModalFormProject } = this.state;
     showModalFormProject = false;
-    setTimeout(() => this.setState({ showModalFormProject }), 500);
+    this.setState({ showModalFormProject });
   };
 
   render() {
@@ -38,7 +38,7 @@ class ButtonOpenFormProject extends Component {
         </button>
         <ModalFormProject
           showModalFormProject={this.state.showModalFormProject}
-          closeModalFormProject={this.closeModalFormProject}
+          closeModalProject={this.closeModalProject}
         />
       </div>
     );

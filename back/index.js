@@ -10,16 +10,7 @@ const {sendMail,sendMailGuest} = require('./mail')
 const http = require('http');
 const fs = require('fs');
 
-//filesystem
-// http.createServer(function (req, res) {
-//   fs.readFile('demofile1.html', function(err, data) {
-//     res.writeHead(200, {'Content-Type': 'text/html'});
-//     res.write(data);
-//     res.end();
-//   });
-// }).listen(8080);
-
-// bodyParser
+// Middlewares
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
@@ -27,6 +18,12 @@ app.use(bodyParser.json());
 app.use(express.json())
 
 app.use(cors())
+
+// filesystem
+app.use('/img', express.static(__dirname + '/img'));
+
+
+
 
 //ROUTES : Partie Authentification 
 
@@ -70,7 +67,7 @@ app.post('/login', function (request, response) {
 //Verfication du token
 function verifyToken (req,res,next) {
   console.log (req.headers.authorizaton)
-  const token = req.headers.authorization.split ('') [1]
+  const token = req.headers.authorization && req.headers.authorization.split ('') [1]
   jwt.verify (token,'toto', (err,payload) => {
     if(err){
       console.log(err)
@@ -86,8 +83,24 @@ function verifyToken (req,res,next) {
 
 // ROUTES : Partie Admin
 
+// app.get("/api/portfolios", (req, res) => {
+//   if (req.user.id === 1) {// a modifier avec role admin dans le meilleur des mondes
+//     connection.query(" SELECT * from portfolio", (err, results) => {
+//       if (err) {
+//         console.log(err)
+//         res.status(500).send('Error 500');
+//       } else {
+//         res.json(results);
+//       }
+//     })
+//   } else {
+//     res.sendStatus(401)
+//   }
+// })
+
+// Routes test
+
 app.get("/api/portfolios", (req, res) => {
-  if (req.user.id === 1) {// a modifier avec role admin dans le meilleur des mondes
     connection.query(" SELECT * from portfolio", (err, results) => {
       if (err) {
         console.log(err)
@@ -96,14 +109,46 @@ app.get("/api/portfolios", (req, res) => {
         res.json(results);
       }
     })
-  } else {
-    res.sendStatus(401)
-  }
 })
 
+//ROUTES FAKES
+//USERS
+app.get("/admin/users", (req, res) => {
+  connection.query(" SELECT * from users ", (err, results) => {
+    if (err) {
+      console.log(err)
+      res.status(500).send('Error 500');
+    } else {
+      res.json(results);
+    }
+  })
+})
 
-app.get("/api/portfolios/:id",verifyToken, (req, res) => {
-  connection.query(" SELECT * from portfolio where id = ?", req.user.portfolio_id, (err, results) => {
+app.put("/admin/users/:id", (req, res) => {
+  connection.query("UPDATE * from users SET active = ? WHERE id = ?", [req.body.active, req.params.id], (err, results) => {
+    if (err) {
+      console.log(err)
+      res.status(500).send("Erreur 500");
+    } else {
+      res.json(results);
+    }
+  });
+});
+
+app.put("/admin/users/:id", (req, res) => {
+  connection.query("UPDATE * from users SET active = ? WHERE id = ?", [req.body.active, req.params.id], (err, results) => {
+    if (err) {
+      console.log(err)
+      res.status(500).send("Erreur 500");
+    } else {
+      res.json(results);
+    }
+  });
+});
+
+
+app.get("/api/portfolios/:id", (req, res) => {
+  connection.query(" SELECT * from portfolio where id = ?", [req.params.id], (err, results) => {
     if (err) {
       console.log(err)
       res.status(500).send('Error 500');
@@ -124,10 +169,21 @@ app.put("/api/portfolio/:id", (req, res) => {
   });
 });
 
-// //Cors
-app.use(cors())
+//ROUTES : Profile Portfolio 
 
-;
+app.post("/api/portfolio/:id", (req, res) => {
+  connection.query("SELECT * from portfolio SET active = ? WHERE id = ?", [req.body.active, req.params.id], (err, results) => {
+    if (err) {
+      console.log(err)
+      res.status(500).send("Erreur 500");
+    } else {
+      res.json(results);
+    }
+  });
+});
+
+
+
 
 //ROUTES : Récupération des users
 app.get("/api/users", (req, res) => {
@@ -173,11 +229,24 @@ app.get("/api/portfolio/:id/{name}", (req, res) => {
   });
 });
 
+
+
 //Récupération des images
 app.get("/api/images", (req, res) => {
   connection.query("SELECT * from images", (err, results) => {
     if (err) {
-      res.status(500).send("Erreur lors de la récupération des portfolios");
+      res.status(500).send("Erreur lors de la récupération des images");
+    } else {
+      res.json(results);
+    }
+  });
+});
+
+//Récupération des images par tatoueur
+app.get("/api/images/:id", (req, res) => {
+  connection.query("SELECT * from images WHERE portfolio_id = ?", req.params.id, (err, results) => {
+    if (err) {
+      res.status(500).send("Erreur lors de la récupération des images");
     } else {
       res.json(results);
     }

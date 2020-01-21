@@ -16,10 +16,11 @@ class ModalFormProject extends Component {
   render() {
     const { showModalFormProject } = this.props;
     return (
-      <div><div className="background" style={{display : showModalFormProject? "flex" : "none"}} onClick={() => this.props.closeModalFormProject()}></div>
+      <div>
+        <div className="background" style={{display : showModalFormProject? "flex" : "none"}} onClick={() => this.props.closeModalProject()}></div>
         {showModalFormProject ? (
           <aside className="MainModalGuestAndProject" role="dialog">
-            <div className="close-container" onClick={this.props.closeModalFormProject}>
+            <div className="close-container" onClick={this.props.closeModalProject}>
               <div className="leftright"></div>
               <div className="rightleft"></div>
               <label className="close"></label>

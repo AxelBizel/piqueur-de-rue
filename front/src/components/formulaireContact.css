@@ -10,13 +10,6 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
-}
-
-div.row {
-  display: flex;
-  justify-content: center;
-  align-items: center;
 }
 
 .FlexContainerProject {
@@ -27,11 +20,17 @@ div.row {
 .FlexProject1, .FlexProject2 {
   margin-top: 2em;
   width: 25vw;
+  padding: 20px;
 }
 
 .inputForm {
   margin: 0.5em 0;
+  padding: 10px;
   background-color: rgb(238, 238, 238);
+}
+
+textarea {
+  height: 20vh;
 }
 
 /* Style buttons */
@@ -41,12 +40,11 @@ div.row {
   color: white;
   cursor: pointer;
   font-size: 20px;
-  height: 41px
+  padding: 10px !important;
 }
 
 /* Darker background on mouse-over */
 .btn:hover {
-  background-color: rgb(100, 87, 76);
   color: white !important;
 }
 

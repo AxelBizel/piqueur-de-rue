@@ -10,14 +10,12 @@ import {
   CardBody,
   CardTitle,
 } from "reactstrap";
-import ButtonOpenFormTatoueurs from "./ButtonOpenFormTatoueurs";
+// import ButtonOpenFormTatoueurs from "./ButtonOpenFormTatoueurs";
 import GalleryPortfolio from "./GalleryPortfolio";
 
 class ModalPortfolio extends Component {
   constructor(props) {
     super(props);
-    this.state = {
-    };
   }
 
 
@@ -46,9 +44,7 @@ class ModalPortfolio extends Component {
                       <CardImg
                       style={{width:'66%', margin:'0 auto'}}
                         top
-                        src={require("../img/tatoueurs/portraits-500px/" +
-                          `${portfolio.id}` +
-                          ".jpg")}
+                        src= {`http://localhost:5000/img/${portfolio.id}/portrait.jpg`}
                         alt="Portrait du tatoueur"
                       />
                       <CardBody>
@@ -66,22 +62,22 @@ class ModalPortfolio extends Component {
                             </a>
                           </div>
                         </CardTitle>
-                        <CardText>
+                        <CardBody>
                           <p className="tatoueur-subtitle">
                             Style : {portfolio.style}
                           </p>
                           <p className="textPresentation">
                             {portfolio.presentation}
                           </p>
-                        < ButtonOpenFormTatoueurs/>
-                        </CardText>
+                        {/* < ButtonOpenFormTatoueurs/> */}
+                        </CardBody>
                       </CardBody>
                     </Card>
                   </div>
                 </Col>
                 <Col xs="12" lg="7">
                   <div style={{ width: "85%", margin: "0 auto" }}>
-                    <GalleryPortfolio />
+                    <GalleryPortfolio portfolio={portfolio} />
                   </div>
                 </Col>
 

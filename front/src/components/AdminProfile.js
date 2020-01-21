@@ -1,23 +1,34 @@
 import React, { Component } from 'react';
 import axios from 'axios';
+import { CustomInput } from 'reactstrap';
+
+
+import ButtonAdminPortfolio from './ButtonAdminPortfolio';
 
 class AdminProfile extends Component {
     state = {
         active: false,
         portfoliosActive: false,
-        portfolios: []
+        portfolios: [],
+        selectedPortfolio: {},
+
+        adminportfolio: null,
+        createProfile: true,
+
     }
 
     async componentDidMount() {
         this.getPortfolio();
-        this.handleClick = this.handleClick.bind(this);
         this.togglePortfolio = this.togglePortfolio.bind(this);
-    }
 
-    getPortfolio = async ()=>{
+    }
+    //Partie : Statue - Portfolio 
+
+
+    getPortfolio = async () => {
         try {
             const result = await axios.get(`http://localhost:5000/api/portfolios`)
-            console.log("gg",result.data)
+            console.log("gg", result.data)
             this.setState({ portfolios: result.data })
         } catch (err) {
             this.setState({
@@ -26,15 +37,10 @@ class AdminProfile extends Component {
         }
     }
 
-    handleClick= (ev) => {
-        ev.preventDefault()
-        this.setState({ portfoliosActive :!this.state.portfoliosActive });
-      }
-    
-
     async togglePortfolio(id, active) {
+        console.log(id, active)
         try {
-            const result = await axios.put(`http://localhost:5000/api/portfolio/${id}`, {active:!active})
+            const result = await axios.put(`http://localhost:5000/api/portfolio/${id}`, { active: !active })
             console.log(result.data)
             this.getPortfolio();
         } catch (err) {
@@ -43,32 +49,54 @@ class AdminProfile extends Component {
             })
         }
     }
-    //   componentDidMount() {
-    //     axios.get(`http://localhost:5000/api/portfolio`)
-    //       .then(res => {
-    //           const portfoliosActiveData = res.data
-    //         this.setState({ portfoliosActive: portfoliosActiveData });
-    //         console.log(this.state)
-    //       })
-    //   }
+    // Partie : Profile
 
+    getProfile = async (id) => {
+        console.log("youpi",id)
+        try {
+            const result = await axios.get(`http://localhost:5000/api/portfolios/${id}`)
+            console.log("gg", result.data)
+            this.setState({ selectedPortfolio: result.data[0] })
+        } catch (err) {
+            console.log(err)
+            this.setState({
+                error: err.message
+            })
+        }
+    }
 
     render() {
-        console.log(this.state.portfolios)
         return (
             <div>
-              <button onClick={this.handleClick}>{this.state.portfoliosActive ? 'active' : 'desactive'}</button>
                 {
                     this.state.portfolios
-                        // .filter(pf => pf.active === this.state.portfoliosActive)
                         .map((pf, index) =>
-                            <button
-                                onClick={() => this.togglePortfolio(pf.id,pf.active)}
-                                style={{ border: "1px solid black " }}>
-                                {pf.pseudo} {pf.active}
-                            </button>
+                            <CustomInput
+                                key={`ci-${index}`}
+                                onChange={() => { console.log(pf.id); this.togglePortfolio(pf.id, pf.active) }}
+                                type="switch"
+                                id={`ci-${index}`}
+                                checked={pf.active}>
+                                {pf.id} {pf.pseudo} {pf.active}
+                            </CustomInput>
                         )
                 }
+                {
+                    this.state.portfolios
+                        .map((p, i) => (
+                            <ButtonAdminPortfolio
+                                key={`profile-${i}`}
+                                getCurrentProfile={()=>this.getProfile(p.id)}
+                                portfolio={this.state.selectedPortfolio}>
+                                {p.id} {p.pseudo} {p.active}
+                            </ButtonAdminPortfolio>
+                        )
+                        )
+
+                }
+
+
+
 
             </div>
         )
@@ -76,17 +104,3 @@ class AdminProfile extends Component {
 }
 
 export default AdminProfile;
-
-// <div className="switches">
-//                 <FormGroup>
-//                     <Label for="exampleCheckbox">Switches</Label>
-//                     <div>
-//                         <CustomInput label="Timmy Roger" type="switch" id="exampleCustomSwitch" name="customSwitch" label="Turn on this custom switch" />
-//                         <CustomInput label="Cosmic Billie" type="switch" id="exampleCustomSwitch2" name="customSwitch"  />
-//                         <CustomInput label="Guest 1" disabled type="switch" id="exampleCustomSwitch3"  />
-//                         <CustomInput label="Maxime" htmlFor="exampleCustomSwitch4_X" disabledtype="switch" id="exampleCustomSwitch4"  />
-//                         <CustomInput label="Alex" htmlFor="exampleCustomSwitch4_X" disabledtype="switch" id="exampleCustomSwitch4"  />
-//                         <CustomInput label="Guest 2" htmlFor="exampleCustomSwitch4_X" disabledtype="switch" id="exampleCustomSwitch4"  />
-//                     </div>
-//                 </FormGroup>
-//             </div>

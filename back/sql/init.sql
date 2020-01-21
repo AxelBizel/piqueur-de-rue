@@ -37,8 +37,8 @@ DEFAULT CHARACTER SET = utf8;
 CREATE TABLE IF NOT EXISTS `piqueurderue`.`images` (
   `id` INT(11) NOT NULL AUTO_INCREMENT,
   `alt_text` VARCHAR(255) NULL DEFAULT NULL,
-  `active` TINYINT(4) NOT NULL,
-  `path` VARCHAR(255) NOT NULL,
+  `active` TINYINT(4) NULL DEFAULT NULL,
+  `path` VARCHAR(255) NULL DEFAULT NULL,
   `main_img` VARCHAR(255) NULL DEFAULT NULL,
   `portfolio_id` INT(11) NULL,
   PRIMARY KEY (`id`),
@@ -72,6 +72,7 @@ CREATE TABLE IF NOT EXISTS `piqueurderue`.`users` (
   `id` INT(11) NOT NULL AUTO_INCREMENT,
   `login` VARCHAR(70) NULL,
   `password` VARCHAR(70) NULL,
+  `active` TINYINT(4) NULL DEFAULT NULL,
   `users_status_id1` INT(11) NULL,
   `portfolio_id` INT(11) NULL,
   PRIMARY KEY (`id`),
