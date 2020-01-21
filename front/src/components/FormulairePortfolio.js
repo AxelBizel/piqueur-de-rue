@@ -1,12 +1,19 @@
 import React, { Component } from 'react';
 import './formulaireChacha.css';
-const axios = require('axios');
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faHome } from '@fortawesome/free-solid-svg-icons';
+import { NavItem, NavLink } from 'reactstrap';
 
+
+const axios = require('axios');
 
 class FormulairePortfolio extends Component {
     constructor(props) {
         super(props);
-        this.state = this.getInitialState();
+        this.state = {
+            customer: this.getInitialState(),
+            showConfirmation: false,
+        }
     }
 
     getInitialState = () => ({
@@ -24,29 +31,34 @@ class FormulairePortfolio extends Component {
 
 
     handleChange = (e) => {
-        this.setState({ [e.target.name]: e.target.value })
-
+        const {customer} = this.state;
+        customer[e.target.name]=e.target.value
+        this.setState({ customer })
     }
+ 
     handleChangeInteger = (e) => {
-        this.setState({ [e.target.name]: parseInt(e.target.value) })
+        const {customer} = this.state;
+        customer[e.target.name]=parseInt(e.target.value);
+        this.setState({ customer })
     }
 
 
     handleSubmit = (event) => {
-        console.log('Le form a été soumis : ', this.state);
-        let customer = this.state;
+        let { customer } = this.state;
         axios
             .post("http://localhost:5000/api/customers", customer)
             .then(console.log("add customer on table customers ok"))
-        this.setState(this.getInitialState());
-    
+        this.setState({
+            customer: this.getInitialState(),
+            showConfirmation: true
+        })
         event.preventDefault();
     } 
 
-
     render() {
         return (
-            <>
+            <div>
+                {this.state.showConfirmation === false ? (
                 <form className="formCha" onSubmit={this.handleSubmit} method="POST" action='/api/customers'>
                     <h1 className="h1formCha">- Formulaire de contact -</h1>
                     <div className="forFlexCha1">
@@ -68,9 +80,19 @@ class FormulairePortfolio extends Component {
                             </textarea>
                         </div>
                     </div>
-                    <button className="buttonForm" type="submit" style={{color:"black"}}>Envoyer mes infos au tatoueur</button>
+                    <button className="buttonForm" type="submit">Envoyer mes infos au tatoueur</button>
                 </form>
-            </>
+                ) : (
+                <div>
+                    <p>Votre demande a bien été envoyée</p>
+                    <p>Nous vous répondrons dans les plus brefs délais</p>
+                    <p>Thank you</p>
+                    <NavItem>
+                        <NavLink href="/" className="styleLink"><FontAwesomeIcon icon={faHome} /></NavLink>
+                    </NavItem>
+                </div>
+                )}
+            </div>
         );
     }
 }
