@@ -23,12 +23,16 @@ button {
   color : white;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New", monospace;
-}
-
-div.headroom-wrapper {
-  background-color: black;
+.HeaderSection {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-size: 3rem;
+  letter-spacing: 0.1em;
+  line-height: 1.5em;
+  margin: 5vh;
+  font-family: FalkinSerifBoldItalicPERSONAL;
 }
 
 .header {
@@ -52,17 +56,23 @@ div.headroom-wrapper {
   }
 }
 
-.HeaderSection {
-  display: flex;
-  font-family: FalkinSerifBoldItalicPERSONAL;
-  justify-content: center;
-  font-size: 3rem;
-  letter-spacing: 0.1em;
-  align-items: center;
-  color: black(255, 255, 255);
-  height: auto;
-  padding-top: 10px;
-  margin: 5vh;
+.logoheader {
+  height : 70vh;
+  animation: logotransition 5s;
+  overflow-x: hidden;
+  z-index: 2000;
+}
+
+@keyframes logotransition {
+  from {
+      opacity: 0;
+      transform: scale(2);
+  }
+
+  to {
+      opacity: 1;
+      transform: scale(1);   
+  }
 }
 
 /* Fonts______________ */
@@ -95,19 +105,3 @@ src: url("./fonts/South_Gardens_Personal_Use.ttf") format("truetype");
 /* ReactImageGallery_______ */
 
 @import "~react-image-gallery/styles/css/image-gallery.css";
-
-
-/* @media screen and (max-width:768px) {
-  .HeaderSection {
-    display: flex;
-    font-family: FalkinSerifBoldItalicPERSONAL;
-    justify-content: center;
-    font-size: 2.8em;
-    letter-spacing: 0.1em;
-    color: rgb(255, 255, 255);
-    text-shadow: 4px 4px 10px black;
-    height: 10vh;
-    margin: 5vh;
-    transition: .3s;
-  }
-} */

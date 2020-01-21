@@ -1,4 +1,4 @@
-.HeaderSectionGuest {
+/* .HeaderSectionGuest {
   display: flex;
   flex-direction: column;
   text-align: center;
@@ -9,7 +9,7 @@
   margin-top: 15vh;
   margin-bottom: 5vh;
   line-height: 1em;
-}
+} */
 
 .SectionGuestContainer {
   display: flex;

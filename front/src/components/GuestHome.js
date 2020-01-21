@@ -42,7 +42,7 @@ class GuestHome extends Component {
     const { portfolios } = this.state;
     return (
       <div>
-        <h1 className="HeaderSectionGuest">
+        <h1 className="HeaderSection">
           <div className="FirstLineGuest" data-aos="fade-right">
             Guest
           </div>

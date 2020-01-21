@@ -77,7 +77,7 @@ class YourProjectAccordion extends Component {
 
     return (
       <div >
-        <h1 className="HeaderSectionProject">
+        <h1 className="HeaderSection">
           <div className="FirstLineProject" data-aos="fade-right">Votre</div>
           <div className="SecondLineProject" data-aos="fade-right">Projet</div>
           <div className="ThirdLineProject" data-aos="fade-left">TATTOO</div>

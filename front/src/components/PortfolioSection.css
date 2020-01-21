@@ -12,6 +12,11 @@
   justify-content: center;
   border-radius: 5px;
 }
+
+#permanentartists {
+  margin-bottom: 15vh;
+}
+
 .Artists-Loader {
   width: 100%;
   display: flex;
