@@ -10,7 +10,7 @@ import {
   CardBody,
   CardTitle,
 } from "reactstrap";
-import ButtonOpenFormTatoueurs from "./ButtonOpenFormTatoueurs";
+// import ButtonOpenFormTatoueurs from "./ButtonOpenFormTatoueurs";
 import GalleryPortfolio from "./GalleryPortfolio";
 
 class ModalPortfolio extends Component {
@@ -69,7 +69,7 @@ class ModalPortfolio extends Component {
                           <p className="textPresentation">
                             {portfolio.presentation}
                           </p>
-                        < ButtonOpenFormTatoueurs/>
+                        {/* < ButtonOpenFormTatoueurs/> */}
                         </CardBody>
                       </CardBody>
                     </Card>
