@@ -12,7 +12,7 @@ import section1 from "../img/projet/1rendezvous.jpg";
 import section2 from "../img/projet/2dessin.jpg";
 import section3 from "../img/projet/3simulation.jpg";
 import section4 from "../img/projet/4realisation.jpg";
-import ButtonOpenFormFred from "./ButtonOpenFormFred";
+import ButtonOpenFormProject from "./ButtonOpenFormProject";
 import "./YourProjectAccordion.css";
 
 class YourProjectAccordion extends Component {
@@ -93,7 +93,8 @@ class YourProjectAccordion extends Component {
                   style={{
                     margin: "0",
                     borderRadius: "3px",
-                    backgroundColor: "#ffffff"
+                    backgroundColor: "#ffffff",
+                    fontWeight: "100"
                   }}
                   className="Title"
                 >
@@ -124,7 +125,7 @@ class YourProjectAccordion extends Component {
             );
           })}
           <div className="divButton">
-          <ButtonOpenFormFred />
+          <ButtonOpenFormProject />
           </div>
         </Container>
       </div>

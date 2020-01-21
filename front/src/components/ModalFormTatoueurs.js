@@ -18,7 +18,7 @@ class ModalFormTatoueurs extends Component {
     return (
       <>
         {showModalFormTatoueurs ? (
-          <aside className="mainModalFormTatoueurs" role="dialog">
+          <aside className="MainModalContactResidents" role="dialog">
             <div className="close-container" onClick={this.props.closeModalFormTatoueurs}>
               <div className="leftright"></div>
               <div className="rightleft"></div>

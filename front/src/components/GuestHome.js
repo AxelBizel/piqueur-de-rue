@@ -109,12 +109,10 @@ class GuestHome extends Component {
                       le fonctionnement du shop ainsi que la gestion de votre
                       image.
                     </p>
+                  <ButtonOpenFormGuests /> 
                   </div>
                 </Col>
                 <Col xs="12" md="6"></Col>
-              </Row>
-              <Row>
-                <ButtonOpenFormGuests />  
               </Row>
             </div>
           </Parallax>
