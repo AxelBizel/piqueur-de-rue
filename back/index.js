@@ -111,6 +111,41 @@ app.get("/api/portfolios", (req, res) => {
     })
 })
 
+//ROUTES FAKES
+//USERS
+app.get("/admin/users", (req, res) => {
+  connection.query(" SELECT * from users ", (err, results) => {
+    if (err) {
+      console.log(err)
+      res.status(500).send('Error 500');
+    } else {
+      res.json(results);
+    }
+  })
+})
+
+app.put("/admin/users/:id", (req, res) => {
+  connection.query("UPDATE * from users SET active = ? WHERE id = ?", [req.body.active, req.params.id], (err, results) => {
+    if (err) {
+      console.log(err)
+      res.status(500).send("Erreur 500");
+    } else {
+      res.json(results);
+    }
+  });
+});
+
+app.put("/admin/users/:id", (req, res) => {
+  connection.query("UPDATE * from users SET active = ? WHERE id = ?", [req.body.active, req.params.id], (err, results) => {
+    if (err) {
+      console.log(err)
+      res.status(500).send("Erreur 500");
+    } else {
+      res.json(results);
+    }
+  });
+});
+
 
 app.get("/api/portfolios/:id", (req, res) => {
   connection.query(" SELECT * from portfolio where id = ?", [req.params.id], (err, results) => {
