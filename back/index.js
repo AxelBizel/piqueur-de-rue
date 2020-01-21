@@ -6,7 +6,7 @@ const bodyParser = require("body-parser");
 const path = require('path');
 const jwt = require('jsonwebtoken')
 const cors = require("cors");
-const {sendMail,sendMailGuest} = require('./mail')
+const { sendMail, sendMailGuest } = require('./mail')
 const http = require('http');
 const fs = require('fs');
 
@@ -34,15 +34,13 @@ app.get('/', function (request, response) {
 
 
 app.post('/login', function (request, response) {
-  console.log(request.body)
+  console.log("login", request.body)
   const login = request.body.login;
   const password = request.body.password;
   if (login && password) {
     connection.query('SELECT * FROM users WHERE login = ? AND password = ?', [login, password], function (error, results, fields) {
       console.log("result", results.length)
       if (results.length > 0) {
-        request.session.loggedin = true;
-        request.session.login = login;
         jwt.sign({
           user: {
             id: results[0].id,
@@ -65,16 +63,16 @@ app.post('/login', function (request, response) {
 });
 
 //Verfication du token
-function verifyToken (req,res,next) {
-  console.log (req.headers.authorizaton)
-  const token = req.headers.authorization && req.headers.authorization.split ('') [1]
-  jwt.verify (token,'toto', (err,payload) => {
-    if(err){
+function verifyToken(req, res, next) {
+  console.log(req.headers.authorizaton)
+  const token = req.headers.authorization && req.headers.authorization.split(' ')[1]
+  jwt.verify(token, 'toto', (err, payload) => {
+    if (err) {
       console.log(err)
       res.sendStatus(401)
-    }else {
+    } else {
       req.user = payload.user
-      console.log(req.user , payload.user)
+      console.log(req.user, payload.user)
       next()
     }
   })
@@ -100,19 +98,19 @@ function verifyToken (req,res,next) {
 
 // Routes test
 
-app.get("/api/portfolios", (req, res) => {
-    connection.query(" SELECT * from portfolio", (err, results) => {
-      if (err) {
-        console.log(err)
-        res.status(500).send('Error 500');
-      } else {
-        res.json(results);
-      }
-    })
+app.get("/api/portfolios", verifyToken, (req, res) => {
+  connection.query(" SELECT * from portfolio", (err, results) => {
+    if (err) {
+      console.log(err)
+      res.status(500).send('Error 500');
+    } else {
+      res.json(results);
+    }
+  })
 })
 
 //ROUTES FAKES
-//USERS
+//Formulaires USERS
 app.get("/admin/users", (req, res) => {
   connection.query(" SELECT * from users ", (err, results) => {
     if (err) {
@@ -124,7 +122,7 @@ app.get("/admin/users", (req, res) => {
   })
 })
 
-app.put("/admin/users/:id", (req, res) => {
+app.put("/admin/users/:id/active", (req, res) => {
   connection.query("UPDATE * from users SET active = ? WHERE id = ?", [req.body.active, req.params.id], (err, results) => {
     if (err) {
       console.log(err)
@@ -135,7 +133,43 @@ app.put("/admin/users/:id", (req, res) => {
   });
 });
 
-app.put("/admin/users/:id", (req, res) => {
+// app.put("/admin/users/", (req, res) => {
+//   connection.query("UPDATE * from users WHERE id = ? AND password = ?", [req.body.active, req.params.id], (err, results) => {
+//     if (err) {
+//       console.log(err)
+//       res.status(500).send("Erreur 500");
+//     } else {
+//       res.json(results);
+//     }
+//   });
+// });
+
+
+//Formulaire Portfolios
+
+app.get("/admin/portfolios", (req, res) => {
+  connection.query(" SELECT * from portfolios ", (err, results) => {
+    if (err) {
+      console.log(err)
+      res.status(500).send('Error 500');
+    } else {
+      res.json(results);
+    }
+  })
+})
+
+app.post("/admin/portfolios", (req, res) => {
+  connection.query("INSERT INTO portfolios SET = ? ", [req.body], (err, results) => {
+    if (err) {
+      console.log(err)
+      res.status(500).send("Erreur 500");
+    } else {
+      res.json(results);
+    }
+  });
+});
+
+app.put("/admin/portfolios/:id/active", (req, res) => {
   connection.query("UPDATE * from users SET active = ? WHERE id = ?", [req.body.active, req.params.id], (err, results) => {
     if (err) {
       console.log(err)
@@ -145,6 +179,10 @@ app.put("/admin/users/:id", (req, res) => {
     }
   });
 });
+
+
+
+//
 
 
 app.get("/api/portfolios/:id", (req, res) => {
@@ -333,7 +371,7 @@ app.post('/api/guests', (req, res) => {
 // Route pour l'envoi de Mails des clients avec sengrid : --------------------------------------------
 
 app.post('/project', async (req, res) => {
-  try { 
+  try {
     const sent = await sendMail(req.body)
     if (sent) {
       res.send({ message: 'email envoyé avec succès' })

@@ -27,7 +27,10 @@ class AdminProfile extends Component {
 
     getPortfolio = async () => {
         try {
-            const result = await axios.get(`http://localhost:5000/api/portfolios`)
+            const result = await axios.get(`http://localhost:5000/api/portfolios`,
+            {
+                headers: { Authorization: 'bearer '+localStorage.getItem('token')}
+            })
             console.log("gg", result.data)
             this.setState({ portfolios: result.data })
         } catch (err) {
