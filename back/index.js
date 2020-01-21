@@ -111,6 +111,8 @@ app.get("/api/portfolios", verifyToken, (req, res) => {
 
 //ROUTES FAKES ADMIN
 //Formulaires USERS
+
+//OK
 app.get("/admin/users", (req, res) => {
   connection.query(" SELECT * from users ", (err, results) => {
     if (err) {
@@ -122,8 +124,9 @@ app.get("/admin/users", (req, res) => {
   })
 })
 
+//OK
 app.put("/admin/users/:id/active", (req, res) => {
-  connection.query("UPDATE * from users SET active = ? WHERE id = ?", [req.body.active, req.params.id], (err, results) => {
+  connection.query("UPDATE users SET active = ? WHERE id = ?", [req.body.active, req.params.id], (err, results) => {
     if (err) {
       console.log(err)
       res.status(500).send("Erreur 500");
@@ -133,10 +136,25 @@ app.put("/admin/users/:id/active", (req, res) => {
   });
 });
 
+
+app.put('/admin/users/:id', (req, res) => {
+  const idUsers = req.params.id;
+  const formData = req.body;
+   connection.query('UPDATE users SET ? WHERE id = ?', [formData, idUsers], (err,results) => {
+    if (err) {
+      console.log(err)
+      res.status(500).send('Error 500');
+    } else {
+      res.json(results);
+    }
+  })
+})
+
+
 //Routes Admin - Login
 
 // app.put("/admin/users/", (req, res) => {
-//   connection.query("UPDATE * from users WHERE id = ? AND password = ?", [req.body.active, req.params.id], (err, results) => {
+//   connection.query("UPDATE users WHERE id = ? AND password = ?", [req.body.active, req.params.id], (err, results) => {
 //     if (err) {
 //       console.log(err)
 //       res.status(500).send("Erreur 500");
@@ -149,8 +167,9 @@ app.put("/admin/users/:id/active", (req, res) => {
 
 //Formulaire Portfolios
 
+//OK
 app.get("/admin/portfolios", (req, res) => {
-  connection.query(" SELECT * from portfolios ", (err, results) => {
+  connection.query(" SELECT * from portfolio ", (err, results) => {
     if (err) {
       console.log(err)
       res.status(500).send('Error 500');
@@ -160,39 +179,32 @@ app.get("/admin/portfolios", (req, res) => {
   })
 })
 
-app.post("/admin/portfolios", (req, res) => {
-  connection.query("INSERT INTO portfolios SET = ? ", [req.body], (err, results) => {
+//OK
+app.post('/admin/portfolios', (req, res) => {
+  const formData = req.body;
+  connection.query('INSERT INTO portfolio SET ?', formData, (err, results) => {
     if (err) {
       console.log(err)
-      res.status(500).send("Erreur 500");
+      res.status(500).send('Error 500');
     } else {
       res.json(results);
     }
-  });
-});
+  })
+})
 
-app.put("/admin/portfolios/:id/", (req, res) => {
-  connection.query("UPDATE * from users WHERE id = ?", [req.body , req.params.id], (err, results) => {
+//OK
+app.put('/admin/portfolio/:id', (req, res) => {
+  const idPortfolio = req.params.id;
+  const formData = req.body;
+   connection.query('UPDATE portfolio SET ? WHERE id = ?', [formData, idPortfolio], (err,results) => {
     if (err) {
       console.log(err)
-      res.status(500).send("Erreur 500");
+      res.status(500).send('Error 500');
     } else {
       res.json(results);
     }
-  });
-});
-
-app.put("/admin/portfolios/:id/active", (req, res) => {
-  connection.query("UPDATE * from users SET active = ? WHERE id = ?", [req.body.active, req.params.id], (err, results) => {
-    if (err) {
-      console.log(err)
-      res.status(500).send("Erreur 500");
-    } else {
-      res.json(results);
-    }
-  });
-});
-
+  })
+})
 
 
 ///////////////////////////////////////////////////////////////////////////////
