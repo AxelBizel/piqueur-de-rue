@@ -109,7 +109,7 @@ app.get("/api/portfolios", verifyToken, (req, res) => {
   })
 })
 
-//ROUTES FAKES
+//ROUTES FAKES ADMIN
 //Formulaires USERS
 app.get("/admin/users", (req, res) => {
   connection.query(" SELECT * from users ", (err, results) => {
@@ -132,6 +132,8 @@ app.put("/admin/users/:id/active", (req, res) => {
     }
   });
 });
+
+//Routes Admin - Login
 
 // app.put("/admin/users/", (req, res) => {
 //   connection.query("UPDATE * from users WHERE id = ? AND password = ?", [req.body.active, req.params.id], (err, results) => {
@@ -169,6 +171,17 @@ app.post("/admin/portfolios", (req, res) => {
   });
 });
 
+app.put("/admin/portfolios/:id/", (req, res) => {
+  connection.query("UPDATE * from users WHERE id = ?", [req.body , req.params.id], (err, results) => {
+    if (err) {
+      console.log(err)
+      res.status(500).send("Erreur 500");
+    } else {
+      res.json(results);
+    }
+  });
+});
+
 app.put("/admin/portfolios/:id/active", (req, res) => {
   connection.query("UPDATE * from users SET active = ? WHERE id = ?", [req.body.active, req.params.id], (err, results) => {
     if (err) {
@@ -182,7 +195,7 @@ app.put("/admin/portfolios/:id/active", (req, res) => {
 
 
 
-//
+///////////////////////////////////////////////////////////////////////////////
 
 
 app.get("/api/portfolios/:id", (req, res) => {
