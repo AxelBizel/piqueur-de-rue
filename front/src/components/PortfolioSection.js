@@ -46,8 +46,8 @@ class PortfolioSection extends Component {
               portfolios.map((portfolio, index) => (
                 <Col xs="12" md="6" lg="3">
                   <div 
-                    // data-aos-duration= {index*800}
-                    // data-aos="fade-up"
+                    data-aos-duration= {index*800}
+                    data-aos="fade-up"
                     className="Artists"
                     key={portfolio.id}
                     style={{

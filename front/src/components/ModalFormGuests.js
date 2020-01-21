@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-// import "./modalFormGuests.css";
 import FormGuests from "./FormGuests";
 import { Container } from "reactstrap";
 
@@ -16,9 +15,10 @@ class ModalFormGuests extends Component {
   render() {
     const { showModalFormGuests } = this.props;
     return (
-      <>
+      <div>
+        <div className="background" style={{display : showModalFormGuests? "flex" : "none"}} onClick={() => this.props.closeModalFormGuests()}></div>
         {showModalFormGuests ? (
-          <aside className="mainModalFormTatoueurs2" role="dialog">
+          <aside className="MainModalGuestAndProject" role="dialog">
             <div className="close-container" onClick={this.props.closeModalFormGuests}>
               <div className="leftright"></div>
               <div className="rightleft"></div>
@@ -29,7 +29,7 @@ class ModalFormGuests extends Component {
             </Container>
           </aside> 
         ) : null}
-      </>
+      </div>
     );
   }
 }

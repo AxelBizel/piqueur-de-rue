@@ -1,4 +1,3 @@
-
 import React from "react"
 import {Redirect} from "react-router-dom"
 import Axios from "axios"
@@ -79,9 +78,9 @@ export default class Login extends React.Component{
             <img src={require("../img/logo/logoPiqueurWhiteFooter.png")} id="icon" alt="User Icon" />
             </div>
             <form id="formLogin" onSubmit={this.formSubmit}>
-              <input type="text" id="login" class="fadeIn second" value={this.state.username} onChange={this.onChange} name="login" placeholder="Identifiant"/>
-              <input type="text" id="password" class="fadeIn third" value={this.state.password} onChange={this.onChange} name="password" placeholder="Mot de passe"/>
-              <input type="submit" id="submit" class="fadeIn fourth" value="Log In"/>
+              <input type="text" id="login" class="fadeIn second inputLogin" value={this.state.username} onChange={this.onChange} name="login" placeholder="Identifiant"/>
+              <input type="text" id="password" class="fadeIn third inputLogin" value={this.state.password} onChange={this.onChange} name="password" placeholder="Mot de passe"/>
+              <input type="submit" id="submit" class="fadeIn fourth inputLogin" value="Log In"/>
               {this.state.error}
             </form>
         

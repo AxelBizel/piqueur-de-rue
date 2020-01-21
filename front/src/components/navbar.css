@@ -5,6 +5,10 @@
     box-shadow: 1px 1px 10px rgb(58, 58, 58);
 }
 
+.headroom-wrapper {
+    height: 0 !important;
+}
+
 .styleLink {
     color: rgb(54, 53, 52);
     transition: 0.1s;
