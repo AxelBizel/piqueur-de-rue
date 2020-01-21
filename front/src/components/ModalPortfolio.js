@@ -44,7 +44,7 @@ class ModalPortfolio extends Component {
                       <CardImg
                       style={{width:'66%', margin:'0 auto'}}
                         top
-                        src= "http://localhost:5000/img/'+`${portfolio.id}`+'/portrait.jpg'",
+                        src= {`http://localhost:5000/img/${portfolio.id}/portrait.jpg`}
                         alt="Portrait du tatoueur"
                       />
                       <CardBody>
