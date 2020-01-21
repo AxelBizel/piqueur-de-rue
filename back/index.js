@@ -4,35 +4,26 @@ const port = 5000;
 const connection = require("./conf");
 const bodyParser = require("body-parser");
 const path = require('path');
-const session = require('express-session');
 const jwt = require('jsonwebtoken')
 const cors = require("cors");
-const sendMail = require('./mail')
+const {sendMail,sendMailGuest} = require('./mail')
 const http = require('http');
 const fs = require('fs');
 
-//filesystem
-// http.createServer(function (req, res) {
-//   fs.readFile('demofile1.html', function(err, data) {
-//     res.writeHead(200, {'Content-Type': 'text/html'});
-//     res.write(data);
-//     res.end();
-//   });
-// }).listen(8080);
-
-// bodyParser
+// Middlewares
 app.use(bodyParser.json());
-app.use(session({
-  secret: 'secret',
-  resave: true,
-  saveUninitialized: true
-}));
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
 app.use(express.json())
 
 app.use(cors())
+
+// filesystem
+app.use('/img', express.static(__dirname + '/img'));
+
+
+
 
 //ROUTES : Partie Authentification 
 
@@ -170,9 +161,20 @@ app.get("/api/users", (req, res) => {
   });
 });
 
-//Récupération des portfolios
-app.get("/api/portfolio", (req, res) => {
-  connection.query("SELECT * from portfolio", (err, results) => {
+//Récupération des portfolios team
+app.get("/api/portfolio/team", (req, res) => {
+  connection.query("SELECT * from portfolio WHERE type='team'", (err, results) => {
+    if (err) {
+      res.status(500).send("Erreur lors de la récupération des portfolios");
+    } else {
+      res.json(results);
+    }
+  });
+});
+
+//Récupération des portfolios guests
+app.get("/api/portfolio/guest", (req, res) => {
+  connection.query("SELECT * from portfolio WHERE type='guest'", (err, results) => {
     if (err) {
       res.status(500).send("Erreur lors de la récupération des portfolios");
     } else {
@@ -198,14 +200,26 @@ app.get("/api/portfolio/:id/{name}", (req, res) => {
 app.get("/api/images", (req, res) => {
   connection.query("SELECT * from images", (err, results) => {
     if (err) {
-      res.status(500).send("Erreur lors de la récupération des portfolios");
+      res.status(500).send("Erreur lors de la récupération des images");
     } else {
       res.json(results);
     }
   });
 });
 
-// Récupération des données du formulaire de contactTatoueur
+//Récupération des images par tatoueur
+app.get("/api/images/:id", (req, res) => {
+  connection.query("SELECT * from images WHERE portfolio_id = ?", req.params.id, (err, results) => {
+    if (err) {
+      res.status(500).send("Erreur lors de la récupération des images");
+    } else {
+      res.json(results);
+    }
+  });
+});
+
+// Récupération des données du formulaire client de contactTatoueur
+//envoi du mail client au tatoueur
 app.get("/api/customers", (req, res) => {
   connection.query("SELECT * from customers", (err, results) => {
     if (err) {
@@ -222,30 +236,69 @@ app.post('/api/customers', (req, res) => {
   connection.query('INSERT INTO customers SET?', formData, async (err, results) => {
     if (err) {
       console.log(err);
-      res.status(500).send("erreur de récupération des données du formulaire");
+      res.status(500).send("erreur de récupération des données du formulaire Client");
     } else {
-      console.log('YES ça fonctionne !!!!!!!!!!!!!')
+      console.log('YES ça fonctionne côté client !!!!!!!!!!!!!')
       try {
         //je mets dans mysql
+        //j'envoie mon mail
         const sent = await sendMail(req.body)
         if (sent) {
-          res.send({ message: 'email envoyé avec succès' })
+          res.send({ message: 'email client envoyé avec succès' })
         }
       } catch (error) {
         console.log("gg1", error)
         // throw new Error(error.message)
-        res.status(500).send("erreur d'envoie du mail");
+        res.status(500).send("erreur d'envoie du mail client");
 
       }
     }
   })
 });
 
-// Route pour l'envoi de Mails avec sengrid : --------------------------------------------
+
+// Récupération des données du formulaire guest de contactTatoueur
+//envoi du mail guest au tatoueur
+app.get("/api/guests", (req, res) => {
+  connection.query("SELECT * from guests", (err, results) => {
+    if (err) {
+      res.status(500).send("Erreur lors de la récupération des guests");
+    } else {
+      res.json(results);
+    }
+  });
+});
+
+
+app.post('/api/guests', (req, res) => {
+  const formData = req.body;
+  connection.query('INSERT INTO guests SET?', formData, async (err, results) => {
+    if (err) {
+      console.log(err);
+      res.status(500).send("erreur de récupération des données du formulaire Guest");
+    } else {
+      console.log('YES ça fonctionne côté guest !!!!!!!!!!!!!')
+      try {
+        //je mets dans mysql
+        //j'envoie mon mail
+        const sent = await sendMailGuest(req.body)
+        if (sent) {
+          res.send({ message: 'email guest envoyé avec succès' })
+        }
+      } catch (error) {
+        console.log("gg2", error)
+        // throw new Error(error.message)
+        res.status(500).send("erreur d'envoie du mail guest");
+
+      }
+    }
+  })
+});
+
+// Route pour l'envoi de Mails des clients avec sengrid : --------------------------------------------
 
 app.post('/project', async (req, res) => {
-  try {
-    //je mets dans mysql
+  try { 
     const sent = await sendMail(req.body)
     if (sent) {
       res.send({ message: 'email envoyé avec succès' })

@@ -12,7 +12,7 @@ import section1 from "../img/projet/1rendezvous.jpg";
 import section2 from "../img/projet/2dessin.jpg";
 import section3 from "../img/projet/3simulation.jpg";
 import section4 from "../img/projet/4realisation.jpg";
-import ButtonOpenFormTatoueurs from "./ButtonOpenFormTatoueurs";
+import ButtonOpenFormFred from "./ButtonOpenFormFred";
 import "./YourProjectAccordion.css";
 
 class YourProjectAccordion extends Component {
@@ -26,29 +26,26 @@ class YourProjectAccordion extends Component {
         {
           id: 1,
           title: "Rendez-vous",
-          text: `Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur et posuere dolor. Aliquam condimentum lacus a velit scelerisque, id rhoncus lorem laoreet. Morbi sollicitudin metus tellus, vulputate semper erat egestas
-          quis.`,
+          text: `Première prise de contact où l’on discute de votre projet tattoo autour d’un café.
+          Nous définirons ensemble les possibilités techniques de réalisation, le style, l’emplacement, le tatoueur qui vous prendra en charge, ainsi qu’une estimation du prix.`,
           img: `${section1}`
         },
         {
           id: 2,
           title: "Dessin",
-          text: `Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur et posuere dolor. Aliquam condimentum lacus a velit scelerisque, id rhoncus lorem laoreet. Morbi sollicitudin metus tellus, vulputate semper erat egestas
-          quis.`,
+          text: `Un dessin finalisé sera réalisé suite à des échanges préalables.`,
           img: `${section2}`
         },
         {
           id: 3,
           title: "Simulation",
-          text: `Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur et posuere dolor. Aliquam condimentum lacus a velit scelerisque, id rhoncus lorem laoreet. Morbi sollicitudin metus tellus, vulputate semper erat egestas
-          quis.`,
+          text: `Suite à des photos prises de vous lors du premier rendez-vous, une incrustation du dessin final vous sera envoyée. Vous aurez alors une vision fidèle du rendu final de votre futur tattoo.`,
           img: `${section3}`
         },
         {
           id: 4,
-          title: "Realisation",
-          text: `Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur et posuere dolor. Aliquam condimentum lacus a velit scelerisque, id rhoncus lorem laoreet. Morbi sollicitudin metus tellus, vulputate semper erat egestas
-          quis.`,
+          title: "Réalisation",
+          text: `Une fois que le projet proposé sera validé, un rendez-vous sera programmé pour la réalisation de celui-ci.`,
           img: `${section4}`
         }
       ]
@@ -79,16 +76,25 @@ class YourProjectAccordion extends Component {
     const { collapse, sections } = this.state;
 
     return (
-      <div>
-        <h1 className="HeaderSectionProject"><div className="FirstLineProject" data-aos="fade-right" data-aos-offset="800" data-aos-duration="1000">Votre</div><div className="SecondLineProject" data-aos="fade-right" data-aos-offset="800" data-aos-duration="800">Projet</div><div className="ThirdLineProject" data-aos="fade-left" data-aos-offset="800" data-aos-duration="1000">TATTOO</div></h1>
+      <div >
+        <h1 className="HeaderSectionProject">
+          <div className="FirstLineProject" data-aos="fade-right">Votre</div>
+          <div className="SecondLineProject" data-aos="fade-right">Projet</div>
+          <div className="ThirdLineProject" data-aos="fade-left">TATTOO</div>
+        </h1>
         <Container>
-          {sections.map(section => {
+          {sections.map((section, index) => {
             return (
-              <Card style={{ marginBottom: "1rem" }} key={section.id} >
+              <Card style={{ marginBottom: "1rem" }} key={section.id}>
                 <CardHeader
+                  data-aos-duration= {index*800}
                   onClick={this.toggle}
                   data-event={section.id}
-                  style={{ margin: "0", borderRadius: "3px", backgroundColor:'#ffffff' }}
+                  style={{
+                    margin: "0",
+                    borderRadius: "3px",
+                    backgroundColor: "#ffffff"
+                  }}
                   className="Title"
                 >
                   {section.title}
@@ -117,10 +123,12 @@ class YourProjectAccordion extends Component {
               </Card>
             );
           })}
-          <ButtonOpenFormTatoueurs />
+          <div className="divButton">
+          <ButtonOpenFormFred />
+          </div>
         </Container>
       </div>
-    );
+          );
   }
 }
 

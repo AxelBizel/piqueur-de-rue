@@ -2,8 +2,10 @@
 import React from "react"
 import {Redirect} from "react-router-dom"
 import Axios from "axios"
+import './login.css'
 
 export default class Login extends React.Component{
+    
 
     constructor(){
         super()
@@ -70,15 +72,29 @@ export default class Login extends React.Component{
         //     return <Redirect to="/profile" />
         // }
         return(
-            <form onSubmit={this.formSubmit}>
-                <input type="text" placeholder="username" value={this.state.username} onChange={this.onChange} name="username" />
-                <input type="password" placeholder="password" value={this.state.password} onChange={this.onChange} name="password" />
-                <input type="submit" />
-                {this.state.error}
-                <button onClick ={this.onCreateProfile}>Create your profile</button>
-                <button onClick={this.onReturn}>Retour</button>
+            <div className="flexContainer">
+            <div class="wrapper fadeInDown">
+            <div id="formContent">
+            <div class="fadeIn first">
+            <img src={require("../img/logo/logoPiqueurWhiteFooter.png")} id="icon" alt="User Icon" />
+            </div>
+            <form id="formLogin" onSubmit={this.formSubmit}>
+              <input type="text" id="login" class="fadeIn second" value={this.state.username} onChange={this.onChange} name="login" placeholder="Identifiant"/>
+              <input type="text" id="password" class="fadeIn third" value={this.state.password} onChange={this.onChange} name="password" placeholder="Mot de passe"/>
+              <input type="submit" id="submit" class="fadeIn fourth" value="Log In"/>
+              {this.state.error}
             </form>
-            
+        
+            <div id="formFooter" class="fadeIn fourth">
+              <a class="underlineHover" href="#" onClick ={this.onCreateProfile}>Créer profil</a><br/>
+              <a class="underlineHover" href="#">Mot de passe oublié ?</a><br/>
+              <a class="underlineHover" href="#" onClick={this.onReturn}>Retour</a>
+            </div>
+            </div>
+        </div>
+    </div>
+
+
         )
     }
 }

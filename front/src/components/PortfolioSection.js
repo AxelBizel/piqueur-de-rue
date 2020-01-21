@@ -1,24 +1,24 @@
 import React, { Component } from "react";
 import axios from "axios";
-import AOS from "aos";
 import ButtonOpenPortfolio from "./ButtonOpenPortfolio";
 import { Container, Row, Col, Spinner } from "reactstrap";
 import "./PortfolioSection.css";
 import "aos/dist/aos.css";
+import { urlencoded } from "body-parser";
 
 class PortfolioSection extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      portfolios: null
+      portfolios: null, 
+      img:null
     };
   }
 
   componentDidMount() {
-    axios.get(`http://localhost:5000/api/portfolio`).then(res => {
+    axios.get(`http://localhost:5000/api/portfolio/team`).then(res => {
       const portfoliosData = res.data;
       this.setState({ portfolios: portfoliosData });
-      console.log(this.state);
     });
   }
 
@@ -28,22 +28,9 @@ class PortfolioSection extends Component {
       <div id="permanentartists">
         <div>
           <h1 className="HeaderSection">
-            <div
-              className="FirstLineTeam"
-              data-aos="fade-right"
-              data-aos-offset="700"
-              data-aos-duration="800"
-            >
-              Notre
+            <div className="FirstLineTeam" data-aos="fade-right">Notre
             </div>
-            <div
-              className="SecondLineTeam"
-              data-aos="fade-left"
-              data-aos-offset="700"
-              data-aos-duration="800"
-            >
-              Team
-            </div>
+            <div className="SecondLineTeam" data-aos="fade-left">Team</div>
           </h1>
         </div>
         <Container>
@@ -56,17 +43,16 @@ class PortfolioSection extends Component {
                 <Spinner type="grow" color="dark" />
               </div>
             ) : (
-              portfolios.map(portfolio => (
+              portfolios.map((portfolio, index) => (
                 <Col xs="12" md="6" lg="3">
-                  <div
+                  <div 
+                    // data-aos-duration= {index*800}
+                    // data-aos="fade-up"
                     className="Artists"
                     key={portfolio.id}
                     style={{
                       margin: "2vh auto",
-                      backgroundImage: `url(${require("../img/tatoueurs/portraits-500px/" +
-                        `${portfolio.id}` +
-                        ".jpg")})`
-                    }}
+                      backgroundImage:'url(http://localhost:5000/img/'+`${portfolio.id}`+'/portrait.jpg)'}}                    
                   >
                     <ButtonOpenPortfolio portfolio={portfolio} />
                   </div>

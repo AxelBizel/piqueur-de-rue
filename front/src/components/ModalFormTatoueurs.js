@@ -27,10 +27,10 @@ class ModalFormTatoueurs extends Component {
             <Container >
               <FormulairePortfolio />
             </Container>
-          </aside>
+          </aside>         
         ) : null}
       </>
-    );
+    ); 
   }
 }
 

@@ -22,9 +22,10 @@ CREATE TABLE IF NOT EXISTS `piqueurderue`.`portfolio` (
   `pseudo` VARCHAR(255) NOT NULL,
   `type` VARCHAR(255) NULL DEFAULT NULL,
   `presentation` VARCHAR(255) NULL DEFAULT NULL,
+  `insta` VARCHAR(255) NULL DEFAULT NULL,
   `active` TINYINT(4) NOT NULL,
-  `start-date` DATETIME NULL DEFAULT NULL,
-  `end-date` DATETIME NULL DEFAULT NULL,
+  `startdate` VARCHAR(255) NULL DEFAULT NULL,
+  `enddate` VARCHAR(255) NULL DEFAULT NULL,
   PRIMARY KEY (`id`))
 ENGINE = InnoDB
 DEFAULT CHARACTER SET = utf8;
@@ -36,8 +37,8 @@ DEFAULT CHARACTER SET = utf8;
 CREATE TABLE IF NOT EXISTS `piqueurderue`.`images` (
   `id` INT(11) NOT NULL AUTO_INCREMENT,
   `alt_text` VARCHAR(255) NULL DEFAULT NULL,
-  `active` TINYINT(4) NOT NULL,
-  `path` VARCHAR(255) NOT NULL,
+  `active` TINYINT(4) NULL DEFAULT NULL,
+  `path` VARCHAR(255) NULL DEFAULT NULL,
   `main_img` VARCHAR(255) NULL DEFAULT NULL,
   `portfolio_id` INT(11) NULL,
   PRIMARY KEY (`id`),
@@ -124,6 +125,21 @@ CREATE TABLE IF NOT EXISTS `piqueurderue`.`customers` (
   `budget` INT NULL,
   `story` TEXT NULL
 );
+
+-- -----------------------------------------------------
+-- Table `piqueurderue`.`guests`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `piqueurderue`.`guests` (
+  `id` INT(11) PRIMARY KEY NOT NULL AUTO_INCREMENT,
+  `firstNameG` VARCHAR(70) NOT NULL,
+  `lastNameG` VARCHAR(70) NOT NULL,
+  `pseudoG` VARCHAR(70) NULL,
+  `phoneG` VARCHAR(15) NOT NULL,
+  `emailG` VARCHAR(150) NOT NULL,
+  `compteG` VARCHAR(70) NULL,
+  `storyG` TEXT NULL
+);
+
 
 -- -----------------------------------------------------
 -- Modifs
