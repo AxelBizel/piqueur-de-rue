@@ -18,7 +18,7 @@ class ButtonAdminPortfolio extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      modal: true,
+      modal: false,
      
       item : this.getItem(),
       active : true ,
