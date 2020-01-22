@@ -19,7 +19,11 @@ class AdminProfile extends Component {
 
   getPortfolio = async () => {
     try {
-      const result = await axios.get(`http://localhost:5000/api/portfolios`);
+      const result = await axios.get(`http://localhost:5000/api/portfolios`,
+      {headers : {
+        'authorization' : `bearer ${localStorage.getItem('token')}`
+      }}
+      )
       console.log("getPortfolio", result.data);
       this.setState({ portfolios: result.data });
     } catch (err) {
@@ -85,7 +89,7 @@ class AdminProfile extends Component {
                 </thead>
                 <tbody>
                   {this.state.portfolios.map((pf, index) => (
-                    <tr>
+                    <tr key={pf.id}>
                       <td>{pf.id}</td>
                       <td>{pf.pseudo}</td>
                       <td>{pf.type}</td>

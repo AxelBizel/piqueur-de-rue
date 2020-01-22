@@ -48,18 +48,22 @@ export default class Login extends React.Component {
         console.log(this.state)
         const { login, password } = this.state
         try {
-            const result = await Axios.post("http://localhost:5000/login", { login, password })
+            const result = await Axios.post("http://localhost:5000/login",
+                { login, password })
             // if(result.data.token)
-            localStorage.setItem("token", result.data.token)
-            this.setState({
-                loggedIn: true
-            })
+            if (result.data.token) {
+                localStorage.setItem("token", result.data.token)
+                this.setState({
+                    loggedIn: true
+                })
+            }
         } catch (err) {
             this.setState({
                 error: err.message
             })
         }
     }
+
 
     render() {
         if (this.state.loggedIn === true) {
@@ -79,7 +83,7 @@ export default class Login extends React.Component {
                             <img src={require("../img/logo/logoPiqueurWhiteFooter.png")} id="icon" alt="User Icon" />
                         </div>
                         <form id="formLogin" onSubmit={this.formSubmit}>
-                            <input type="text" id="login" class="fadeIn second" value={this.state.login} onChange={this.onChange} name="login" placeholder="Identifiant" />
+                            <input type="text" id="login" class="fadeIn second" value={this.state.login} onChange={this.onChange} name="login" placeholder="login" />
                             <input type="text" id="password" class="fadeIn third" value={this.state.password} onChange={this.onChange} name="password" placeholder="Mot de passe" />
                             <input type="submit" id="submit" class="fadeIn fourth" value="Log In" />
                             {this.state.error}

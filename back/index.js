@@ -48,7 +48,7 @@ app.post('/login', function (request, response) {
             portfolio_id: results[0].portfolio_id
           }
         },
-          'toto', { expiresIn: '15sec' },
+          'toto', { expiresIn: '1500sec' },
           (err, token) => {
             console.log(err, token)
             response.json({ token })
@@ -62,6 +62,18 @@ app.post('/login', function (request, response) {
   }
 });
 
+
+
+app.get("/api/portfolios",verifyToken, (req, res) => {
+  connection.query(" SELECT * from portfolio", (err, results) => {
+    if (err) {
+      console.log(err)
+      res.status(500).send('Error 500');
+    } else {
+      res.json(results);
+    }
+  })
+})
 //Verfication du token
 function verifyToken(req, res, next) {
   console.log(req.headers.authorizaton)
@@ -77,37 +89,6 @@ function verifyToken(req, res, next) {
     }
   })
 }
-
-
-// ROUTES : Partie Admin
-
-// app.get("/api/portfolios", (req, res) => {
-//   if (req.user.id === 1) {// a modifier avec role admin dans le meilleur des mondes
-//     connection.query(" SELECT * from portfolio", (err, results) => {
-//       if (err) {
-//         console.log(err)
-//         res.status(500).send('Error 500');
-//       } else {
-//         res.json(results);
-//       }
-//     })
-//   } else {
-//     res.sendStatus(401)
-//   }
-// })
-
-// Routes test
-
-app.get("/api/portfolios", verifyToken, (req, res) => {
-  connection.query(" SELECT * from portfolio", (err, results) => {
-    if (err) {
-      console.log(err)
-      res.status(500).send('Error 500');
-    } else {
-      res.json(results);
-    }
-  })
-})
 
 //ROUTES FAKES ADMIN
 //Formulaires USERS
@@ -137,18 +118,18 @@ app.put("/admin/users/:id/active", (req, res) => {
 });
 
 
-app.put('/admin/users/:id', (req, res) => {
-  const idUsers = req.params.id;
-  const formData = req.body;
-   connection.query('UPDATE users SET ? WHERE id = ?', [formData, idUsers], (err,results) => {
-    if (err) {
-      console.log(err)
-      res.status(500).send('Error 500');
-    } else {
-      res.json(results);
-    }
-  })
-})
+// app.put('/admin/users/:id', (req, res) => {
+//   const idUsers = req.params.id;
+//   const formData = req.body;
+//    connection.query('UPDATE users SET ? WHERE id = ?', [formData, idUsers], (err,results) => {
+//     if (err) {
+//       console.log(err)
+//       res.status(500).send('Error 500');
+//     } else {
+//       res.json(results);
+//     }
+//   })
+// })
 
 
 //Routes Admin - Login

@@ -12,7 +12,7 @@ import rootReducer from './reducers';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Switch, Redirect } from 'react-router-dom';
 import AdminPortfolio from './components/ButtonAdminPortfolio';
 const store = createStore(rootReducer);
 
@@ -20,21 +20,35 @@ AOS.init({
     mirror: true,
     duration: 600
 })
-  
+
 window.addEventListener('load', AOS.refresh);
+
+const PrivateRoute = (props) => {
+    if (localStorage.getItem("token") )
+        return <Route {...props} />
+    else
+        return <Redirect to='/login'/>
+}
+const PublicRoute = (props) => {
+    if (!localStorage.getItem("token") )
+        return <Route {...props} />
+    else
+        return <Redirect to='/'/>
+}
 
 ReactDOM.render(
     <Provider store={store}>
         <Router>
             <Switch>
                 <Route exact path="/" component={App} />
-                <Route exact path="/login" component={Login} />
-                <Route path="/user" component={User} />
+                <PublicRoute exact path="/login" component={Login} />
+                <PrivateRoute path="/user" component={User} />
                 <Route path="/logout" component={Logout} />
-                <Route path="/admin" component={AdminProfile} />
-                <Route path="/adminportfolio" component ={AdminPortfolio}/>
+                <PrivateRoute path="/admin" component={AdminProfile} />
+                <Route path="/adminportfolio" component={AdminPortfolio} />
             </Switch>
         </Router>
     </Provider>, document.getElementById('root'));
-    
+
 serviceWorker.unregister();
+
