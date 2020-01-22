@@ -36,7 +36,6 @@ textarea {
 /* Style buttons */
 
 .btn {
-  margin: 0 !important;
   color: white;
   cursor: pointer;
   font-size: 20px;
