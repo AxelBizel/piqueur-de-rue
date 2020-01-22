@@ -8,7 +8,6 @@ import "./footer.css";
 export default function Footer() {
   return (
     <div>
-      {/* <h1 className="HeaderSection">OÙ NOUS TROUVER</h1> */}
       <div className="footer">
         <Container>
           <Row>

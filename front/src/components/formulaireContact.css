@@ -1,0 +1,150 @@
+.FlexContainerGuests {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+}
+
+.MainFlexContainerProject {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.FlexContainerProject {
+  display: flex;
+  text-align: center;
+}
+
+.FlexProject1, .FlexProject2 {
+  margin-top: 2em;
+  width: 25vw;
+  padding: 20px;
+}
+
+.inputForm {
+  margin: 0.5em 0;
+  padding: 10px;
+  background-color: rgb(238, 238, 238);
+}
+
+textarea {
+  height: 20vh;
+}
+
+/* Style buttons */
+
+.btn {
+  margin: 0 !important;
+  color: white;
+  cursor: pointer;
+  font-size: 20px;
+  padding: 10px !important;
+}
+
+/* Darker background on mouse-over */
+.btn:hover {
+  color: white !important;
+}
+
+.inputForm:hover, #storyGuest:hover {
+  background-color: #F6F6F5;
+  transition: 0.5s;
+}
+
+#storyGuest {
+  width: auto;
+}
+
+.buttonForm {
+  background-color: #7A6A5D;
+  box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.774);
+  border: 1px solid rgba(0, 0, 0, 0.411);
+  transition: 0.4s;
+  font-weight: 600;
+  border-radius: 3px;
+  font-size: 1.2em;
+  color: white;
+  padding: 1em;
+  margin-top: 20px;
+}
+
+.MainModalContactResidents {
+  position: fixed;
+  top: 0;
+  left: 0; 
+  min-width: 80vw;
+  min-height: 100vh;
+  padding: 7vw;
+  background: #F1F1F0;
+}
+
+.MainModalGuestAndProject {
+  display: flex;
+  flex-direction: column;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  height: auto;
+  width: 70vw;
+  background: white;
+  z-index: 1;
+  padding: 0 50px;
+  border-radius: 40px 0px;
+}
+
+.background {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.699);
+  z-index: 1;
+}
+
+/* .close-container {
+  position: absolute;
+  right: 25px;
+  top: 25px;
+  width: 50px;
+  height: 50px;
+}
+
+.leftright {
+  height: 4px;
+  width: 50px;
+  position: absolute;
+  margin-top: 24px;
+  background-color: #4d4d4d;
+  border-radius: 2px;
+  transform: rotate(45deg);
+  transition: all 0.3s ease-in;
+}
+  
+.rightleft {
+  height: 4px;
+  width: 50px;
+  position: absolute;
+  margin-top: 24px;
+  background-color: #4d4d4d;
+  border-radius: 2px;
+  transform: rotate(-45deg);
+  transition: all 0.3s ease-in;
+}
+
+.close {
+  margin: 60px 0 0 5px;
+  position: absolute;
+}
+
+.close-container:hover .leftright {
+  transform: rotate(-45deg);
+  background-color: #f25c66;
+}
+.close-container:hover .rightleft {
+  transform: rotate(45deg);
+  background-color: #f25c66;
+} */

@@ -1,4 +1,4 @@
-.HeaderSectionProject {
+/* .HeaderSection {
     display: flex;
     flex-direction: column;
     text-align: center;
@@ -9,7 +9,7 @@
     margin-top: 15vh;
     margin-bottom: 5vh;
     line-height: 1em;
-}
+} */
 
 .FirstLineProject {
     font-family: FalkinSerifItalicPERSONAL;
@@ -77,9 +77,6 @@
     box-shadow: none;
     transition: 0.4s;
 }
-
-
-
 
 /* MODAL CSS */
 

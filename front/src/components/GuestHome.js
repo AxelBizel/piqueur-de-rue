@@ -42,7 +42,7 @@ class GuestHome extends Component {
     const { portfolios } = this.state;
     return (
       <div>
-        <h1 className="HeaderSectionGuest">
+        <h1 className="HeaderSection">
           <div className="FirstLineGuest" data-aos="fade-right">
             Guest
           </div>
@@ -109,12 +109,10 @@ class GuestHome extends Component {
                       le fonctionnement du shop ainsi que la gestion de votre
                       image.
                     </p>
+                  <ButtonOpenFormGuests /> 
                   </div>
                 </Col>
                 <Col xs="12" md="6"></Col>
-              </Row>
-              <Row>
-                <ButtonOpenFormGuests />  
               </Row>
             </div>
           </Parallax>

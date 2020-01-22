@@ -27,7 +27,7 @@ class ButtonOpenFormGuests extends Component {
   closeModalFormGuests = () => {
     let { showModalFormGuests } = this.state;
     showModalFormGuests = false;
-    setTimeout(() => this.setState({ showModalFormGuests }), 500);
+    this.setState({ showModalFormGuests });
   };
 
   render() {
