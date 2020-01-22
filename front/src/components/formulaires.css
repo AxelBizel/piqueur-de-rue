@@ -1,0 +1,137 @@
+/* CONTACT FORM CSS */
+
+form,
+.inputForm,
+.textAreaForm,
+.btn {
+  display: block;
+  margin: 3rem 0;
+  padding: 0.5em;
+  width: 100% !important;
+  align-items: flex-start;
+  box-sizing: border-box;
+}
+
+.inputForm,
+.textAreaForm {
+  background-color: white;
+  background-clip: padding-box;
+  line-height: 1.5;
+  border-radius: 0.5rem;
+  border: 1px solid #ced4da;
+  transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
+
+.inputForm:focus,
+.textAreaForm:focus {
+  border-color: #7A6A5D;
+  box-shadow: none;
+  -webkit-box-shadow: none;
+}
+
+/* button.btn {
+  color: white;
+  background-color: #7a6a5d;
+  border-color: royalblue;
+  user-select: none;
+  line-height: 1.5;
+  border-radius: 0.5rem;
+  border: 1px solid transparent;
+  transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out,
+    border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+} */
+
+.inputForm:placeholder, .textAreaForm:placeholder {
+  color: silver;
+}
+  
+.FlexFormContainerGuests, .FlexFormContainerProject {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.FlexContainerProject {
+  display: flex;
+  text-align: center;
+}
+
+.FlexProject1, .FlexProject2 {
+  margin-top: 2em;
+  width: 25vw;
+  padding: 20px;
+}
+
+.inputForm {
+  margin: 0.5em 0;
+  padding: 10px;
+  background-color: rgb(238, 238, 238);
+}
+
+/* Style buttons */
+
+.buttonForm {
+  background-color: #7A6A5D;
+  box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.774);
+  border: 1px solid rgba(0, 0, 0, 0.411);
+  transition: 0.4s;
+  font-weight: 600;
+  border-radius: 3px;
+  font-size: 1.2em;
+  color: white;
+  padding: 1em;
+  margin-top: 20px;
+}
+
+.buttonForm:hover {
+  box-shadow: none;
+  -webkit-box-shadow: none;
+}
+
+.MainModalContactResidents {
+  position: fixed;
+  top: 0;
+  left: 0; 
+  min-width: 80vw;
+  min-height: 100vh;
+  padding: 7vw;
+  background: #F1F1F0;
+}
+
+.MainModalGuestAndProject {
+  display: flex;
+  flex-direction: column;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  height: auto;
+  width: 70vw;
+  background: white;
+  z-index: 1;
+  padding: 0 50px;
+  border-radius: 40px 0px;
+}
+
+.background {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.699);
+  z-index: 1;
+}
+
+.btn {
+  color: white;
+  cursor: pointer;
+  font-size: 20px;
+  padding: 10px !important;
+}
+
+@media (max-width:786px) {
+  .MainModalGuestAndProject {
+    width: 100vw;
+  }
+}

@@ -28,7 +28,6 @@ class Navbar extends React.Component {
 
     render() {
     return (
-        <div style={{position : "absolute"}} onClick={this.closeNavbar}>
             <Headroom >
                 <div className="styleNavbar" >
                     <NavbarStrap light expand="md">
@@ -56,7 +55,6 @@ class Navbar extends React.Component {
                     </NavbarStrap>
                 </div>
             </Headroom>
-        </div>
     )
 }
 }
