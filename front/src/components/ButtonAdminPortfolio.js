@@ -9,8 +9,8 @@ import {
   Modal,
   ModalHeader,
   ModalBody,
+  ModalFooter
 } from "reactstrap";
-
 
 const ButtonAdminPortfolio = props => {
   const { buttonLabel, className } = props;
@@ -31,9 +31,7 @@ const ButtonAdminPortfolio = props => {
       </Button>
 
       <Modal isOpen={modal} fade={false} toggle={toggle}>
-        <ModalHeader toggle={toggle}>
-        Modifier le portfolio
-         </ModalHeader>
+        <ModalHeader toggle={toggle}>Modifier le portfolio</ModalHeader>
         <ModalBody>
           <Form>
             <FormGroup>
@@ -55,7 +53,6 @@ const ButtonAdminPortfolio = props => {
                 placeholder="modifier le lien instagram"
               />
             </FormGroup>
-
 
             <FormGroup>
               <Label for="type">Type : {props.portfolio.type} </Label>
@@ -109,13 +106,12 @@ const ButtonAdminPortfolio = props => {
               </Label>
               <Input type="file" name="file" id="exampleFile" multiple />
             </FormGroup>
-
-            <Button style={{ margin: "2vh auto" }}>Envoyer</Button>
-            <Button style={{ margin: "2vh auto" }} onClick={toggle}>
-              Annuler
-            </Button>
           </Form>
         </ModalBody>
+        <ModalFooter>
+          <Button>Envoyer</Button>
+          <Button onClick={toggle}>Annuler</Button>
+        </ModalFooter>
       </Modal>
     </div>
   );
