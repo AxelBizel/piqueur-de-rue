@@ -251,9 +251,31 @@ app.get("/api/portfolio/team", (req, res) => {
   });
 });
 
+//Récupération des portfolios team actifs
+app.get("/api/portfolio/team/active", (req, res) => {
+  connection.query("SELECT * from portfolio WHERE type='team' AND active='1'", (err, results) => {
+    if (err) {
+      res.status(500).send("Erreur lors de la récupération des portfolios");
+    } else {
+      res.json(results);
+    }
+  });
+});
+
 //Récupération des portfolios guests
 app.get("/api/portfolio/guest", (req, res) => {
-  connection.query("SELECT * from portfolio WHERE type='guest'", (err, results) => {
+  connection.query("SELECT * from portfolio WHERE type='guest' ", (err, results) => {
+    if (err) {
+      res.status(500).send("Erreur lors de la récupération des portfolios");
+    } else {
+      res.json(results);
+    }
+  });
+});
+
+//Récupération des portfolios guests actifs
+app.get("/api/portfolio/guest/active", (req, res) => {
+  connection.query("SELECT * from portfolio WHERE type='guest' AND active='1'", (err, results) => {
     if (err) {
       res.status(500).send("Erreur lors de la récupération des portfolios");
     } else {

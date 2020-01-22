@@ -6,7 +6,6 @@ import {
   Col,
   Card,
   CardImg,
-  CardText,
   CardBody,
   CardTitle,
 } from "reactstrap";
@@ -25,7 +24,7 @@ class ModalPortfolio extends Component {
       <>
         <div
           className="firstModalPortfolio"
-          style={{ display: showModal ? "flex" : "none" }}
+          style={{ display: showModal ? "flex" : "none"}}
           onClick={() => this.props.closeModal()}
         ></div>
         {showModal ? (
