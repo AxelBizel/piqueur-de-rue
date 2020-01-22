@@ -4,8 +4,6 @@ import Axios from "axios"
 import './login.css'
 
 export default class Login extends React.Component {
-
-
     constructor() {
         super()
         let loggedIn = false
@@ -76,8 +74,8 @@ export default class Login extends React.Component {
         //     return <Redirect to="/profile" />
         // }
         return (
-            <div className="flexContainer">
-                <div class="wrapper fadeInDown">
+            <div className="flexContainerLogin">
+                <div class="wrapperLogin fadeInDown">
                     <div id="formContent">
                         <div class="fadeIn first">
                             <img src={require("../img/logo/logoPiqueurWhiteFooter.png")} id="icon" alt="User Icon" />

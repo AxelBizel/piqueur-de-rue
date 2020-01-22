@@ -2,8 +2,8 @@
 
 form,
 .inputForm,
-.textAreaForm,
-.btn {
+.textAreaForm
+{
   display: block;
   margin: 3rem 0;
   padding: 0.5em;
@@ -28,18 +28,6 @@ form,
   box-shadow: none;
   -webkit-box-shadow: none;
 }
-
-/* button.btn {
-  color: white;
-  background-color: #7a6a5d;
-  border-color: royalblue;
-  user-select: none;
-  line-height: 1.5;
-  border-radius: 0.5rem;
-  border: 1px solid transparent;
-  transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out,
-    border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
-} */
 
 .inputForm:placeholder, .textAreaForm:placeholder {
   color: silver;
@@ -123,15 +111,6 @@ form,
   z-index: 1;
 }
 
-.btn {
-  color: white;
-  cursor: pointer;
-  font-size: 20px;
-  padding: 10px !important;
-}
-
 @media (max-width:786px) {
-  .MainModalGuestAndProject {
-    width: 100vw;
-  }
+
 }

@@ -1,7 +1,7 @@
 /* TEMPLATE BOOTSNIPP https://bootsnipp.com/snippets/dldxB */
 
 /* BASIC */
-.flexContainer {
+.flexContainerLogin {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -23,7 +23,7 @@
     color:rgb(97, 86, 77) ;
 }
   
-.wrapper {
+.wrapperLogin {
     display: flex;
     align-items: center;
     flex-direction: column; 
