@@ -83,9 +83,9 @@ export default class Login extends React.Component {
                             <img src={require("../img/logo/logoPiqueurWhiteFooter.png")} id="icon" alt="User Icon" />
                         </div>
                         <form id="formLogin" onSubmit={this.formSubmit}>
-                            <input type="text" id="login" class="fadeIn second" value={this.state.login} onChange={this.onChange} name="login" placeholder="login" />
-                            <input type="text" id="password" class="fadeIn third" value={this.state.password} onChange={this.onChange} name="password" placeholder="Mot de passe" />
-                            <input type="submit" id="submit" class="fadeIn fourth" value="Log In" />
+                            <input type="text" id="login" class="fadeIn second" value={this.state.login} onChange={this.onChange} name="login" placeholder="Login" className='inputForm' />
+                            <input type="text" id="password" class="fadeIn third" value={this.state.password} onChange={this.onChange} name="password" placeholder="Mot de passe" className='inputForm'/>
+                            <input type="submit" id="submit" class="fadeIn fourth" value="Log In" className='inputForm'/>
                             {this.state.error}
                         </form>
 

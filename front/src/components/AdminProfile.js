@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import axios from "axios";
 import { Container, Row, Col, CustomInput, Table, Button } from "reactstrap";
 import ButtonAdminPortfolio from "./ButtonAdminPortfolio";
+import AdminAddPortfolio from "./AdminAddPortfolio";
 
 class AdminProfile extends Component {
   state = {
@@ -125,9 +126,9 @@ class AdminProfile extends Component {
                       <strong>Ajouter un portfolio</strong>
                     </td>
                     <td colSpan="2">
-                      <Button style={{ margin: "0", padding: "5" }}>
+                      <AdminAddPortfolio>
                         Ajouter
-                      </Button>
+                      </AdminAddPortfolio>
                     </td>
                   </tr>
                 </tfoot>
