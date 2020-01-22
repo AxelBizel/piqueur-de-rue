@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { Component } from "react";
 import {
   Button,
   Form,
@@ -12,91 +12,103 @@ import {
   ModalFooter
 } from "reactstrap";
 
-const ButtonAdminPortfolio = props => {
-  const {
-    buttonLabel,
-    className
-  } = props;
-  const [modal, setModal] = useState(false);
 
-  const toggle = () => {
-    props.getCurrentProfile();
-    setModal(!modal);
-  };
+class ButtonAdminPortfolio extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      modal: true,
+    };
+  }
 
-  return (
-    <div>
-      <Button
-        onClick={toggle}
-        style={{ margin: "0", padding: "5", width: "auto" }}
-      >
-        {props.children}
-      </Button>
+  
+  toggle = () => {
+    const { modal } = this.state;
+    this.props.getCurrentProfile();
+    this.setState({ modal: !modal })
+  }
 
-      <Modal isOpen={modal} fade={false} toggle={toggle}>
-        <ModalHeader toggle={toggle}>&nbsp;</ModalHeader>
-        <ModalBody>
-          <Form>
-            <FormGroup>
-              <Label for="pseudo">Pseudo : {props.portfolio.pseudo}</Label>
+  render() {
+    const { modal } = this.state;
 
-              <Input
-                type="text"
-                name="pseudo"
-                id="pseudo"
-                placeholder="modifier le pseudo"
-              />
-            </FormGroup>
+    return (
+      <div>
+        <Button
+          onClick={this.toggle}
+          style={{ margin: "0", padding: "5", width: "auto" }}
+        >
+          {this.props.children}
+        </Button>
 
-            <FormGroup>
-              <Label for="type">Type : {props.portfolio.type} </Label>
-              <Input type="select" name="type" id="type">
-                <option>Team</option>
-                <option>Guest</option>
-              </Input>
-            </FormGroup>
+        <Modal isOpen={modal} fade={false} toggle={this.toggle}>
+          <ModalHeader toggle={this.toggle}>&nbsp;</ModalHeader>
+          <ModalBody>
+            <Form>
+              <FormGroup>
+                <Label for="pseudo">Pseudo : {this.props.portfolio.pseudo}</Label>
 
-            <FormGroup>
-              <Label for="presentation">
-                Présentation :{" "}
-                <FormText color="muted">
-                  {props.portfolio.presentation}
-                </FormText>
-              </Label>
+                <Input
+                  type="text"
+                  name="pseudo"
+                  id="pseudo"
+                  placeholder="modifier le pseudo"
+                />
+              </FormGroup>
 
-              <Input
-                type="textarea"
-                name="presentation"
-                id="presentation"
-                placeholder="modifier le texte de présentation"
-              />
-            </FormGroup>
-            <FormGroup>
-              <Label for="style">Style : {props.portfolio.style}</Label>
+              <FormGroup>
+                <Label for="type">Type : {this.props.portfolio.type} </Label>
+                <Input type="select" name="type" id="type">
+                  <option>Team</option>
+                  <option>Guest</option>
+                </Input>
+              </FormGroup>
 
-              <Input
-                type="text"
-                name="style"
-                id="style"
-                placeholder="modifier le style"
-              />
-            </FormGroup>
-            <FormGroup>
-              <Label for="portrait">Portrait <FormText color="muted">
+              <FormGroup>
+                <Label for="presentation">
+                  Présentation :{" "}
+                  <FormText color="muted">
+                    {this.props.portfolio.presentation}
+                  </FormText>
+                </Label>
+
+                <Input
+                  type="textarea"
+                  name="presentation"
+                  id="presentation"
+                  placeholder="modifier le texte de présentation"
+                />
+              </FormGroup>
+              <FormGroup>
+                <Label for="style">Style : {this.props.portfolio.style}</Label>
+
+                <Input
+                  type="text"
+                  name="style"
+                  id="style"
+                  placeholder="modifier le style"
+                />
+              </FormGroup>
+              <FormGroup>
+                <Label for="portrait">Portrait <FormText color="muted">
                   Merci d'uploader une image carrée (idéalement 500px X 500px)
                 </FormText></Label>
-              <Input type="file" name="file" id="exampleFile" />
-            </FormGroup>
+                <Input type="file" name="file" id="exampleFile" />
+              </FormGroup>
 
-            <Button style={{ margin: "2vh auto" }}>Envoyer</Button>
-            <Button style={{ margin: "2vh auto" }} onClick={toggle}>
-              Annuler
+              <Button
+
+                style={{ margin: "2vh auto" }}>Envoyer</Button>
+              <Button style={{ margin: "2vh auto" }} onClick={this.toggle}>
+                Annuler
             </Button>
-          </Form>
-        </ModalBody>
-      </Modal>
-    </div>
-  );
+            </Form>
+          </ModalBody>
+        </Modal>
+      </div>
+    );
+
+
+  }
 };
 
 export default ButtonAdminPortfolio;
