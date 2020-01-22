@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import FormGuests from "./FormGuests";
+import FormulaireGuests from "./FormulaireGuests";
 import { Container } from "reactstrap";
 
 
@@ -25,7 +25,7 @@ class ModalFormGuests extends Component {
               <label className="close"></label>
             </div>
             <Container >
-              <FormGuests />
+              <FormulaireGuests />
             </Container>
           </aside> 
         ) : null}

@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import './formulaireContact.css';
+import './Formulaires.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faHome } from '@fortawesome/free-solid-svg-icons';
 import { NavItem, NavLink } from 'reactstrap';
@@ -7,7 +7,7 @@ import { NavItem, NavLink } from 'reactstrap';
 const axios = require('axios');
 
 
-class FormGuests extends Component {
+class FormulaireGuests extends Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -49,7 +49,7 @@ class FormGuests extends Component {
         return (
             <div>
                 {this.state.showConfirmation === false ? (
-                <form className="FlexContainerGuests" onSubmit={this.handleSubmitFormGuest} method="POST" action='/api/guests'>
+                <form className="FlexFormContainerGuests" onSubmit={this.handleSubmitFormGuest} method="POST" action='/api/guests'>
                     <h1 className="h1formGuest">- Devenez GUEST -</h1>
 
                     <input className="inputForm" name="firstnameG" type="text" onChange={this.handleChangeInputForm} value={this.state.firstnameG} placeholder="Votre prénom :" required></input>
@@ -86,4 +86,4 @@ class FormGuests extends Component {
     }
 }
 
-export default FormGuests;
+export default FormulaireGuests;
