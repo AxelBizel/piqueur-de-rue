@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import axios from 'axios';
 import {
   Button,
   Form,
@@ -18,15 +19,55 @@ class ButtonAdminPortfolio extends Component {
     super(props);
     this.state = {
       modal: true,
+     
+      item : this.getItem(),
+      active : true ,
+
     };
   }
 
+  getItem = () => ({
+    pseudo: "",
+    type: "",
+    presentation: "",
+    style: "",
   
+}) 
+
+
+  // async componentDidMount() {
+  //   this.formSubmit = this.formSubmit.bind(this)
+  //   this.onChange = this.onChange.bind(this);
+  // }
+
   toggle = () => {
     const { modal } = this.state;
     this.props.getCurrentProfile();
     this.setState({ modal: !modal })
   }
+
+  //Partie Axios
+
+  onChange = (e) => {
+    const {item} = this.state;
+    item[e.target.name]=e.target.value
+    this.setState({ item })
+}
+
+handleSubmit = (event) => {
+  let { item } = this.state;
+  axios
+      .put("http://localhost:5000/admin/portfolio", item)
+      .then(console.log("update yaaaaa"))
+  this.setState({
+      customer: this.item(),
+  })
+  event.preventDefault();
+}
+  
+
+
+
 
   render() {
     const { modal } = this.state;
@@ -43,11 +84,18 @@ class ButtonAdminPortfolio extends Component {
         <Modal isOpen={modal} fade={false} toggle={this.toggle}>
           <ModalHeader toggle={this.toggle}>&nbsp;</ModalHeader>
           <ModalBody>
-            <Form>
+            <Form onSubmit= {this.formSubmit}>
               <FormGroup>
-                <Label for="pseudo">Pseudo : {this.props.portfolio.pseudo}</Label>
+                <Label 
+                  onChange= {this.onChange}
+                  for="pseudo">
+                  {/* Pseudo : {this.props.portfolio.pseudo} */}
+                  Pseudo : {this.state.pseudo}
+                  
+                  </Label>
 
                 <Input
+                  onChange= {this.onChange}
                   type="text"
                   name="pseudo"
                   id="pseudo"
@@ -56,7 +104,13 @@ class ButtonAdminPortfolio extends Component {
               </FormGroup>
 
               <FormGroup>
-                <Label for="type">Type : {this.props.portfolio.type} </Label>
+                <Label 
+                onChange= {this.onChange}
+                for="type">
+                  {/* Type : {this.props.portfolio.type}  */}
+                  Type : {this.state.type} 
+
+                </Label>
                 <Input type="select" name="type" id="type">
                   <option>Team</option>
                   <option>Guest</option>
@@ -64,7 +118,9 @@ class ButtonAdminPortfolio extends Component {
               </FormGroup>
 
               <FormGroup>
-                <Label for="presentation">
+                <Label 
+                onChange= {this.onChange}
+                for="presentation">
                   Présentation :{" "}
                   <FormText color="muted">
                     {this.props.portfolio.presentation}
@@ -72,6 +128,7 @@ class ButtonAdminPortfolio extends Component {
                 </Label>
 
                 <Input
+                  onChange= {this.onChange}
                   type="textarea"
                   name="presentation"
                   id="presentation"
@@ -79,7 +136,12 @@ class ButtonAdminPortfolio extends Component {
                 />
               </FormGroup>
               <FormGroup>
-                <Label for="style">Style : {this.props.portfolio.style}</Label>
+                <Label 
+                onChange= {this.onChange}
+                for="style">
+                  {/* Style : {this.props.portfolio.style} */}
+                  Style : {this.state.style}
+                </Label>
 
                 <Input
                   type="text"
@@ -96,7 +158,7 @@ class ButtonAdminPortfolio extends Component {
               </FormGroup>
 
               <Button
-
+               onChange= {() => this.togglePortfolio()}
                 style={{ margin: "2vh auto" }}>Envoyer</Button>
               <Button style={{ margin: "2vh auto" }} onClick={this.toggle}>
                 Annuler
