@@ -16,8 +16,18 @@ const AdminAddPortfolio = props => {
   const { buttonLabel, className } = props;
   const [modal, setModal] = useState(false);
 
+//   const [portfolio, setPortfolio] = useState([
+//     { pseudo: "" },
+//     { insta: "" },
+//     { type: "" },
+//     { presentation: "" },
+//     { style: "" }
+//   ]);
+
   const toggle = () => {
     setModal(!modal);
+
+   
   };
 
   return (
@@ -64,9 +74,7 @@ const AdminAddPortfolio = props => {
             </FormGroup>
 
             <FormGroup>
-              <Label for="presentation">
-                Présentation :
-              </Label>
+              <Label for="presentation">Présentation :</Label>
 
               <Input
                 type="textarea"
@@ -93,7 +101,7 @@ const AdminAddPortfolio = props => {
                   Merci d'uploader une image carrée (ex: 500px X 500px)
                 </FormText>
               </Label>
-              <Input type="file" name="file" id="portrait" required/>
+              <Input type="file" name="file" id="portrait" required />
             </FormGroup>
 
             <FormGroup>
@@ -108,8 +116,10 @@ const AdminAddPortfolio = props => {
           </Form>
         </ModalBody>
         <ModalFooter>
-          <Button>Envoyer</Button>
-          <Button onClick={toggle}>Annuler</Button>
+          <Button color="primary">Envoyer</Button>
+          <Button color="danger" onClick={toggle}>
+            Annuler
+          </Button>
         </ModalFooter>
       </Modal>
     </div>

@@ -109,8 +109,8 @@ const ButtonAdminPortfolio = props => {
           </Form>
         </ModalBody>
         <ModalFooter>
-          <Button>Envoyer</Button>
-          <Button onClick={toggle}>Annuler</Button>
+          <Button color='primary'>Envoyer</Button>
+          <Button color='danger' onClick={toggle}>Annuler</Button>
         </ModalFooter>
       </Modal>
     </div>
