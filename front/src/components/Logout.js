@@ -6,7 +6,6 @@ export default class Logout extends React.Component{
 
     constructor(){
         super()
-        // token remove
         localStorage.removeItem("token")
     }
 
