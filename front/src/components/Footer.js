@@ -1,15 +1,45 @@
-import React from "react";
+import React, { Component } from "react";
 import logo from "../img/logo/logoPiqueurWhiteFooter.png";
 import logoFB from "../img/logo/logoFB.png";
 import logoIG from "../img/logo/logoIG.png";
+import axios from 'axios';
 import { Container, Row, Col } from "reactstrap";
 import "./footer.css";
 
-export default function Footer() {
+export default class Footer extends Component {
+  constructor(props) {
+    super(props);
+      this.state = {
+        selectedFile: null
+      }
+  }
+
+  onChangeHandler=event=>{
+    this.setState({
+      selectedFile: event.target.files[0],
+      loaded: 0,
+    })
+    console.log(event.target.files[0])
+  }
+
+  onClickHandler = () => {
+    const data = new FormData()
+    data.append('file', this.state.selectedFile)
+    axios.post("http://localhost:5000/upload", data, { 
+       // receive two    parameter endpoint url ,form data
+   })
+   .then(res => { // then print response status
+    console.log(res.statusText)
+  })
+  }
+
+  render() {
   return (
     <div>
       <div className="footer">
         <Container>
+        <input type="file" multiple name="file" accept="image/png, image/jpeg, image/jpg" onChange={this.onChangeHandler}/>
+        <button type="button" class="btn btn-success btn-block" onClick={this.onClickHandler}>Upload</button>
           <Row>
             <Col xs="12" lg="4">
               <div className="adresse" data-aos="fade-right">
@@ -51,4 +81,5 @@ export default function Footer() {
       </div>
     </div>
   );
+}
 }

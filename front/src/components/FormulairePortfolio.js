@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import './formulaireContact.css';
+import './formulaires.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faHome } from '@fortawesome/free-solid-svg-icons';
 import { NavItem, NavLink } from 'reactstrap';

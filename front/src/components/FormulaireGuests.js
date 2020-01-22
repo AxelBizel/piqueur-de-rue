@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import './formulaireContact.css';
+import './formulaires.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faHome } from '@fortawesome/free-solid-svg-icons';
 import { NavItem, NavLink } from 'reactstrap';
@@ -7,7 +7,7 @@ import { NavItem, NavLink } from 'reactstrap';
 const axios = require('axios');
 
 
-class FormGuests extends Component {
+class FormulaireGuests extends Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -86,4 +86,4 @@ class FormGuests extends Component {
     }
 }
 
-export default FormGuests;
+export default FormulaireGuests;
