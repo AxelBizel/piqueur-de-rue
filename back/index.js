@@ -6,9 +6,15 @@ const bodyParser = require("body-parser");
 const path = require('path');
 const jwt = require('jsonwebtoken')
 const cors = require("cors");
-const { sendMail, sendMailGuest } = require('./mail')
+const {sendMail,sendMailGuest} = require('./mail')
+const { storage } = require('./fileupload')
 const http = require('http');
 const fs = require('fs');
+
+
+// File upload
+var multer = require('multer')
+var upload = multer({ storage: storage }).single('file')
 
 // Middlewares
 app.use(bodyParser.json());
@@ -22,14 +28,24 @@ app.use(cors())
 // filesystem
 app.use('/img', express.static(__dirname + '/img'));
 
-
-
-
 //ROUTES : Partie Authentification 
 
 app.get('/', function (request, response) {
   const user = {}
   response.json(user)
+});
+
+
+// File Upload
+app.post('/upload',function(req, res) {
+  upload(req, res, function (err) {
+         if (err instanceof multer.MulterError) {
+             return res.status(500).json(err)
+         } else if (err) {
+            return res.status(500).json(err)
+         }
+    return res.status(200).send(req.file)
+  })
 });
 
 
@@ -251,9 +267,31 @@ app.get("/api/portfolio/team", (req, res) => {
   });
 });
 
+//Récupération des portfolios team actifs
+app.get("/api/portfolio/team/active", (req, res) => {
+  connection.query("SELECT * from portfolio WHERE type='team' AND active='1'", (err, results) => {
+    if (err) {
+      res.status(500).send("Erreur lors de la récupération des portfolios");
+    } else {
+      res.json(results);
+    }
+  });
+});
+
 //Récupération des portfolios guests
 app.get("/api/portfolio/guest", (req, res) => {
-  connection.query("SELECT * from portfolio WHERE type='guest'", (err, results) => {
+  connection.query("SELECT * from portfolio WHERE type='guest' ", (err, results) => {
+    if (err) {
+      res.status(500).send("Erreur lors de la récupération des portfolios");
+    } else {
+      res.json(results);
+    }
+  });
+});
+
+//Récupération des portfolios guests actifs
+app.get("/api/portfolio/guest/active", (req, res) => {
+  connection.query("SELECT * from portfolio WHERE type='guest' AND active='1'", (err, results) => {
     if (err) {
       res.status(500).send("Erreur lors de la récupération des portfolios");
     } else {
@@ -399,4 +437,3 @@ app.listen(port, err => {
 
   console.log(`Server is listening on ${port}`);
 })
-
