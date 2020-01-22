@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import './formulaires.css';
+import './Formulaires.css';
 import { Container, Row } from "reactstrap";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faHome } from '@fortawesome/free-solid-svg-icons';
@@ -59,7 +59,7 @@ class FormulaireProject extends Component {
         return (
             <div>
                 {this.state.showConfirmation === false ? (
-                <form className="MainFlexContainerProject" /*onSubmit={this.handleSubmit} method="POST" action='/api/customers'*/>
+                <form className="FlexFormContainerProject" /*onSubmit={this.handleSubmit} method="POST" action='/api/customers'*/>
                     <h1>- Formulaire de contact -</h1>
                     <div className="FlexContainerProject">
                     <Container>
@@ -89,7 +89,7 @@ class FormulaireProject extends Component {
                             </div>  
                         </Row>
                         
-                        <textarea id="storyGuest" name="story" onChange={this.handleChange} value={this.state.story} placeholder="Envie de nous en dire plus :">
+                        <textarea className="inputForm" name="story" onChange={this.handleChange} value={this.state.story} placeholder="Envie de nous en dire plus :">
                     </textarea>
                     {/* <div><p>Photos d'exemples ?</p><input type="file" id="avatar" name="avatar" accept="image/png, image/jpeg"></input></div> */}
                     </Container>

@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import './formulaires.css';
+import './Formulaires.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faHome } from '@fortawesome/free-solid-svg-icons';
 import { NavItem, NavLink } from 'reactstrap';
@@ -78,7 +78,7 @@ class FormulairePortfolio extends Component {
                             <input className="inputCha" name="hauteur" type="number" onChange={this.handleChangeInteger} value={this.state.hauteur} placeholder="Dimension de tatouage souhaitée (hauteur en centimètres):" ></input>
                             <input className="inputCha" name="largeur" type="number" onChange={this.handleChangeInteger} value={this.state.largeur} placeholder="Dimension de tatouage souhaitée (largeur en centimètres):" ></input>
                             <input className="inputCha" name="budget" type="number" onChange={this.handleChangeInteger} value={this.state.budget} placeholder="Votre budget :" ></input>
-                            <textarea id="storyGuest" name="story" rows="8" cols="33" onChange={this.handleChange} value={this.state.story} placeholder="Dîtes-nous en plus ici : ">
+                            <textarea className="inputForm" name="story" rows="8" cols="33" onChange={this.handleChange} value={this.state.story} placeholder="Dîtes-nous en plus ici : ">
                             </textarea>
                         </div>
                     </div>
