@@ -135,66 +135,7 @@ class AdminProfile extends Component {
             </Col>
           </Row>
 
-          {/* 
-          <Row>
-            <Col>
-              <h3>Users</h3>
-              <Table hover responsive>
-                <thead>
-                  <tr>
-                    <th>Id</th>
-                    <th>Login</th>
-                    <th>Password</th>
-                    <th>Active</th>
-                    <th>On/Off</th>
-                    <th>Modifier</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  {this.state.portfolios.map((pf, index) => (
-                    <tr>
-                      <td>{pf.id}</td>
-                      <td>{pf.pseudo}</td>
-                      <td>{pf.type}</td>
-                      <td>{pf.active === 1 ? "Oui" : "Non"}</td>
-                      <td>
-                        <CustomInput
-                          key={`ci-${index}`}
-                          onChange={() => {
-                            console.log(pf.id);
-                            this.togglePortfolio(pf.id, pf.active);
-                          }}
-                          type="switch"
-                          id={`ci-${index}`}
-                          checked={pf.active}
-                        ></CustomInput>
-                      </td>
-                      <td>
-                        <ButtonAdminPortfolio
-                          key={`profile-${index}`}
-                          getCurrentProfile={() => this.getProfile(pf.id)}
-                          portfolio={this.state.selectedPortfolio}
-                        >
-                          Détails
-                        </ButtonAdminPortfolio>
-                      </td>
-                    </tr>
-                  ))}
-                </tbody>
-                <tfoot>
-                  <tr>
-                    <td>+</td>
-                    <td colSpan='4'>
-                      <strong>Ajouter un portfolio</strong>
-                    </td>
-                    <td colSpan='2'>
-                      <Button style={{margin:'0', padding:'5'}}>Ajouter</Button>
-                    </td>
-                  </tr>
-                </tfoot>
-              </Table>
-            </Col>
-          </Row> */}
+         
         </Container>
       </div>
     );

@@ -1,16 +1,3 @@
-/* .HeaderSectionGuest {
-  display: flex;
-  flex-direction: column;
-  text-align: center;
-  font-family: FalkinSerifBoldItalicPERSONAL;
-  font-size: 5rem;
-  color: black(255, 255, 255);
-  height: auto;
-  margin-top: 15vh;
-  margin-bottom: 5vh;
-  line-height: 1em;
-} */
-
 .SectionGuestContainer {
   display: flex;
   flex-direction: column;
@@ -196,7 +183,7 @@ textarea,
   width: 100% !important;
   align-items: flex-start;
   box-sizing: border-box;
-}
+} 
 
 input,
 select,
