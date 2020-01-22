@@ -36,16 +36,16 @@ textarea {
 /* Style buttons */
 
 .btn {
-  margin: 0 !important;
+  margin: 0;
   color: white;
   cursor: pointer;
   font-size: 20px;
   padding: 10px !important;
-}
+} */
 
-/* Darker background on mouse-over */
+Darker background on mouse-over
 .btn:hover {
-  color: white !important;
+  color: white;
 }
 
 .inputForm:hover, #storyGuest:hover {
@@ -105,7 +105,7 @@ textarea {
   z-index: 1;
 }
 
-/* .close-container {
+.close-container {
   position: absolute;
   right: 25px;
   top: 25px;
@@ -135,10 +135,10 @@ textarea {
   transition: all 0.3s ease-in;
 }
 
-.close {
+/* .close {
   margin: 60px 0 0 5px;
   position: absolute;
-}
+} */
 
 .close-container:hover .leftright {
   transform: rotate(-45deg);
@@ -147,4 +147,4 @@ textarea {
 .close-container:hover .rightleft {
   transform: rotate(45deg);
   background-color: #f25c66;
-} */
+}
