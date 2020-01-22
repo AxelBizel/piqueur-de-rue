@@ -30,7 +30,7 @@ class GuestHome extends Component {
   };
 
   componentDidMount() {
-    axios.get(`http://localhost:5000/api/portfolio/guest`).then(res => {
+    axios.get(`http://localhost:5000/api/portfolio/guest/active`).then(res => {
       const portfoliosData = res.data;
       this.setState({ portfolios: portfoliosData });
       console.log(this.state);
@@ -66,9 +66,9 @@ class GuestHome extends Component {
                     key={portfolio.id}
                     style={{
                       margin: "2vh auto",
-                      backgroundImage: `url(${require("../img/tatoueurs/portraits-500px/" +
-                        `${portfolio.id}` +
-                        ".jpg")})`
+                      backgroundImage:  "url(http://localhost:5000/img/" +
+                      `${portfolio.id}` +
+                      "/portrait.jpg)"
                     }}
                   >
                     <Row>

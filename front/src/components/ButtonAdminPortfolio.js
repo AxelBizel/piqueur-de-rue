@@ -9,14 +9,11 @@ import {
   Modal,
   ModalHeader,
   ModalBody,
-  ModalFooter
 } from "reactstrap";
 
+
 const ButtonAdminPortfolio = props => {
-  const {
-    buttonLabel,
-    className
-  } = props;
+  const { buttonLabel, className } = props;
   const [modal, setModal] = useState(false);
 
   const toggle = () => {
@@ -34,12 +31,13 @@ const ButtonAdminPortfolio = props => {
       </Button>
 
       <Modal isOpen={modal} fade={false} toggle={toggle}>
-        <ModalHeader toggle={toggle}>&nbsp;</ModalHeader>
+        <ModalHeader toggle={toggle}>
+        Modifier le portfolio
+         </ModalHeader>
         <ModalBody>
           <Form>
             <FormGroup>
               <Label for="pseudo">Pseudo : {props.portfolio.pseudo}</Label>
-
               <Input
                 type="text"
                 name="pseudo"
@@ -47,6 +45,17 @@ const ButtonAdminPortfolio = props => {
                 placeholder="modifier le pseudo"
               />
             </FormGroup>
+
+            <FormGroup>
+              <Label for="insta">Instagram : {props.portfolio.insta}</Label>
+              <Input
+                type="text"
+                name="insta"
+                id="insta"
+                placeholder="modifier le lien instagram"
+              />
+            </FormGroup>
+
 
             <FormGroup>
               <Label for="type">Type : {props.portfolio.type} </Label>
@@ -82,10 +91,23 @@ const ButtonAdminPortfolio = props => {
               />
             </FormGroup>
             <FormGroup>
-              <Label for="portrait">Portrait <FormText color="muted">
-                  Merci d'uploader une image carrée (idéalement 500px X 500px)
-                </FormText></Label>
+              <Label for="portrait">
+                Avatar{" "}
+                <FormText color="muted">
+                  Merci d'uploader une image carrée (ex: 500px X 500px)
+                </FormText>
+              </Label>
               <Input type="file" name="file" id="exampleFile" />
+            </FormGroup>
+
+            <FormGroup>
+              <Label for="portrait">
+                Réalisations{" "}
+                <FormText color="muted">
+                  Merci d'uploader des images carrées (ex: 500px X 500px)
+                </FormText>
+              </Label>
+              <Input type="file" name="file" id="exampleFile" multiple />
             </FormGroup>
 
             <Button style={{ margin: "2vh auto" }}>Envoyer</Button>

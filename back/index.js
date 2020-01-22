@@ -50,15 +50,13 @@ app.post('/upload',function(req, res) {
 
 
 app.post('/login', function (request, response) {
-  console.log(request.body)
+  console.log("login", request.body)
   const login = request.body.login;
   const password = request.body.password;
   if (login && password) {
     connection.query('SELECT * FROM users WHERE login = ? AND password = ?', [login, password], function (error, results, fields) {
       console.log("result", results.length)
       if (results.length > 0) {
-        request.session.loggedin = true;
-        request.session.login = login;
         jwt.sign({
           user: {
             id: results[0].id,
@@ -66,7 +64,7 @@ app.post('/login', function (request, response) {
             portfolio_id: results[0].portfolio_id
           }
         },
-          'toto', { expiresIn: '15sec' },
+          'toto', { expiresIn: '1500sec' },
           (err, token) => {
             console.log(err, token)
             response.json({ token })
@@ -80,55 +78,38 @@ app.post('/login', function (request, response) {
   }
 });
 
+
+
+app.get("/api/portfolios",verifyToken, (req, res) => {
+  connection.query(" SELECT * from portfolio", (err, results) => {
+    if (err) {
+      console.log(err)
+      res.status(500).send('Error 500');
+    } else {
+      res.json(results);
+    }
+  })
+})
 //Verfication du token
-function verifyToken (req,res,next) {
-  console.log (req.headers.authorizaton)
-  const token = req.headers.authorization && req.headers.authorization.split ('') [1]
-  jwt.verify (token,'toto', (err,payload) => {
-    if(err){
+function verifyToken(req, res, next) {
+  console.log(req.headers.authorizaton)
+  const token = req.headers.authorization && req.headers.authorization.split(' ')[1]
+  jwt.verify(token, 'toto', (err, payload) => {
+    if (err) {
       console.log(err)
       res.sendStatus(401)
-    }else {
+    } else {
       req.user = payload.user
-      console.log(req.user , payload.user)
+      console.log(req.user, payload.user)
       next()
     }
   })
 }
 
+//ROUTES FAKES ADMIN
+//Formulaires USERS
 
-// ROUTES : Partie Admin
-
-// app.get("/api/portfolios", (req, res) => {
-//   if (req.user.id === 1) {// a modifier avec role admin dans le meilleur des mondes
-//     connection.query(" SELECT * from portfolio", (err, results) => {
-//       if (err) {
-//         console.log(err)
-//         res.status(500).send('Error 500');
-//       } else {
-//         res.json(results);
-//       }
-//     })
-//   } else {
-//     res.sendStatus(401)
-//   }
-// })
-
-// Routes test
-
-app.get("/api/portfolios", (req, res) => {
-    connection.query(" SELECT * from portfolio", (err, results) => {
-      if (err) {
-        console.log(err)
-        res.status(500).send('Error 500');
-      } else {
-        res.json(results);
-      }
-    })
-})
-
-//ROUTES FAKES
-//USERS
+//OK
 app.get("/admin/users", (req, res) => {
   connection.query(" SELECT * from users ", (err, results) => {
     if (err) {
@@ -140,8 +121,9 @@ app.get("/admin/users", (req, res) => {
   })
 })
 
-app.put("/admin/users/:id", (req, res) => {
-  connection.query("UPDATE * from users SET active = ? WHERE id = ?", [req.body.active, req.params.id], (err, results) => {
+//OK
+app.put("/admin/users/:id/active", (req, res) => {
+  connection.query("UPDATE users SET active = ? WHERE id = ?", [req.body.active, req.params.id], (err, results) => {
     if (err) {
       console.log(err)
       res.status(500).send("Erreur 500");
@@ -151,16 +133,78 @@ app.put("/admin/users/:id", (req, res) => {
   });
 });
 
-app.put("/admin/users/:id", (req, res) => {
-  connection.query("UPDATE * from users SET active = ? WHERE id = ?", [req.body.active, req.params.id], (err, results) => {
+
+// app.put('/admin/users/:id', (req, res) => {
+//   const idUsers = req.params.id;
+//   const formData = req.body;
+//    connection.query('UPDATE users SET ? WHERE id = ?', [formData, idUsers], (err,results) => {
+//     if (err) {
+//       console.log(err)
+//       res.status(500).send('Error 500');
+//     } else {
+//       res.json(results);
+//     }
+//   })
+// })
+
+
+//Routes Admin - Login
+
+// app.put("/admin/users/", (req, res) => {
+//   connection.query("UPDATE users WHERE id = ? AND password = ?", [req.body.active, req.params.id], (err, results) => {
+//     if (err) {
+//       console.log(err)
+//       res.status(500).send("Erreur 500");
+//     } else {
+//       res.json(results);
+//     }
+//   });
+// });
+
+
+//Formulaire Portfolios
+
+//OK
+app.get("/admin/portfolios", (req, res) => {
+  connection.query(" SELECT * from portfolio ", (err, results) => {
     if (err) {
       console.log(err)
-      res.status(500).send("Erreur 500");
+      res.status(500).send('Error 500');
     } else {
       res.json(results);
     }
-  });
-});
+  })
+})
+
+//OK
+app.post('/admin/portfolios', (req, res) => {
+  const formData = req.body;
+  connection.query('INSERT INTO portfolio SET ?', formData, (err, results) => {
+    if (err) {
+      console.log(err)
+      res.status(500).send('Error 500');
+    } else {
+      res.json(results);
+    }
+  })
+})
+
+//OK
+app.put('/admin/portfolio/:id', (req, res) => {
+  const idPortfolio = req.params.id;
+  const formData = req.body;
+   connection.query('UPDATE portfolio SET ? WHERE id = ?', [formData, idPortfolio], (err,results) => {
+    if (err) {
+      console.log(err)
+      res.status(500).send('Error 500');
+    } else {
+      res.json(results);
+    }
+  })
+})
+
+
+///////////////////////////////////////////////////////////////////////////////
 
 
 app.get("/api/portfolios/:id", (req, res) => {
@@ -223,9 +267,31 @@ app.get("/api/portfolio/team", (req, res) => {
   });
 });
 
+//Récupération des portfolios team actifs
+app.get("/api/portfolio/team/active", (req, res) => {
+  connection.query("SELECT * from portfolio WHERE type='team' AND active='1'", (err, results) => {
+    if (err) {
+      res.status(500).send("Erreur lors de la récupération des portfolios");
+    } else {
+      res.json(results);
+    }
+  });
+});
+
 //Récupération des portfolios guests
 app.get("/api/portfolio/guest", (req, res) => {
-  connection.query("SELECT * from portfolio WHERE type='guest'", (err, results) => {
+  connection.query("SELECT * from portfolio WHERE type='guest' ", (err, results) => {
+    if (err) {
+      res.status(500).send("Erreur lors de la récupération des portfolios");
+    } else {
+      res.json(results);
+    }
+  });
+});
+
+//Récupération des portfolios guests actifs
+app.get("/api/portfolio/guest/active", (req, res) => {
+  connection.query("SELECT * from portfolio WHERE type='guest' AND active='1'", (err, results) => {
     if (err) {
       res.status(500).send("Erreur lors de la récupération des portfolios");
     } else {
@@ -349,7 +415,7 @@ app.post('/api/guests', (req, res) => {
 // Route pour l'envoi de Mails des clients avec sengrid : --------------------------------------------
 
 app.post('/project', async (req, res) => {
-  try { 
+  try {
     const sent = await sendMail(req.body)
     if (sent) {
       res.send({ message: 'email envoyé avec succès' })
