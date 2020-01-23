@@ -60,8 +60,8 @@ class FormulaireProject extends Component {
             <div>
                 {this.state.showConfirmation === false ? (
                 <form className="FlexFormContainerProject" /*onSubmit={this.handleSubmit} method="POST" action='/api/customers'*/>
-                    <h1>- Formulaire de contact -</h1>
-                    <div className="FlexContainerProject">
+                    <h1>Formulaire de contact</h1>
+                    <div>
                     <Container>
                         <Row >
                             <div className="FlexProject1">
@@ -87,10 +87,11 @@ class FormulaireProject extends Component {
                                 
                                 <input className="inputForm" name="budget" type="text" onChange={this.handleChange} value={this.state.budget} placeholder="Votre budget :" ></input>
                             </div>  
+                            
                         </Row>
-                        
                         <textarea className="inputForm" name="story" onChange={this.handleChange} value={this.state.story} placeholder="Envie de nous en dire plus :">
-                    </textarea>
+                        </textarea>
+                        
                     {/* <div><p>Photos d'exemples ?</p><input type="file" id="avatar" name="avatar" accept="image/png, image/jpeg"></input></div> */}
                     </Container>
                     

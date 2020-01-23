@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { Parallax } from 'react-parallax';
-// import ButtonOpenFormGuests from "./ButtonOpenFormGuests";
+import ButtonOpenFormGuests from "./ButtonOpenFormGuests";
 import { Container, Col, Row, Spinner } from "reactstrap";
 import ButtonPortfolioGuest from "./ButtonPortfolioGuest";
 import axios from "axios";
@@ -107,7 +107,7 @@ class GuestHome extends Component {
                       le fonctionnement du shop ainsi que la gestion de votre
                       image.
                     </p>
-                  {/* <ButtonOpenFormGuests />  */}
+                  <ButtonOpenFormGuests /> 
                   </div>
                 </Col>
                 <Col xs="12" md="6"></Col>

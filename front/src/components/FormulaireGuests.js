@@ -1,89 +1,89 @@
-    // import React, { Component } from 'react';
-    // import './Formulaires.css';
-    // import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-    // import { faHome } from '@fortawesome/free-solid-svg-icons';
-    // import { NavItem, NavLink } from 'reactstrap';
+    import React, { Component } from 'react';
+    import './Formulaires.css';
+    import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+    import { faHome } from '@fortawesome/free-solid-svg-icons';
+    import { NavItem, NavLink } from 'reactstrap';
 
-    // const axios = require('axios');
-
-
-    // class FormulaireGuests extends Component {
-    //     constructor(props) {
-    //         super(props);
-    //         this.state = {
-    //             guest: this.getInitialState(),
-    //             showConfirmation: false,
-    //         }
-    //     }
-
-    //     getInitialState = () => ({
-    //         firstnameG: "",
-    //         lastnameG: "",
-    //         pseudoG: "",
-    //         phoneG: "",
-    //         emailG: "",
-    //         compteG: "",
-    //         storyG: "", 
-    //     })
+    const axios = require('axios');
 
 
-    //     handleChangeInputGuest = (e) => {
-    //         const {guest} = this.state;
-    //         guest[e.target.name]=e.target.value
-    //         this.setState({ guest })
-    //     }
+    class FormulaireGuests extends Component {
+        constructor(props) {
+            super(props);
+            this.state = {
+                guest: this.getInitialState(),
+                showConfirmation: false,
+            }
+        }
 
-    //     handleSubmitFormGuest = (event) => {
-    //         console.log('Le formGuests a été soumis : ', this.state);
-    //         let { guest } = this.state;
-    //         axios
-    //             .post("http://localhost:5000/api/guests", guest)
-    //         this.setState({
-    //             guest: this.getInitialState(),
-    //             showConfirmation: true
-    //         })
-    //         event.preventDefault();
-    //     } 
+        getInitialState = () => ({
+            firstnameG: "",
+            lastnameG: "",
+            pseudoG: "",
+            phoneG: "",
+            emailG: "",
+            compteG: "",
+            storyG: "", 
+        })
 
-    //     render() {
-    //         return (
-    //             <div>
-    //                 {this.state.showConfirmation === false ? (
-    //                 <form className="FlexFormContainerGuests" onSubmit={this.handleSubmitFormGuest} method="POST" action='/api/guests'>
-    //                     <h1 className="h1formGuest">- Devenez GUEST -</h1>
 
-    //                     <input className="inputForm" name="firstnameG" type="text" onChange={this.handleChangeInputForm} value={this.state.firstnameG} placeholder="Votre prénom :" required></input>
+        handleChangeInputGuest = (e) => {
+            const {guest} = this.state;
+            guest[e.target.name]=e.target.value
+            this.setState({ guest })
+        }
 
-    //                     <input className="inputForm" name="lastnameG" type="text" onChange={this.handleChangeInputForm} value={this.state.lastnameG} placeholder="Votre nom :" required></input>
+        handleSubmitFormGuest = (event) => {
+            console.log('Le formGuests a été soumis : ', this.state);
+            let { guest } = this.state;
+            axios
+                .post("http://localhost:5000/api/guests", guest)
+            this.setState({
+                guest: this.getInitialState(),
+                showConfirmation: true
+            })
+            event.preventDefault();
+        } 
 
-    //                     <input className="inputForm" name="pseudoG" type="text" onChange={this.handleChangeInputForm} value={this.state.pseudoG} placeholder="Votre pseudo :" ></input>
+        render() {
+            return (
+                <div>
+                    {this.state.showConfirmation === false ? (
+                    <form className="FlexFormContainerGuests" onSubmit={this.handleSubmitFormGuest} method="POST" action='/api/guests'>
+                        <h1 className="h1formGuest">Devenez GUEST</h1>
+
+                        <input className="inputForm" name="firstnameG" type="text" onChange={this.handleChangeInputForm} value={this.state.firstnameG} placeholder="Votre prénom :" required></input>
+
+                        <input className="inputForm" name="lastnameG" type="text" onChange={this.handleChangeInputForm} value={this.state.lastnameG} placeholder="Votre nom :" required></input>
+
+                        <input className="inputForm" name="pseudoG" type="text" onChange={this.handleChangeInputForm} value={this.state.pseudoG} placeholder="Votre pseudo :" ></input>
                         
-    //                     <input className="inputForm" name="phoneG" type="tel" onChange={this.handleChangeInputForm} value={this.state.phoneG} size={10} minLength={1} maxLength={10} placeholder="Votre numéro de téléphone :" required></input>
+                        <input className="inputForm" name="phoneG" type="tel" onChange={this.handleChangeInputForm} value={this.state.phoneG} size={10} minLength={1} maxLength={10} placeholder="Votre numéro de téléphone :" required></input>
                         
-    //                     <input className="inputForm" name="emailG" type="email" onChange={this.handleChangeInputForm} value={this.state.emailG} placeholder="Votre adresse mail :" required></input>
+                        <input className="inputForm" name="emailG" type="email" onChange={this.handleChangeInputForm} value={this.state.emailG} placeholder="Votre adresse mail :" required></input>
                         
-    //                     <input className="inputForm" name="compteG" type="text" onChange={this.handleChangeInputForm} value={this.state.compteG} placeholder="Où voir vos photos ?"></input>
+                        <input className="inputForm" name="compteG" type="text" onChange={this.handleChangeInputForm} value={this.state.compteG} placeholder="Où voir vos photos ?"></input>
                         
-    //                     <textarea className="inputForm" name="storyG" rows="5" cols="33" onChange={this.handleChangeInputForm} value={this.state.storyG} placeholder="Dîtes-nous en plus ici : ">
-    //                     </textarea>
+                        <textarea className="inputForm" name="storyG" rows="5" cols="33" onChange={this.handleChangeInputForm} value={this.state.storyG} placeholder="Dîtes-nous en plus ici : ">
+                        </textarea>
                         
-    //                     <button className="buttonForm" type="submit">
-    //                         Envoyer ma candidature
-    //                     </button>
-    //                 </form>
-    //                 ) : (
-    //                 <div>
-    //                     <p>Votre demande a bien été envoyée</p>
-    //                     <p>Nous vous répondrons dans les plus brefs délais</p>
-    //                     <p>Thank you</p>
-    //                     <NavItem>
-    //                         <NavLink href="/" className="styleLink"><FontAwesomeIcon icon={faHome} /></NavLink>
-    //                     </NavItem>
-    //                 </div>
-    //                 )}
-    //             </div>
-    //         );
-    //     }
-    // }
+                        <button className="buttonForm" type="submit">
+                            Envoyer ma candidature
+                        </button>
+                    </form>
+                    ) : (
+                    <div>
+                        <p>Votre demande a bien été envoyée</p>
+                        <p>Nous vous répondrons dans les plus brefs délais</p>
+                        <p>Thank you</p>
+                        <NavItem>
+                            <NavLink href="/" className="styleLink"><FontAwesomeIcon icon={faHome} /></NavLink>
+                        </NavItem>
+                    </div>
+                    )}
+                </div>
+            );
+        }
+    }
 
-    // export default FormulaireGuests;
+    export default FormulaireGuests;
