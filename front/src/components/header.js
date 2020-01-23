@@ -10,6 +10,7 @@ const HeaderStyle= {
     height: "101vh",
     backgroundColor: "black",
     opacity: "0",
+    animation: "headeranimation 5s"
 }
 
 export default function Header() {
