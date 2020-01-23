@@ -78,9 +78,9 @@ class YourProjectAccordion extends Component {
     return (
       <div >
         <h1 className="HeaderSection">
-          <div className="FirstLineProject" data-aos="fade-right">Votre</div>
-          <div className="SecondLineProject" data-aos="fade-right">Projet</div>
-          <div className="ThirdLineProject" data-aos="fade-left">TATTOO</div>
+          <div className="FirstTitleLineProject" data-aos="fade-right">Votre</div>
+          <div className="SecondTitleLineProject" data-aos="fade-right">Projet</div>
+          <div className="ThirdTitleLineProject" data-aos="fade-left">TATTOO</div>
         </h1>
         <Container>
           {sections.map((section, index) => {
