@@ -64,7 +64,8 @@ app.post('/login', function (request, response) {
             portfolio_id: results[0].portfolio_id
           }
         },
-          'toto', { expiresIn: '1500sec' },
+          'toto', 
+          // { expiresIn: '1500sec' },
           (err, token) => {
             console.log(err, token)
             response.json({ token })
