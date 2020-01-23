@@ -1,9 +1,7 @@
 /* CONTACT FORM CSS */
 
-form,
 .inputForm,
-.textAreaForm,
-.btn {
+.textAreaForm {
   display: block;
   margin: 3rem 0;
   padding: 0.5em;
@@ -24,19 +22,35 @@ form,
 
 .inputForm:focus,
 .textAreaForm:focus {
-  border-color: #7A6A5D;
+  border-color: #7a6a5d;
   box-shadow: none;
   -webkit-box-shadow: none;
 }
 
-.inputForm:placeholder, .textAreaForm:placeholder {
+/* button.btn {
+  color: white;
+  background-color: #7a6a5d;
+  border-color: royalblue;
+  user-select: none;
+  line-height: 1.5;
+  border-radius: 0.5rem;
+  border: 1px solid transparent;
+  transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out,
+    border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+} */
+
+.inputForm:placeholder,
+.textAreaForm:placeholder {
   color: silver;
 }
-  
-.FlexFormContainerGuests, .FlexFormContainerProject {
+
+.FlexFormContainerGuests,
+.FlexFormContainerProject {
   display: flex;
   flex-direction: column;
   align-items: center;
+  margin: 3rem 0;
+  padding: 0.5em;
 }
 
 .FlexContainerProject {
@@ -44,7 +58,8 @@ form,
   text-align: center;
 }
 
-.FlexProject1, .FlexProject2 {
+.FlexProject1,
+.FlexProject2 {
   margin-top: 2em;
   width: 25vw;
   padding: 20px;
@@ -59,7 +74,7 @@ form,
 /* Style buttons */
 
 .buttonForm {
-  background-color: #7A6A5D;
+  background-color: #7a6a5d;
   box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.774);
   border: 1px solid rgba(0, 0, 0, 0.411);
   transition: 0.4s;
@@ -79,11 +94,11 @@ form,
 .MainModalContactResidents {
   position: fixed;
   top: 0;
-  left: 0; 
+  left: 0;
   min-width: 80vw;
   min-height: 100vh;
   padding: 7vw;
-  background: #F1F1F0;
+  background: #f1f1f0;
 }
 
 .MainModalGuestAndProject {
@@ -111,14 +126,8 @@ form,
   z-index: 1;
 }
 
-.btn {
-  color: white;
-  cursor: pointer;
-  font-size: 20px;
-  padding: 10px !important;
-}
 
-@media (max-width:786px) {
+@media (max-width: 786px) {
   .MainModalGuestAndProject {
     width: 100vw;
   }

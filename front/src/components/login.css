@@ -10,6 +10,20 @@
 
 /* STRUCTURE */
 
+#submitLogin {
+    background-color: #786B60;
+    border: none;
+    color: white;
+    padding: 15px 80px;
+    -webkit-box-shadow: 0 10px 30px 0 #786B60;
+    box-shadow: 0 10px 30px 0 #786B60;
+    -webkit-transition: all 0.3s ease-in-out;
+    -moz-transition: all 0.3s ease-in-out;
+    -ms-transition: all 0.3s ease-in-out;
+    -o-transition: all 0.3s ease-in-out;
+    transition: all 0.3s ease-in-out;
+}
+
 #formLogin {
     margin: 0px;
     padding: 30px;

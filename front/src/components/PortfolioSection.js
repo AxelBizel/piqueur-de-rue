@@ -37,36 +37,37 @@ class PortfolioSection extends Component {
           </h1>
         </div>
         <Container>
-          <Row>
-            {portfolios === null ? (
-              <div className="Artists-Loader">
-                <Spinner type="grow" color="dark" />
-                <Spinner type="grow" color="dark" />
-                <Spinner type="grow" color="dark" />
-                <Spinner type="grow" color="dark" />
-              </div>
-            ) : (
-              portfolios.map((portfolio, index) => (
-                <Col xs="12" md="6" lg="3">
-                  <div
-                    // data-aos-duration={index * 800}
-                    // data-aos="fade-up"
-                    className="Artists"
-                    key={`portfolio-${index}`}
-                    style={{
-                      margin: "2vh auto",
-                      backgroundImage:
-                        "url(http://localhost:5000/img/" +
-                        `${portfolio.id}` +
-                        "/portrait.jpg)"
-                    }}
-                  >
-                    <ButtonOpenPortfolio portfolio={portfolio} />
-                  </div>
-                </Col>
-              ))
-            )}
-          </Row>
+          
+            <Row style={{justifyContent:'center'}}>
+              {portfolios === null ? (
+                <div className="Artists-Loader">
+                  <Spinner type="grow" color="dark" />
+                  <Spinner type="grow" color="dark" />
+                  <Spinner type="grow" color="dark" />
+                  <Spinner type="grow" color="dark" />
+                </div>
+              ) : (
+                portfolios.map((portfolio, index) => (
+                  <Col xs="12" md="6" lg="3">
+                    <div
+                      data-aos-duration={index * 800}
+                      data-aos="fade-up"
+                      className="Artists"
+                      key={`portfolio-${index}`}
+                      style={{
+                        margin: "2vh auto",
+                        backgroundImage:
+                          "url(http://localhost:5000/img/" +
+                          `${portfolio.id}` +
+                          "/portrait.jpg)"
+                      }}
+                    >
+                      <ButtonOpenPortfolio portfolio={portfolio} />
+                    </div>
+                  </Col>
+                ))
+              )}
+            </Row>
         </Container>
       </div>
     );
