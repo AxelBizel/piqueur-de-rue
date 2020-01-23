@@ -13,8 +13,8 @@ const fs = require('fs');
 
 
 // File upload
-var multer = require('multer')
-var upload = multer({ storage: storage }).single('file')
+const multer = require('multer')
+const upload = multer({ storage: storage }).single('file')
 
 // Middlewares
 app.use(bodyParser.json());

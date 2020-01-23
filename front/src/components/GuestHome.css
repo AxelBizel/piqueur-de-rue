@@ -1,62 +1,59 @@
-.SectionGuestContainer {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  height: 80vh;
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-attachment: fixed;
-  color: rgb(0, 0, 0);
-}
-
-.Guests {
-  width: 100%;
-  height: 80vh;
-  background-position: center;
-  background-size: cover;
-  background-repeat: no-repeat;
-  z-index: 1;
-  display: flex;
-  flex-direction: row;
-  align-items: flex-end;
-  justify-content: center;
-
-}
 .Guests-Loader {
-  width: 100vw;
   display: flex;
   flex-direction: row;
   justify-content: space-evenly;
   height: 200px;
- 
+  width: 100vw;
+}
+
+.SectionGuest {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-end;
+  justify-content: center;
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  width: 100%;
+  height: 80vh;
+  z-index: 1;
+}
+
+.SectionGuestSpot {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  height: 80vh;
+  color: rgb(0, 0, 0);
 }
 
 .GuestTextSpot {
   background: rgba(255, 255, 255, 0.918);
   border-radius: 3px;
-  padding: 5%;
   text-align: justify;
-  color: black;
   width: 80%;
+  padding: 5%;
   margin: 0 auto;
+  color: black;
 }
 
 .GuestText {
   background: rgba(255, 255, 255, 0.918);
   border-radius: 3px;
-  padding: 5%;
   text-align: justify;
-  color: black;
+  padding: 5%;
   margin: 10% auto;
+  color: black;
 }
 .GuestSubtitle{
   text-align: center;
   margin-top: 5vh;
   font-size: 1.3em;
   font-weight: 600;
-
-
 }
 .Title-Guest {
   text-align: left;
@@ -65,20 +62,22 @@
   color: black;
 }
 
-.FirstLineGuest {
+.FirstTitleLineGuest {
   font-family: South_Gardens_Personal_Use;
-  letter-spacing: 0 !important;
+  letter-spacing: 0;
   line-height: 0.2em;
   font-size: 90px;
 }
 
-.SecondLineGuest {
+.SecondTitleLineGuest {
+  position: relative;
+  right: -100px;
+  margin-top: 10px;
   font-family: FalkinSerifItalicPERSONAL;
-  font-weight: 600;
-  font-size: 50px;
-  margin-left: 18%;
-  color: rgb(97, 85, 74);
   letter-spacing: 0 !important;
+  font-size: 50px;
+  font-weight: 600;
+  color: rgb(97, 85, 74);
 }
 
 .buttonPortfolioGuest {
@@ -90,7 +89,7 @@
   box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.774);
   transition: 0.4s;
   font-weight: 600;
-  margin: 5% 0;
+  margin: 5% 0 1% 0;
 }
 
 .buttonPortfolioGuest:hover {
@@ -98,7 +97,6 @@
   box-shadow: none;
   transition: 0.4s;
 }
-
 
 .buttonContactProject {
     padding: 1em;
@@ -114,7 +112,7 @@
 
 /* MODAL CSS */
 
-form#contact-form {
+/* form#contact-form {
   margin: 0;
 }
 
@@ -122,16 +120,8 @@ form h3 {
   text-align: left;
   font-size: 2em;
   margin-bottom: 0.7em;
-}
+} */
 
-.background {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 100vh;
-  background-color: rgba(0, 0, 0, 0.699);
-}
 
 .closeButton {
   color: rgba(0, 0, 0, 0.452);
@@ -167,4 +157,13 @@ form h3 {
   padding: 40px;
   background: white !important;
   z-index: 15;
+}
+
+
+@media (max-width: 768px) {
+  .SecondTitleLineGuest {
+    position: relative;
+    right: -100px;
+    margin-top: 10px;
+  }
 }

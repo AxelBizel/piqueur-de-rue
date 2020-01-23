@@ -4,7 +4,7 @@
 
 // https://programmingwithmosh.com/javascript/react-file-upload-proper-server-side-nodejs-easy/ //
 
-const multer = require('multer')  /* TEST UPLOAD FILE */
+const multer = require('multer')
 
 const storage = multer.diskStorage({
     destination: function (req, file, cb) {

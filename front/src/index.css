@@ -19,7 +19,8 @@ a {
 }
 
 button {
-  color : white;
+  color : white;  
+  border-radius: 3px;
 }
 
 .HeaderSection {
