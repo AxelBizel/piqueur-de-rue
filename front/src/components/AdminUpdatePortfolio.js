@@ -13,10 +13,9 @@ import {
   ModalFooter
 } from "reactstrap";
 
-class ButtonAdminPortfolio extends Component {
+class AdminUpdatePortfolio extends Component {
   constructor(props) {
     super(props);
-    console.log("ggp", props);
     this.state = {
       modal: false,
       newPortfolio: {
@@ -72,7 +71,7 @@ class ButtonAdminPortfolio extends Component {
   };
 
   render() {
-    const { modal, newPortfolio } = this.state;
+    const { modal } = this.state;
     const { portfolio } = this.props;
 
     return (
@@ -134,7 +133,7 @@ class ButtonAdminPortfolio extends Component {
               </FormGroup>
 
               <FormGroup>
-                <Label for="insta">Style : {portfolio.insta}</Label>
+                <Label for="insta">Instagram : {portfolio.insta}</Label>
 
                 <Input
                   type="text"
@@ -181,4 +180,4 @@ class ButtonAdminPortfolio extends Component {
   }
 }
 
-export default ButtonAdminPortfolio;
+export default AdminUpdatePortfolio;

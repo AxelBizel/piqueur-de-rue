@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import axios from "axios";
 import { Container, Row, Col, CustomInput, Table } from "reactstrap";
-import ButtonAdminPortfolio from "./ButtonAdminPortfolio";
+import AdminUpdatePortfolio from "./AdminUpdatePortfolio";
 import AdminAddPortfolio from "./AdminAddPortfolio";
 
 class AdminProfile extends Component {
@@ -108,13 +108,13 @@ class AdminProfile extends Component {
                         ></CustomInput>
                       </td>
                       <td>
-                        <ButtonAdminPortfolio
+                        <AdminUpdatePortfolio
                           key={`profile-${index}`}
                           getCurrentProfile={() => this.getProfile(pf.id)}
                           portfolio={pf}
                         >
                           Détails
-                        </ButtonAdminPortfolio>
+                        </AdminUpdatePortfolio>
                       </td>
                     </tr>
                   ))}

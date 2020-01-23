@@ -13,7 +13,7 @@ import App from './App';
 import * as serviceWorker from './serviceWorker';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { BrowserRouter as Router, Route, Switch, Redirect } from 'react-router-dom';
-import AdminPortfolio from './components/ButtonAdminPortfolio';
+import AdminPortfolio from './components/AdminUpdatePortfolio';
 const store = createStore(rootReducer);
 
 AOS.init({
