@@ -71,11 +71,11 @@ app.post('/login', function (request, response) {
             response.json({ token })
           })
       } else {
-        response.send('Incorrect Username and/or Password!');
+        response.status(403).send('Incorrect Username and/or Password!');
       }
     });
   } else {
-    response.send('Please enter Username and Password!');
+    response.status(403).send('Please enter Username and Password!');
   }
 });
 
