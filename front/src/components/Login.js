@@ -58,9 +58,11 @@ export default class Login extends React.Component {
                 })
             }
         } catch (err) {
+            alert(err.response.data)
             this.setState({
-                error: err.message
+                error: err.response.data,
             })
+            
         }
     }
 

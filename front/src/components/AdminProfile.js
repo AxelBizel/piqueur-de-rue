@@ -3,7 +3,8 @@ import axios from "axios";
 import { Container, Row, Col, CustomInput, Table } from "reactstrap";
 import ButtonAdminPortfolio from "./ButtonAdminPortfolio";
 import AdminAddPortfolio from "./AdminAddPortfolio";
-
+// import User from './User'
+import Logout from "./Logout";
 class AdminProfile extends Component {
   state = {
     active: false,
@@ -63,7 +64,9 @@ class AdminProfile extends Component {
     }
   };
 
+
   render() {
+   
     return (
       <div>
         <Container>
@@ -134,6 +137,7 @@ class AdminProfile extends Component {
             </Col>
           </Row>
         </Container>
+        <Logout/>
       </div>
     );
   }
