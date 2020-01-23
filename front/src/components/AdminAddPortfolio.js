@@ -1,5 +1,4 @@
-import React, { Component } from "react";
-import axios from "axios";
+import React, { useState } from "react";
 import {
   Button,
   Form,
@@ -13,171 +12,118 @@ import {
   ModalFooter
 } from "reactstrap";
 
-class AdminAddPortfolio extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      modal: false,
-      newPortfolio: {
-        pseudo: "",
-        type: "",
-        presentation: "",
-        insta: "",
-        style: "",
-        ...props.portfolio
-      },
-      active: true
-    };
-  }
+const AdminAddPortfolio = props => {
+  const { buttonLabel, className } = props;
+  const [modal, setModal] = useState(false);
 
-  getNewPortfolio = () => ({
-    pseudo: "",
-    type: "",
-    presentation: "",
-    insta: "",
-    style: ""
-  });
+//   const [portfolio, setPortfolio] = useState([
+//     { pseudo: "" },
+//     { insta: "" },
+//     { type: "" },
+//     { presentation: "" },
+//     { style: "" }
+//   ]);
 
-  toggle = () => {
-    const { modal } = this.state;
-    this.props.getCurrentProfile();
-    this.setState({ modal: !modal });
+  const toggle = () => {
+    setModal(!modal);
+
+   
   };
 
-  onChange = e => {
-    const { newPortfolio } = this.state;
-    this.setState(
-      {
-        newPortfolio: { ...newPortfolio, [e.target.name]: e.target.value }
-      },
-      () => console.log("ggss", this.state.newPortfolio)
-    );
-  };
+  return (
+    <div>
+      <Button
+        onClick={toggle}
+        style={{ margin: "0", padding: "5", width: "auto" }}
+      >
+        {props.children}
+      </Button>
 
-  handleSubmit = event => {
-    event.preventDefault();
+      <Modal isOpen={modal} fade={false} toggle={toggle}>
+        <ModalHeader toggle={toggle}>Ajouter un portfolio</ModalHeader>
+        <ModalBody>
+          <Form>
+            <FormGroup>
+              <Label for="pseudo">Pseudo :</Label>
+              <Input
+                type="text"
+                name="pseudo"
+                id="pseudo"
+                placeholder="Ajouter un pseudo"
+                required
+              />
+            </FormGroup>
 
-    let { newPortfolio } = this.state;
-    let { portfolio } = this.props;
-    axios
-      .put(
-        `http://localhost:5000/admin/portfolio/${portfolio.id}`,
-        newPortfolio
-      )
-      .then(() => {
-        alert("Modifications prises en compte.");
-        this.toggle();
-      });
-  };
+            <FormGroup>
+              <Label for="insta">Instagram : </Label>
+              <Input
+                type="text"
+                name="insta"
+                id="insta"
+                placeholder="Ajouter le lien instagram"
+                required
+              />
+            </FormGroup>
 
-  render() {
-    const { modal } = this.state;
-    const { portfolio } = this.props;
+            <FormGroup>
+              <Label for="type">Type : </Label>
+              <Input type="select" name="type" id="type" required>
+                <option>Team</option>
+                <option>Guest</option>
+              </Input>
+            </FormGroup>
 
-    return (
-      <div>
-        <Button
-          onClick={this.toggle}
-          style={{ margin: "0", padding: "5", width: "auto" }}
-        >
-          {this.props.children}
-        </Button>
+            <FormGroup>
+              <Label for="presentation">Présentation :</Label>
 
-        <Modal isOpen={modal} fade={false} toggle={this.toggle}>
-          <ModalHeader toggle={this.toggle}>Modifier le portfolio</ModalHeader>
-          <ModalBody>
-            <Form>
-              <FormGroup>
-                <Label for="pseudo">
-                  Pseudo : {portfolio.pseudo}
-                </Label>
+              <Input
+                type="textarea"
+                name="presentation"
+                id="presentation"
+                placeholder="Ajouter un texte de présentation"
+                required
+              />
+            </FormGroup>
+            <FormGroup>
+              <Label for="style">Style : </Label>
 
-                <Input
-                  onChange={this.onChange}
-                  type="text"
-                  name="pseudo"
-                  id="pseudo"
-                  placeholder="modifier le pseudo"
-                />
-              </FormGroup>
+              <Input
+                type="text"
+                name="style"
+                id="style"
+                placeholder="modifier le style"
+              />
+            </FormGroup>
+            <FormGroup>
+              <Label for="portrait">
+                Avatar
+                <FormText color="muted">
+                  Merci d'uploader une image carrée (ex: 500px X 500px)
+                </FormText>
+              </Label>
+              <Input type="file" name="file" id="portrait" required />
+            </FormGroup>
 
-              <FormGroup>
-                <Label for="type">Type : {portfolio.type}</Label>
-                <Input
-                  type="select"
-                  name="type"
-                  id="type"
-                  onChange={this.onChange}
-                  required
-                >
-                  <option>Team</option>
-                  <option>Guest</option>
-                </Input>
-              </FormGroup>
-
-              <FormGroup>
-                <Label for="presentation">
-                  Présentation :
-                  <FormText color="muted">
-                    {portfolio.presentation}
-                  </FormText>
-                </Label>
-
-                <Input
-                  onChange={this.onChange}
-                  type="textarea"
-                  name="presentation"
-                  id="presentation"
-                  placeholder="Modifier le texte de présentation"
-                />
-              </FormGroup>
-
-              <FormGroup>
-                <Label for="insta">Instagram : {portfolio.insta}</Label>
-
-                <Input
-                  type="text"
-                  name="insta"
-                  id="insta"
-                  placeholder="Modifier le lien instagram"
-                  onChange={this.onChange}
-                />
-              </FormGroup>
-
-              <FormGroup>
-                <Label for="style">Style : {portfolio.style}</Label>
-
-                <Input
-                  type="text"
-                  name="style"
-                  id="style"
-                  placeholder="modifier le style"
-                  onChange={this.onChange}
-                />
-              </FormGroup>
-              <FormGroup>
-                <Label for="portrait">
-                  Avatar
-                  <FormText color="muted">
-                    Merci d'uploader une image carrée (idéalement 500px X 500px)
-                  </FormText>
-                </Label>
-                <Input type="file" name="avatar" id="avatar" />
-              </FormGroup>
-            </Form>
-          </ModalBody>
-          <ModalFooter>
-            <Button onClick={this.handleSubmit} color="primary">
-              Envoyer
-            </Button>
-            <Button color="danger" onClick={this.toggle}>
-              Annuler
-            </Button>
-          </ModalFooter>
-        </Modal>
-      </div>
-    );
-  }
-}
+            <FormGroup>
+              <Label for="portrait">
+                Réalisations
+                <FormText color="muted">
+                  Merci d'uploader des images carrées (ex: 500px X 500px)
+                </FormText>
+              </Label>
+              <Input type="file" name="file" id="realisations" multiple />
+            </FormGroup>
+          </Form>
+        </ModalBody>
+        <ModalFooter>
+          <Button color="primary">Envoyer</Button>
+          <Button color="danger" onClick={toggle}>
+            Annuler
+          </Button>
+        </ModalFooter>
+      </Modal>
+    </div>
+  );
+};
 
 export default AdminAddPortfolio;
