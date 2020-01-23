@@ -20,10 +20,10 @@ USE `piqueurderue` ;
 CREATE TABLE IF NOT EXISTS `piqueurderue`.`portfolio` (
   `id` INT(11) NOT NULL AUTO_INCREMENT,
   `pseudo` VARCHAR(255) NOT NULL,
-  `type` VARCHAR(255) NULL DEFAULT NULL,
+  `type` VARCHAR(255) NOT NULL,
   `presentation` VARCHAR(255) NULL DEFAULT NULL,
   `insta` VARCHAR(255) NULL DEFAULT NULL,
-  `active` TINYINT(4) NOT NULL,
+  `active` TINYINT(4) NOT NULL DEFAULT '1',
   `startdate` VARCHAR(255) NULL DEFAULT NULL,
   `enddate` VARCHAR(255) NULL DEFAULT NULL,
   PRIMARY KEY (`id`))

@@ -115,6 +115,7 @@ class AdminProfile extends Component {
                           key={`profile-${index}`}
                           getCurrentProfile={() => this.getProfile(pf.id)}
                           portfolio={pf}
+                          index={index}
                         >
                           Détails
                         </AdminUpdatePortfolio>
@@ -129,7 +130,7 @@ class AdminProfile extends Component {
                       <strong>Ajouter un portfolio</strong>
                     </td>
                     <td colSpan="2">
-                      <AdminAddPortfolio>Ajouter</AdminAddPortfolio>
+                      <AdminAddPortfolio index={this.state.portfolios.length+1}>Ajouter</AdminAddPortfolio>
                     </td>
                   </tr>
                 </tfoot>
