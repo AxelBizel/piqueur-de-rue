@@ -111,7 +111,7 @@ class AdminProfile extends Component {
                         <ButtonAdminPortfolio
                           key={`profile-${index}`}
                           getCurrentProfile={() => this.getProfile(pf.id)}
-                          portfolio={this.state.selectedPortfolio}
+                          portfolio={pf}
                         >
                           Détails
                         </ButtonAdminPortfolio>

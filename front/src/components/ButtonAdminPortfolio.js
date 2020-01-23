@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import axios from 'axios';
+import axios from "axios";
 import {
   Button,
   Form,
@@ -13,64 +13,67 @@ import {
   ModalFooter
 } from "reactstrap";
 
-
 class ButtonAdminPortfolio extends Component {
   constructor(props) {
     super(props);
+    console.log("ggp", props);
     this.state = {
       modal: false,
-     
-      item : this.getItem(),
-      active : true ,
-
+      newPortfolio: {
+        pseudo: "",
+        type: "",
+        presentation: "",
+        insta: "",
+        style: "",
+        ...props.portfolio
+      },
+      active: true
     };
   }
 
-  getItem = () => ({
+  getNewPortfolio = () => ({
     pseudo: "",
     type: "",
     presentation: "",
-    style: "",
-  
-}) 
-
-
-  // async componentDidMount() {
-  //   this.formSubmit = this.formSubmit.bind(this)
-  //   this.onChange = this.onChange.bind(this);
-  // }
+    insta: "",
+    style: ""
+  });
 
   toggle = () => {
     const { modal } = this.state;
     this.props.getCurrentProfile();
-    this.setState({ modal: !modal })
-  }
+    this.setState({ modal: !modal });
+  };
 
-  //Partie Axios
+  onChange = e => {
+    const { newPortfolio } = this.state;
+    this.setState(
+      {
+        newPortfolio: { ...newPortfolio, [e.target.name]: e.target.value }
+      },
+      () => console.log("ggss", this.state.newPortfolio)
+    );
+  };
 
-  onChange = (e) => {
-    const {item} = this.state;
-    item[e.target.name]=e.target.value
-    this.setState({ item })
-}
+  handleSubmit = event => {
+    event.preventDefault();
 
-handleSubmit = (event) => {
-  let { item } = this.state;
-  axios
-      .put("http://localhost:5000/admin/portfolio", item)
-      .then(console.log("update yaaaaa"))
-  this.setState({
-      customer: this.item(),
-  })
-  event.preventDefault();
-}
-  
-
-
-
+    let { newPortfolio } = this.state;
+    let { portfolio } = this.props;
+    axios
+      .put(
+        `http://localhost:5000/admin/portfolio/${portfolio.id}`,
+        newPortfolio
+      )
+      .then(() => {
+        alert("Modifications prises en compte.");
+        this.toggle();
+      });
+  };
 
   render() {
-    const { modal } = this.state;
+    const { modal, newPortfolio } = this.state;
+    const { portfolio } = this.props;
 
     return (
       <div>
@@ -82,20 +85,16 @@ handleSubmit = (event) => {
         </Button>
 
         <Modal isOpen={modal} fade={false} toggle={this.toggle}>
-          <ModalHeader toggle={this.toggle}>&nbsp;</ModalHeader>
+          <ModalHeader toggle={this.toggle}>Modifier le portfolio</ModalHeader>
           <ModalBody>
-            <Form onSubmit= {this.formSubmit}>
+            <Form>
               <FormGroup>
-                <Label 
-                  onChange= {this.onChange}
-                  for="pseudo">
-                  {/* Pseudo : {this.props.portfolio.pseudo} */}
-                  Pseudo : {this.state.pseudo}
-                  
-                  </Label>
+                <Label for="pseudo">
+                  Pseudo : {portfolio.pseudo}
+                </Label>
 
                 <Input
-                  onChange= {this.onChange}
+                  onChange={this.onChange}
                   type="text"
                   name="pseudo"
                   id="pseudo"
@@ -104,73 +103,82 @@ handleSubmit = (event) => {
               </FormGroup>
 
               <FormGroup>
-                <Label 
-                onChange= {this.onChange}
-                for="type">
-                  {/* Type : {this.props.portfolio.type}  */}
-                  Type : {this.state.type} 
-
-                </Label>
-                <Input type="select" name="type" id="type">
+                <Label for="type">Type : {portfolio.type}</Label>
+                <Input
+                  type="select"
+                  name="type"
+                  id="type"
+                  onChange={this.onChange}
+                  required
+                >
                   <option>Team</option>
                   <option>Guest</option>
                 </Input>
               </FormGroup>
 
               <FormGroup>
-                <Label 
-                onChange= {this.onChange}
-                for="presentation">
-                  Présentation :{" "}
+                <Label for="presentation">
+                  Présentation :
                   <FormText color="muted">
-                    {this.props.portfolio.presentation}
+                    {portfolio.presentation}
                   </FormText>
                 </Label>
 
                 <Input
-                  onChange= {this.onChange}
+                  onChange={this.onChange}
                   type="textarea"
                   name="presentation"
                   id="presentation"
-                  placeholder="modifier le texte de présentation"
+                  placeholder="Modifier le texte de présentation"
                 />
               </FormGroup>
+
               <FormGroup>
-                <Label 
-                onChange= {this.onChange}
-                for="style">
-                  {/* Style : {this.props.portfolio.style} */}
-                  Style : {this.state.style}
-                </Label>
+                <Label for="insta">Style : {portfolio.insta}</Label>
+
+                <Input
+                  type="text"
+                  name="insta"
+                  id="insta"
+                  placeholder="Modifier le lien instagram"
+                  onChange={this.onChange}
+                />
+              </FormGroup>
+
+              <FormGroup>
+                <Label for="style">Style : {portfolio.style}</Label>
 
                 <Input
                   type="text"
                   name="style"
                   id="style"
                   placeholder="modifier le style"
+                  onChange={this.onChange}
                 />
               </FormGroup>
               <FormGroup>
-                <Label for="portrait">Portrait <FormText color="muted">
-                  Merci d'uploader une image carrée (idéalement 500px X 500px)
-                </FormText></Label>
-                <Input type="file" name="file" id="exampleFile" />
+                <Label for="portrait">
+                  Avatar
+                  <FormText color="muted">
+                    Merci d'uploader une image carrée (idéalement 500px X 500px)
+                  </FormText>
+                </Label>
+                <Input type="file" name="avatar" id="avatar" />
               </FormGroup>
-
-              <Button
-               onChange= {() => this.togglePortfolio()}
-                style={{ margin: "2vh auto" }}>Envoyer</Button>
-              <Button style={{ margin: "2vh auto" }} onClick={this.toggle}>
-                Annuler
-            </Button>
             </Form>
           </ModalBody>
+          <ModalFooter>
+            <Button onClick={this.handleSubmit} color="primary">
+              Envoyer
+            </Button>
+            <Button color="danger" onClick={this.toggle}>
+              Annuler
+            </Button>
+          </ModalFooter>
         </Modal>
       </div>
     );
-
-
   }
-};
+}
 
 export default ButtonAdminPortfolio;
