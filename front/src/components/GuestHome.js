@@ -5,7 +5,6 @@ import { Container, Col, Row, Spinner } from "reactstrap";
 import ButtonPortfolioGuest from "./ButtonPortfolioGuest";
 import axios from "axios";
 import "./GuestHome.css";
-import "aos/dist/aos.css";
 
 class GuestHome extends Component {
   constructor(props) {

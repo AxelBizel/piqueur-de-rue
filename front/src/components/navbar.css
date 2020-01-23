@@ -10,7 +10,7 @@
 }
 
 .styleLink {
-    color: rgb(54, 53, 52);
+    color: rgb(231, 231, 231) !important;
     transition: 0.1s;
 }
 

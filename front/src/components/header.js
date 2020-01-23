@@ -7,9 +7,9 @@ const HeaderStyle= {
     justifyContent: "Center",
     alignItems: "Center",
     width: "100vw",
-    height: "100vh",
+    height: "101vh",
     backgroundColor: "black",
-    opacity: "0"
+    opacity: "0",
 }
 
 export default function Header() {

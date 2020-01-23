@@ -2,8 +2,8 @@
 
 form,
 .inputForm,
-.textAreaForm
-{
+.textAreaForm,
+.btn {
   display: block;
   margin: 3rem 0;
   padding: 0.5em;
@@ -111,6 +111,15 @@ form,
   z-index: 1;
 }
 
-@media (max-width:786px) {
+.btn {
+  color: white;
+  cursor: pointer;
+  font-size: 20px;
+  padding: 10px !important;
+}
 
+@media (max-width:786px) {
+  .MainModalGuestAndProject {
+    width: 100vw;
+  }
 }

@@ -59,7 +59,6 @@ button {
   height : 70vh;
   animation: logotransition 5s;
   overflow-x: hidden;
-  z-index: 2000;
 }
 
 @keyframes logotransition {
