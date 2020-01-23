@@ -18,6 +18,7 @@ class AdminAddPortfolio extends Component {
     super(props);
     this.state = {
       modal: false,
+      selectedAvatar: null,
       newPortfolio: {
         pseudo: "",
         type: "team",
@@ -28,7 +29,6 @@ class AdminAddPortfolio extends Component {
       active: true
     };
   }
-
 
   toggle = () => {
     const { modal } = this.state;
@@ -49,13 +49,35 @@ class AdminAddPortfolio extends Component {
     event.preventDefault();
     let { newPortfolio } = this.state;
     axios
-      .post(
-        'http://localhost:5000/admin/portfolio/',
-        newPortfolio
-      )
+      .post("http://localhost:5000/admin/portfolio/", newPortfolio)
       .then(() => {
         alert("Modifications prises en compte.");
         this.toggle();
+      });
+  };
+
+  imageHandler = event => {
+    this.setState({
+      selectedAvatar: event.target.files[0],
+      loaded: 0
+    });
+    console.log(event.target.files[0]);
+  };
+
+  onUpload = () => {
+    const data = new FormData();
+    data.append("file", this.state.selectedAvatar);
+    axios
+      .post(
+        `http://localhost:5000/upload/portfolio/${this.props.index}/avatar`,
+        data,
+        {
+          // receive two    parameter endpoint url ,form data
+        }
+      )
+      .then(res => {
+        // then print response status
+        console.log(res.statusText);
       });
   };
 
@@ -76,9 +98,7 @@ class AdminAddPortfolio extends Component {
           <ModalBody>
             <Form>
               <FormGroup>
-                <Label for="pseudo">
-                  Pseudo : 
-                </Label>
+                <Label for="pseudo">Pseudo :</Label>
 
                 <Input
                   onChange={this.onChange}
@@ -96,20 +116,16 @@ class AdminAddPortfolio extends Component {
                   type="select"
                   name="type"
                   id="type"
-                  
                   onChange={this.onChange}
                   required
                 >
-                  <option selected>team</option>
+                  <option>team</option>
                   <option>guest</option>
                 </Input>
               </FormGroup>
 
               <FormGroup>
-                <Label for="presentation">
-                  Présentation :
-                
-                </Label>
+                <Label for="presentation">Présentation :</Label>
 
                 <Input
                   onChange={this.onChange}
@@ -145,14 +161,39 @@ class AdminAddPortfolio extends Component {
                   required
                 />
               </FormGroup>
+
               <FormGroup>
-                <Label for="portrait">
+                <Label for="avatar">
                   Avatar
                   <FormText color="muted">
                     Merci d'uploader une image carrée (idéalement 500px X 500px)
                   </FormText>
                 </Label>
-                <Input type="file" name="avatar" id="avatar" />
+                <Input
+                  type="file"
+                  name="avatar"
+                  id="avatar"
+                  accept="image/png, image/jpeg, image/jpg"
+                  onChange={this.imageHandler}
+                  required
+                />
+                <Button onClick={this.onUpload}>Upload</Button>
+              </FormGroup>
+
+              <FormGroup>
+                <Label for="réalisations">
+                  Réalisations
+                  <FormText color="muted">
+                    Merci d'uploader des images carrées (idéalement 500px X
+                    500px)
+                  </FormText>
+                </Label>
+                <Input
+                  type="file"
+                  name="realisations"
+                  id="realisations"
+                  multiple
+                />
               </FormGroup>
             </Form>
           </ModalBody>
