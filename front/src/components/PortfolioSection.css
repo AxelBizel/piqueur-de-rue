@@ -14,13 +14,13 @@
   animation-name: FadeInArtists;
 }
 
-.FirstLineTeam {
+.FirstTitleLineTeam {
   position: relative;
   font-family: South_Gardens_Personal_Use;
   letter-spacing: 0;
   color: rgb(97, 85, 74);
 }
-.SecondLineTeam {
+.SecondTitleLineTeam {
   position: relative;
   font-family: FalkinSerifItalicPERSONAL;
   font-weight: 600;
@@ -193,9 +193,10 @@
   }
 }
 
+@media (max-width: 600px) {
+
+}
+
 @media (min-width: 601px) and (max-width: 1280px) {
-  .FirstTitleLineProject {
-      position: relative;
-      right: -10px;
-  }
+  
 }

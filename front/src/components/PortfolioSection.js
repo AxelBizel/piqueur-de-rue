@@ -28,10 +28,10 @@ class PortfolioSection extends Component {
       <div id="permanentartists">
         <div>
           <h1 className="HeaderSection">
-            <div className="FirstLineTeam" data-aos="fade-right">
+            <div className="FirstTitleLineTeam" data-aos="fade-right">
               Notre
             </div>
-            <div className="SecondLineTeam" data-aos="fade-left">
+            <div className="SecondTitleLineTeam" data-aos="fade-left">
               Team
             </div>
           </h1>
