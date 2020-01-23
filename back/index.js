@@ -178,7 +178,7 @@ app.get("/admin/portfolios", (req, res) => {
 })
 
 //OK
-app.post('/admin/portfolios', (req, res) => {
+app.post('/admin/portfolio', (req, res) => {
   const formData = req.body;
   connection.query('INSERT INTO portfolio SET ?', formData, (err, results) => {
     if (err) {

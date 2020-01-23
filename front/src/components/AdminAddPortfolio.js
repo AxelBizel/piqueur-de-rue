@@ -20,7 +20,7 @@ class AdminAddPortfolio extends Component {
       modal: false,
       newPortfolio: {
         pseudo: "",
-        type: "",
+        type: "team",
         presentation: "",
         insta: "",
         style: ""
@@ -29,13 +29,6 @@ class AdminAddPortfolio extends Component {
     };
   }
 
-  getNewPortfolio = () => ({
-    pseudo: "",
-    type: "",
-    presentation: "",
-    insta: "",
-    style: ""
-  });
 
   toggle = () => {
     const { modal } = this.state;
@@ -54,12 +47,10 @@ class AdminAddPortfolio extends Component {
 
   handleSubmit = event => {
     event.preventDefault();
-
     let { newPortfolio } = this.state;
-  
     axios
       .post(
-        `http://localhost:5000/admin/portfolio/`,
+        'http://localhost:5000/admin/portfolio/',
         newPortfolio
       )
       .then(() => {
@@ -105,11 +96,12 @@ class AdminAddPortfolio extends Component {
                   type="select"
                   name="type"
                   id="type"
+                  
                   onChange={this.onChange}
                   required
                 >
-                  <option>Team</option>
-                  <option>Guest</option>
+                  <option selected>team</option>
+                  <option>guest</option>
                 </Input>
               </FormGroup>
 
