@@ -64,7 +64,7 @@ class FormulairePortfolio extends Component {
                     <div className="forFlexGuest1">
                         <div className="forFlexCha2">
                             <h2 className=".h2formGuest {
-">Vous :</h2>
+">Vous :</h2>      
                             <input className="inputCha" name="firstname" type="text" onChange={this.handleChange} value={this.state.firstname} placeholder="Votre prénom :" required></input>
                             <input className="inputCha" name="lastname" type="text" onChange={this.handleChange} value={this.state.lastname} placeholder="Votre nom :" required></input>
                             <input className="inputCha" name="age" type="number" onChange={this.handleChangeInteger} value={this.state.age} placeholder="Votre âge :" required></input>
