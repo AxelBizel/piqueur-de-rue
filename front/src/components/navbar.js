@@ -14,6 +14,15 @@ class Navbar extends React.Component {
         };
     }
 
+
+    componentDidMount() {
+        window.addEventListener("keydown", e => {
+        if (e.key === "Escape" || e.key === "Esc") {
+            return this.toggleNavbar();
+        }
+        });
+    }
+
     toggleNavbar() {
         this.setState({
         collapsed: !this.state.collapsed
@@ -21,9 +30,10 @@ class Navbar extends React.Component {
     }
     
     closeNavbar() {
-        if (this.state.collapsed == true) {
+        if (this.state.collapsed == true ) {
         this.toggleNavbar();
         }
+        
     }
 
     render() {

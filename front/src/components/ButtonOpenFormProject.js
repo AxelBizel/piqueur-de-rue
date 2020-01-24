@@ -12,7 +12,7 @@ class ButtonOpenFormProject extends Component {
   componentDidMount() {
     window.addEventListener("keydown", e => {
       if (e.key === "Escape" || e.key === "Esc") {
-        return this.closeModalFormProject();
+        return this.closeModalProject();
       }
     });
   }
