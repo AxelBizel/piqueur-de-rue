@@ -1,6 +1,15 @@
 import React from "react"
+import { Button } from "reactstrap";
 import { Redirect } from "react-router-dom"
 // import AdminProfile from "./AdminProfile"
+
+
+const StyleButtonLogout = {
+    width : "auto",
+    height : "auto",
+    padding : "20px 30px",
+    fontSize : "20px"
+}
 
 export default class Logout extends React.Component {
 
@@ -29,8 +38,7 @@ export default class Logout extends React.Component {
         }
         return (
             <div>
-                
-                <button onClick={this.logout}>Logout</button>
+                <Button style={StyleButtonLogout} color="danger" onClick={this.logout}>Logout</Button>
             </div>
         )
     }

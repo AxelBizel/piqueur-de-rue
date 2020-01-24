@@ -10,7 +10,6 @@ import {
   CardBody,
   CardTitle,
 } from "reactstrap";
-import ButtonOpenFormTatoueurs from "./ButtonOpenFormTatoueurs";
 import GalleryPortfolio from "./GalleryPortfolio";
 
 class ModalPortfolioGuest extends Component {
@@ -37,7 +36,6 @@ class ModalPortfolioGuest extends Component {
               <div className="rightleft"></div>
               <label className="close"></label>
             </div>
-
             <Container>
               <Row>
                 <Col xs="12" lg="5">
@@ -65,12 +63,10 @@ class ModalPortfolioGuest extends Component {
                           </div>
                         </CardTitle>
                         <CardText>
-                         
                           <p className="textPresentation">
                             {portfolio.presentation}
                           </p>
                           <p className="GuestSubtitle">Disponibilités : <br/> du {portfolio.startdate} au {portfolio.enddate}.</p>
-                        {/* < ButtonOpenFormTatoueurs/> */}
                         </CardText>
                       </CardBody>
                     </Card>
@@ -81,10 +77,6 @@ class ModalPortfolioGuest extends Component {
                   <GalleryPortfolio portfolio={portfolio} />
                   </div>
                 </Col>
-
-              
-                
-             
               </Row>
             </Container>
           </aside>

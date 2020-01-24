@@ -23,6 +23,7 @@
     font-weight: 600;
     font-size: 95px;
     animation: slidein2 1s;
+    -webkit-animation: slidein2 1s;
 }
 
 .ThirdLineAgency {
@@ -33,17 +34,18 @@
     color: rgb(97, 85, 74);
     letter-spacing: 0 !important;
     animation: slidein3 1s;
+    -webkit-animation: slidein3 1s;
 }
 
-.FirstLineTeam {
-    font-family: South_Gardens_Personal_Use;
-    letter-spacing: 0 !important;
-    color: rgb(97, 85, 74);
-}
 
-.SecondLineTeam {
-    font-family: FalkinSerifItalicPERSONAL;
-    font-weight: 600;
-    font-size: 130px;
-    margin-top: 10px;
+@media (max-width: 768px) {
+    .SecondLineAgency {
+        font-size: 70px;
+        transition: .3s;
+    }
+    
+    .ThirdLineAgency {
+        font-size: 45px;
+        transition: .3s;
+    }
 }

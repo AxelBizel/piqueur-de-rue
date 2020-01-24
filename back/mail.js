@@ -7,7 +7,7 @@ const sgMail = require('@sendgrid/mail')
 const sendMail = async (customer) => {
   try {
     const msg1 = {
-      to: 'ludovic.mazet@gmail.com',
+      to: 'chadieleman@gmail.com',
       from: 'fredCarillo@piqueurderuetest.com',
       subject: 'Votre contact Client :',
       html: `${customer.firstname} ${customer.lastname} (${customer.age} ans) vous a envoyé son projet.
@@ -26,7 +26,6 @@ const sendMail = async (customer) => {
   }
 }
 
-
 //---------------------------------------------------------------------------------
 //partie concernant Sengrid = gérer l'envoi du mail guest
 //---------------------------------------------------------------------------------
@@ -34,7 +33,7 @@ const sendMail = async (customer) => {
 const sendMailGuest = async (guest) => {
   try {
     const msg2 = {
-      to: 'ludovic.mazet@gmail.com',
+      to: 'chadieleman@gmail.com',
       from: 'fredCarillo@piqueurderuetest.com',
       subject: 'Votre contact Guest :',
       html: ` ${guest.firstnameG} ${guest.lastnameG} vous a envoyé un mail.

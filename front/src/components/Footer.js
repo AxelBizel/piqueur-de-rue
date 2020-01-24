@@ -38,8 +38,6 @@ export default class Footer extends Component {
     <div>
       <div className="footer">
         <Container>
-        <input type="file" multiple name="file" accept="image/png, image/jpeg, image/jpg" onChange={this.onChangeHandler}/>
-        <button type="button" class="btn btn-success btn-block" onClick={this.onClickHandler}>Upload</button>
           <Row>
             <Col xs="12" lg="4">
               <div className="adresse" data-aos="fade-right">
@@ -55,18 +53,8 @@ export default class Footer extends Component {
                   <br />
                 </p>
                 <div className="RS">
-                  <a
-                    href="https://www.facebook.com/piqueurderue/"
-                    target="_blank"
-                  >
-                    <img className="logoRS" src={logoFB} />
-                  </a>
-                  <a
-                    href="https://www.instagram.com/piqueurderue/?hl=fr"
-                    target="_blank"
-                  >
-                    <img className="logoRS" src={logoIG} />
-                  </a>
+                  <a href="https://www.facebook.com/piqueurderue/" target="_blank"><img className="logoRS" src={logoFB} /></a>
+                  <a href="https://www.instagram.com/piqueurderue/?hl=fr" target="_blank"><img className="logoRS" src={logoIG} /></a>
                 </div>
               </div>
             </Col>

@@ -78,16 +78,15 @@ class YourProjectAccordion extends Component {
     return (
       <div >
         <h1 className="HeaderSection">
-          <div className="FirstLineProject" data-aos="fade-right">Votre</div>
-          <div className="SecondLineProject" data-aos="fade-right">Projet</div>
-          <div className="ThirdLineProject" data-aos="fade-left">TATTOO</div>
+          <div className="FirstTitleLineProject" data-aos="fade-right">Votre</div>
+          <div className="SecondTitleLineProject" data-aos="fade-right">Projet</div>
+          <div className="ThirdTitleLineProject" data-aos="fade-left">TATTOO</div>
         </h1>
         <Container>
           {sections.map((section, index) => {
             return (
               <Card style={{ marginBottom: "1rem" }} key={section.id}>
                 <CardHeader
-                  data-aos-duration= {index*800}
                   onClick={this.toggle}
                   data-event={section.id}
                   style={{

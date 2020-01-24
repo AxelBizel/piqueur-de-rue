@@ -27,7 +27,7 @@ class ButtonOpenPortfolio extends Component {
   closeModal = () => {
     let { showModal } = this.state;
     showModal = false;
-    setTimeout(() => this.setState({ showModal }), 500);
+    this.setState({ showModal });
   };
 
   render() {
