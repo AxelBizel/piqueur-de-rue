@@ -24,6 +24,8 @@ class AdminAddPortfolio extends Component {
         type: "team",
         presentation: "",
         insta: "",
+        startdate:"",
+        enddate:"",
         style: ""
       },
       active: true
@@ -151,12 +153,35 @@ class AdminAddPortfolio extends Component {
 
               <FormGroup>
                 <Label for="style">Style :</Label>
-
                 <Input
                   type="text"
                   name="style"
                   id="style"
                   placeholder="Ajouter un style"
+                  onChange={this.onChange}
+                  required
+                />
+              </FormGroup>
+
+              <FormGroup>
+                <Label for="startdate">Date de début :</Label>
+                <Input
+                  type="text"
+                  name="startdate"
+                  id="startdate"
+                  placeholder="Ajouter une date de début en toutes lettres (pour les guests uniquement)"
+                  onChange={this.onChange}
+                  required
+                />
+              </FormGroup>
+
+              <FormGroup>
+                <Label for="style">Date de fin :</Label>
+                <Input
+                  type="text"
+                  name="endtdate"
+                  id="enddate"
+                  placeholder="Ajouter une date de fin en toutes lettres (pour les guests uniquement)"
                   onChange={this.onChange}
                   required
                 />

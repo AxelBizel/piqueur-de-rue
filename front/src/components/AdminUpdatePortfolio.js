@@ -23,6 +23,8 @@ class AdminUpdatePortfolio extends Component {
         type: "",
         presentation: "",
         insta: "",
+        startdate: "",
+        enddate: "",
         style: "",
         ...props.portfolio
       },
@@ -88,9 +90,7 @@ class AdminUpdatePortfolio extends Component {
           <ModalBody>
             <Form>
               <FormGroup>
-                <Label for="pseudo">
-                  Pseudo : {portfolio.pseudo}
-                </Label>
+                <Label for="pseudo">Pseudo : {portfolio.pseudo}</Label>
 
                 <Input
                   onChange={this.onChange}
@@ -110,17 +110,15 @@ class AdminUpdatePortfolio extends Component {
                   onChange={this.onChange}
                   required
                 >
-                  <option>Team</option>
-                  <option>Guest</option>
+                  <option>team</option>
+                  <option>guest</option>
                 </Input>
               </FormGroup>
 
               <FormGroup>
                 <Label for="presentation">
                   Présentation :
-                  <FormText color="muted">
-                    {portfolio.presentation}
-                  </FormText>
+                  <FormText color="muted">{portfolio.presentation}</FormText>
                 </Label>
 
                 <Input
@@ -155,6 +153,42 @@ class AdminUpdatePortfolio extends Component {
                   onChange={this.onChange}
                 />
               </FormGroup>
+
+              {(portfolio.type === "guest" || this.state.newPortfolio.type==='guest') && (
+                <div>
+                  <FormGroup>
+                    <Label for="startdate">
+                      Date de début : {portfolio.startdate}
+                    </Label>
+                    <FormText color="muted">
+                      Uniquement pour les guests
+                    </FormText>
+                    <Input
+                      type="text"
+                      name="startdate"
+                      id="startdate"
+                      placeholder="Modifier la date de début en toutes lettres"
+                      onChange={this.onChange}
+                      required
+                    />
+                  </FormGroup>
+
+                  <FormGroup>
+                    <Label for="style">Date de fin : {portfolio.enddate}</Label>
+                    <FormText color="muted">
+                      Uniquement pour les guests
+                    </FormText>
+                    <Input
+                      type="text"
+                      name="endtdate"
+                      id="enddate"
+                      placeholder="Modifier la date de fin en toutes lettres"
+                      onChange={this.onChange}
+                      required
+                    />
+                  </FormGroup>
+                </div>
+              )}
               <FormGroup>
                 <Label for="portrait">
                   Avatar
