@@ -24,6 +24,8 @@ class AdminAddPortfolio extends Component {
         type: "team",
         presentation: "",
         insta: "",
+        startdate:"",
+        enddate:"",
         style: ""
       },
       active: true
@@ -151,7 +153,6 @@ class AdminAddPortfolio extends Component {
 
               <FormGroup>
                 <Label for="style">Style :</Label>
-
                 <Input
                   type="text"
                   name="style"
@@ -161,6 +162,42 @@ class AdminAddPortfolio extends Component {
                   required
                 />
               </FormGroup>
+
+              {this.state.newPortfolio.type==='guest' && (
+                <div>
+                  <FormGroup>
+                    <Label for="startdate">
+                      Date de début : 
+                    </Label>
+                    <FormText color="muted">
+                      Uniquement pour les guests
+                    </FormText>
+                    <Input
+                      type="text"
+                      name="startdate"
+                      id="startdate"
+                      placeholder="Modifier la date de début en toutes lettres"
+                      onChange={this.onChange}
+                      required
+                    />
+                  </FormGroup>
+
+                  <FormGroup>
+                    <Label for="style">Date de fin :</Label>
+                    <FormText color="muted">
+                      Uniquement pour les guests
+                    </FormText>
+                    <Input
+                      type="text"
+                      name="endtdate"
+                      id="enddate"
+                      placeholder="Modifier la date de fin en toutes lettres"
+                      onChange={this.onChange}
+                      required
+                    />
+                  </FormGroup>
+                </div>
+              )}
 
               <FormGroup>
                 <Label for="avatar">
@@ -173,7 +210,7 @@ class AdminAddPortfolio extends Component {
                   type="file"
                   name="avatar"
                   id="avatar"
-                  accept="image/png, image/jpeg, image/jpg"
+                  accept="image/jpeg, image/jpg"
                   onChange={this.imageHandler}
                   required
                 />
@@ -194,6 +231,7 @@ class AdminAddPortfolio extends Component {
                   id="realisations"
                   multiple
                 />
+                <Button onClick={this.onUpload}>Upload</Button>
               </FormGroup>
             </Form>
           </ModalBody>

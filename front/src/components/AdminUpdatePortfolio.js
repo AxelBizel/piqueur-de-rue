@@ -23,6 +23,8 @@ class AdminUpdatePortfolio extends Component {
         type: "",
         presentation: "",
         insta: "",
+        startdate: "",
+        enddate: "",
         style: "",
         ...props.portfolio
       },
@@ -69,6 +71,30 @@ class AdminUpdatePortfolio extends Component {
         this.toggle();
       });
   };
+  imageHandler = event => {
+    this.setState({
+      selectedAvatar: event.target.files[0],
+      loaded: 0
+    });
+    console.log(event.target.files[0]);
+  };
+
+  onUpload = () => {
+    const data = new FormData();
+    data.append("file", this.state.selectedAvatar);
+    axios
+      .post(
+        `http://localhost:5000/upload/portfolio/${this.props.index}/avatar`,
+        data,
+        {
+          // receive two    parameter endpoint url ,form data
+        }
+      )
+      .then(res => {
+        // then print response status
+        console.log(res.statusText);
+      });
+  };
 
   render() {
     const { modal } = this.state;
@@ -88,9 +114,7 @@ class AdminUpdatePortfolio extends Component {
           <ModalBody>
             <Form>
               <FormGroup>
-                <Label for="pseudo">
-                  Pseudo : {portfolio.pseudo}
-                </Label>
+                <Label for="pseudo">Pseudo : {portfolio.pseudo}</Label>
 
                 <Input
                   onChange={this.onChange}
@@ -110,17 +134,15 @@ class AdminUpdatePortfolio extends Component {
                   onChange={this.onChange}
                   required
                 >
-                  <option>Team</option>
-                  <option>Guest</option>
+                  <option>team</option>
+                  <option>guest</option>
                 </Input>
               </FormGroup>
 
               <FormGroup>
                 <Label for="presentation">
                   Présentation :
-                  <FormText color="muted">
-                    {portfolio.presentation}
-                  </FormText>
+                  <FormText color="muted">{portfolio.presentation}</FormText>
                 </Label>
 
                 <Input
@@ -155,6 +177,43 @@ class AdminUpdatePortfolio extends Component {
                   onChange={this.onChange}
                 />
               </FormGroup>
+
+              {(portfolio.type === "guest" ||
+                this.state.newPortfolio.type === "guest") && (
+                <div>
+                  <FormGroup>
+                    <Label for="startdate">
+                      Date de début : {portfolio.startdate}
+                    </Label>
+                    <FormText color="muted">
+                      Uniquement pour les guests
+                    </FormText>
+                    <Input
+                      type="text"
+                      name="startdate"
+                      id="startdate"
+                      placeholder="Modifier la date de début en toutes lettres"
+                      onChange={this.onChange}
+                      required
+                    />
+                  </FormGroup>
+
+                  <FormGroup>
+                    <Label for="style">Date de fin : {portfolio.enddate}</Label>
+                    <FormText color="muted">
+                      Uniquement pour les guests
+                    </FormText>
+                    <Input
+                      type="text"
+                      name="endtdate"
+                      id="enddate"
+                      placeholder="Modifier la date de fin en toutes lettres"
+                      onChange={this.onChange}
+                      required
+                    />
+                  </FormGroup>
+                </div>
+              )}
               <FormGroup>
                 <Label for="portrait">
                   Avatar
@@ -162,8 +221,34 @@ class AdminUpdatePortfolio extends Component {
                     Merci d'uploader une image carrée (idéalement 500px X 500px)
                   </FormText>
                 </Label>
-                <Input type="file" name="avatar" id="avatar" />
+                <Input
+                  type="file"
+                  name="avatar"
+                  id="avatar"
+                  accept="image/jpeg, image/jpg"
+                  onChange={this.imageHandler}
+                />
+                <Button onClick={this.onUpload}>Upload</Button>
               </FormGroup>
+
+              <FormGroup>
+                <Label for="réalisations">
+                  Réalisations
+                  <FormText color="muted">
+                    Merci d'uploader des images carrées (idéalement 500px X
+                    500px)
+                  </FormText>
+                </Label>
+                <Input
+                  type="file"
+                  name="realisations"
+                  id="realisations"
+                  multiple
+                />
+                 <Button onClick={this.onUpload}>Upload</Button>
+              </FormGroup>
+
+
             </Form>
           </ModalBody>
           <ModalFooter>
