@@ -13,25 +13,34 @@ import {
   ModalFooter
 } from "reactstrap";
 
-class AdminAddPortfolio extends Component {
+class AdminUpdatePortfolio extends Component {
   constructor(props) {
     super(props);
     this.state = {
       modal: false,
-      selectedAvatar: null,
       newPortfolio: {
         pseudo: "",
-        type: "team",
+        type: "",
         presentation: "",
         insta: "",
-        style: ""
+        style: "",
+        ...props.portfolio
       },
       active: true
     };
   }
 
+  getNewPortfolio = () => ({
+    pseudo: "",
+    type: "",
+    presentation: "",
+    insta: "",
+    style: ""
+  });
+
   toggle = () => {
     const { modal } = this.state;
+    this.props.getCurrentProfile();
     this.setState({ modal: !modal });
   };
 
@@ -47,42 +56,23 @@ class AdminAddPortfolio extends Component {
 
   handleSubmit = event => {
     event.preventDefault();
+
     let { newPortfolio } = this.state;
+    let { portfolio } = this.props;
     axios
-      .post("http://localhost:5000/admin/portfolio/", newPortfolio)
+      .put(
+        `http://localhost:5000/admin/portfolio/${portfolio.id}`,
+        newPortfolio
+      )
       .then(() => {
         alert("Modifications prises en compte.");
         this.toggle();
       });
   };
 
-  imageHandler = event => {
-    this.setState({
-      selectedAvatar: event.target.files[0],
-      loaded: 0
-    });
-    console.log(event.target.files[0]);
-  };
-
-  onUpload = () => {
-    const data = new FormData();
-    data.append("file", this.state.selectedAvatar);
-    axios
-      .post(
-        `http://localhost:5000/upload/portfolio/${this.props.index}/avatar`,
-        data,
-        {
-          // receive two    parameter endpoint url ,form data
-        }
-      )
-      .then(res => {
-        // then print response status
-        console.log(res.statusText);
-      });
-  };
-
   render() {
     const { modal } = this.state;
+    const { portfolio } = this.props;
 
     return (
       <div>
@@ -94,24 +84,25 @@ class AdminAddPortfolio extends Component {
         </Button>
 
         <Modal isOpen={modal} fade={false} toggle={this.toggle}>
-          <ModalHeader toggle={this.toggle}>Ajouter un portfolio</ModalHeader>
+          <ModalHeader toggle={this.toggle}>Modifier le portfolio</ModalHeader>
           <ModalBody>
             <Form>
               <FormGroup>
-                <Label for="pseudo">Pseudo :</Label>
+                <Label for="pseudo">
+                  Pseudo : {portfolio.pseudo}
+                </Label>
 
                 <Input
                   onChange={this.onChange}
                   type="text"
                   name="pseudo"
                   id="pseudo"
-                  placeholder="Ajouter un pseudo"
-                  required
+                  placeholder="modifier le pseudo"
                 />
               </FormGroup>
 
               <FormGroup>
-                <Label for="type">Type :</Label>
+                <Label for="type">Type : {portfolio.type}</Label>
                 <Input
                   type="select"
                   name="type"
@@ -119,81 +110,59 @@ class AdminAddPortfolio extends Component {
                   onChange={this.onChange}
                   required
                 >
-                  <option>team</option>
-                  <option>guest</option>
+                  <option>Team</option>
+                  <option>Guest</option>
                 </Input>
               </FormGroup>
 
               <FormGroup>
-                <Label for="presentation">Présentation :</Label>
+                <Label for="presentation">
+                  Présentation :
+                  <FormText color="muted">
+                    {portfolio.presentation}
+                  </FormText>
+                </Label>
 
                 <Input
                   onChange={this.onChange}
                   type="textarea"
                   name="presentation"
                   id="presentation"
-                  placeholder="Ajouter un texte de présentation"
-                  required
+                  placeholder="Modifier le texte de présentation"
                 />
               </FormGroup>
 
               <FormGroup>
-                <Label for="insta">Instagram : </Label>
+                <Label for="insta">Instagram : {portfolio.insta}</Label>
 
                 <Input
                   type="text"
                   name="insta"
                   id="insta"
-                  placeholder="Ajouter un lien instagram"
+                  placeholder="Modifier le lien instagram"
                   onChange={this.onChange}
                 />
               </FormGroup>
 
               <FormGroup>
-                <Label for="style">Style :</Label>
+                <Label for="style">Style : {portfolio.style}</Label>
 
                 <Input
                   type="text"
                   name="style"
                   id="style"
-                  placeholder="Ajouter un style"
+                  placeholder="modifier le style"
                   onChange={this.onChange}
-                  required
                 />
               </FormGroup>
-
               <FormGroup>
-                <Label for="avatar">
+                <Label for="portrait">
                   Avatar
                   <FormText color="muted">
                     Merci d'uploader une image carrée (idéalement 500px X 500px)
                   </FormText>
                 </Label>
-                <Input
-                  type="file"
-                  name="avatar"
-                  id="avatar"
-                  accept="image/png, image/jpeg, image/jpg"
-                  onChange={this.imageHandler}
-                  required
-                />
-                <Button onClick={this.onUpload}>Upload</Button>
-              </FormGroup>
-
-              <FormGroup>
-                <Label for="réalisations">
-                  Réalisations
-                  <FormText color="muted">
-                    Merci d'uploader des images carrées (idéalement 500px X
-                    500px)
-                  </FormText>
-                </Label>
-                <Input
-                  type="file"
-                  name="realisations"
-                  id="realisations"
-                  multiple
-                />
+                <Input type="file" name="avatar" id="avatar" />
               </FormGroup>
             </Form>
           </ModalBody>
@@ -211,4 +180,4 @@ class AdminAddPortfolio extends Component {
   }
 }
 
-export default AdminAddPortfolio;
+export default AdminUpdatePortfolio;

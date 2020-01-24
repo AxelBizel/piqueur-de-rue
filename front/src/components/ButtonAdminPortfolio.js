@@ -40,6 +40,7 @@ class ButtonAdminPortfolio extends Component {
   //   this.onChange = this.onChange.bind(this);
   // }
 
+  
   toggle = () => {
     const { modal } = this.state;
     this.props.getCurrentProfile();
@@ -54,13 +55,13 @@ class ButtonAdminPortfolio extends Component {
     this.setState({ item })
 }
 
-handleSubmit = (event) => {
+handleSubmit = (event, id) => {
   let { item } = this.state;
   axios
-      .put("http://localhost:5000/admin/portfolio", item)
+      .put(`http://localhost:5000/admin/portfolio/${id}`,item)
       .then(console.log("update yaaaaa"))
   this.setState({
-      customer: this.item(),
+      item: this.getItem(),
   })
   event.preventDefault();
 }
@@ -123,7 +124,8 @@ handleSubmit = (event) => {
                 for="presentation">
                   Présentation :{" "}
                   <FormText color="muted">
-                    {this.props.portfolio.presentation}
+                    {/* {this.props.portfolio.presentation} */}
+                    {this.state.presentation}
                   </FormText>
                 </Label>
 

@@ -1,9 +1,17 @@
 import React, { Component } from "react";
 import axios from "axios";
 import { Container, Row, Col, CustomInput, Table } from "reactstrap";
-import ButtonAdminPortfolio from "./ButtonAdminPortfolio";
+import AdminUpdatePortfolio from "./AdminUpdatePortfolio";
 import AdminAddPortfolio from "./AdminAddPortfolio";
+// import User from './User'
+import Logout from "./Logout";
 
+const StyleLogout = {
+  display : "flex",
+  justifyContent : "center",
+  alignItems : "center",
+  padding : "70px",
+}
 class AdminProfile extends Component {
   state = {
     active: false,
@@ -63,7 +71,9 @@ class AdminProfile extends Component {
     }
   };
 
+
   render() {
+   
     return (
       <div>
         <Container>
@@ -108,13 +118,14 @@ class AdminProfile extends Component {
                         ></CustomInput>
                       </td>
                       <td>
-                        <ButtonAdminPortfolio
+                        <AdminUpdatePortfolio
                           key={`profile-${index}`}
                           getCurrentProfile={() => this.getProfile(pf.id)}
-                          portfolio={this.state.selectedPortfolio}
+                          portfolio={pf}
+                          index={index}
                         >
                           Détails
-                        </ButtonAdminPortfolio>
+                        </AdminUpdatePortfolio>
                       </td>
                     </tr>
                   ))}
@@ -126,7 +137,7 @@ class AdminProfile extends Component {
                       <strong>Ajouter un portfolio</strong>
                     </td>
                     <td colSpan="2">
-                      <AdminAddPortfolio>Ajouter</AdminAddPortfolio>
+                      <AdminAddPortfolio index={this.state.portfolios.length+1}>Ajouter</AdminAddPortfolio>
                     </td>
                   </tr>
                 </tfoot>
@@ -134,6 +145,9 @@ class AdminProfile extends Component {
             </Col>
           </Row>
         </Container>
+        <div style={StyleLogout}>
+          <Logout/>
+        </div>
       </div>
     );
   }
