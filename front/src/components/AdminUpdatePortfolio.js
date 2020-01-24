@@ -32,13 +32,6 @@ class AdminUpdatePortfolio extends Component {
     };
   }
 
-  getNewPortfolio = () => ({
-    pseudo: "",
-    type: "",
-    presentation: "",
-    insta: "",
-    style: ""
-  });
 
   toggle = () => {
     const { modal } = this.state;
@@ -69,8 +62,10 @@ class AdminUpdatePortfolio extends Component {
       .then(() => {
         alert("Modifications prises en compte.");
         this.toggle();
+        this.onUpload();
       });
   };
+
   imageHandler = event => {
     this.setState({
       selectedAvatar: event.target.files[0],
@@ -228,7 +223,6 @@ class AdminUpdatePortfolio extends Component {
                   accept="image/jpeg, image/jpg"
                   onChange={this.imageHandler}
                 />
-                <Button onClick={this.onUpload}>Upload</Button>
               </FormGroup>
 
               <FormGroup>

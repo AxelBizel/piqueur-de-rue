@@ -54,6 +54,7 @@ class AdminAddPortfolio extends Component {
       .post("http://localhost:5000/admin/portfolio/", newPortfolio)
       .then(() => {
         alert("Modifications prises en compte.");
+        this.onUpload();
         this.toggle();
       });
   };
@@ -214,7 +215,6 @@ class AdminAddPortfolio extends Component {
                   onChange={this.imageHandler}
                   required
                 />
-                <Button onClick={this.onUpload}>Upload</Button>
               </FormGroup>
 
               <FormGroup>
