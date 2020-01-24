@@ -59,7 +59,7 @@ class PortfolioSection extends Component {
                         backgroundImage:
                           "url(http://localhost:5000/img/" +
                           `${portfolio.id}` +
-                          "/portrait.jpg)"
+                          "/portrait)"
                       }}
                     >
                       <ButtonOpenPortfolio portfolio={portfolio} />

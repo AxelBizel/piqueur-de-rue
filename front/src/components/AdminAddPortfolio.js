@@ -19,6 +19,7 @@ class AdminAddPortfolio extends Component {
     this.state = {
       modal: false,
       selectedAvatar: null,
+      selectedImages:null,
       newPortfolio: {
         pseudo: "",
         type: "team",
@@ -55,6 +56,7 @@ class AdminAddPortfolio extends Component {
       .then(() => {
         alert("Modifications prises en compte.");
         this.onUpload();
+        this.onUploadMultiple();
         this.toggle();
       });
   };
@@ -67,12 +69,38 @@ class AdminAddPortfolio extends Component {
     console.log(event.target.files[0]);
   };
 
+  imageHandlerMultiple = event => {
+    this.setState({
+      selectedImages: event.target.files,
+        });
+    console.log(event.target.files);
+  };
+
   onUpload = () => {
     const data = new FormData();
     data.append("file", this.state.selectedAvatar);
     axios
       .post(
         `http://localhost:5000/upload/portfolio/${this.props.index}/avatar`,
+        data,
+        {
+          // receive two    parameter endpoint url ,form data
+        }
+      )
+      .then(res => {
+        // then print response status
+        console.log(res.statusText);
+      });
+  };
+
+  onUploadMultiple = () => {
+    const data = new FormData();
+    for (let i= 0; i < this.state.selectedImages.length; i++) {
+      data.append("file", this.state.selectedImages[i]);
+    }
+    axios
+      .post(
+        `http://localhost:5000/upload/portfolio/${this.props.index}/images`,
         data,
         {
           // receive two    parameter endpoint url ,form data
@@ -211,7 +239,7 @@ class AdminAddPortfolio extends Component {
                   type="file"
                   name="avatar"
                   id="avatar"
-                  accept="image/jpeg, image/jpg"
+                  accept="image/jpeg, image/jpg, image/png, image/gif"
                   onChange={this.imageHandler}
                   required
                 />
@@ -229,9 +257,9 @@ class AdminAddPortfolio extends Component {
                   type="file"
                   name="realisations"
                   id="realisations"
+                  onChange={this.imageHandlerMultiple}
                   multiple
                 />
-                <Button onClick={this.onUpload}>Upload</Button>
               </FormGroup>
             </Form>
           </ModalBody>

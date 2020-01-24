@@ -68,7 +68,7 @@ class GuestHome extends Component {
                       margin: "2vh auto",
                       backgroundImage:  "url(http://localhost:5000/img/" +
                       `${portfolio.id}` +
-                      "/portrait.jpg)"
+                      "/portrait)"
                     }}
                   >
                     <Row>

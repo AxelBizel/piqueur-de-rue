@@ -220,7 +220,7 @@ class AdminUpdatePortfolio extends Component {
                   type="file"
                   name="avatar"
                   id="avatar"
-                  accept="image/jpeg, image/jpg"
+                  accept="image/jpeg, image/jpg, image/png, image/gif"
                   onChange={this.imageHandler}
                 />
               </FormGroup>
@@ -237,6 +237,7 @@ class AdminUpdatePortfolio extends Component {
                   type="file"
                   name="realisations"
                   id="realisations"
+                  accept="image/jpeg, image/jpg, image/png, image/gif"
                   multiple
                 />
                  <Button onClick={this.onUpload}>Upload</Button>

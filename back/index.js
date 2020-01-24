@@ -12,7 +12,7 @@ const http = require("http");
 const fs = require("fs");
 const multer = require("multer");
 const avatarUpload = multer({ storage: avatarStorage }).single("file");
-const imagesUpload = multer({ storage: imagesStorage }).single("file");
+const imagesUpload = multer({ storage: imagesStorage }).array("file");
 
 // Middlewares
 app.use(bodyParser.json());
@@ -55,7 +55,7 @@ app.post(`/upload/portfolio/:id/avatar`, function(req, res) {
 
 //////Upload des images realisation
 app.post(`/upload/portfolio/:id/images`, function(req, res) {
-  avatarUpload(req, res, function(err) {
+  imagesUpload(req, res, function(err) {
     if (err instanceof multer.MulterError) {
       return res.status(500).json(err);
     } else if (err) {
