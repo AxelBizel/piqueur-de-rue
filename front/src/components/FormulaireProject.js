@@ -58,7 +58,7 @@ class FormulaireProject extends Component {
             <div>
                 {this.state.showConfirmation === false ? (
                 <form className="FlexFormContainerProject" onSubmit={this.handleSubmit} method="POST" action='/api/customers'>
-                    <h1>Formulaire de contact</h1>
+                    <h1 className="titleContactForm">Formulaire de contact</h1>
                     <div>
                     <Container>
                         <Row >
