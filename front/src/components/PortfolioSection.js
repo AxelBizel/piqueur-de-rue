@@ -4,7 +4,6 @@ import ButtonOpenPortfolio from "./ButtonOpenPortfolio";
 import { Container, Row, Col, Spinner } from "reactstrap";
 import "./PortfolioSection.css";
 import "aos/dist/aos.css";
-import { urlencoded } from "body-parser";
 
 class PortfolioSection extends Component {
   constructor(props) {
@@ -25,7 +24,7 @@ class PortfolioSection extends Component {
   render() {
     const { portfolios } = this.state;
     return (
-      <div id="permanentartists">
+      <div id="PortfolioSection">
         <div>
           <h1 className="HeaderSection">
             <div className="FirstTitleLineTeam" data-aos="fade-right">
@@ -50,9 +49,9 @@ class PortfolioSection extends Component {
                 portfolios.map((portfolio, index) => (
                   <Col xs="12" md="6" lg="3">
                     <div
-                      // data-aos-duration={index * 800}
-                      // data-aos="fade-up"
                       className="Artists"
+                      data-aos-duration={index * 800}
+                      data-aos="fade-up"
                       key={`portfolio-${index}`}
                       style={{
                         margin: "2vh auto",

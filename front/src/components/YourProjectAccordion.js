@@ -87,7 +87,6 @@ class YourProjectAccordion extends Component {
             return (
               <Card style={{ marginBottom: "1rem" }} key={section.id}>
                 <CardHeader
-                  data-aos-duration= {index*800}
                   onClick={this.toggle}
                   data-event={section.id}
                   style={{

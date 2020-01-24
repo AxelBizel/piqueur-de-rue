@@ -23,6 +23,7 @@
     font-weight: 600;
     font-size: 95px;
     animation: slidein2 1s;
+    -webkit-animation: slidein2 1s;
 }
 
 .ThirdLineAgency {
@@ -33,6 +34,7 @@
     color: rgb(97, 85, 74);
     letter-spacing: 0 !important;
     animation: slidein3 1s;
+    -webkit-animation: slidein3 1s;
 }
 
 

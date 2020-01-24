@@ -41,7 +41,6 @@ class FormulaireProject extends Component {
     //     this.setState({ customer })
     // }
 
-
     handleSubmit = (event) => {
         let { customer } = this.state;
         axios
@@ -53,7 +52,6 @@ class FormulaireProject extends Component {
         })
         event.preventDefault();
     }
-
 
     render() {
         return (
@@ -91,8 +89,6 @@ class FormulaireProject extends Component {
                         </Row>
                         <textarea className="inputForm" name="story" onChange={this.handleChange} value={this.state.story} placeholder="Envie de nous en dire plus :">
                         </textarea>
-                        
-                    {/* <div><p>Photos d'exemples ?</p><input type="file" id="avatar" name="avatar" accept="image/png, image/jpeg"></input></div> */}
                     </Container>
                     
                     </div>
