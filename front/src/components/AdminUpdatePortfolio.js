@@ -84,7 +84,7 @@ class AdminUpdatePortfolio extends Component {
     data.append("file", this.state.selectedAvatar);
     axios
       .post(
-        `http://localhost:5000/upload/portfolio/${this.props.index}/avatar`,
+        `http://localhost:5000/upload/portfolio/${this.props.portfolio.id}/avatar`,
         data,
         {
           // receive two    parameter endpoint url ,form data
