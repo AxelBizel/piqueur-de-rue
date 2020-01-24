@@ -15,7 +15,7 @@ const avatarStorage = multer.diskStorage({
   },
   filename: function(req, file, cb) {
   
-    cb(null, "portrait.jpg");
+    cb(null, "portrait");
   }
 });
 
@@ -28,7 +28,7 @@ const imagesStorage = multer.diskStorage({
     cb(null, path);
   },
   filename: function(req, file, cb) {
-    cb(null, file.filename);
+    cb(null, file.originalname);
   }
 });
 

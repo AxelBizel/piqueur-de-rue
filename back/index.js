@@ -12,7 +12,7 @@ const http = require("http");
 const fs = require("fs");
 const multer = require("multer");
 const avatarUpload = multer({ storage: avatarStorage }).single("file");
-const imagesUpload = multer({ storage: imagesStorage }).single("file");
+const imagesUpload = multer({ storage: imagesStorage }).array("files");
 
 // Middlewares
 app.use(bodyParser.json());
@@ -33,35 +33,47 @@ app.get("/", function(request, response) {
 
 //Upload des images avatar
 app.post(`/upload/portfolio/:id/avatar`, function(req, res) {
-  const infoAvatar = {
-    alt_text: "portrait du tatoueur",
-    active: "0",
-    path: `http://localhost:5000/img/${req.params.id}/portrait.jpg `,
-    portfolio_id: `${req.params.id}`
-  };
-  console.log(infoAvatar);
-  connection.query("INSERT INTO images SET ?", infoAvatar);
-  //probleme gestion erreur sql
+
   avatarUpload(req, res, function(err) {
     if (err instanceof multer.MulterError) {
       return res.status(500).json(err);
     } else if (err) {
       return res.status(500).json(err);
+    } else {
+      const infoAvatar = {
+        alt_text: "portrait du tatoueur",
+        active: "0",
+        path: `http://localhost:5000/img/${req.params.id}/portrait.jpg `,
+        portfolio_id: `${req.params.id}`
+      };
+      console.log(infoAvatar);
+      connection.query("INSERT INTO images SET ?", infoAvatar);
+      return res.status(200).send(req.file);
     }
 
-    return res.status(200).send(req.file);
   });
 });
 
 //////Upload des images realisation
 app.post(`/upload/portfolio/:id/images`, function(req, res) {
-  avatarUpload(req, res, function(err) {
+  imagesUpload(req, res, function(err) {
     if (err instanceof multer.MulterError) {
       return res.status(500).json(err);
     } else if (err) {
       return res.status(500).json(err);
+    } else {
+      for (let i = 0; i < req.files.length; i++) {
+        const infoImages = {
+          alt_text: `${req.files[i].originalname}`,
+          active: "1",
+          path: `http://localhost:5000/img/${req.params.id}/${req.files[i].originalname} `,
+          portfolio_id: `${req.params.id}`
+        };
+        connection.query("INSERT INTO images SET ?", infoImages);
+      }
+      console.log(req.files);
+      return res.status(200).send(req.file);
     }
-    return res.status(200).send(req.file);
   });
 });
 

@@ -1,3 +1,7 @@
+.permanentArtists{
+  margin-bottom: 15vh;
+}
+
 .Artists {
   display: flex;
   flex-direction: row;
