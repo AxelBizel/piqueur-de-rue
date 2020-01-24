@@ -12,7 +12,6 @@ class ModalFormProject extends Component {
     }; 
   } 
 
-
   render() {
     const { showModalFormProject } = this.props;
     return (

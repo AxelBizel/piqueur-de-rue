@@ -52,19 +52,19 @@
                     <form className="FlexFormContainerGuests" onSubmit={this.handleSubmitFormGuest} method="POST" action='/api/guests'>
                         <h1 className="h1formGuest">Devenez GUEST</h1>
 
-                        <input className="inputForm" name="firstnameG" type="text" onChange={this.handleChangeInputForm} value={this.state.firstnameG} placeholder="Votre prénom :" required></input>
+                        <input className="inputForm" name="firstnameG" type="text" onChange={this.handleChangeInputGuest} value={this.state.firstnameG} placeholder="Votre prénom :" required></input>
 
-                        <input className="inputForm" name="lastnameG" type="text" onChange={this.handleChangeInputForm} value={this.state.lastnameG} placeholder="Votre nom :" required></input>
+                        <input className="inputForm" name="lastnameG" type="text" onChange={this.handleChangeInputGuest} value={this.state.lastnameG} placeholder="Votre nom :" required></input>
 
-                        <input className="inputForm" name="pseudoG" type="text" onChange={this.handleChangeInputForm} value={this.state.pseudoG} placeholder="Votre pseudo :" ></input>
+                        <input className="inputForm" name="pseudoG" type="text" onChange={this.handleChangeInputGuest} value={this.state.pseudoG} placeholder="Votre pseudo :" ></input>
                         
-                        <input className="inputForm" name="phoneG" type="tel" onChange={this.handleChangeInputForm} value={this.state.phoneG} size={10} minLength={1} maxLength={10} placeholder="Votre numéro de téléphone :" required></input>
+                        <input className="inputForm" name="phoneG" type="tel" onChange={this.handleChangeInputGuest} value={this.state.phoneG} size={10} minLength={1} maxLength={10} placeholder="Votre numéro de téléphone :" required></input>
                         
-                        <input className="inputForm" name="emailG" type="email" onChange={this.handleChangeInputForm} value={this.state.emailG} placeholder="Votre adresse mail :" required></input>
+                        <input className="inputForm" name="emailG" type="email" onChange={this.handleChangeInputGuest} value={this.state.emailG} placeholder="Votre adresse mail :" required></input>
                         
-                        <input className="inputForm" name="compteG" type="text" onChange={this.handleChangeInputForm} value={this.state.compteG} placeholder="Où voir vos photos ?"></input>
+                        <input className="inputForm" name="compteG" type="text" onChange={this.handleChangeInputGuest} value={this.state.compteG} placeholder="Où voir vos photos ?"></input>
                         
-                        <textarea className="inputForm" name="storyG" rows="5" cols="33" onChange={this.handleChangeInputForm} value={this.state.storyG} placeholder="Dîtes-nous en plus ici : ">
+                        <textarea className="inputForm" name="storyG" rows="5" cols="33" onChange={this.handleChangeInputGuest} value={this.state.storyG} placeholder="Dîtes-nous en plus ici : ">
                         </textarea>
                         
                         <button className="buttonForm" type="submit">
