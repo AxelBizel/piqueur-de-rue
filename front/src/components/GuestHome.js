@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Parallax } from 'react-parallax';
+import { Parallax } from "react-parallax";
 import ButtonOpenFormGuests from "./ButtonOpenFormGuests";
 import { Container, Col, Row, Spinner } from "reactstrap";
 import ButtonPortfolioGuest from "./ButtonPortfolioGuest";
@@ -40,14 +40,16 @@ class GuestHome extends Component {
     const { portfolios } = this.state;
     return (
       <div>
-        <h1 className="HeaderSection">
-          <div className="FirstTitleLineGuest" data-aos="fade-right">
-            Guest
-          </div>
-          <div className="SecondTitleLineGuest" data-aos="fade-left">
-            spot
-          </div>
-        </h1>
+        <div>
+          <h1 className="HeaderSection">
+            <div className="FirstTitleLineGuest" data-aos="fade-right">
+              Guest
+            </div>
+            <div className="SecondTitleLineGuest" data-aos="fade-left">
+              spot
+            </div>
+          </h1>
+        </div>
         <Container>
           <Row>
             {portfolios === null ? (
@@ -65,9 +67,10 @@ class GuestHome extends Component {
                     key={portfolio.id}
                     style={{
                       margin: "2vh auto",
-                      backgroundImage:  "url(http://localhost:5000/img/" +
-                      `${portfolio.id}` +
-                      "/portrait)"
+                      backgroundImage:
+                        "url(http://localhost:5000/img/" +
+                        `${portfolio.id}` +
+                        "/portrait)"
                     }}
                   >
                     <Row>
@@ -107,7 +110,7 @@ class GuestHome extends Component {
                       le fonctionnement du shop ainsi que la gestion de votre
                       image.
                     </p>
-                  <ButtonOpenFormGuests /> 
+                    <ButtonOpenFormGuests />
                   </div>
                 </Col>
                 <Col xs="12" md="6"></Col>
