@@ -43,24 +43,26 @@ class Navbar extends React.Component {
                     <NavbarStrap light expand="md">
                         <NavbarToggler onClick={this.toggleNavbar} />
                         <Collapse isOpen={!this.state.collapsed} navbar>
-                            <Nav className="mr-auto" navbar>
-                                <NavItem>
-                                    <NavLink onClick={this.closeNavbar} href="#agency" className="styleLink">L'Agence</NavLink>
-                                </NavItem>
-                                <NavItem>
-                                    <NavLink onClick={this.closeNavbar} href="#permanentartists" className="styleLink">La Team</NavLink>
-                                </NavItem>
-                                <NavItem>
-                                    <NavLink onClick={this.closeNavbar} href="#guests" className="styleLink">Les Guests</NavLink>
-                                </NavItem>
-                                <NavItem>
-                                    <NavLink onClick={this.closeNavbar} href="#yourproject" className="styleLink">Votre Projet</NavLink>
-                                </NavItem>
-                                <NavItem>
-                                    <NavLink onClick={this.closeNavbar} href="#footer" className="styleLink">Contactez-nous</NavLink>
-                                </NavItem>
-                            </Nav>
-                            <NavLink href="/login" className="loginLink">Login</NavLink>
+                            <div className="closeOutside">
+                                <Nav className="mr-auto" navbar>
+                                    <NavItem>
+                                        <NavLink onClick={this.closeNavbar} href="#agency" className="styleLink">L'Agence</NavLink>
+                                    </NavItem>
+                                    <NavItem>
+                                        <NavLink onClick={this.closeNavbar} href="#permanentartists" className="styleLink">La Team</NavLink>
+                                    </NavItem>
+                                    <NavItem>
+                                        <NavLink onClick={this.closeNavbar} href="#guests" className="styleLink">Les Guests</NavLink>
+                                    </NavItem>
+                                    <NavItem>
+                                        <NavLink onClick={this.closeNavbar} href="#yourproject" className="styleLink">Votre Projet</NavLink>
+                                    </NavItem>
+                                    <NavItem>
+                                        <NavLink onClick={this.closeNavbar} href="#footer" className="styleLink">Contactez-nous</NavLink>
+                                    </NavItem>
+                                </Nav>
+                                <NavLink href="/login" className="loginLink">Login</NavLink>
+                            </div>
                         </Collapse>
                     </NavbarStrap>
                 </div>
