@@ -19,15 +19,15 @@ class FormulaireProject extends Component {
     getInitialState = () => ({
         firstname: "",
         lastname: "",
-        age: "",
+        age: null,
         phone: "",
         email: "",
         tattoolocation: "",
-        hauteur: "",
-        largeur: "",
-        budget: "",
+        hauteur: null,
+        largeur: null,
+        budget: null,
         story: "", 
-    }) 
+    })     
 
     handleChange = (e) => {
         const {customer} = this.state;
@@ -35,11 +35,11 @@ class FormulaireProject extends Component {
         this.setState({ customer })
     }
  
-    // handleChangeInteger = (e) => {
-    //     const {customer} = this.state;
-    //     customer[e.target.name]=parseInt(e.target.value);
-    //     this.setState({ customer })
-    // }
+    handleChangeInteger = (e) => {
+        const {customer} = this.state;
+        customer[e.target.name]=parseInt(e.target.value);
+        this.setState({ customer })
+    }
 
 
     handleSubmit = (event) => {
@@ -59,7 +59,7 @@ class FormulaireProject extends Component {
         return (
             <div>
                 {this.state.showConfirmation === false ? (
-                <form className="FlexFormContainerProject" /*onSubmit={this.handleSubmit} method="POST" action='/api/customers'*/>
+                <form className="FlexFormContainerProject" onSubmit={this.handleSubmit} method="POST" action='/api/customers'>
                     <h1>- Formulaire de contact -</h1>
                     <div className="FlexContainerProject">
                     <Container>
