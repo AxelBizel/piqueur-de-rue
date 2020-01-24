@@ -48,6 +48,49 @@ app.post('/upload',function(req, res) {
   })
 });
 
+// app.post('/upload',function(req, res) {
+     
+//   upload(req, res, function (err) {
+//          if (err instanceof multer.MulterError) {
+//              return res.status(500).json(err)
+//          } else if (err) {
+//              return res.status(500).json(err)
+//          }
+//     return res.status(200).send(req.file)
+
+//   })
+
+// });
+
+app.post('/upload',function(req, res) {
+     
+  upload(req, res, function (err) {
+         if (err instanceof multer.MulterError) {
+             return res.status(500).json(err)
+         } else if (err) {
+             return res.status(500).json(err)
+         }
+    return res.status(200).send(req.file)
+
+  })
+
+});
+
+app.post('/upload',function(req, res) {
+     
+  uploadarray(req, res, function (err) {
+         if (err instanceof multer.MulterError) {
+             return res.status(500).json(err)
+         } else if (err) {
+             return res.status(500).json(err)
+         }
+    return res.status(200).send(req.file)
+
+  })
+
+});
+
+
 
 app.post('/login', function (request, response) {
   console.log("login", request.body)

@@ -14,31 +14,76 @@ export default class Footer extends Component {
       }
   }
 
-  onChangeHandler=event=>{
-    this.setState({
-      selectedFile: event.target.files[0],
-      loaded: 0,
-    })
-    console.log(event.target.files[0])
+  // onChangeHandler=event=>{
+  //   this.setState({
+  //     selectedFile: event.target.files[0],
+  //     loaded: 0,
+  //   })
+  //   console.log(event.target.files[0])
+  // }
+
+  // onClickHandler = () => {
+  //   const data = new FormData()
+  //   data.append('file', this.state.selectedFile)
+  //   axios.post("http://localhost:5000/upload", data, { 
+  //      // receive two    parameter endpoint url ,form data
+  //  })
+  //  .then(res => { // then print response status
+  //   console.log(res.statusText)
+  // })
+  // }
+
+onChangeHandler=event=>{
+  this.setState({
+    selectedFile: event.target.files[0],
+    loaded: 0,
+  })
+}
+onChangeHandler=event=>{
+  this.setState({
+   selectedFile: event.target.files,
+  })
+}
+
+onClickHandler = () => {
+  const data = new FormData()
+  data.append('file', this.state.selectedFile)
+  axios.post("http://localhost:5000/upload", data, { 
+     // receive two    parameter endpoint url ,form data
+ })
+ .then(res => { // then print response status
+  console.log(res.statusText)
+})
+}
+
+onClickHandler = () => {
+  const data = new FormData()
+  for(var x = 0; x<this.state.selectedFile.length; x++) {
+      data.append('file', this.state.selectedFile[x])
   }
 
-  onClickHandler = () => {
-    const data = new FormData()
-    data.append('file', this.state.selectedFile)
-    axios.post("http://localhost:5000/upload", data, { 
-       // receive two    parameter endpoint url ,form data
-   })
-   .then(res => { // then print response status
-    console.log(res.statusText)
-  })
-  }
+ axios.post("http://localhost:5000/upload", data, { 
+     // receive two    parameter endpoint url ,form data
+ })
+
+.then(res => { // then print response status
+   console.log(res.statusText)
+})
+
+}
+
+
 
   render() {
   return (
     <div>
       <div className="footer">
         <Container>
-        <input type="file" multiple name="file" accept="image/png, image/jpeg, image/jpg" onChange={this.onChangeHandler}/>
+
+  
+        <input type="file" name="file" onChange={this.onChangeHandler}/>
+        <input type="file" class="form-control" multiple onChange={this.onChangeHandler}/>
+        {/* <button type="button" class="btn btn-success btn-block" onClick={this.onClickHandler}>Upload</button> */}
         <button type="button" class="btn btn-success btn-block" onClick={this.onClickHandler}>Upload</button>
           <Row>
             <Col xs="12" lg="4">
@@ -83,3 +128,4 @@ export default class Footer extends Component {
   );
 }
 }
+
