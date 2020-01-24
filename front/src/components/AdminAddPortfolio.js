@@ -231,6 +231,7 @@ class AdminAddPortfolio extends Component {
                   id="realisations"
                   multiple
                 />
+                <Button onClick={this.onUpload}>Upload</Button>
               </FormGroup>
             </Form>
           </ModalBody>

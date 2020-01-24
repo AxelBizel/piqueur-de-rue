@@ -33,21 +33,22 @@ app.get("/", function(request, response) {
 
 //Upload des images avatar
 app.post(`/upload/portfolio/:id/avatar`, function(req, res) {
-  // const infoAvatar = {
-  //   alt_text: "portrait du tatoueur",
-  //   active: "0",
-  //   path: `http://localhost:5000/img/${req.params.id}/portrait.jpg `,
-  //   portfolio_id: `${req.params.id}`
-  // };
-  // connection.query("INSERT INTO images SET ?", infoAvatar );
+  const infoAvatar = {
+    alt_text: "portrait du tatoueur",
+    active: "0",
+    path: `http://localhost:5000/img/${req.params.id}/portrait.jpg `,
+    portfolio_id: `${req.params.id}`
+  };
+  console.log(infoAvatar);
+  connection.query("INSERT INTO images SET ?", infoAvatar);
   //probleme gestion erreur sql
   avatarUpload(req, res, function(err) {
     if (err instanceof multer.MulterError) {
       return res.status(500).json(err);
     } else if (err) {
       return res.status(500).json(err);
-    } 
-   
+    }
+
     return res.status(200).send(req.file);
   });
 });
