@@ -27,7 +27,7 @@ class FormulaireProject extends Component {
         largeur: null,
         budget: null,
         story: "", 
-    }) 
+    })     
 
     handleChange = (e) => {
         const {customer} = this.state;

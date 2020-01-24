@@ -16,15 +16,15 @@
             }
         }
 
-        getInitialState = () => ({
-            firstnameG: "",
-            lastnameG: "",
-            pseudoG: "",
-            phoneG: "",
-            emailG: "",
-            compteG: "",
-            storyG: "", 
-        })
+    getInitialState = () => ({
+        firstnameG: "",
+        lastnameG: "",
+        pseudoG: "",
+        phoneG: "",
+        emailG: "",
+        compteG: "",
+        storyG: "",
+    })
 
 
         handleChangeInputGuest = (e) => {
