@@ -3,21 +3,34 @@
 //-----------------------------------//
 
 // https://programmingwithmosh.com/javascript/react-file-upload-proper-server-side-nodejs-easy/ //
+const fs = require("fs");
+const multer = require("multer");
 
-const multer = require('multer')  /* TEST UPLOAD FILE */
-
-const storage = multer.diskStorage({
-    destination: function (req, file, cb) {
-    cb(null, 'img')
+const avatarStorage = multer.diskStorage({
+  destination: function(req, file, cb) {
+    let id = req.params.id;
+    let path = `img/${id}`;
+    if (!fs.existsSync(path)) fs.mkdirSync(path, { recursive: true });
+    cb(null, path);
   },
-  filename: function (req, file, cb) {
-    cb(null, Date.now() + '-' +file.originalname )
+  filename: function(req, file, cb) {
+    cb(null, "portrait.jpg");
   }
-  })
-  
-  const upload = multer({ storage: storage }).single('file')
-  const uploadarray = multer({ storage: storage }).array('file')
+});
 
 
+const imagesStorage = multer.diskStorage({
+  destination: function(req, file, cb) {
+    let id = req.params.id;
+    let path = `img/${id}`;
+    if (!fs.existsSync(path)) fs.mkdirSync(path, { recursive: true });
+    cb(null, path);
+  },
+  filename: function(req, file, cb) {
+    cb(null, file.filename);
+  }
+});
 
-module.exports.storage = storage;
+
+module.exports.avatarStorage = avatarStorage;
+module.exports.imagesStorage = imagesStorage;
