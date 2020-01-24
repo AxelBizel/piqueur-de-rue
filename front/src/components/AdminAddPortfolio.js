@@ -73,7 +73,6 @@ class AdminAddPortfolio extends Component {
     this.setState({
       selectedImages: event.target.files,
         });
-    console.log(event.target.files);
   };
 
   onUpload = () => {
@@ -96,7 +95,7 @@ class AdminAddPortfolio extends Component {
   onUploadMultiple = () => {
     const data = new FormData();
     for (let i= 0; i < this.state.selectedImages.length; i++) {
-      data.append("file", this.state.selectedImages[i]);
+      data.append("files", this.state.selectedImages[i]);
     }
     axios
       .post(

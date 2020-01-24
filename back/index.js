@@ -12,7 +12,7 @@ const http = require("http");
 const fs = require("fs");
 const multer = require("multer");
 const avatarUpload = multer({ storage: avatarStorage }).single("file");
-const imagesUpload = multer({ storage: imagesStorage }).array("file");
+const imagesUpload = multer({ storage: imagesStorage }).array("files");
 
 // Middlewares
 app.use(bodyParser.json());
