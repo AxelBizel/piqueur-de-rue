@@ -163,29 +163,41 @@ class AdminAddPortfolio extends Component {
                 />
               </FormGroup>
 
-              <FormGroup>
-                <Label for="startdate">Date de début :</Label>
-                <Input
-                  type="text"
-                  name="startdate"
-                  id="startdate"
-                  placeholder="Ajouter une date de début en toutes lettres (pour les guests uniquement)"
-                  onChange={this.onChange}
-                  required
-                />
-              </FormGroup>
+              {this.state.newPortfolio.type==='guest' && (
+                <div>
+                  <FormGroup>
+                    <Label for="startdate">
+                      Date de début : 
+                    </Label>
+                    <FormText color="muted">
+                      Uniquement pour les guests
+                    </FormText>
+                    <Input
+                      type="text"
+                      name="startdate"
+                      id="startdate"
+                      placeholder="Modifier la date de début en toutes lettres"
+                      onChange={this.onChange}
+                      required
+                    />
+                  </FormGroup>
 
-              <FormGroup>
-                <Label for="style">Date de fin :</Label>
-                <Input
-                  type="text"
-                  name="endtdate"
-                  id="enddate"
-                  placeholder="Ajouter une date de fin en toutes lettres (pour les guests uniquement)"
-                  onChange={this.onChange}
-                  required
-                />
-              </FormGroup>
+                  <FormGroup>
+                    <Label for="style">Date de fin :</Label>
+                    <FormText color="muted">
+                      Uniquement pour les guests
+                    </FormText>
+                    <Input
+                      type="text"
+                      name="endtdate"
+                      id="enddate"
+                      placeholder="Modifier la date de fin en toutes lettres"
+                      onChange={this.onChange}
+                      required
+                    />
+                  </FormGroup>
+                </div>
+              )}
 
               <FormGroup>
                 <Label for="avatar">
