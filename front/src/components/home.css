@@ -2,13 +2,12 @@
     display: flex;
     flex-direction: column-reverse;
     align-items: flex-end;
-    height: 100vh; 
+    height: 101vh; 
     background: linear-gradient(rgba(10,10,10,.2),rgba(0,0,0,.4)), url("../img/divers/accueil.jpg");
     background-size: cover;
     background-position: center;
     z-index: 5;
 }
-
 
 .HomeLogo {
     width: 60vw;

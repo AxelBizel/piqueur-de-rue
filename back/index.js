@@ -18,12 +18,8 @@ const imagesUpload = multer({ storage: imagesStorage }).single("file");
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
-
 app.use(express.json());
-
 app.use(cors());
-
-// filesystem
 app.use("/img", express.static(__dirname + "/img"));
 
 //ROUTES : Partie Authentification
@@ -35,20 +31,29 @@ app.get("/", function(request, response) {
 
 // File Upload
 
-//Ajout des images avatar
+//Upload des images avatar
 app.post(`/upload/portfolio/:id/avatar`, function(req, res) {
+  const infoAvatar = {
+    alt_text: "portrait du tatoueur",
+    active: "0",
+    path: `http://localhost:5000/img/${req.params.id}/portrait.jpg `,
+    portfolio_id: `${req.params.id}`
+  };
+  console.log(infoAvatar);
+  connection.query("INSERT INTO images SET ?", infoAvatar);
+  //probleme gestion erreur sql
   avatarUpload(req, res, function(err) {
     if (err instanceof multer.MulterError) {
       return res.status(500).json(err);
     } else if (err) {
       return res.status(500).json(err);
     }
+
     return res.status(200).send(req.file);
   });
 });
 
-
-//////Ajout des images realisation
+//////Upload des images realisation
 app.post(`/upload/portfolio/:id/images`, function(req, res) {
   avatarUpload(req, res, function(err) {
     if (err instanceof multer.MulterError) {
@@ -156,35 +161,8 @@ app.put("/admin/users/:id/active", (req, res) => {
   );
 });
 
-// app.put('/admin/users/:id', (req, res) => {
-//   const idUsers = req.params.id;
-//   const formData = req.body;
-//    connection.query('UPDATE users SET ? WHERE id = ?', [formData, idUsers], (err,results) => {
-//     if (err) {
-//       console.log(err)
-//       res.status(500).send('Error 500');
-//     } else {
-//       res.json(results);
-//     }
-//   })
-// })
+// Admin Portfolios
 
-//Routes Admin - Login
-
-// app.put("/admin/users/", (req, res) => {
-//   connection.query("UPDATE users WHERE id = ? AND password = ?", [req.body.active, req.params.id], (err, results) => {
-//     if (err) {
-//       console.log(err)
-//       res.status(500).send("Erreur 500");
-//     } else {
-//       res.json(results);
-//     }
-//   });
-// });
-
-//Formulaire Portfolios
-
-//OK
 app.get("/admin/portfolios", (req, res) => {
   connection.query(" SELECT * from portfolio ", (err, results) => {
     if (err) {
@@ -196,7 +174,6 @@ app.get("/admin/portfolios", (req, res) => {
   });
 });
 
-//OK
 app.post("/admin/portfolio", (req, res) => {
   const formData = req.body;
   connection.query("INSERT INTO portfolio SET ?", formData, (err, results) => {
@@ -207,9 +184,9 @@ app.post("/admin/portfolio", (req, res) => {
       res.json(results);
     }
   });
+  console.log(formData);
 });
 
-//OK
 app.put("/admin/portfolio/:id", (req, res) => {
   const idPortfolio = req.params.id;
   const formData = req.body;
@@ -280,7 +257,7 @@ app.post("/api/portfolio/:id", (req, res) => {
 app.get("/api/users", (req, res) => {
   connection.query("SELECT * from users", (err, results) => {
     if (err) {
-      res.status(500).send("Erreur lors de la récupération des portfolios");
+      res.status(500).send("Erreur lors de la récupération des users");
     } else {
       res.json(results);
     }
