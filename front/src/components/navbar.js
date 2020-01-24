@@ -43,13 +43,13 @@ class Navbar extends React.Component {
                     <NavbarStrap light expand="md">
                         <NavbarToggler onClick={this.toggleNavbar} />
                         <Collapse isOpen={!this.state.collapsed} navbar>
-                            <div className="closeOutside">
+                            <div>
                                 <Nav className="mr-auto" navbar>
                                     <NavItem>
                                         <NavLink onClick={this.closeNavbar} href="#agency" className="styleLink">L'Agence</NavLink>
                                     </NavItem>
                                     <NavItem>
-                                        <NavLink onClick={this.closeNavbar} href="#permanentartists" className="styleLink">La Team</NavLink>
+                                        <NavLink onClick={this.closeNavbar} href="#team" className="styleLink">La Team</NavLink>
                                     </NavItem>
                                     <NavItem>
                                         <NavLink onClick={this.closeNavbar} href="#guests" className="styleLink">Les Guests</NavLink>

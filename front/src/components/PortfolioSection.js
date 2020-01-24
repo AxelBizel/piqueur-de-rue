@@ -24,7 +24,7 @@ class PortfolioSection extends Component {
   render() {
     const { portfolios } = this.state;
     return (
-      <div id="PortfolioSection">
+      <div className="permanentartist">
         <div>
           <h1 className="HeaderSection">
             <div className="FirstTitleLineTeam" data-aos="fade-right">

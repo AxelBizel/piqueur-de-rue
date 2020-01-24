@@ -1,4 +1,6 @@
 .styleNavbar {
+    display: flex;
+    flex-direction: row;
     background-color: #786B60;
     position: relative;
     width: 100vw;
@@ -25,7 +27,6 @@
 
 .styleLink {
     font-size: 1.4em;
-    margin-right: 1vw;
 }
 
 .styleLink {
@@ -56,12 +57,11 @@
             transform: translateX(-50%) scaleX(1);
 }
 
-
-.closeOutside {
+/* .closeOutside {
     display: flex;
     justify-content: flex-end;
-    width: 100%;
-}
+    width: 100vw;
+} */
 
 a.loginLink.nav-link {
     margin-top: auto;
@@ -69,30 +69,21 @@ a.loginLink.nav-link {
     margin-right: 5%;
 }
 
-
-
-@media screen and (max-width:768px) {
+@media screen and (max-width:600px) {
     .styleNavbar {
         background-color: #786B60;
         position: relative;
         z-index: 1;
         width: 100vw;
         box-shadow: 1px 1px 10px rgb(58, 58, 58);
-
     }
     
+    .navbar-light .navbar-toggler {
+        border: none;
+    }
+
     .styleLink {
-        font-size: 1.4em;
-        margin-right: 1vw;
-    }
-
-    .loginLink {
-        color: rgb(182, 179, 176);
-    }
-
-    .styleLink::after {
-        display: none;
-
+        margin-right: 0vw;
     }
 
     .loginLink {
@@ -100,34 +91,22 @@ a.loginLink.nav-link {
         font-size: 1.4em;
         color: rgb(182, 179, 176);
         align-items: center;
-
     }
 
     .closeOutside {
-        display: block;
-        width: 100vw;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
         height: 100vh;
+    }
+
+    a.loginLink.nav-link {
+        margin-right: 0px;
     }
 
     .mr-auto.navbar-nav {
         align-items: center;
         justify-content: space-around;
-        height: 70%;
+        height: 70vh;
     }
-
-    .collapse show navbar-collapse{
-        margin:0;
-        padding: 0;
-    }
-
-    nav.navbar.navbar-expand-md.navbar-light{
-        padding:0;
-    }
-
-    a.loginLink.nav-link {
-        padding: 1em 0;
-        text-align: center;
-        vertical-align: center;
-    }
-
 }
