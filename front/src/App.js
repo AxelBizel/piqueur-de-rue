@@ -8,7 +8,6 @@ import GuestHome from "./components/GuestHome";
 import PortfolioSection from "./components/PortfolioSection";
 import YourProjectAccordion from "./components/YourProjectAccordion";
 import "./index.css";
-import 'aos/dist/aos.css';
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 

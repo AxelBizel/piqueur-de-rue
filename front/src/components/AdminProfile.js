@@ -5,6 +5,13 @@ import AdminUpdatePortfolio from "./AdminUpdatePortfolio";
 import AdminAddPortfolio from "./AdminAddPortfolio";
 // import User from './User'
 import Logout from "./Logout";
+
+const StyleLogout = {
+  display : "flex",
+  justifyContent : "center",
+  alignItems : "center",
+  padding : "70px",
+}
 class AdminProfile extends Component {
   state = {
     active: false,
@@ -138,7 +145,9 @@ class AdminProfile extends Component {
             </Col>
           </Row>
         </Container>
-        <Logout/>
+        <div style={StyleLogout}>
+          <Logout/>
+        </div>
       </div>
     );
   }

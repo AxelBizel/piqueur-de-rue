@@ -4,8 +4,6 @@ import Axios from "axios"
 import './login.css'
 
 export default class Login extends React.Component {
-
-
     constructor() {
         super()
         let loggedIn = false
@@ -78,16 +76,16 @@ export default class Login extends React.Component {
         //     return <Redirect to="/profile" />
         // }
         return (
-            <div className="flexContainer">
-                <div class="wrapper fadeInDown">
+            <div className="flexContainerLogin">
+                <div class="wrapperLogin fadeInDown">
                     <div id="formContent">
                         <div class="fadeIn first">
                             <img src={require("../img/logo/logoPiqueurWhiteFooter.png")} id="icon" alt="User Icon" />
                         </div>
                         <form id="formLogin" onSubmit={this.formSubmit}>
-                            <input type="text" id="login" class="fadeIn second" value={this.state.login} onChange={this.onChange} name="login" placeholder="Login" className='inputForm' />
+                            <input type="text" id="login" class="fadeIn second" value={this.state.login} onChange={this.onChange} name="login" placeholder="Identifiant" className='inputForm' />
                             <input type="text" id="password" class="fadeIn third" value={this.state.password} onChange={this.onChange} name="password" placeholder="Mot de passe" className='inputForm'/>
-                            <input type="submit" id="submit" class="fadeIn fourth" value="Log In" className='inputForm'/>
+                            <input type="submit" id="submitLogin" class="fadeIn fourth" value="Connexion" className='inputForm submitLogin'/>
                             {this.state.error}
                         </form>
 

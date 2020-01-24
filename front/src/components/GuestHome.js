@@ -5,7 +5,6 @@ import { Container, Col, Row, Spinner } from "reactstrap";
 import ButtonPortfolioGuest from "./ButtonPortfolioGuest";
 import axios from "axios";
 import "./GuestHome.css";
-import "aos/dist/aos.css";
 
 class GuestHome extends Component {
   constructor(props) {
@@ -42,10 +41,10 @@ class GuestHome extends Component {
     return (
       <div>
         <h1 className="HeaderSection">
-          <div className="FirstLineGuest" data-aos="fade-right">
+          <div className="FirstTitleLineGuest" data-aos="fade-right">
             Guest
           </div>
-          <div className="SecondLineGuest" data-aos="fade-left">
+          <div className="SecondTitleLineGuest" data-aos="fade-left">
             spot
           </div>
         </h1>
@@ -62,7 +61,7 @@ class GuestHome extends Component {
               portfolios.map(portfolio => (
                 <Col xs="12">
                   <div
-                    className="Guests"
+                    className="SectionGuest"
                     key={portfolio.id}
                     style={{
                       margin: "2vh auto",
@@ -95,7 +94,7 @@ class GuestHome extends Component {
             bgImageAlt="guest section"
             strength={400}
           >
-            <div className="SectionGuestContainer">
+            <div className="SectionGuestSpot">
               <Row>
                 <Col xs="12" md="6">
                   <div className="GuestTextSpot">

@@ -27,7 +27,7 @@ class ButtonOpenFormTatoueurs extends Component {
   closeModalFormTatoueurs = () => {
     let { showModalFormTatoueurs } = this.state;
     showModalFormTatoueurs = false;
-    setTimeout(() => this.setState({ showModalFormTatoueurs }), 500);
+    this.setState({ showModalFormTatoueurs });
   };
 
   render() {

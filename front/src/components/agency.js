@@ -3,10 +3,11 @@ import { Container, Row, Col } from "reactstrap";
 import CarrouselAgency from "./carrouselAgency";
 import "./agency.css";
 
+
 export default function Agency() {
 
   return (
-    <div className="SectionContainer">
+    <div>
       <h1 className="HeaderSection">
         <div className="FirstLineAgency" data-aos="fade-right">Une agence</div>
         <div className="SecondLineAgency" data-aos="fade-left">de TATOUAGE</div>
