@@ -210,7 +210,7 @@ class AdminAddPortfolio extends Component {
                   type="file"
                   name="avatar"
                   id="avatar"
-                  accept="image/png, image/jpeg, image/jpg"
+                  accept="image/jpeg, image/jpg"
                   onChange={this.imageHandler}
                   required
                 />

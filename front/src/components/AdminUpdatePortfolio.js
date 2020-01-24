@@ -71,6 +71,30 @@ class AdminUpdatePortfolio extends Component {
         this.toggle();
       });
   };
+  imageHandler = event => {
+    this.setState({
+      selectedAvatar: event.target.files[0],
+      loaded: 0
+    });
+    console.log(event.target.files[0]);
+  };
+
+  onUpload = () => {
+    const data = new FormData();
+    data.append("file", this.state.selectedAvatar);
+    axios
+      .post(
+        `http://localhost:5000/upload/portfolio/${this.props.index}/avatar`,
+        data,
+        {
+          // receive two    parameter endpoint url ,form data
+        }
+      )
+      .then(res => {
+        // then print response status
+        console.log(res.statusText);
+      });
+  };
 
   render() {
     const { modal } = this.state;
@@ -154,7 +178,8 @@ class AdminUpdatePortfolio extends Component {
                 />
               </FormGroup>
 
-              {(portfolio.type === "guest" || this.state.newPortfolio.type==='guest') && (
+              {(portfolio.type === "guest" ||
+                this.state.newPortfolio.type === "guest") && (
                 <div>
                   <FormGroup>
                     <Label for="startdate">
@@ -196,8 +221,34 @@ class AdminUpdatePortfolio extends Component {
                     Merci d'uploader une image carrée (idéalement 500px X 500px)
                   </FormText>
                 </Label>
-                <Input type="file" name="avatar" id="avatar" />
+                <Input
+                  type="file"
+                  name="avatar"
+                  id="avatar"
+                  accept="image/jpeg, image/jpg"
+                  onChange={this.imageHandler}
+                />
+                <Button onClick={this.onUpload}>Upload</Button>
               </FormGroup>
+
+              <FormGroup>
+                <Label for="réalisations">
+                  Réalisations
+                  <FormText color="muted">
+                    Merci d'uploader des images carrées (idéalement 500px X
+                    500px)
+                  </FormText>
+                </Label>
+                <Input
+                  type="file"
+                  name="realisations"
+                  id="realisations"
+                  multiple
+                />
+                 <Button onClick={this.onUpload}>Upload</Button>
+              </FormGroup>
+
+
             </Form>
           </ModalBody>
           <ModalFooter>
