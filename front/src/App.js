@@ -27,7 +27,7 @@ class App extends Component {
         <Home />
         <div id="agency">
           <Agency />
-        </div >
+        </div>
         <div id="team">
           <PortfolioSection />
         </div>

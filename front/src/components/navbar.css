@@ -1,19 +1,17 @@
 .styleNavbar {
-    display: flex;
-    flex-direction: row;
     background-color: #786B60;
     position: relative;
     width: 100vw;
     box-shadow: 1px 1px 10px rgb(58, 58, 58);
 }
 
-.headroom-wrapper {
-    height: 0 !important;
+.navbar-light .navbar-toggler {
+    border: none;
+    padding: 15px;
 }
 
-.styleLink {
-    color: rgb(231, 231, 231) !important;
-    transition: 0.1s;
+.headroom-wrapper {
+    height: 0 !important;
 }
 
 .loginLink {
@@ -27,12 +25,10 @@
 
 .styleLink {
     font-size: 1.4em;
-}
-
-.styleLink {
-    position: relative;
-    font-size: 1.4em;
     margin-right: 1vw;
+    color: rgb(231, 231, 231) !important;
+    transition: 0.1s;
+    position: relative;
 }
 
 .styleLink::after {
@@ -54,59 +50,60 @@
 
 .styleLink:hover::after {
     -webkit-transform: translateX(-50%) scaleX(1);
-            transform: translateX(-50%) scaleX(1);
+    transform: translateX(-50%) scaleX(1);
 }
 
-/* .closeOutside {
+.closeOutside {
     display: flex;
     justify-content: flex-end;
-    width: 100vw;
-} */
-
-a.loginLink.nav-link {
-    margin-top: auto;
-    margin-bottom: auto;
-    margin-right: 5%;
+    width: 100%;
 }
 
-@media screen and (max-width:600px) {
-    .styleNavbar {
-        background-color: #786B60;
-        position: relative;
-        z-index: 1;
-        width: 100vw;
-        box-shadow: 1px 1px 10px rgb(58, 58, 58);
-    }
-    
-    .navbar-light .navbar-toggler {
-        border: none;
-    }
+.RSNavbar {
+    display: none;
+}
 
+
+@media screen and (max-width:768px) {
     .styleLink {
-        margin-right: 0vw;
+        margin-right: 0;
     }
 
     .loginLink {
-        padding-left: none;
         font-size: 1.4em;
-        color: rgb(182, 179, 176);
-        align-items: center;
     }
 
     .closeOutside {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
+        display: block;
+        justify-content: flex-end;
+        width: 100%;
         height: 100vh;
-    }
-
-    a.loginLink.nav-link {
-        margin-right: 0px;
     }
 
     .mr-auto.navbar-nav {
         align-items: center;
         justify-content: space-around;
-        height: 70vh;
+        height: 65%;
+    }
+
+    nav.navbar.navbar-expand-md.navbar-light{
+        padding:0;
+    }
+
+    a.loginLink.nav-link {
+        padding: 1em 0;
+        text-align: center;
+    }
+
+    .RSNavbar {
+        display: flex;
+        justify-content: center;
+    }
+    
+    .logoRSNavbar {
+        height: 50px;
+        margin: 0.5em 0.6em;
+        color: rgb(182, 179, 176);
+        font-size: 50px;
     }
 }

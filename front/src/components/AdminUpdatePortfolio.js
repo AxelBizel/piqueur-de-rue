@@ -32,13 +32,6 @@ class AdminUpdatePortfolio extends Component {
     };
   }
 
-  getNewPortfolio = () => ({
-    pseudo: "",
-    type: "",
-    presentation: "",
-    insta: "",
-    style: ""
-  });
 
   toggle = () => {
     const { modal } = this.state;
@@ -69,8 +62,10 @@ class AdminUpdatePortfolio extends Component {
       .then(() => {
         alert("Modifications prises en compte.");
         this.toggle();
+        this.onUpload();
       });
   };
+
   imageHandler = event => {
     this.setState({
       selectedAvatar: event.target.files[0],
@@ -84,7 +79,7 @@ class AdminUpdatePortfolio extends Component {
     data.append("file", this.state.selectedAvatar);
     axios
       .post(
-        `http://localhost:5000/upload/portfolio/${this.props.index}/avatar`,
+        `http://localhost:5000/upload/portfolio/${this.props.portfolio.id}/avatar`,
         data,
         {
           // receive two    parameter endpoint url ,form data
@@ -225,10 +220,9 @@ class AdminUpdatePortfolio extends Component {
                   type="file"
                   name="avatar"
                   id="avatar"
-                  accept="image/jpeg, image/jpg"
+                  accept="image/jpeg, image/jpg, image/png, image/gif"
                   onChange={this.imageHandler}
                 />
-                <Button onClick={this.onUpload}>Upload</Button>
               </FormGroup>
 
               <FormGroup>
@@ -243,6 +237,7 @@ class AdminUpdatePortfolio extends Component {
                   type="file"
                   name="realisations"
                   id="realisations"
+                  accept="image/jpeg, image/jpg, image/png, image/gif"
                   multiple
                 />
                  <Button onClick={this.onUpload}>Upload</Button>
