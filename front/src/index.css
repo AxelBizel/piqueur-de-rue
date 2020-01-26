@@ -80,23 +80,23 @@ button {
 }
 
 @font-face {
-font-family: "FalkinSerifBoldPERSONAL";
-src: url("./fonts/FalkinSerifBoldPERSONAL.ttf") format("truetype");
+  font-family: "FalkinSerifBoldPERSONAL";
+  src: url("./fonts/FalkinSerifBoldPERSONAL.ttf") format("truetype");
 }
 
 @font-face {
-font-family: "FalkinSerifItalicPERSONAL";
-src: url("./fonts/FalkinSerifItalicPERSONAL.ttf") format("truetype");
+  font-family: "FalkinSerifItalicPERSONAL";
+  src: url("./fonts/FalkinSerifItalicPERSONAL.ttf") format("truetype");
 }
 
 @font-face {
-font-family: "FalkinSerifPERSONAL";
-src: url("./fonts/FalkinSerifPERSONAL.ttf") format("truetype");
+  font-family: "FalkinSerifPERSONAL";
+  src: url("./fonts/FalkinSerifPERSONAL.ttf") format("truetype");
 }
 
 @font-face {
-font-family: "South_Gardens_Personal_Use";
-src: url("./fonts/South_Gardens_Personal_Use.ttf") format("truetype");
+  font-family: "South_Gardens_Personal_Use";
+  src: url("./fonts/South_Gardens_Personal_Use.ttf") format("truetype");
 }
 
 /* ReactImageGallery_______ */
