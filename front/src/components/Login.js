@@ -2,6 +2,9 @@ import React from "react"
 import { Redirect } from "react-router-dom"
 import Axios from "axios"
 import './login.css'
+import {IPserver} from '../conf/confIP'
+
+
 
 export default class Login extends React.Component {
     constructor() {
@@ -46,7 +49,7 @@ export default class Login extends React.Component {
         console.log(this.state)
         const { login, password } = this.state
         try {
-            const result = await Axios.post("http://localhost:5000/login",
+            const result = await Axios.post("${IPserver}/login",
                 { login, password })
             // if(result.data.token)
             if (result.data.token) {

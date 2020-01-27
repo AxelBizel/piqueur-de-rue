@@ -7,6 +7,10 @@ import AdminAddPortfolio from "./AdminAddPortfolio";
 import Logout from "./Logout";
 import AdminUpdateUsers from "./AdminUpdateUsers";
 import AdminAddUsers from "./AdminAddUsers";
+import {IPserver} from '../conf/confIP'
+
+
+
 
 const StyleLogout = {
   display : "flex",
@@ -35,7 +39,7 @@ class AdminProfile extends Component {
 
   getPortfolio = async () => {
     try {
-      const result = await axios.get(`http://localhost:5000/api/portfolios`, {
+      const result = await axios.get(`${IPserver}/api/portfolios`, {
         headers: {
           authorization: `bearer ${localStorage.getItem("token")}`
         }
@@ -50,7 +54,7 @@ class AdminProfile extends Component {
 
   getUser = async () => {
     try {
-      const result = await axios.get(`http://localhost:5000/admin/users`, {
+      const result = await axios.get(`${IPserver}/admin/users`, {
         headers: {
           authorization: `bearer ${localStorage.getItem("token")}`
         }
@@ -67,7 +71,7 @@ class AdminProfile extends Component {
     console.log("togglePortfolio", id, active);
     try {
       const result = await axios.put(
-        `http://localhost:5000/api/portfolio/${id}`,
+        `${IPserver}/api/portfolio/${id}`,
         { active: !active }
       );
       console.log(result.data);
@@ -82,7 +86,7 @@ class AdminProfile extends Component {
     console.log("toggleUser", id, active);
     try {
       const result = await axios.put(
-        `http://localhost:5000/admin/users/${id}`,
+        `${IPserver}/admin/users/${id}`,
         { active: !active }
       );
       console.log(result.data);
@@ -97,7 +101,7 @@ class AdminProfile extends Component {
     console.log("youpi", id);
     try {
       const result = await axios.get(
-        `http://localhost:5000/api/portfolios/${id}`
+        `${IPserver}/api/portfolios/${id}`
       );
       console.log("gg", result.data);
       this.setState({ selectedPortfolio: result.data[0] });
