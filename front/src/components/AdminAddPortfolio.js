@@ -50,13 +50,15 @@ class AdminAddPortfolio extends Component {
 
   handleSubmit = event => {
     event.preventDefault();
-    let { newPortfolio } = this.state;
+    let { newPortfolio, selectedImages } = this.state;
     axios
       .post("http://localhost:5000/admin/portfolio/", newPortfolio)
       .then(() => {
         alert("Modifications prises en compte.");
         this.onUpload();
-        this.onUploadMultiple();
+        if (selectedImages !==null){
+          this.onUploadMultiple();;
+        }
         this.toggle();
       });
   };
@@ -217,7 +219,7 @@ class AdminAddPortfolio extends Component {
                     </FormText>
                     <Input
                       type="text"
-                      name="endtdate"
+                      name="enddate"
                       id="enddate"
                       placeholder="Modifier la date de fin en toutes lettres"
                       onChange={this.onChange}
@@ -256,6 +258,7 @@ class AdminAddPortfolio extends Component {
                   type="file"
                   name="realisations"
                   id="realisations"
+                  accept="image/jpeg, image/jpg, image/png, image/gif"
                   onChange={this.imageHandlerMultiple}
                   multiple
                 />
