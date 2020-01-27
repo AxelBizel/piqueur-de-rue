@@ -39,7 +39,7 @@ CREATE TABLE IF NOT EXISTS `piqueurderue`.`images` (
   `alt_text` VARCHAR(255) NULL DEFAULT NULL,
   `active` TINYINT(4) NULL DEFAULT NULL,
   `path` VARCHAR(255) NULL DEFAULT NULL,
-  `main_img` VARCHAR(255) NULL DEFAULT NULL,
+  `type` VARCHAR(255) NULL DEFAULT NULL,
   `portfolio_id` INT(11) NULL,
   PRIMARY KEY (`id`),
   INDEX `fk_images_portfolio1_idx` (`portfolio_id` ASC) ,
