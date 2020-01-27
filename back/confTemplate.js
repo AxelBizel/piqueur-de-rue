@@ -7,4 +7,3 @@ const connection = mysql.createConnection({
     database: "piqueurderue" // le nom de la base de données
 });
 module.exports = connection;
-

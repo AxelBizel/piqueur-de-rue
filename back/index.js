@@ -21,6 +21,7 @@ app.use(bodyParser.json());
 app.use(express.json());
 app.use(cors());
 app.use("/img", express.static(__dirname + "/img"));
+app.use('/', express.static('../front/build'));
 
 //ROUTES : Partie Authentification
 
