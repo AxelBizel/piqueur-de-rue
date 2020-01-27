@@ -78,7 +78,7 @@ class AdminUpdatePortfolio extends Component {
     const data = new FormData();
     data.append("file", this.state.selectedAvatar);
     axios
-      .post(
+      .put(
         `http://localhost:5000/upload/portfolio/${this.props.portfolio.id}/avatar`,
         data,
         {
