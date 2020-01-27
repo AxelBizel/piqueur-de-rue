@@ -184,7 +184,7 @@ class AdminProfile extends Component {
 
           <Row>
             <Col>
-              <h3>Users</h3>
+              <h3>Utilisateur</h3>
               <Table hover responsive>
                 <thead>
                   <tr>
@@ -232,7 +232,7 @@ class AdminProfile extends Component {
                   <tr>
                     <td></td>
                     <td colSpan="4">
-                      <strong>Ajouter un user</strong>
+                      <strong>Ajouter un utilisateur</strong>
                     </td>
                     <td colSpan="2">
                       <AdminAddUsers index={this.state.portfolios.length+1}>Ajouter</AdminAddUsers>
