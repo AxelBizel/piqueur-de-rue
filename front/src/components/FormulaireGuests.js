@@ -37,7 +37,7 @@
             console.log('Le formGuests a été soumis : ', this.state);
             let { guest } = this.state;
             axios
-                .post("http://localhost:5000/api/guests", guest)
+                .post("http://api/guests", guest)
             this.setState({
                 guest: this.getInitialState(),
                 showConfirmation: true

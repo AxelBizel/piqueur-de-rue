@@ -29,7 +29,7 @@ class GuestHome extends Component {
   };
 
   componentDidMount() {
-    axios.get(`http://localhost:5000/api/portfolio/guest/active`).then(res => {
+    axios.get(`http://api/portfolio/guest/active`).then(res => {
       const portfoliosData = res.data;
       this.setState({ portfolios: portfoliosData });
       console.log(this.state);
@@ -68,7 +68,7 @@ class GuestHome extends Component {
                     style={{
                       margin: "2vh auto",
                       backgroundImage:
-                        "url(http://localhost:5000/img/" +
+                        "url(http://img/" +
                         `${portfolio.id}` +
                         "/portrait)"
                     }}

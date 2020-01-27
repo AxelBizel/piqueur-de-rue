@@ -26,7 +26,7 @@ class GalleryPortfolio extends Component {
 
   componentDidMount() {
     axios
-      .get(`http://localhost:5000/api/images/+${this.props.portfolio.id}`)
+      .get(`http://api/images/+${this.props.portfolio.id}`)
       .then(res => {
         const imgData = res.data;
         this.setState({ img: imgData });

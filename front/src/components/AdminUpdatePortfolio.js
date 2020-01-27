@@ -56,7 +56,7 @@ class AdminUpdatePortfolio extends Component {
     let { portfolio } = this.props;
     axios
       .put(
-        `http://localhost:5000/admin/portfolio/${portfolio.id}`,
+        `http://admin/portfolio/${portfolio.id}`,
         newPortfolio
       )
       .then(() => {
@@ -79,7 +79,7 @@ class AdminUpdatePortfolio extends Component {
     data.append("file", this.state.selectedAvatar);
     axios
       .put(
-        `http://localhost:5000/upload/portfolio/${this.props.portfolio.id}/avatar`,
+        `http://upload/portfolio/${this.props.portfolio.id}/avatar`,
         data,
         {
           // receive two    parameter endpoint url ,form data

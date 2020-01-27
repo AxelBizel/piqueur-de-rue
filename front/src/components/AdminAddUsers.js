@@ -45,7 +45,7 @@ class AdminAddUsers extends Component {
     event.preventDefault();
     let { newUser } = this.state;
     axios
-      .post("http://localhost:5000/admin/users/", newUser)
+      .post("http://admin/users/", newUser)
       .then(() => {
         alert("Modifications prises en compte.");
         this.toggle();

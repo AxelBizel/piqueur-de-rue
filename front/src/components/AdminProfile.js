@@ -35,7 +35,7 @@ class AdminProfile extends Component {
 
   getPortfolio = async () => {
     try {
-      const result = await axios.get(`http://localhost:5000/api/portfolios`, {
+      const result = await axios.get(`http://api/portfolios`, {
         headers: {
           authorization: `bearer ${localStorage.getItem("token")}`
         }
@@ -50,7 +50,7 @@ class AdminProfile extends Component {
 
   getUser = async () => {
     try {
-      const result = await axios.get(`http://localhost:5000/admin/users`, {
+      const result = await axios.get(`http://admin/users`, {
         headers: {
           authorization: `bearer ${localStorage.getItem("token")}`
         }
@@ -67,7 +67,7 @@ class AdminProfile extends Component {
     console.log("togglePortfolio", id, active);
     try {
       const result = await axios.put(
-        `http://localhost:5000/api/portfolio/${id}`,
+        `http://api/portfolio/${id}`,
         { active: !active }
       );
       console.log(result.data);
@@ -82,7 +82,7 @@ class AdminProfile extends Component {
     console.log("toggleUser", id, active);
     try {
       const result = await axios.put(
-        `http://localhost:5000/admin/users/${id}`,
+        `http://admin/users/${id}`,
         { active: !active }
       );
       console.log(result.data);
@@ -97,7 +97,7 @@ class AdminProfile extends Component {
     console.log("youpi", id);
     try {
       const result = await axios.get(
-        `http://localhost:5000/api/portfolios/${id}`
+        `http://api/portfolios/${id}`
       );
       console.log("gg", result.data);
       this.setState({ selectedPortfolio: result.data[0] });

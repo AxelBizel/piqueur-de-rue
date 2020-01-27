@@ -50,7 +50,7 @@ class AdminUpdateUsers extends Component {
     let { user } = this.props;
     axios
       .put(
-        `http://localhost:5000/admin/user/${user.id}`,
+        `http://admin/user/${user.id}`,
         newUser
       )
       .then(() => {

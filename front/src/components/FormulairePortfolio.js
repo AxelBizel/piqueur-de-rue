@@ -46,7 +46,7 @@ class FormulairePortfolio extends Component {
     handleSubmit = (event) => {
         let { customer } = this.state;
         axios
-            .post("http://localhost:5000/api/customers", customer)
+            .post("http://api/customers", customer)
             .then(console.log("add customer on table customers ok"))
         this.setState({
             customer: this.getInitialState(),

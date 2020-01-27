@@ -44,7 +44,7 @@ app.post(`/upload/portfolio/:id/avatar`, function(req, res) {
       const infoAvatar = {
         alt_text: "portrait du tatoueur",
         active: "0",
-        path: `http://localhost:5000/img/${req.params.id}/portrait.jpg `,
+        path: `http://img/${req.params.id}/portrait.jpg `,
         portfolio_id: `${req.params.id}`
       };
       console.log(infoAvatar);
@@ -67,7 +67,7 @@ app.post(`/upload/portfolio/:id/images`, function(req, res) {
         const infoImages = {
           alt_text: `${req.files[i].originalname}`,
           active: "1",
-          path: `http://localhost:5000/img/${req.params.id}/${req.files[i].originalname} `,
+          path: `http://img/${req.params.id}/${req.files[i].originalname} `,
           portfolio_id: `${req.params.id}`
         };
         connection.query("INSERT INTO images SET ?", infoImages);

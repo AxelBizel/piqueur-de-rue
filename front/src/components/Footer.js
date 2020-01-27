@@ -25,7 +25,7 @@ export default class Footer extends Component {
   onClickHandler = () => {
     const data = new FormData()
     data.append('file', this.state.selectedFile)
-    axios.post("http://localhost:5000/upload", data, { 
+    axios.post("http://upload", data, { 
        // receive two    parameter endpoint url ,form data
    })
    .then(res => { // then print response status

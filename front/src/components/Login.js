@@ -46,7 +46,7 @@ export default class Login extends React.Component {
         console.log(this.state)
         const { login, password } = this.state
         try {
-            const result = await Axios.post("http://localhost:5000/login",
+            const result = await Axios.post("http://login",
                 { login, password })
             // if(result.data.token)
             if (result.data.token) {

@@ -15,7 +15,7 @@ class PortfolioSection extends Component {
   }
 
   componentDidMount() {
-    axios.get(`http://localhost:5000/api/portfolio/team/active`).then(res => {
+    axios.get(`http://api/portfolio/team/active`).then(res => {
       const portfoliosData = res.data;
       this.setState({ portfolios: portfoliosData });
     });
@@ -56,7 +56,7 @@ class PortfolioSection extends Component {
                       style={{
                         margin: "2vh auto",
                         backgroundImage:
-                          "url(http://localhost:5000/img/" +
+                          "url(http://img/" +
                           `${portfolio.id}` +
                           "/portrait)"
                       }}
