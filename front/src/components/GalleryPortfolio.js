@@ -18,8 +18,8 @@ class GalleryPortfolio extends Component {
     this.state.img.map(img => {
       if (img.active === 1 && img.type==='realisation') {
         images.push({
-          original: `${img.path}`,
-          thumbnail: `${img.path}`
+          original: `${IPserver}`+`${img.path}`,
+          thumbnail: `${IPserver}`+`${img.path}`
         });
       }
     });

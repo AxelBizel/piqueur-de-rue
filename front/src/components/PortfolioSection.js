@@ -58,9 +58,9 @@ class PortfolioSection extends Component {
                       style={{
                         margin: "2vh auto",
                         backgroundImage:
-                          "url(${IPserver}/img/" +
+                          `url(${IPserver}/img/` +
                           `${portfolio.id}` +
-                          "/portrait.jpg)"
+                          `/portrait.jpg)`
                       }}
                     >
                       <ButtonOpenPortfolio portfolio={portfolio} />
