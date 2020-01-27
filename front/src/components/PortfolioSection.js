@@ -47,7 +47,7 @@ class PortfolioSection extends Component {
                 </div>
               ) : (
                 portfolios.map((portfolio, index) => (
-                  <Col xs="12" md="6" lg="3">
+                  <Col xs="12" md="6" lg="4">
                     <div
                       className="Artists"
                       // data-aos-duration={index * 800}

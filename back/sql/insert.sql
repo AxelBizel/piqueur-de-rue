@@ -34,7 +34,7 @@ VALUES ('Fernando Madeira', 'guest', 'Artiste Brésilien spécialisé dans les t
 
 
 INSERT INTO portfolio (pseudo, type, presentation, style, active, insta)
-VALUES ('Grozen', 'team', "Dorian alias GROZEN est un tatoueur passionné et méticuleux prêt a travailler sur vos projets les plus extravagants et graphique. Amoureux de grosses lignes et petits points, il aura toujours coeur d'être à votre écoute.", 'Mandala, paternes géométriques, dot work', '1', 'https://www.instagram.com/alex290_tattoo/');
+VALUES ('Grozen', 'team', "Dorian alias GROZEN est un tatoueur passionné et méticuleux prêt a travailler sur vos projets les plus extravagants et graphique. Amoureux de grosses lignes et petits points, il aura toujours coeur d'être à votre écoute.", 'Mandala, paternes géométriques, dot work', '1', 'https://www.instagram.com/grozen.tattoo/?hl=fr');
 
 
 
