@@ -78,8 +78,27 @@ class AdminUpdatePortfolio extends Component {
     const data = new FormData();
     data.append("file", this.state.selectedAvatar);
     axios
-      .put(
+      .post(
         `http://localhost:5000/upload/portfolio/${this.props.portfolio.id}/avatar`,
+        data,
+        {
+          // receive two    parameter endpoint url ,form data
+        }
+      )
+      .then(res => {
+        // then print response status
+        console.log(res.statusText);
+      });
+  };
+
+  onUploadMultiple = () => {
+    const data = new FormData();
+    for (let i= 0; i < this.state.selectedImages.length; i++) {
+      data.append("files", this.state.selectedImages[i]);
+    }
+    axios
+      .post(
+        `http://localhost:5000/upload/portfolio/${this.props.index}/images`,
         data,
         {
           // receive two    parameter endpoint url ,form data

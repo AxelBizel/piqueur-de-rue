@@ -3,7 +3,6 @@ import axios from "axios";
 import { Container, Row, Col, CustomInput, Table } from "reactstrap";
 import AdminUpdatePortfolio from "./AdminUpdatePortfolio";
 import AdminAddPortfolio from "./AdminAddPortfolio";
-// import User from './User'
 import Logout from "./Logout";
 import AdminUpdateUsers from "./AdminUpdateUsers";
 import AdminAddUsers from "./AdminAddUsers";
@@ -14,6 +13,7 @@ const StyleLogout = {
   alignItems : "center",
   padding : "70px",
 }
+
 class AdminProfile extends Component {
   state = {
     active: false,
@@ -235,7 +235,7 @@ class AdminProfile extends Component {
                       <strong>Ajouter un utilisateur</strong>
                     </td>
                     <td colSpan="2">
-                      <AdminAddUsers index={this.state.portfolios.length+1}>Ajouter</AdminAddUsers>
+                      <AdminAddUsers index={this.state.users.length+1}>Ajouter</AdminAddUsers>
                     </td>
                   </tr>
                 </tfoot>
