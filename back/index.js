@@ -1,7 +1,7 @@
 const express = require("express");
 const app = express();
-const port = 5000;
-const connection = require("./conf");
+const portHttp = require('./config/conf').portHttp;
+const connection = require("./config/conf").connection;
 const bodyParser = require("body-parser");
 const path = require("path");
 const jwt = require("jsonwebtoken");
@@ -43,8 +43,8 @@ app.post(`/upload/portfolio/:id/avatar`, function(req, res) {
       const infoAvatar = {
         alt_text: "portrait du tatoueur",
         active: "0",
+        path: `/img/${req.params.id}/portrait.jpg `,
         type:'avatar',
-        path: `http://localhost:5000/img/${req.params.id}/portrait.jpg `,
         portfolio_id: `${req.params.id}`
       };
       console.log(infoAvatar);
@@ -67,8 +67,8 @@ app.post(`/upload/portfolio/:id/images`, function(req, res) {
         const infoImages = {
           alt_text: `${req.files[i].originalname}`,
           active: "1",
+          path: `/img/${req.params.id}/${req.files[i].originalname} `,
           type:"realisation",
-          path: `http://localhost:5000/img/${req.params.id}/${req.files[i].originalname} `,
           portfolio_id: `${req.params.id}`
         };
         connection.query("INSERT INTO images SET ?", infoImages);
@@ -541,10 +541,10 @@ app.get("/", (request, response) => {
   response.send("Bienvenue sur Express de piqueur de rue");
 });
 
-app.listen(port, err => {
+app.listen(portHttp, err => {
   if (err) {
     throw new Error("Something bad happened...");
   }
 
-  console.log(`Server is listening on ${port}`);
+  console.log(`Server is listening on ${portHttp}`);
 });

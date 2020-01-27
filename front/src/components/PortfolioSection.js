@@ -4,6 +4,8 @@ import ButtonOpenPortfolio from "./ButtonOpenPortfolio";
 import { Container, Row, Col, Spinner } from "reactstrap";
 import "./PortfolioSection.css";
 import "aos/dist/aos.css";
+import { IPserver } from "../conf/confIP";
+
 
 class PortfolioSection extends Component {
   constructor(props) {
@@ -15,7 +17,7 @@ class PortfolioSection extends Component {
   }
 
   componentDidMount() {
-    axios.get(`http://localhost:5000/api/portfolio/team/active`).then(res => {
+    axios.get(`${IPserver}/api/portfolio/team/active`).then(res => {
       const portfoliosData = res.data;
       this.setState({ portfolios: portfoliosData });
     });
@@ -36,16 +38,16 @@ class PortfolioSection extends Component {
           </h1>
         </div>
         <Container>
-          
-            <Row style={{justifyContent:'center'}}>
-              {portfolios === null ? (
-                <div className="Artists-Loader">
-                  <Spinner type="grow" color="dark" />
-                  <Spinner type="grow" color="dark" />
-                  <Spinner type="grow" color="dark" />
-                  <Spinner type="grow" color="dark" />
-                </div>
-              ) : (
+
+          <Row style={{ justifyContent: 'center' }}>
+            {portfolios === null ? (
+              <div className="Artists-Loader">
+                <Spinner type="grow" color="dark" />
+                <Spinner type="grow" color="dark" />
+                <Spinner type="grow" color="dark" />
+                <Spinner type="grow" color="dark" />
+              </div>
+            ) : (
                 portfolios.map((portfolio, index) => (
                   <Col xs="12" md="6" lg="4">
                     <div
@@ -56,7 +58,7 @@ class PortfolioSection extends Component {
                       style={{
                         margin: "2vh auto",
                         backgroundImage:
-                          "url(http://localhost:5000/img/" +
+                          "url(${IPserver}/img/" +
                           `${portfolio.id}` +
                           "/portrait.jpg)"
                       }}
@@ -66,7 +68,7 @@ class PortfolioSection extends Component {
                   </Col>
                 ))
               )}
-            </Row>
+          </Row>
         </Container>
       </div>
     );

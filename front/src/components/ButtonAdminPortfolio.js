@@ -12,6 +12,9 @@ import {
   ModalBody,
   ModalFooter
 } from "reactstrap";
+import {IPserver} from '../conf/confIP'
+
+
 
 
 class ButtonAdminPortfolio extends Component {
@@ -58,7 +61,7 @@ class ButtonAdminPortfolio extends Component {
 handleSubmit = (event, id) => {
   let { item } = this.state;
   axios
-      .put(`http://localhost:5000/admin/portfolio/${id}`,item)
+      .put(`${IPserver}/admin/portfolio/${id}`,item)
       .then(console.log("update yaaaaa"))
   this.setState({
       item: this.getItem(),

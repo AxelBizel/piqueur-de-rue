@@ -12,6 +12,9 @@ import {
   ModalBody,
   ModalFooter
 } from "reactstrap";
+import {IPserver} from '../conf/confIP'
+
+
 
 class AdminAddPortfolio extends Component {
   constructor(props) {
@@ -52,7 +55,7 @@ class AdminAddPortfolio extends Component {
     event.preventDefault();
     let { newPortfolio, selectedImages } = this.state;
     axios
-      .post("http://localhost:5000/admin/portfolio/", newPortfolio)
+      .post(`${IPserver}/admin/portfolio/`, newPortfolio)
       .then(() => {
         alert("Modifications prises en compte.");
         this.onUpload();
@@ -82,7 +85,7 @@ class AdminAddPortfolio extends Component {
     data.append("file", this.state.selectedAvatar);
     axios
       .post(
-        `http://localhost:5000/upload/portfolio/${this.props.index}/avatar`,
+        `${IPserver}/upload/portfolio/${this.props.index}/avatar`,
         data,
         {
           // receive two    parameter endpoint url ,form data
@@ -101,7 +104,7 @@ class AdminAddPortfolio extends Component {
     }
     axios
       .post(
-        `http://localhost:5000/upload/portfolio/${this.props.index}/images`,
+        `${IPserver}/upload/portfolio/${this.props.index}/images`,
         data,
         {
           // receive two    parameter endpoint url ,form data
