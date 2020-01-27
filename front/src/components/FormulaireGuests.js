@@ -72,13 +72,10 @@
                         </button>
                     </form>
                     ) : (
-                    <div>
+                    <div className="ModalConfirmationEnvoi">
                         <p>Votre demande a bien été envoyée</p>
                         <p>Nous vous répondrons dans les plus brefs délais</p>
-                        <p>Thank you</p>
-                        <NavItem>
-                            <NavLink href="/" className="styleLink"><FontAwesomeIcon icon={faHome} /></NavLink>
-                        </NavItem>
+                        <p>Merci</p>
                     </div>
                     )}
                 </div>

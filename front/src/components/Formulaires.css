@@ -9,6 +9,15 @@
   z-index: 30;
 }
 
+.ModalConfirmationEnvoi {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 40vh;
+  font-size: 25px;
+  text-align: center;
+}
+
 .leftright {
   height: 4px;
   width: 50px;
@@ -181,8 +190,14 @@
     padding: 0px;
     display: block;
   }
-}
 
-@media (max-width: 601px) {
- 
+  .ModalConfirmationEnvoi {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 40vh;
+    font-size: 25px;
+    text-align: center;
+    margin-top: 25vh;
+  }
 }
