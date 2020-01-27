@@ -191,7 +191,7 @@ class AdminProfile extends Component {
                   <tr>
                     <th>Id</th>
                     <th>Login</th>
-                    <th>Mot de passe</th>
+                    <th>Password</th>
                     <th>Active</th>
                     <th>On/Off</th>
                     <th>Modifier</th>
@@ -200,6 +200,7 @@ class AdminProfile extends Component {
                 <tbody>
                   {this.state.users.map((user, index) => (
                     <tr key={user.id}>
+                      <td>{user.id}</td>
                       <td>{user.login}</td>
                       <td>{user.password}</td>
                       <td>{user.active === 1 ? "Oui" : "Non"}</td>
