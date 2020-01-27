@@ -50,13 +50,14 @@ class AdminProfile extends Component {
 
   getUser = async () => {
     try {
-      const result = await axios.get(`http://localhost:5000/api/users`, {
+      const result = await axios.get(`http://localhost:5000/admin/users`, {
         headers: {
           authorization: `bearer ${localStorage.getItem("token")}`
         }
       });
       console.log("getUser", result.data);
-      this.setState({ user: result.data });
+      this.setState({ users: result.data });
+      console.log ("user state", this.state.users)
     } catch (err) {
       console.log(err);
     }
@@ -81,7 +82,7 @@ class AdminProfile extends Component {
     console.log("toggleUser", id, active);
     try {
       const result = await axios.put(
-        `http://localhost:5000/api/users/${id}`,
+        `http://localhost:5000/admin/users/${id}`,
         { active: !active }
       );
       console.log(result.data);
@@ -201,17 +202,16 @@ class AdminProfile extends Component {
                     <tr key={user.id}>
                       <td>{user.login}</td>
                       <td>{user.password}</td>
-                      <td>{user.type}</td>
                       <td>{user.active === 1 ? "Oui" : "Non"}</td>
                       <td>
                         <CustomInput
-                          key={`ci-${index}`}
+                          key={`user-${index}`}
                           onChange={() => {
                             console.log(user.id);
                             this.toggleUser(user.id, user.active);
                           }}
                           type="switch"
-                          id={`ci-${index}`}
+                          id={`user-${index}`}
                           checked={user.active}
                         ></CustomInput>
                       </td>

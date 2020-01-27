@@ -20,6 +20,7 @@ class AdminAddUsers extends Component {
       newUser: {
         login: "",
         password: "",
+        active :1
       },
       active: true
     };
