@@ -10,7 +10,8 @@ import {
   Modal,
   ModalHeader,
   ModalBody,
-  ModalFooter
+  ModalFooter,
+  CustomInput
 } from "reactstrap";
 
 class AdminUpdatePortfolio extends Component {
@@ -18,6 +19,7 @@ class AdminUpdatePortfolio extends Component {
     super(props);
     this.state = {
       modal: false,
+      img: "",
       newPortfolio: {
         pseudo: "",
         type: "",
@@ -30,8 +32,9 @@ class AdminUpdatePortfolio extends Component {
       },
       active: true
     };
+    this.toggleImg=this.toggleImg.bind(this);
+  
   }
-
 
   toggle = () => {
     const { modal } = this.state;
@@ -61,8 +64,9 @@ class AdminUpdatePortfolio extends Component {
       )
       .then(() => {
         alert("Modifications prises en compte.");
-        this.toggle();
         this.onUpload();
+        this.onUploadMultiple();
+        this.toggle();
       });
   };
 
@@ -93,7 +97,7 @@ class AdminUpdatePortfolio extends Component {
 
   onUploadMultiple = () => {
     const data = new FormData();
-    for (let i= 0; i < this.state.selectedImages.length; i++) {
+    for (let i = 0; i < this.state.selectedImages.length; i++) {
       data.append("files", this.state.selectedImages[i]);
     }
     axios
@@ -110,8 +114,47 @@ class AdminUpdatePortfolio extends Component {
       });
   };
 
+  async toggleImg(id, active) {
+    console.log("togglePortfolio", id, active);
+    try {
+      const result = await axios.put(
+        `http://localhost:5000/admin/images/${id}`,
+        { active: !active }
+      );
+      console.log(result.data);
+      this.getImg();
+      
+    } catch (err) {
+      console.log(err);
+    }
+  }
+
+  componentDidMount() {
+    axios
+    .get(`http://localhost:5000/api/images/+${this.props.portfolio.id}`)
+    .then(res => {
+      const imgData = res.data;
+      this.setState({ img: imgData });
+      console.log(this.state);
+    });
+  }
+
+  getImg(){
+    axios
+    .get(`http://localhost:5000/api/images/+${this.props.portfolio.id}`)
+    .then(res => {
+      const imgData = res.data;
+      this.setState({ img: imgData });
+      console.log(this.state);
+    });
+
+  }
+  // async componentDidMount(){
+  //   this.toggleImg();
+  // }
+
   render() {
-    const { modal } = this.state;
+    const { modal, img } = this.state;
     const { portfolio } = this.props;
 
     return (
@@ -251,6 +294,27 @@ class AdminUpdatePortfolio extends Component {
                     Merci d'uploader des images carrées (idéalement 500px X
                     500px)
                   </FormText>
+                  {img === "" ? (
+                    <p>loading </p>
+                  ) : (
+                    img.map((img, index) => (
+                      <div style={{ display: "inline-block", padding:'1vh', margin:'1vh', border:'1px solid grey' }}>
+                        <img
+                          src={img.path}
+                          style={{ width: "100px", height: "100px" }}
+                        />
+                          <CustomInput
+                            key={`user-${index}`}
+                            onChange={() => {
+                              this.toggleImg(img.id, img.active);
+                            }}
+                            type="switch"
+                            id={`img-${index}`}
+                            checked={img.active}
+                          ></CustomInput>
+                      </div>
+                    ))
+                  )}
                 </Label>
                 <Input
                   type="file"
@@ -259,10 +323,7 @@ class AdminUpdatePortfolio extends Component {
                   accept="image/jpeg, image/jpg, image/png, image/gif"
                   multiple
                 />
-                 <Button onClick={this.onUpload}>Upload</Button>
               </FormGroup>
-
-
             </Form>
           </ModalBody>
           <ModalFooter>

@@ -185,7 +185,7 @@ class AdminProfile extends Component {
 
           <Row>
             <Col>
-              <h3>Utilisateur</h3>
+              <h3>Utilisateurs</h3>
               <Table hover responsive>
                 <thead>
                   <tr>

@@ -405,6 +405,23 @@ app.get("/api/images/:id", (req, res) => {
   );
 });
 
+//Modification active / desactive d'une image
+
+app.put("/admin/images/:id", (req, res) => {
+  connection.query(
+    "UPDATE images SET active = ? WHERE id = ?",
+    [req.body.active, req.params.id],
+    (err, results) => {
+      if (err) {
+        console.log(err);
+        res.status(500).send("Erreur 500");
+      } else {
+        res.json(results);
+      }
+    }
+  );
+});
+
 // Récupération des données du formulaire client de contactTatoueur
 //envoi du mail client au tatoueur
 app.get("/api/customers", (req, res) => {
