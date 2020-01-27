@@ -12,7 +12,7 @@ class FormulaireProject extends Component {
         super(props);
         this.state = {
             customer: this.getInitialState(),
-            showConfirmation: true,
+            showConfirmation: false,
         }
     }
 
