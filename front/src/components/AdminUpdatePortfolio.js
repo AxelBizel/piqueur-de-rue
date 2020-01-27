@@ -283,7 +283,7 @@ class AdminUpdatePortfolio extends Component {
                 <Label for="portrait">
                   Avatar
                   <FormText color="muted">
-                    Merci d'uploader une image carrée (idéalement 500px X 500px)
+                  Attention, le fichier doit être au format.jpg. Merci d'uploader une image carrée (idéalement 500px X 500px)
                   </FormText>
                 </Label>
                 <Input
