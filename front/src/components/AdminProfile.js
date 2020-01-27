@@ -5,6 +5,8 @@ import AdminUpdatePortfolio from "./AdminUpdatePortfolio";
 import AdminAddPortfolio from "./AdminAddPortfolio";
 // import User from './User'
 import Logout from "./Logout";
+import AdminUpdateUsers from "./AdminUpdateUsers";
+import AdminAddUsers from "./AdminAddUsers";
 
 const StyleLogout = {
   display : "flex",
@@ -17,13 +19,18 @@ class AdminProfile extends Component {
     active: false,
     portfoliosActive: false,
     portfolios: [],
+    users:[],
     selectedPortfolio: {}
   };
 
   async componentDidMount() {
     this.getPortfolio();
     this.togglePortfolio = this.togglePortfolio.bind(this);
+    this.getUser();
+    this.toggleUser = this.toggleUser.bind(this);
   }
+
+
   //Partie : Statue - Portfolio
 
   getPortfolio = async () => {
@@ -40,6 +47,22 @@ class AdminProfile extends Component {
     }
   };
 
+
+  getUser = async () => {
+    try {
+      const result = await axios.get(`http://localhost:5000/admin/users`, {
+        headers: {
+          authorization: `bearer ${localStorage.getItem("token")}`
+        }
+      });
+      console.log("getUser", result.data);
+      this.setState({ users: result.data });
+      console.log ("user state", this.state.users)
+    } catch (err) {
+      console.log(err);
+    }
+  };
+
   async togglePortfolio(id, active) {
     console.log("togglePortfolio", id, active);
     try {
@@ -49,6 +72,21 @@ class AdminProfile extends Component {
       );
       console.log(result.data);
       this.getPortfolio();
+    } catch (err) {
+      console.log(err);
+    }
+  }
+
+
+  async toggleUser(id, active) {
+    console.log("toggleUser", id, active);
+    try {
+      const result = await axios.put(
+        `http://localhost:5000/admin/users/${id}`,
+        { active: !active }
+      );
+      console.log(result.data);
+      this.getUser();
     } catch (err) {
       console.log(err);
     }
@@ -144,6 +182,68 @@ class AdminProfile extends Component {
               </Table>
             </Col>
           </Row>
+
+          <Row>
+            <Col>
+              <h3>Utilisateur</h3>
+              <Table hover responsive>
+                <thead>
+                  <tr>
+                    <th>Id</th>
+                    <th>Login</th>
+                    <th>Mot de passe</th>
+                    <th>Active</th>
+                    <th>On/Off</th>
+                    <th>Modifier</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {this.state.users.map((user, index) => (
+                    <tr key={user.id}>
+                      <td>{user.login}</td>
+                      <td>{user.password}</td>
+                      <td>{user.active === 1 ? "Oui" : "Non"}</td>
+                      <td>
+                        <CustomInput
+                          key={`user-${index}`}
+                          onChange={() => {
+                            console.log(user.id);
+                            this.toggleUser(user.id, user.active);
+                          }}
+                          type="switch"
+                          id={`user-${index}`}
+                          checked={user.active}
+                        ></CustomInput>
+                      </td>
+                      <td>
+                        <AdminUpdateUsers
+                          key={`profile-${index}`}
+                          getCurrentProfile={() => this.getProfile(user.id)}
+                          user={user}
+                          index={index}
+                        >
+                          Détails
+                        </AdminUpdateUsers>
+                      </td>
+                    </tr>
+                  ))}
+                </tbody>
+                <tfoot>
+                  <tr>
+                    <td></td>
+                    <td colSpan="4">
+                      <strong>Ajouter un utilisateur</strong>
+                    </td>
+                    <td colSpan="2">
+                      <AdminAddUsers index={this.state.portfolios.length+1}>Ajouter</AdminAddUsers>
+                    </td>
+                  </tr>
+                </tfoot>
+              </Table>
+            </Col>
+          </Row>
+
+
         </Container>
         <div style={StyleLogout}>
           <Logout/>
