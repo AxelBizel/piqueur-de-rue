@@ -43,6 +43,7 @@ app.post(`/upload/portfolio/:id/avatar`, function(req, res) {
       const infoAvatar = {
         alt_text: "portrait du tatoueur",
         active: "0",
+        type:'avatar',
         path: `http://localhost:5000/img/${req.params.id}/portrait.jpg `,
         portfolio_id: `${req.params.id}`
       };
@@ -66,6 +67,7 @@ app.post(`/upload/portfolio/:id/images`, function(req, res) {
         const infoImages = {
           alt_text: `${req.files[i].originalname}`,
           active: "1",
+          type:"realisation",
           path: `http://localhost:5000/img/${req.params.id}/${req.files[i].originalname} `,
           portfolio_id: `${req.params.id}`
         };
@@ -398,6 +400,38 @@ app.get("/api/images/:id", (req, res) => {
     (err, results) => {
       if (err) {
         res.status(500).send("Erreur lors de la récupération des images");
+      } else {
+        res.json(results);
+      }
+    }
+  );
+});
+
+//Récupération des images real par tatoueur
+app.get("/api/images/real/:id", (req, res) => {
+  connection.query(
+    "SELECT * from images WHERE portfolio_id = ? AND type='realisation'",
+    req.params.id,
+    (err, results) => {
+      if (err) {
+        res.status(500).send("Erreur lors de la récupération des images");
+      } else {
+        res.json(results);
+      }
+    }
+  );
+});
+
+//Modification active / desactive d'une image
+
+app.put("/admin/images/:id", (req, res) => {
+  connection.query(
+    "UPDATE images SET active = ? WHERE id = ?",
+    [req.body.active, req.params.id],
+    (err, results) => {
+      if (err) {
+        console.log(err);
+        res.status(500).send("Erreur 500");
       } else {
         res.json(results);
       }

@@ -10,7 +10,8 @@ import {
   Modal,
   ModalHeader,
   ModalBody,
-  ModalFooter
+  ModalFooter,
+  CustomInput
 } from "reactstrap";
 
 class AdminUpdatePortfolio extends Component {
@@ -18,9 +19,12 @@ class AdminUpdatePortfolio extends Component {
     super(props);
     this.state = {
       modal: false,
+      img: "",
+      selectedAvatar: null,
+      selectedImages: null,
       newPortfolio: {
         pseudo: "",
-        type: "",
+        type: "team",
         presentation: "",
         insta: "",
         startdate: "",
@@ -30,8 +34,8 @@ class AdminUpdatePortfolio extends Component {
       },
       active: true
     };
+    this.toggleImg = this.toggleImg.bind(this);
   }
-
 
   toggle = () => {
     const { modal } = this.state;
@@ -52,7 +56,7 @@ class AdminUpdatePortfolio extends Component {
   handleSubmit = event => {
     event.preventDefault();
 
-    let { newPortfolio } = this.state;
+    let { newPortfolio, selectedImages } = this.state;
     let { portfolio } = this.props;
     axios
       .put(
@@ -61,8 +65,12 @@ class AdminUpdatePortfolio extends Component {
       )
       .then(() => {
         alert("Modifications prises en compte.");
-        this.toggle();
         this.onUpload();
+        if (selectedImages !==null){
+          this.onUploadMultiple();;
+        }
+
+        this.toggle();
       });
   };
 
@@ -74,11 +82,17 @@ class AdminUpdatePortfolio extends Component {
     console.log(event.target.files[0]);
   };
 
+  imageHandlerMultiple = event => {
+    this.setState({
+      selectedImages: event.target.files
+    });
+  };
+
   onUpload = () => {
     const data = new FormData();
     data.append("file", this.state.selectedAvatar);
     axios
-      .put(
+      .post(
         `http://localhost:5000/upload/portfolio/${this.props.portfolio.id}/avatar`,
         data,
         {
@@ -91,8 +105,64 @@ class AdminUpdatePortfolio extends Component {
       });
   };
 
+  onUploadMultiple = () => {
+    const data = new FormData();
+    for (let i = 0; i < this.state.selectedImages.length; i++) {
+      data.append("files", this.state.selectedImages[i]);
+    }
+    axios
+      .post(
+        `http://localhost:5000/upload/portfolio/${this.props.portfolio.id}/images`,
+        data,
+        {
+          // receive two    parameter endpoint url ,form data
+        }
+      )
+      .then(res => {
+        // then print response status
+        console.log(res.statusText);
+      });
+  };
+
+  async toggleImg(id, active) {
+    console.log("togglePortfolio", id, active);
+    try {
+      const result = await axios.put(
+        `http://localhost:5000/admin/images/${id}`,
+        { active: !active }
+      );
+      console.log(result.data);
+      this.getImg();
+    } catch (err) {
+      console.log(err);
+    }
+  }
+
+  componentDidMount() {
+    axios
+      .get(`http://localhost:5000/api/images/real/+${this.props.portfolio.id}`)
+      .then(res => {
+        const imgData = res.data;
+        this.setState({ img: imgData });
+        console.log(this.state);
+      });
+  }
+
+  getImg() {
+    axios
+      .get(`http://localhost:5000/api/images/real/+${this.props.portfolio.id}`)
+      .then(res => {
+        const imgData = res.data;
+        this.setState({ img: imgData });
+        console.log(this.state);
+      });
+  }
+  // async componentDidMount(){
+  //   this.toggleImg();
+  // }
+
   render() {
-    const { modal } = this.state;
+    const { modal, img } = this.state;
     const { portfolio } = this.props;
 
     return (
@@ -200,7 +270,7 @@ class AdminUpdatePortfolio extends Component {
                     </FormText>
                     <Input
                       type="text"
-                      name="endtdate"
+                      name="enddate"
                       id="enddate"
                       placeholder="Modifier la date de fin en toutes lettres"
                       onChange={this.onChange}
@@ -223,6 +293,21 @@ class AdminUpdatePortfolio extends Component {
                   accept="image/jpeg, image/jpg, image/png, image/gif"
                   onChange={this.imageHandler}
                 />
+                <div
+                  style={{
+                    display: "inline-block",
+                    padding: "1vh",
+                    margin: "1vh",
+                    border: "1px solid grey",
+                    backgroundImage:
+                      "url(http://localhost:5000/img/" +
+                      `${portfolio.id}` +
+                      "/portrait)",
+                    backgroundSize: "cover",
+                    width: "100px",
+                    height: "100px"
+                  }}
+                ></div>
               </FormGroup>
 
               <FormGroup>
@@ -232,18 +317,44 @@ class AdminUpdatePortfolio extends Component {
                     Merci d'uploader des images carrées (idéalement 500px X
                     500px)
                   </FormText>
+                  {img === "" ? (
+                    <p>loading </p>
+                  ) : (
+                    img.map((img, index) => (
+                      <div
+                        style={{
+                          display: "inline-block",
+                          padding: "1vh",
+                          margin: "1vh",
+                          border: "1px solid grey"
+                        }}
+                      >
+                        <img
+                          src={img.path}
+                          style={{ width: "100px", height: "100px" }}
+                        />
+                        <CustomInput
+                          key={`user-${index}`}
+                          onChange={() => {
+                            this.toggleImg(img.id, img.active);
+                          }}
+                          type="switch"
+                          id={`img-${index}`}
+                          checked={img.active}
+                        ></CustomInput>
+                      </div>
+                    ))
+                  )}
                 </Label>
                 <Input
                   type="file"
                   name="realisations"
                   id="realisations"
+                  onChange={this.imageHandlerMultiple}
                   accept="image/jpeg, image/jpg, image/png, image/gif"
                   multiple
                 />
-                 <Button onClick={this.onUpload}>Upload</Button>
               </FormGroup>
-
-
             </Form>
           </ModalBody>
           <ModalFooter>

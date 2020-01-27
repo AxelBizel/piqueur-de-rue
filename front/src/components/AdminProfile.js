@@ -3,7 +3,6 @@ import axios from "axios";
 import { Container, Row, Col, CustomInput, Table } from "reactstrap";
 import AdminUpdatePortfolio from "./AdminUpdatePortfolio";
 import AdminAddPortfolio from "./AdminAddPortfolio";
-// import User from './User'
 import Logout from "./Logout";
 import AdminUpdateUsers from "./AdminUpdateUsers";
 import AdminAddUsers from "./AdminAddUsers";
@@ -14,6 +13,7 @@ const StyleLogout = {
   alignItems : "center",
   padding : "70px",
 }
+
 class AdminProfile extends Component {
   state = {
     active: false,
@@ -185,13 +185,13 @@ class AdminProfile extends Component {
 
           <Row>
             <Col>
-              <h3>Utilisateur</h3>
+              <h3>Utilisateurs</h3>
               <Table hover responsive>
                 <thead>
                   <tr>
                     <th>Id</th>
                     <th>Login</th>
-                    <th>Mot de passe</th>
+                    <th>Password</th>
                     <th>Active</th>
                     <th>On/Off</th>
                     <th>Modifier</th>
@@ -200,6 +200,7 @@ class AdminProfile extends Component {
                 <tbody>
                   {this.state.users.map((user, index) => (
                     <tr key={user.id}>
+                      <td>{user.id}</td>
                       <td>{user.login}</td>
                       <td>{user.password}</td>
                       <td>{user.active === 1 ? "Oui" : "Non"}</td>
@@ -235,7 +236,7 @@ class AdminProfile extends Component {
                       <strong>Ajouter un utilisateur</strong>
                     </td>
                     <td colSpan="2">
-                      <AdminAddUsers index={this.state.portfolios.length+1}>Ajouter</AdminAddUsers>
+                      <AdminAddUsers index={this.state.users.length+1}>Ajouter</AdminAddUsers>
                     </td>
                   </tr>
                 </tfoot>
