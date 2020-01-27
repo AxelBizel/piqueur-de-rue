@@ -147,7 +147,7 @@ function verifyToken(req, res, next) {
   });
 }
 
-//ROUTES FAKES ADMIN
+//ROUTES Admin
 //Formulaires USERS
 
 //OK
@@ -162,8 +162,22 @@ app.get("/admin/users", (req, res) => {
   });
 });
 
+app.post("/admin/users", (req, res) => {
+  const formData = req.body;
+  connection.query("INSERT users SET ?", formData, (err, results) => {
+    if (err) {
+      console.log(err);
+      res.status(500).send("Error 500");
+    } else {
+      res.json(results);
+    }
+  });
+  console.log(formData);
+});
+
 //OK
-app.put("/admin/users/:id/active", (req, res) => {
+
+app.put("/admin/users/:id", (req, res) => {
   connection.query(
     "UPDATE users SET active = ? WHERE id = ?",
     [req.body.active, req.params.id],
@@ -171,6 +185,23 @@ app.put("/admin/users/:id/active", (req, res) => {
       if (err) {
         console.log(err);
         res.status(500).send("Erreur 500");
+      } else {
+        res.json(results);
+      }
+    }
+  );
+});
+
+app.put("/admin/user/:id", (req, res) => {
+  const idUser = req.params.id;
+  const formData = req.body;
+  connection.query(
+    "UPDATE users SET ? WHERE id = ?",
+    [formData, idUser],
+    (err, results) => {
+      if (err) {
+        console.log(err);
+        res.status(500).send("Error 500");
       } else {
         res.json(results);
       }
