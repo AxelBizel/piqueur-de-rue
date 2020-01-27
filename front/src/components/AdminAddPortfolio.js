@@ -233,14 +233,14 @@ class AdminAddPortfolio extends Component {
                 <Label for="avatar">
                   Avatar
                   <FormText color="muted">
-                    Merci d'uploader une image carrée (idéalement 500px X 500px)
+                    Attention, le fichier doit être au format.jpg. Merci d'uploader une image carrée (idéalement 500px X 500px)
                   </FormText>
                 </Label>
                 <Input
                   type="file"
                   name="avatar"
                   id="avatar"
-                  accept="image/jpeg, image/jpg, image/png, image/gif"
+                  accept="image/jpeg, image/jpg"
                   onChange={this.imageHandler}
                   required
                 />

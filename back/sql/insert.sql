@@ -223,4 +223,4 @@ VALUES('grozen10',1,'http://localhost:5000/img/6/grozen10.jpeg', 6, 'realisation
 INSERT INTO images (alt_text , active , path , portfolio_id, type) 
 VALUES('grozen11',1,'http://localhost:5000/img/6/grozen11.jpeg', 6, 'realisation');
 INSERT INTO images (alt_text , active , path , portfolio_id, type) 
-VALUES('portrait de grozen',0,'http://localhost:5000/img/6/portrait', 6, 'portrait');
+VALUES('portrait de grozen',0,'http://localhost:5000/img/6/.jpg', 6, 'portrait');

@@ -70,7 +70,7 @@ class GuestHome extends Component {
                       backgroundImage:
                         "url(http://localhost:5000/img/" +
                         `${portfolio.id}` +
-                        "/portrait)"
+                        "/portrait.jpg)"
                     }}
                   >
                     <Row>
