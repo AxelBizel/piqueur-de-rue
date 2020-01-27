@@ -32,8 +32,7 @@ class AdminUpdatePortfolio extends Component {
       },
       active: true
     };
-    this.toggleImg=this.toggleImg.bind(this);
-  
+    this.toggleImg = this.toggleImg.bind(this);
   }
 
   toggle = () => {
@@ -63,9 +62,9 @@ class AdminUpdatePortfolio extends Component {
         newPortfolio
       )
       .then(() => {
-        alert("Modifications prises en compte.");
         this.onUpload();
         this.onUploadMultiple();
+        alert("Modifications prises en compte.");
         this.toggle();
       });
   };
@@ -123,7 +122,6 @@ class AdminUpdatePortfolio extends Component {
       );
       console.log(result.data);
       this.getImg();
-      
     } catch (err) {
       console.log(err);
     }
@@ -131,23 +129,22 @@ class AdminUpdatePortfolio extends Component {
 
   componentDidMount() {
     axios
-    .get(`http://localhost:5000/api/images/+${this.props.portfolio.id}`)
-    .then(res => {
-      const imgData = res.data;
-      this.setState({ img: imgData });
-      console.log(this.state);
-    });
+      .get(`http://localhost:5000/api/images/real/+${this.props.portfolio.id}`)
+      .then(res => {
+        const imgData = res.data;
+        this.setState({ img: imgData });
+        console.log(this.state);
+      });
   }
 
-  getImg(){
+  getImg() {
     axios
-    .get(`http://localhost:5000/api/images/+${this.props.portfolio.id}`)
-    .then(res => {
-      const imgData = res.data;
-      this.setState({ img: imgData });
-      console.log(this.state);
-    });
-
+      .get(`http://localhost:5000/api/images/real/+${this.props.portfolio.id}`)
+      .then(res => {
+        const imgData = res.data;
+        this.setState({ img: imgData });
+        console.log(this.state);
+      });
   }
   // async componentDidMount(){
   //   this.toggleImg();
@@ -285,6 +282,21 @@ class AdminUpdatePortfolio extends Component {
                   accept="image/jpeg, image/jpg, image/png, image/gif"
                   onChange={this.imageHandler}
                 />
+                <div
+                  style={{
+                    display: "inline-block",
+                    padding: "1vh",
+                    margin: "1vh",
+                    border: "1px solid grey",
+                    backgroundImage:
+                      "url(http://localhost:5000/img/" +
+                      `${portfolio.id}` +
+                      "/portrait)",
+                    backgroundSize: "cover",
+                    width: "100px",
+                    height: "100px"
+                  }}
+                ></div>
               </FormGroup>
 
               <FormGroup>
@@ -298,20 +310,27 @@ class AdminUpdatePortfolio extends Component {
                     <p>loading </p>
                   ) : (
                     img.map((img, index) => (
-                      <div style={{ display: "inline-block", padding:'1vh', margin:'1vh', border:'1px solid grey' }}>
+                      <div
+                        style={{
+                          display: "inline-block",
+                          padding: "1vh",
+                          margin: "1vh",
+                          border: "1px solid grey"
+                        }}
+                      >
                         <img
                           src={img.path}
                           style={{ width: "100px", height: "100px" }}
                         />
-                          <CustomInput
-                            key={`user-${index}`}
-                            onChange={() => {
-                              this.toggleImg(img.id, img.active);
-                            }}
-                            type="switch"
-                            id={`img-${index}`}
-                            checked={img.active}
-                          ></CustomInput>
+                        <CustomInput
+                          key={`user-${index}`}
+                          onChange={() => {
+                            this.toggleImg(img.id, img.active);
+                          }}
+                          type="switch"
+                          id={`img-${index}`}
+                          checked={img.active}
+                        ></CustomInput>
                       </div>
                     ))
                   )}

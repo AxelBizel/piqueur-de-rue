@@ -405,6 +405,21 @@ app.get("/api/images/:id", (req, res) => {
   );
 });
 
+//Récupération des images real par tatoueur
+app.get("/api/images/real/:id", (req, res) => {
+  connection.query(
+    "SELECT * from images WHERE portfolio_id = ? AND type='realisation'",
+    req.params.id,
+    (err, results) => {
+      if (err) {
+        res.status(500).send("Erreur lors de la récupération des images");
+      } else {
+        res.json(results);
+      }
+    }
+  );
+});
+
 //Modification active / desactive d'une image
 
 app.put("/admin/images/:id", (req, res) => {
