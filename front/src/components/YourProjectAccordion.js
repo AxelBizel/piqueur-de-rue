@@ -76,11 +76,17 @@ class YourProjectAccordion extends Component {
     const { collapse, sections } = this.state;
 
     return (
-      <div >
+      <div>
         <h1 className="HeaderSection">
-          <div className="FirstTitleLineProject" data-aos="fade-right">Votre</div>
-          <div className="SecondTitleLineProject" data-aos="fade-right">Projet</div>
-          <div className="ThirdTitleLineProject" data-aos="fade-left">TATTOO</div>
+          <div className="FirstTitleLineProject" data-aos="fade-right">
+            Votre
+          </div>
+          <div className="SecondTitleLineProject" data-aos="fade-right">
+            Projet
+          </div>
+          <div className="ThirdTitleLineProject" data-aos="fade-left">
+            TATTOO
+          </div>
         </h1>
         <Container>
           {sections.map((section, index) => {
@@ -91,6 +97,7 @@ class YourProjectAccordion extends Component {
                   data-event={section.id}
                   style={{
                     margin: "0",
+                    cursor:'pointer',
                     borderRadius: "3px",
                     backgroundColor: "#ffffff",
                     fontWeight: "100"
@@ -124,11 +131,11 @@ class YourProjectAccordion extends Component {
             );
           })}
           <div className="divButton">
-          <ButtonOpenFormProject />
+            <ButtonOpenFormProject />
           </div>
         </Container>
       </div>
-          );
+    );
   }
 }
 

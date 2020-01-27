@@ -73,7 +73,7 @@ class GuestHome extends Component {
                       backgroundImage:
                         "url(${IPserver}/img/" +
                         `${portfolio.id}` +
-                        "/portrait)"
+                        "/portrait.jpg)"
                     }}
                   >
                     <Row>

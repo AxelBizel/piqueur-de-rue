@@ -16,7 +16,7 @@ class GalleryPortfolio extends Component {
   getImages = () => {
     let images = [];
     this.state.img.map(img => {
-      if (img.active === 1) {
+      if (img.active === 1 && img.type==='realisation') {
         images.push({
           original: `${img.path}`,
           thumbnail: `${img.path}`
