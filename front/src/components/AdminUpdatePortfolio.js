@@ -20,6 +20,8 @@ class AdminUpdatePortfolio extends Component {
     this.state = {
       modal: false,
       img: "",
+      selectedAvatar: null,
+      selectedImages: null,
       newPortfolio: {
         pseudo: "",
         type: "",
@@ -62,9 +64,9 @@ class AdminUpdatePortfolio extends Component {
         newPortfolio
       )
       .then(() => {
+        alert("Modifications prises en compte.");
         this.onUpload();
         this.onUploadMultiple();
-        alert("Modifications prises en compte.");
         this.toggle();
       });
   };
@@ -75,6 +77,12 @@ class AdminUpdatePortfolio extends Component {
       loaded: 0
     });
     console.log(event.target.files[0]);
+  };
+
+  imageHandlerMultiple = event => {
+    this.setState({
+      selectedImages: event.target.files
+    });
   };
 
   onUpload = () => {
@@ -101,7 +109,7 @@ class AdminUpdatePortfolio extends Component {
     }
     axios
       .post(
-        `http://localhost:5000/upload/portfolio/${this.props.index}/images`,
+        `http://localhost:5000/upload/portfolio/${this.props.portfolio.id}/images`,
         data,
         {
           // receive two    parameter endpoint url ,form data
@@ -339,7 +347,8 @@ class AdminUpdatePortfolio extends Component {
                   type="file"
                   name="realisations"
                   id="realisations"
-                  accept="image/jpeg, image/jpg, image/png, image/gif"
+                  onChange={this.imageHandlerMultiple}
+                  // accept="image/jpeg, image/jpg, image/png, image/gif"
                   multiple
                 />
               </FormGroup>
