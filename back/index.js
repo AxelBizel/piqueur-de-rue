@@ -142,7 +142,7 @@ function verifyToken(req, res, next) {
   });
 }
 
-//ROUTES FAKES ADMIN
+//ROUTES Admin
 //Formulaires USERS
 
 //OK
@@ -155,6 +155,19 @@ app.get("/admin/users", (req, res) => {
       res.json(results);
     }
   });
+});
+
+app.post("/admin/users", (req, res) => {
+  const formData = req.body;
+  connection.query("INSERT users SET ?", formData, (err, results) => {
+    if (err) {
+      console.log(err);
+      res.status(500).send("Error 500");
+    } else {
+      res.json(results);
+    }
+  });
+  console.log(formData);
 });
 
 //OK
@@ -215,6 +228,44 @@ app.put("/admin/portfolio/:id", (req, res) => {
     }
   );
 });
+
+// Routes Modification Admin /Users 
+
+app.get("/addadmin/users", (req, res) => {
+  connection.query(" SELECT * from users ", (err, results) => {
+    if (err) {
+      console.log(err);
+      res.status(500).send("Error 500");
+    } else {
+      res.json(results);
+    }
+  });
+});
+
+app.post("/addadmin/users", (req, res) => {
+  const formData = req.body;
+  connection.query("INSERT INTO users SET ?", formData, (err, results) => {
+    if (err) {
+      console.log(err);
+      res.status(500).send("Error 500");
+    } else {
+      res.json(results);
+    }
+  });
+  console.log(formData);
+});
+
+
+
+
+
+
+
+
+
+
+
+
 
 ///////////////////////////////////////////////////////////////////////////////
 
