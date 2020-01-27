@@ -13,7 +13,7 @@ export default class Login extends React.Component {
         this.state = {
             login: "",
             password: "",
-            return: true,
+            // return: true,
             createProfile: true,
             loggedIn,
             error: ""
@@ -69,9 +69,9 @@ export default class Login extends React.Component {
         if (this.state.loggedIn === true) {
             return <Redirect to="/admin" />
         }
-        if (this.state.return === false) {
-            return <Redirect to="/" />
-        }
+        // if (this.state.loggedIn === false) {
+        //     return <Redirect to="/admin" />
+        // }
         // if(this.state.createProfile === true){
         //     return <Redirect to="/profile" />
         // }
