@@ -290,7 +290,7 @@ class AdminUpdatePortfolio extends Component {
                   type="file"
                   name="avatar"
                   id="avatar"
-                  accept="image/jpeg, image/jpg, image/png, image/gif"
+                  accept="image/jpeg, image/jpg"
                   onChange={this.imageHandler}
                 />
                 <div
@@ -302,7 +302,7 @@ class AdminUpdatePortfolio extends Component {
                     backgroundImage:
                       "url(http://localhost:5000/img/" +
                       `${portfolio.id}` +
-                      "/portrait)",
+                      "/portrait.jpg)",
                     backgroundSize: "cover",
                     width: "100px",
                     height: "100px"
