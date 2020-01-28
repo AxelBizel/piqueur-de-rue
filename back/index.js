@@ -21,13 +21,14 @@ app.use(bodyParser.json());
 app.use(express.json());
 app.use(cors());
 app.use("/img", express.static(__dirname + "/img"));
+app.use(express.static("/home/PiqueurDeRue/piqueur-de-rue/front/build"));
+
 
 //ROUTES : Partie Authentification
 
-app.get("/", function(request, response) {
-  const user = {};
-  response.json(user);
-});
+/*app.get("/", function(request, response) {
+	response.sen
+});*/
 
 // File Upload
 
@@ -86,7 +87,7 @@ app.post(`/upload/portfolio/:id/images`, function(req, res) {
 
 /////////
 
-app.post("/login", function(request, response) {
+app.post("/api/login", function(request, response) {
   console.log("login", request.body);
   const login = request.body.login;
   const password = request.body.password;
@@ -334,6 +335,7 @@ app.get("/api/portfolio/team/active", (req, res) => {
     "SELECT * from portfolio WHERE type='team' AND active='1'",
     (err, results) => {
       if (err) {
+	      console.log(err)
         res.status(500).send("Erreur lors de la récupération des portfolios");
       } else {
         res.json(results);
@@ -525,7 +527,7 @@ app.post("/api/guests", (req, res) => {
 
 // Route pour l'envoi de Mails des clients avec sengrid : --------------------------------------------
 
-app.post("/project", async (req, res) => {
+app.post("/api/project", async (req, res) => {
   try {
     const sent = await sendMail(req.body);
     if (sent) {
@@ -536,11 +538,11 @@ app.post("/project", async (req, res) => {
   }
 });
 
-//Server
-app.get("/", (request, response) => {
-  response.send("Bienvenue sur Express de piqueur de rue");
+app.use('/*', (req,res) =>{
+    res.sendFile("/home/PiqueurDeRue/piqueur-de-rue/front/build/index.html")
 });
 
+//Server
 app.listen(portHttp, err => {
   if (err) {
     throw new Error("Something bad happened...");
