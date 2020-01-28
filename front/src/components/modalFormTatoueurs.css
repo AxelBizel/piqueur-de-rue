@@ -1,0 +1,68 @@
+/* 
+    .MainModalContactResidents {
+        position: fixed;
+        top: 0;
+        left: 0; 
+        overflow: scroll;
+        min-width: 100vw;
+        min-height: 100vh;
+        padding: 7vw;
+        background: #F1F1F0;
+      }
+    
+      .MainModalGuestAndProject {
+        position: fixed;
+        top: 0;
+        left: 0;
+        overflow-y: scroll;
+        min-width: 100vw;
+        min-height: 99vh;
+        max-height: 100vh;
+        padding: 7vw;
+        background: #F1F1F0;
+        z-index: 100;
+      }
+      
+      .close-container {
+        position: absolute;
+        right: 25px;
+        top: 25px;
+        width: 50px;
+        height: 50px;
+      }
+      
+      .leftright {
+        height: 4px;
+        width: 50px;
+        position: absolute;
+        margin-top: 24px;
+        background-color: #4d4d4d;
+        border-radius: 2px;
+        transform: rotate(45deg);
+        transition: all 0.3s ease-in;
+      }
+      
+      .rightleft {
+        height: 4px;
+        width: 50px;
+        position: absolute;
+        margin-top: 24px;
+        background-color: #4d4d4d;
+        border-radius: 2px;
+        transform: rotate(-45deg);
+        transition: all 0.3s ease-in;
+      }
+      
+      .close {
+        margin: 60px 0 0 5px;
+        position: absolute;
+      }
+      
+      .close-container:hover .leftright {
+        transform: rotate(-45deg);
+        background-color: #f25c66;
+      }
+      .close-container:hover .rightleft {
+        transform: rotate(45deg);
+        background-color: #f25c66;
+      } */

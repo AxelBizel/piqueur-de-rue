@@ -1,0 +1,51 @@
+.aboutAgency {
+    border-radius: 3px;
+    padding: 5%;
+    color: black;
+    border: 1px solid rgba(0, 0, 0, 0.096);
+    margin-bottom: 3vh;
+}
+
+.TextSub-Agency {
+    font-size: 1em;
+    text-align: justify;
+    margin: 0;
+}
+
+.FirstLineAgency {
+    width: max-content;
+    font-family: South_Gardens_Personal_Use;
+}
+
+.SecondLineAgency {
+    width: max-content;
+    font-family: FalkinSerifItalicPERSONAL;
+    font-weight: 600;
+    font-size: 95px;
+    animation: slidein2 1s;
+    -webkit-animation: slidein2 1s;
+}
+
+.ThirdLineAgency {
+    width: max-content;
+    font-family: FalkinSerifItalicPERSONAL;
+    font-size: 50px;
+    line-height: 0.9em;
+    color: rgb(97, 85, 74);
+    letter-spacing: 0 !important;
+    animation: slidein3 1s;
+    -webkit-animation: slidein3 1s;
+}
+
+
+@media (max-width: 768px) {
+    .SecondLineAgency {
+        font-size: 70px;
+        transition: .3s;
+    }
+    
+    .ThirdLineAgency {
+        font-size: 45px;
+        transition: .3s;
+    }
+}

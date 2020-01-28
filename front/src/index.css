@@ -1,0 +1,105 @@
+* { 
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box; 
+}
+
+body, html {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  scroll-behavior: smooth;
+  overflow-x: hidden;
+}
+
+a {
+  text-decoration: none;
+}
+
+button {
+  color : white;  
+  border-radius: 3px;
+}
+
+.HeaderSection {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  letter-spacing: 0.1em;
+  line-height: 1.5em;
+  margin: 5vh;
+}
+
+/* .header {
+  position: absolute;
+  display: none;
+  animation: headeranimation 5s;
+} */
+
+@keyframes headeranimation {
+  0% {
+      opacity: 1;
+  }
+
+  50% {
+    opacity: 1;
+  }
+
+  100% {
+      opacity: 0;
+      visibility: hidden
+  }
+}
+
+.logoheader {
+  height : 70vh;
+  animation: logoheaderanimation 5s;
+  overflow-x: hidden;
+}
+
+@keyframes logoheaderanimation {
+  from {
+      opacity: 0;
+      transform: scale(2);
+  }
+
+  to {
+      opacity: 1;
+      transform: scale(1);   
+  }
+}
+
+/* Fonts______________ */
+
+@font-face {
+  font-family: "FalkinSerifBoldItalicPERSONAL";
+  src: url("./fonts/FalkinSerifBoldItalicPERSONAL.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "FalkinSerifBoldPERSONAL";
+  src: url("./fonts/FalkinSerifBoldPERSONAL.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "FalkinSerifItalicPERSONAL";
+  src: url("./fonts/FalkinSerifItalicPERSONAL.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "FalkinSerifPERSONAL";
+  src: url("./fonts/FalkinSerifPERSONAL.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "South_Gardens_Personal_Use";
+  src: url("./fonts/South_Gardens_Personal_Use.ttf") format("truetype");
+}
+
+/* ReactImageGallery_______ */
+
+@import "~react-image-gallery/styles/css/image-gallery.css";
+

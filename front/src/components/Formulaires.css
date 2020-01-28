@@ -1,0 +1,188 @@
+/* CONTACT FORM CSS */
+
+.close-container {
+  position: absolute;
+  right: 5px;
+  top: 5px;
+  width: 50px;
+  height: 50px;
+  z-index: 30;
+}
+
+.leftright {
+  height: 4px;
+  width: 50px;
+  position: absolute;
+  margin-top: 24px;
+  background-color: #4d4d4d;
+  border-radius: 2px;
+  transform: rotate(45deg);
+  transition: all 0.3s ease-in;
+}
+
+.rightleft {
+  height: 4px;
+  width: 50px;
+  position: absolute;
+  margin-top: 24px;
+  background-color: #4d4d4d;
+  border-radius: 2px;
+  transform: rotate(-45deg);
+  transition: all 0.3s ease-in;
+}
+
+.close-container:hover .leftright {
+  transform: rotate(-45deg);
+  background-color: #f25c66;
+}
+.close-container:hover .rightleft {
+  transform: rotate(45deg);
+  background-color: #f25c66;
+}
+
+.FlexFormContainerGuests,
+.FlexFormContainerProject {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 3rem 0;
+  z-index: 90;
+}
+
+.FlexProject1 {
+  margin-top: 2em;
+  width: 25vw;
+  padding: 20px;
+}
+
+.titleContactForm {
+  text-align: center;
+  font-size: 30px;
+}
+
+.FlexProject2 {
+  margin-top: 2em;
+  width: 25vw;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
+.inputForm,
+.textAreaForm {
+  display: block;
+  margin: 3rem 0;
+  padding: 0.5em;
+  border-radius: 0.5rem;
+  width: 100% !important;
+  border: 1px solid #ced4da;
+  align-items: flex-start;
+  box-sizing: border-box;
+  transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
+
+.inputForm:focus,
+.textAreaForm:focus {
+  border-color: #7a6a5d;
+  box-shadow: none;
+  -webkit-box-shadow: none;
+}
+
+.inputForm {
+  margin: 0.5em 0;
+  padding: 10px;
+  background-color: rgb(238, 238, 238);
+}
+
+/* Style buttons */
+
+.buttonForm {
+  background-color: #7a6a5d;
+  box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.774);
+  border: 1px solid rgba(0, 0, 0, 0.411);
+  transition: 0.4s;
+  font-weight: 600;
+  border-radius: 3px;
+  font-size: 1.2em;
+  color: white;
+  padding: 1em;
+  margin-top: 20px;
+}
+
+.buttonForm:hover {
+  box-shadow: none;
+  -webkit-box-shadow: none;
+}
+
+.MainModalGuestAndProject {
+  display: flex;
+  flex-direction: column;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  height: auto;
+  width: 70vw;
+  background: white;
+  z-index: 1;
+  padding: 0 50px;
+  border-radius: 40px 0px;
+}
+
+.background {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.699);
+  z-index: 1;
+}
+
+@media (max-width: 600px) {
+  .MainModalGuestAndProject {
+    height: 100vh;
+    width: 100vw;
+    background: white;
+    z-index: 1;
+    border-radius: 0px;
+    overflow-y: auto;
+  }
+
+  .h1formGuest {
+    display: none;
+  }
+
+  .inputForm,
+  .textAreaForm {
+    width: 70vw !important;
+    border: 1px solid #ced4da;
+  }
+
+  .FlexFormContainerGuests,
+  .FlexFormContainerProject {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 2rem 0;
+  }
+
+  .FlexProject1 {
+    margin-top: 0em;
+    width: 40vw;
+    padding: 0px;
+  }
+
+  .FlexProject2 {
+    margin-top: 0em;
+    width: 40vw;
+    padding: 0px;
+    display: block;
+  }
+}
+
+@media (max-width: 601px) {
+ 
+}
