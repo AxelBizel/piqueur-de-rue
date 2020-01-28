@@ -115,7 +115,7 @@ class AdminUpdatePortfolio extends Component {
     }
     axios
       .post(
-        `http://localhost:5000/upload/portfolio/${this.props.portfolio.id}/images`,
+        `${IPserver}/upload/portfolio/${this.props.portfolio.id}/images`,
         data,
         {
           // receive two    parameter endpoint url ,form data
@@ -131,7 +131,7 @@ class AdminUpdatePortfolio extends Component {
     console.log("togglePortfolio", id, active);
     try {
       const result = await axios.put(
-        `http://localhost:5000/admin/images/${id}`,
+        `${IPserver}/admin/images/${id}`,
         { active: !active }
       );
       console.log(result.data);
@@ -143,7 +143,7 @@ class AdminUpdatePortfolio extends Component {
 
   componentDidMount() {
     axios
-      .get(`http://localhost:5000/api/images/real/+${this.props.portfolio.id}`)
+      .get(`${IPserver}/api/images/real/+${this.props.portfolio.id}`)
       .then(res => {
         const imgData = res.data;
         this.setState({ img: imgData });
@@ -153,7 +153,7 @@ class AdminUpdatePortfolio extends Component {
 
   getImg() {
     axios
-      .get(`http://localhost:5000/api/images/real/+${this.props.portfolio.id}`)
+      .get(`${IPserver}/api/images/real/+${this.props.portfolio.id}`)
       .then(res => {
         const imgData = res.data;
         this.setState({ img: imgData });
@@ -303,9 +303,9 @@ class AdminUpdatePortfolio extends Component {
                     margin: "1vh",
                     border: "1px solid grey",
                     backgroundImage:
-                      "url(http://localhost:5000/img/" +
+                      `url(${IPserver}/img/` +
                       `${portfolio.id}` +
-                      "/portrait.jpg)",
+                      `/portrait.jpg)`,
                     backgroundSize: "cover",
                     width: "100px",
                     height: "100px"
@@ -323,7 +323,9 @@ class AdminUpdatePortfolio extends Component {
                   {img === "" ? (
                     <p>loading </p>
                   ) : (
-                    img.map((img, index) => (
+                    img.map((img, index) => 
+                    
+                    (
                       <div
                         style={{
                           display: "inline-block",
@@ -333,7 +335,7 @@ class AdminUpdatePortfolio extends Component {
                         }}
                       >
                         <img
-                          src={img.path}
+                          src={`${IPserver}${img.path}`}
                           style={{ width: "100px", height: "100px" }}
                         />
                         <CustomInput

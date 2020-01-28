@@ -16,15 +16,13 @@ export default class Login extends React.Component {
         this.state = {
             login: "",
             password: "",
-            // return: true,
-            createProfile: true,
+            return: false,
             loggedIn,
             error: ""
         }
         this.onChange = this.onChange.bind(this)
         this.formSubmit = this.formSubmit.bind(this)
         this.onReturn = this.onReturn.bind(this)
-        this.onCreateProfile = this.onCreateProfile.bind(this)
     }
 
     onChange(ev) {
@@ -33,14 +31,10 @@ export default class Login extends React.Component {
         })
     }
 
-    onCreateProfile() {
-        this.setState({
-            createProfile: true
-        })
-    }
+
     onReturn() {
         this.setState({
-            return: false
+            return: true
         })
     }
 
@@ -49,7 +43,7 @@ export default class Login extends React.Component {
         console.log(this.state)
         const { login, password } = this.state
         try {
-            const result = await Axios.post("${IPserver}/login",
+            const result = await Axios.post(`${IPserver}/login`,
                 { login, password })
             // if(result.data.token)
             if (result.data.token) {
@@ -72,12 +66,10 @@ export default class Login extends React.Component {
         if (this.state.loggedIn === true) {
             return <Redirect to="/admin" />
         }
-        // if (this.state.loggedIn === false) {
-        //     return <Redirect to="/admin" />
-        // }
-        // if(this.state.createProfile === true){
-        //     return <Redirect to="/profile" />
-        // }
+      
+        if(this.state.return === true){
+            return <Redirect to="/" />
+        }
         return (
             <div className="flexContainerLogin">
                 <div class="wrapperLogin fadeInDown">
@@ -93,8 +85,7 @@ export default class Login extends React.Component {
                         </form>
 
                         <div id="formFooter" class="fadeIn fourth">
-                            <a class="underlineHover" href="#" onClick={this.onCreateProfile}>Créer profil</a><br />
-                            <a class="underlineHover" href="#">Mot de passe oublié ?</a><br />
+                            {/* <a class="underlineHover" href="#">Mot de passe oublié ?</a><br /> */}
                             <a class="underlineHover" href="#" onClick={this.onReturn}>Retour</a>
                         </div>
                     </div>
