@@ -5,6 +5,9 @@ import { Container, Col, Row, Spinner } from "reactstrap";
 import ButtonPortfolioGuest from "./ButtonPortfolioGuest";
 import axios from "axios";
 import "./GuestHome.css";
+import {IPserver} from '../conf/confIP'
+
+
 
 class GuestHome extends Component {
   constructor(props) {
@@ -29,7 +32,7 @@ class GuestHome extends Component {
   };
 
   componentDidMount() {
-    axios.get(`http://localhost:5000/api/portfolio/guest/active`).then(res => {
+    axios.get(`${IPserver}/api/portfolio/guest/active`).then(res => {
       const portfoliosData = res.data;
       this.setState({ portfolios: portfoliosData });
       console.log(this.state);
@@ -68,9 +71,9 @@ class GuestHome extends Component {
                     style={{
                       margin: "2vh auto",
                       backgroundImage:
-                        "url(http://localhost:5000/img/" +
+                        "url(${IPserver}/img/" +
                         `${portfolio.id}` +
-                        "/portrait)"
+                        "/portrait.jpg)"
                     }}
                   >
                     <Row>

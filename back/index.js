@@ -1,7 +1,7 @@
 const express = require("express");
 const app = express();
-const port = 5000;
-const connection = require("./conf");
+const portHttp = require('./config/conf').portHttp;
+const connection = require("./config/conf").connection;
 const bodyParser = require("body-parser");
 const path = require("path");
 const jwt = require("jsonwebtoken");
@@ -44,7 +44,8 @@ app.post(`/upload/portfolio/:id/avatar`, function(req, res) {
       const infoAvatar = {
         alt_text: "portrait du tatoueur",
         active: "0",
-        path: `http://localhost:5000/img/${req.params.id}/portrait.jpg `,
+        path: `/img/${req.params.id}/portrait.jpg `,
+        type:'avatar',
         portfolio_id: `${req.params.id}`
       };
       console.log(infoAvatar);
@@ -67,7 +68,8 @@ app.post(`/upload/portfolio/:id/images`, function(req, res) {
         const infoImages = {
           alt_text: `${req.files[i].originalname}`,
           active: "1",
-          path: `http://localhost:5000/img/${req.params.id}/${req.files[i].originalname} `,
+          path: `/img/${req.params.id}/${req.files[i].originalname} `,
+          type:"realisation",
           portfolio_id: `${req.params.id}`
         };
         connection.query("INSERT INTO images SET ?", infoImages);
@@ -406,6 +408,38 @@ app.get("/api/images/:id", (req, res) => {
   );
 });
 
+//Récupération des images real par tatoueur
+app.get("/api/images/real/:id", (req, res) => {
+  connection.query(
+    "SELECT * from images WHERE portfolio_id = ? AND type='realisation'",
+    req.params.id,
+    (err, results) => {
+      if (err) {
+        res.status(500).send("Erreur lors de la récupération des images");
+      } else {
+        res.json(results);
+      }
+    }
+  );
+});
+
+//Modification active / desactive d'une image
+
+app.put("/admin/images/:id", (req, res) => {
+  connection.query(
+    "UPDATE images SET active = ? WHERE id = ?",
+    [req.body.active, req.params.id],
+    (err, results) => {
+      if (err) {
+        console.log(err);
+        res.status(500).send("Erreur 500");
+      } else {
+        res.json(results);
+      }
+    }
+  );
+});
+
 // Récupération des données du formulaire client de contactTatoueur
 //envoi du mail client au tatoueur
 app.get("/api/customers", (req, res) => {
@@ -508,10 +542,10 @@ app.get("/", (request, response) => {
   response.send("Bienvenue sur Express de piqueur de rue");
 });
 
-app.listen(port, err => {
+app.listen(portHttp, err => {
   if (err) {
     throw new Error("Something bad happened...");
   }
 
-  console.log(`Server is listening on ${port}`);
+  console.log(`Server is listening on ${portHttp}`);
 });

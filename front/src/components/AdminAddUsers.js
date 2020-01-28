@@ -11,6 +11,10 @@ import {
   ModalBody,
   ModalFooter
 } from "reactstrap";
+import {IPserver} from '../conf/confIP'
+
+
+
 
 class AdminAddUsers extends Component {
   constructor(props) {
@@ -45,7 +49,7 @@ class AdminAddUsers extends Component {
     event.preventDefault();
     let { newUser } = this.state;
     axios
-      .post("http://localhost:5000/admin/users/", newUser)
+      .post(`${IPserver}/admin/users/`, newUser)
       .then(() => {
         alert("Modifications prises en compte.");
         this.toggle();

@@ -2,6 +2,9 @@ import React from "react"
 import { Redirect } from "react-router-dom"
 import Axios from "axios"
 import './login.css'
+import {IPserver} from '../conf/confIP'
+
+
 
 export default class Login extends React.Component {
     constructor() {
@@ -13,7 +16,7 @@ export default class Login extends React.Component {
         this.state = {
             login: "",
             password: "",
-            return: true,
+            // return: true,
             createProfile: true,
             loggedIn,
             error: ""
@@ -46,7 +49,7 @@ export default class Login extends React.Component {
         console.log(this.state)
         const { login, password } = this.state
         try {
-            const result = await Axios.post("http://localhost:5000/login",
+            const result = await Axios.post("${IPserver}/login",
                 { login, password })
             // if(result.data.token)
             if (result.data.token) {
@@ -69,9 +72,9 @@ export default class Login extends React.Component {
         if (this.state.loggedIn === true) {
             return <Redirect to="/admin" />
         }
-        if (this.state.return === false) {
-            return <Redirect to="/" />
-        }
+        // if (this.state.loggedIn === false) {
+        //     return <Redirect to="/admin" />
+        // }
         // if(this.state.createProfile === true){
         //     return <Redirect to="/profile" />
         // }

@@ -11,6 +11,9 @@ import {
   ModalBody,
   ModalFooter
 } from "reactstrap";
+import {IPserver} from '../conf/confIP'
+
+
 
 class AdminUpdateUsers extends Component {
   constructor(props) {
@@ -50,7 +53,7 @@ class AdminUpdateUsers extends Component {
     let { user } = this.props;
     axios
       .put(
-        `http://localhost:5000/admin/user/${user.id}`,
+        `${IPserver}/admin/user/${user.id}`,
         newUser
       )
       .then(() => {

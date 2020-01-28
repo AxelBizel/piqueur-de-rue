@@ -3,10 +3,13 @@ import axios from "axios";
 import { Container, Row, Col, CustomInput, Table } from "reactstrap";
 import AdminUpdatePortfolio from "./AdminUpdatePortfolio";
 import AdminAddPortfolio from "./AdminAddPortfolio";
-// import User from './User'
 import Logout from "./Logout";
 import AdminUpdateUsers from "./AdminUpdateUsers";
 import AdminAddUsers from "./AdminAddUsers";
+import {IPserver} from '../conf/confIP'
+
+
+
 
 const StyleLogout = {
   display : "flex",
@@ -14,6 +17,7 @@ const StyleLogout = {
   alignItems : "center",
   padding : "70px",
 }
+
 class AdminProfile extends Component {
   state = {
     active: false,
@@ -35,7 +39,7 @@ class AdminProfile extends Component {
 
   getPortfolio = async () => {
     try {
-      const result = await axios.get(`http://localhost:5000/api/portfolios`, {
+      const result = await axios.get(`${IPserver}/api/portfolios`, {
         headers: {
           authorization: `bearer ${localStorage.getItem("token")}`
         }
@@ -50,7 +54,7 @@ class AdminProfile extends Component {
 
   getUser = async () => {
     try {
-      const result = await axios.get(`http://localhost:5000/admin/users`, {
+      const result = await axios.get(`${IPserver}/admin/users`, {
         headers: {
           authorization: `bearer ${localStorage.getItem("token")}`
         }
@@ -67,7 +71,7 @@ class AdminProfile extends Component {
     console.log("togglePortfolio", id, active);
     try {
       const result = await axios.put(
-        `http://localhost:5000/api/portfolio/${id}`,
+        `${IPserver}/api/portfolio/${id}`,
         { active: !active }
       );
       console.log(result.data);
@@ -82,7 +86,7 @@ class AdminProfile extends Component {
     console.log("toggleUser", id, active);
     try {
       const result = await axios.put(
-        `http://localhost:5000/admin/users/${id}`,
+        `${IPserver}/admin/users/${id}`,
         { active: !active }
       );
       console.log(result.data);
@@ -97,7 +101,7 @@ class AdminProfile extends Component {
     console.log("youpi", id);
     try {
       const result = await axios.get(
-        `http://localhost:5000/api/portfolios/${id}`
+        `${IPserver}/api/portfolios/${id}`
       );
       console.log("gg", result.data);
       this.setState({ selectedPortfolio: result.data[0] });
@@ -185,13 +189,13 @@ class AdminProfile extends Component {
 
           <Row>
             <Col>
-              <h3>Utilisateur</h3>
+              <h3>Utilisateurs</h3>
               <Table hover responsive>
                 <thead>
                   <tr>
                     <th>Id</th>
                     <th>Login</th>
-                    <th>Mot de passe</th>
+                    <th>Password</th>
                     <th>Active</th>
                     <th>On/Off</th>
                     <th>Modifier</th>
@@ -200,6 +204,7 @@ class AdminProfile extends Component {
                 <tbody>
                   {this.state.users.map((user, index) => (
                     <tr key={user.id}>
+                      <td>{user.id}</td>
                       <td>{user.login}</td>
                       <td>{user.password}</td>
                       <td>{user.active === 1 ? "Oui" : "Non"}</td>
@@ -235,7 +240,7 @@ class AdminProfile extends Component {
                       <strong>Ajouter un utilisateur</strong>
                     </td>
                     <td colSpan="2">
-                      <AdminAddUsers index={this.state.portfolios.length+1}>Ajouter</AdminAddUsers>
+                      <AdminAddUsers index={this.state.users.length+1}>Ajouter</AdminAddUsers>
                     </td>
                   </tr>
                 </tfoot>

@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import ImageGallery from "react-image-gallery";
 import axios from "axios";
+import {IPserver} from '../conf/confIP'
+ 
 
 class GalleryPortfolio extends Component {
   constructor(props) {
@@ -14,7 +16,7 @@ class GalleryPortfolio extends Component {
   getImages = () => {
     let images = [];
     this.state.img.map(img => {
-      if (img.active === 1) {
+      if (img.active === 1 && img.type==='realisation') {
         images.push({
           original: `${img.path}`,
           thumbnail: `${img.path}`
@@ -26,7 +28,7 @@ class GalleryPortfolio extends Component {
 
   componentDidMount() {
     axios
-      .get(`http://localhost:5000/api/images/+${this.props.portfolio.id}`)
+      .get(`${IPserver}/api/images/+${this.props.portfolio.id}`)
       .then(res => {
         const imgData = res.data;
         this.setState({ img: imgData });

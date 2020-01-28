@@ -5,6 +5,9 @@ import logoIG from "../img/logo/logoIG.png";
 import axios from 'axios';
 import { Container, Row, Col } from "reactstrap";
 import "./footer.css";
+import {IPserver} from '../conf/confIP'
+
+
 
 export default class Footer extends Component {
   constructor(props) {
@@ -12,8 +15,7 @@ export default class Footer extends Component {
       this.state = {
       }
   }
-
-
+  
   render() {
   return (
     <div>

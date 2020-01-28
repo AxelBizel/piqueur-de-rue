@@ -12,6 +12,9 @@ import {
   ModalBody,
   ModalFooter
 } from "reactstrap";
+import {IPserver} from '../conf/confIP'
+
+
 
 class AdminAddPortfolio extends Component {
   constructor(props) {
@@ -50,13 +53,15 @@ class AdminAddPortfolio extends Component {
 
   handleSubmit = event => {
     event.preventDefault();
-    let { newPortfolio } = this.state;
+    let { newPortfolio, selectedImages } = this.state;
     axios
-      .post("http://localhost:5000/admin/portfolio/", newPortfolio)
+      .post(`${IPserver}/admin/portfolio/`, newPortfolio)
       .then(() => {
         alert("Modifications prises en compte.");
         this.onUpload();
-        this.onUploadMultiple();
+        if (selectedImages !==null){
+          this.onUploadMultiple();;
+        }
         this.toggle();
       });
   };
@@ -80,7 +85,7 @@ class AdminAddPortfolio extends Component {
     data.append("file", this.state.selectedAvatar);
     axios
       .post(
-        `http://localhost:5000/upload/portfolio/${this.props.index}/avatar`,
+        `${IPserver}/upload/portfolio/${this.props.index}/avatar`,
         data,
         {
           // receive two    parameter endpoint url ,form data
@@ -99,7 +104,7 @@ class AdminAddPortfolio extends Component {
     }
     axios
       .post(
-        `http://localhost:5000/upload/portfolio/${this.props.index}/images`,
+        `${IPserver}/upload/portfolio/${this.props.index}/images`,
         data,
         {
           // receive two    parameter endpoint url ,form data
@@ -217,7 +222,7 @@ class AdminAddPortfolio extends Component {
                     </FormText>
                     <Input
                       type="text"
-                      name="endtdate"
+                      name="enddate"
                       id="enddate"
                       placeholder="Modifier la date de fin en toutes lettres"
                       onChange={this.onChange}
@@ -231,14 +236,14 @@ class AdminAddPortfolio extends Component {
                 <Label for="avatar">
                   Avatar
                   <FormText color="muted">
-                    Merci d'uploader une image carrée (idéalement 500px X 500px)
+                    Attention, le fichier doit être au format.jpg. Merci d'uploader une image carrée (idéalement 500px X 500px)
                   </FormText>
                 </Label>
                 <Input
                   type="file"
                   name="avatar"
                   id="avatar"
-                  accept="image/jpeg, image/jpg, image/png, image/gif"
+                  accept="image/jpeg, image/jpg"
                   onChange={this.imageHandler}
                   required
                 />
@@ -256,6 +261,7 @@ class AdminAddPortfolio extends Component {
                   type="file"
                   name="realisations"
                   id="realisations"
+                  accept="image/jpeg, image/jpg, image/png, image/gif"
                   onChange={this.imageHandlerMultiple}
                   multiple
                 />
