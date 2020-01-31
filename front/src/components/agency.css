@@ -1,12 +1,4 @@
-.aboutAgency {
-    border-radius: 3px;
-    padding: 5%;
-    color: black;
-    border: 1px solid rgba(0, 0, 0, 0.096);
-    margin-bottom: 3vh;
-}
-
-.aboutAgency2 {
+.aboutAgency, .aboutAgency2 {
     border-radius: 3px;
     padding: 5%;
     color: black;
@@ -21,6 +13,9 @@
 }
 
 .FirstLineAgency {
+    margin: 40px 10px 5px 0px;
+    font-size: 80px;
+    margin-bottom: 15px;
     width: max-content;
     font-family: South_Gardens_Personal_Use;
 }
@@ -47,13 +42,18 @@
 
 
 @media (max-width: 768px) {
+    .FirstLineAgency {
+        font-size: 60px;
+        margin-bottom: 0;
+    }
+
     .SecondLineAgency {
-        font-size: 70px;
+        font-size: 60px;
         transition: .3s;
     }
     
     .ThirdLineAgency {
-        font-size: 45px;
+        font-size: 40px;
         transition: .3s;
     }
 

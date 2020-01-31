@@ -7,7 +7,7 @@ const sgMail = require('@sendgrid/mail')
 const sendMail = async (customer) => {
   try {
     const msg1 = {
-      to: 'timmycarillo@mac.com',
+      to: 'ludovic.mazet@gmail.com',
       from: 'fredCarillo@piqueurderuetest.com',
       subject: 'Votre contact Client :',
       html: `${customer.firstname} ${customer.lastname} (${customer.age} ans) vous a envoyé son projet.
