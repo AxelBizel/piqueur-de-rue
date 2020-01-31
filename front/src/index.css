@@ -21,38 +21,40 @@ a {
   text-decoration: none;
 }
 
-/* -------------BOUTONS------------------ */
+/* _________________BOUTONS___________________ */
 
-button,
-.btn,
+
 .buttonPortfolio,
 .buttonPortfolioGuest,
 .buttonContact,
-.buttonForm {
+.buttonForm,
+.buttonContactGuest {
   color: white;
   padding: 0.4rem 1.5rem;
-  border-top-left-radius: 15px;
+  border-top-left-radius: 20px;
   border-top-right-radius: 0px;
-  border-bottom-right-radius: 15px;
+  border-bottom-right-radius: 20px;
   border-bottom-left-radius: 0px;
   background-color: #b28260;
   border: none;
-  box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.774);
-  transition: 0.4s;
+  font-family: 'bariol_regular';
+  box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.5);
+  transition: 0.3s;
 }
 
 .buttonPortfolio:hover,
 .buttonPortfolioGuest:hover,
 .buttonContact:hover,
-.buttonForm:hover {
+.buttonForm:hover,
+.buttonContactGuest:hover {
   box-shadow: none;
-  transition: 0.4s;
+  transition: 0.3s;
 }
 
 .buttonPortfolio,
 .buttonPortfolioGuest {
-  font-size: 1em;
-  font-weight: 300;
+  font-size: 1.2em;
+  font-weight: 400;
 }
 
 .buttonPortfolio {
@@ -61,6 +63,12 @@ button,
 
 .buttonPortfolioGuest {
   margin: 5% 0 1% 0;
+}
+
+.buttonContactGuest{
+  font-size: 1.2em;
+  font-weight: 600;
+  margin: 5% 0;
 }
 
 .buttonForm {
@@ -154,6 +162,20 @@ button,
   font-family: "South_Gardens_Personal_Use";
   src: url("./fonts/South_Gardens_Personal_Use.ttf") format("truetype");
 }
+
+@font-face {
+  font-family: "bariol_italic";
+  src: url("./fonts/bariol_regular_italic-webfont.ttf") format("truetype");
+}
+
+
+
+@font-face {
+  font-family: "bariol_regular";
+  src: url("./fonts/bariol_regular-webfont.ttf") format("truetype");
+}
+
+
 
 /* ReactImageGallery_______ */
 
