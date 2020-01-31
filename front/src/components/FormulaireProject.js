@@ -48,10 +48,10 @@ class FormulaireProject extends Component {
         axios
             .post(`${IPserver}/api/customers`, customer)
             .then(console.log("add customer on table customers ok"))
-        this.setState({
-            customer: this.getInitialState(),
-            showConfirmation: true
-        })
+                this.setState({
+                    customer: this.getInitialState(),
+                    showConfirmation: true
+                })
         event.preventDefault();
     }
 

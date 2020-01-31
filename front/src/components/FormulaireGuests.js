@@ -3,7 +3,8 @@ import './Formulaires.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faHome } from '@fortawesome/free-solid-svg-icons';
 import { NavItem, NavLink } from 'reactstrap';
-const IPserver = require("../conf/confIP");
+import {IPserver} from '../conf/confIP'
+
 
 const axios = require('axios');
 
@@ -45,7 +46,6 @@ getInitialState = () => ({
                     guest: this.getInitialState(),
                     showConfirmation: true
                 })
-            .catch((e)=>console.log(e))
     } 
 
     render() {

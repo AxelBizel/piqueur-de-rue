@@ -21,7 +21,6 @@ const sendMail = async (customer) => {
     sgMail.setApiKey(SENDGRID_API_KEY)
     return sgMail.send(msg1)
   } catch (error) {
-    console.log("gg",error)
     throw new Error(error.message)
   }
 }
@@ -45,7 +44,6 @@ const sendMailGuest = async (guest) => {
     sgMail.setApiKey(SENDGRID_API_KEY)
     return sgMail.send(msg2)
   } catch (error) {
-    console.log("guest",error)
     throw new Error(error.message)
   }
 } 
