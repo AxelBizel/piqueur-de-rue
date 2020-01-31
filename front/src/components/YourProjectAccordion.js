@@ -102,7 +102,7 @@ class YourProjectAccordion extends Component {
                     backgroundColor: "#ffffff",
                     fontWeight: "100"
                   }}
-                  className="Title"
+                  className="accordionTitle"
                 >
                   {section.title}
                 </CardHeader>

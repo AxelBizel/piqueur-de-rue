@@ -25,6 +25,7 @@ class ModalFormGuests extends Component {
               <label className="close"></label>
             </div>
             <Container >
+            <h1 className="titleContactForm">Devenez Guest</h1>
               <FormulaireGuests />
             </Container>
           </aside> 

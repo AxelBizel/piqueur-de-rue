@@ -79,10 +79,10 @@ class GuestHome extends Component {
                     <Row>
                       <Col xs="12">
                         <div className="GuestText">
-                          <h4>Next guest</h4>
+                          <h5 style={{margin:0}}>Next guest</h5>
                           <h3 className="Title-Guest">{portfolio.pseudo}</h3>
 
-                          <p className="TextSub">
+                          <p className="TextSub" style={{fontFamily:'anodina_regular', marginTop:'2vh', fontSize:'1.2em'}}>
                             Du {portfolio.startdate} au {portfolio.enddate}.
                           </p>
                           <ButtonPortfolioGuest portfolio={portfolio} />
@@ -104,7 +104,7 @@ class GuestHome extends Component {
               <Row>
                 <Col xs="12" md="6">
                   <div className="GuestTextSpot">
-                    <h3 className="Title-Guest">DEVENEZ GUEST</h3>
+                    <h3 className="Title-Guest">Devenez Guest</h3>
 
                     <p className="TextSub">
                       Vous êtes tatoueur et vous cherchez un salon sur Lyon pour

@@ -40,12 +40,12 @@
     align-items: flex-end;
 }
 
-.Title {
+.accordionTitle {
     display: flex;
     flex-direction: column;
     align-items: center;
-    font-family: "FalkinSerifBoldPERSONAL";
-    font-size: 2em;
+    font-family: "anodina_bold";
+    font-size: 1.5em;
     color: black;
 }
 
