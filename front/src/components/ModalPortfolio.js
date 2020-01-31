@@ -9,7 +9,6 @@ import {
   CardBody,
   CardTitle,
 } from "reactstrap";
-// import ButtonOpenFormTatoueurs from "./ButtonOpenFormTatoueurs";
 import GalleryPortfolio from "./GalleryPortfolio";
 import {IPserver} from '../conf/confIP'
 
@@ -71,7 +70,6 @@ class ModalPortfolio extends Component {
                           <p className="textPresentation">
                             {portfolio.presentation}
                           </p>
-                        {/* < ButtonOpenFormTatoueurs/> */}
                         </CardBody>
                       </CardBody>
                     </Card>
