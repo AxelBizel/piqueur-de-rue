@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import axios from 'axios';
+import axios from "axios";
 import {
   Button,
   Form,
@@ -12,20 +12,16 @@ import {
   ModalBody,
   ModalFooter
 } from "reactstrap";
-import {IPserver} from '../conf/confIP'
-
-
-
+import { IPserver } from "../conf/confIP";
 
 class ButtonAdminPortfolio extends Component {
   constructor(props) {
     super(props);
     this.state = {
       modal: false,
-     
-      item : this.getItem(),
-      active : true ,
 
+      item: this.getItem(),
+      active: true
     };
   }
 
@@ -33,45 +29,38 @@ class ButtonAdminPortfolio extends Component {
     pseudo: "",
     type: "",
     presentation: "",
-    style: "",
-  
-}) 
-
+    style: ""
+  });
 
   // async componentDidMount() {
   //   this.formSubmit = this.formSubmit.bind(this)
   //   this.onChange = this.onChange.bind(this);
   // }
 
-  
   toggle = () => {
     const { modal } = this.state;
     this.props.getCurrentProfile();
-    this.setState({ modal: !modal })
-  }
+    this.setState({ modal: !modal });
+  };
 
   //Partie Axios
 
-  onChange = (e) => {
-    const {item} = this.state;
-    item[e.target.name]=e.target.value
-    this.setState({ item })
-}
+  onChange = e => {
+    const { item } = this.state;
+    item[e.target.name] = e.target.value;
+    this.setState({ item });
+  };
 
-handleSubmit = (event, id) => {
-  let { item } = this.state;
-  axios
-      .put(`${IPserver}/admin/portfolio/${id}`,item)
-      .then(console.log("update yaaaaa"))
-  this.setState({
-      item: this.getItem(),
-  })
-  event.preventDefault();
-}
-  
-
-
-
+  handleSubmit = (event, id) => {
+    let { item } = this.state;
+    axios
+      .put(`${IPserver}/admin/portfolio/${id}`, item)
+      .then(console.log("update yaaaaa"));
+    this.setState({
+      item: this.getItem()
+    });
+    event.preventDefault();
+  };
 
   render() {
     const { modal } = this.state;
@@ -88,18 +77,15 @@ handleSubmit = (event, id) => {
         <Modal isOpen={modal} fade={false} toggle={this.toggle}>
           <ModalHeader toggle={this.toggle}>&nbsp;</ModalHeader>
           <ModalBody>
-            <Form onSubmit= {this.formSubmit}>
+            <Form onSubmit={this.formSubmit}>
               <FormGroup>
-                <Label 
-                  onChange= {this.onChange}
-                  for="pseudo">
+                <Label onChange={this.onChange} for="pseudo">
                   {/* Pseudo : {this.props.portfolio.pseudo} */}
                   Pseudo : {this.state.pseudo}
-                  
-                  </Label>
+                </Label>
 
                 <Input
-                  onChange= {this.onChange}
+                  onChange={this.onChange}
                   type="text"
                   name="pseudo"
                   id="pseudo"
@@ -108,12 +94,9 @@ handleSubmit = (event, id) => {
               </FormGroup>
 
               <FormGroup>
-                <Label 
-                onChange= {this.onChange}
-                for="type">
+                <Label onChange={this.onChange} for="type">
                   {/* Type : {this.props.portfolio.type}  */}
-                  Type : {this.state.type} 
-
+                  Type : {this.state.type}
                 </Label>
                 <Input type="select" name="type" id="type">
                   <option>Team</option>
@@ -122,9 +105,7 @@ handleSubmit = (event, id) => {
               </FormGroup>
 
               <FormGroup>
-                <Label 
-                onChange= {this.onChange}
-                for="presentation">
+                <Label onChange={this.onChange} for="presentation">
                   Présentation :{" "}
                   <FormText color="muted">
                     {/* {this.props.portfolio.presentation} */}
@@ -133,7 +114,7 @@ handleSubmit = (event, id) => {
                 </Label>
 
                 <Input
-                  onChange= {this.onChange}
+                  onChange={this.onChange}
                   type="textarea"
                   name="presentation"
                   id="presentation"
@@ -141,9 +122,7 @@ handleSubmit = (event, id) => {
                 />
               </FormGroup>
               <FormGroup>
-                <Label 
-                onChange= {this.onChange}
-                for="style">
+                <Label onChange={this.onChange} for="style">
                   {/* Style : {this.props.portfolio.style} */}
                   Style : {this.state.style}
                 </Label>
@@ -156,26 +135,30 @@ handleSubmit = (event, id) => {
                 />
               </FormGroup>
               <FormGroup>
-                <Label for="portrait">Portrait <FormText color="muted">
-                  Merci d'uploader une image carrée (idéalement 500px X 500px)
-                </FormText></Label>
+                <Label for="portrait">
+                  Portrait{" "}
+                  <FormText color="muted">
+                    Merci d'uploader une image carrée (idéalement 500px X 500px)
+                  </FormText>
+                </Label>
                 <Input type="file" name="file" id="exampleFile" />
               </FormGroup>
 
               <Button
-               onChange= {() => this.togglePortfolio()}
-                style={{ margin: "2vh auto" }}>Envoyer</Button>
+                onChange={() => this.togglePortfolio()}
+                style={{ margin: "2vh auto" }}
+              >
+                Envoyer
+              </Button>
               <Button style={{ margin: "2vh auto" }} onClick={this.toggle}>
                 Annuler
-            </Button>
+              </Button>
             </Form>
           </ModalBody>
         </Modal>
       </div>
     );
-
-
   }
-};
+}
 
 export default ButtonAdminPortfolio;

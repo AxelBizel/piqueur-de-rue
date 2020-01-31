@@ -58,8 +58,7 @@
 }
 .Title-Guest {
   text-align: left;
-  font-family: "FalkinSerifBoldPERSONAL";
-  font-size: 2.5em;
+  font-size: 2em;
   color: black;
 }
 
@@ -81,35 +80,6 @@
   color: rgb(97, 85, 74);
 }
 
-.buttonPortfolioGuest {
-  padding: 1em;
-  border-radius: 3px;
-  font-size: 1em;
-  background-color: #7A6A5D;
-  border:1px solid rgba(0, 0, 0, 0.411);
-  box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.774);
-  transition: 0.4s;
-  font-weight: 600;
-  margin: 5% 0 1% 0;
-}
-
-.buttonPortfolioGuest:hover {
-  border:1px solid rgba(0, 0, 0, 0);
-  box-shadow: none;
-  transition: 0.4s;
-}
-
-.buttonContactProject {
-    padding: 1em;
-    border-radius: 3px;
-    font-size: 1.7em;
-    background-color: #7A6A5D;
-    border:1px solid rgba(0, 0, 0, 0.411);
-    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.774);
-    transition: 0.4s;
-    font-weight: 600;
-    margin: 5vh;
-}
 
 /* MODAL CSS */
 

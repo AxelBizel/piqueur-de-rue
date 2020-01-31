@@ -1,3 +1,4 @@
+// Conf.js
 const mysql = require("mysql");
 const connection = mysql.createConnection({
     host: "localhost", // adresse du serveur
@@ -5,14 +6,4 @@ const connection = mysql.createConnection({
     password: "02011988", // le mot de passe
     database: "piqueurderue" // le nom de la base de données
 });
-
-const IPserver = "http://localhost:5000";
-const portHttp = 5000;
-const portHttps = null;
-
-module.exports = {
-    connection,
-    IPserver,
-    portHttp,
-};
-
+module.exports = connection;

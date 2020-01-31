@@ -33,7 +33,7 @@ class ButtonOpenFormProject extends Component {
   render() {
     return (
       <div>
-        <button className="buttonPortfolio" onClick={this.openModalFormProject}>
+        <button className="buttonContact" onClick={this.openModalFormProject}>
         Nous contacter    
         </button>
         <ModalFormProject

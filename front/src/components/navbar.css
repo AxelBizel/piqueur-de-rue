@@ -81,7 +81,7 @@ a.loginLink {
     }
 
     .loginLink {
-        font-size: 1.4em;
+        font-size: 1em;
     }
 
     .closeOutside {
@@ -105,7 +105,7 @@ a.loginLink {
         padding: 1em 0;
         text-align: center;
         position: static;
-        font-size: 1.4em;
+        font-size: 1em;
     }
 
     .RSNavbar {

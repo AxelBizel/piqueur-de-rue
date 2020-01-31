@@ -34,7 +34,7 @@ class ButtonPortfolioGuest extends Component {
     return (
       <div>
         <button className="buttonPortfolioGuest" onClick={this.openModal}>
-         En savoir plus      
+         en savoir plus      
         </button>
         <ModalPortfolioGuest
           portfolio={this.props.portfolio}

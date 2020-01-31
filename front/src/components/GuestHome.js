@@ -5,9 +5,7 @@ import { Container, Col, Row, Spinner } from "reactstrap";
 import ButtonPortfolioGuest from "./ButtonPortfolioGuest";
 import axios from "axios";
 import "./GuestHome.css";
-import {IPserver} from '../conf/confIP'
-
-
+import { IPserver } from "../conf/confIP";
 
 class GuestHome extends Component {
   constructor(props) {
@@ -35,93 +33,93 @@ class GuestHome extends Component {
     axios.get(`${IPserver}/api/portfolio/guest/active`).then(res => {
       const portfoliosData = res.data;
       this.setState({ portfolios: portfoliosData });
-      console.log(this.state);
     });
   }
 
   render() {
     const { portfolios } = this.state;
     return (
-      <div>
-        <div>
-          <h1 className="HeaderSection">
-            <div className="FirstTitleLineGuest" data-aos="fade-right">
-              Guest
+      <Container>
+        <h1 className="HeaderSection">
+          <div className="FirstTitleLineGuest" data-aos="fade-right">
+            Guest
+          </div>
+          <div className="SecondTitleLineGuest" data-aos="fade-left">
+            spot
+          </div>
+        </h1>
+        <Row>
+          {portfolios === null ? (
+            <div className="Guests-Loader">
+              <Spinner type="grow" color="dark" />
+              <Spinner type="grow" color="dark" />
+              <Spinner type="grow" color="dark" />
+              <Spinner type="grow" color="dark" />
             </div>
-            <div className="SecondTitleLineGuest" data-aos="fade-left">
-              spot
-            </div>
-          </h1>
-        </div>
-        <Container>
-          <Row>
-            {portfolios === null ? (
-              <div className="Guests-Loader">
-                <Spinner type="grow" color="dark" />
-                <Spinner type="grow" color="dark" />
-                <Spinner type="grow" color="dark" />
-                <Spinner type="grow" color="dark" />
-              </div>
-            ) : (
-              portfolios.map(portfolio => (
-                <Col xs="12">
-                  <div
-                    className="SectionGuest"
-                    key={portfolio.id}
-                    style={{
-                      margin: "2vh auto",
-                      backgroundImage:
-                        `url(${IPserver}/img/` +
-                        `${portfolio.id}` +
-                        `/portrait.jpg)`
-                    }}
-                  >
-                    <Row>
-                      <Col xs="12">
-                        <div className="GuestText">
-                          <h4>Next guest</h4>
-                          <h3 className="Title-Guest">{portfolio.pseudo}</h3>
+          ) : (
+            portfolios.map(portfolio => (
+              <Col xs="12" key={portfolio.id}>
+                <div
+                  className="SectionGuest"
+                  style={{
+                    margin: "2vh auto",
+                    backgroundImage:
+                      `url(${IPserver}/img/` +
+                      `${portfolio.id}` +
+                      `/portrait.jpg)`
+                  }}
+                >
+                  <Row>
+                    <Col xs="12">
+                      <div className="GuestText">
+                        <h5 style={{ margin: 0 }}>Next guest</h5>
+                        <h3 className="Title-Guest">{portfolio.pseudo}</h3>
 
-                          <p className="TextSub">
-                            Du {portfolio.startdate} au {portfolio.enddate}.
-                          </p>
-                          <ButtonPortfolioGuest portfolio={portfolio} />
-                        </div>
-                      </Col>
-                      <Col xs="12"></Col>
-                    </Row>
-                  </div>
-                </Col>
-              ))
-            )}
-          </Row>
-          <Parallax
-            bgImage={require("../img/agency/5.jpg")}
-            bgImageAlt="guest section"
-            strength={400}
-          >
-            <div className="SectionGuestSpot">
-              <Row>
-                <Col xs="12" md="6">
-                  <div className="GuestTextSpot">
-                    <h3 className="Title-Guest">DEVENEZ GUEST</h3>
+                        <p
+                          className="TextSub"
+                          style={{
+                            fontFamily: "anodina_regular",
+                            marginTop: "2vh",
+                            fontSize: "1.2em"
+                          }}
+                        >
+                          Du {portfolio.startdate} au {portfolio.enddate}.
+                        </p>
+                        <ButtonPortfolioGuest portfolio={portfolio} />
+                      </div>
+                    </Col>
+                    <Col xs="12"></Col>
+                  </Row>
+                </div>
+              </Col>
+            ))
+          )}
+        </Row>
+        <Parallax
+          bgImage={require("../img/agency/5.jpg")}
+          bgImageAlt="guest section"
+          strength={400}
+        >
+          <div className="SectionGuestSpot">
+            <Row>
+              <Col xs="12" md="6">
+                <div className="GuestTextSpot">
+                  <h3 className="Title-Guest">Devenez Guest</h3>
 
-                    <p className="TextSub">
-                      Vous êtes tatoueur et vous cherchez un salon sur Lyon pour
-                      venir faire un guest. Contactez nous et obtenez votre code
-                      d'accès pour planifier votre venu, recevoir les infos sur
-                      le fonctionnement du shop ainsi que la gestion de votre
-                      image.
-                    </p>
-                    <ButtonOpenFormGuests />
-                  </div>
-                </Col>
-                <Col xs="12" md="6"></Col>
-              </Row>
-            </div>
-          </Parallax>
-        </Container>
-      </div>
+                  <p className="TextSub">
+                    Vous êtes tatoueur et vous cherchez un salon sur Lyon pour
+                    venir faire un guest. Contactez nous et obtenez votre code
+                    d'accès pour planifier votre venu, recevoir les infos sur le
+                    fonctionnement du shop ainsi que la gestion de votre image.
+                  </p>
+                  <ButtonOpenFormGuests />
+                </div>
+              </Col>
+              <Col xs="12" md="6"></Col>
+            </Row>
+          </div>
+        </Parallax>
+      </Container>
     );
   }
 }
