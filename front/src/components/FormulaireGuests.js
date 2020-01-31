@@ -36,14 +36,16 @@ getInitialState = () => ({
 
     handleSubmitFormGuest = (event) => {
         console.log('Le formGuests a été soumis : ', this.state);
+        event.preventDefault();
         let { guest } = this.state;
         axios
-            .post("${IPserver}/api/guests", guest)
-        this.setState({
-            guest: this.getInitialState(),
-            showConfirmation: true
-        })
-        event.preventDefault();
+            .post(`${IPserver}/api/guests`, guest)
+            .then(console.log("add guest on table guest ok"))
+                this.setState({
+                    guest: this.getInitialState(),
+                    showConfirmation: true
+                })
+            .catch((e)=>console.log(e))
     } 
 
     render() {
