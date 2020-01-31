@@ -441,6 +441,8 @@ app.put("/admin/images/:id", (req, res) => {
   );
 });
 
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 // Récupération des données du formulaire client de contactTatoueur
 //envoi du mail client au tatoueur
 app.get("/api/customers", (req, res) => {
@@ -453,10 +455,11 @@ app.get("/api/customers", (req, res) => {
   });
 });
 
+//je mets dans mysql
 app.post("/api/customers", (req, res) => {
   const formData = req.body;
   connection.query(
-    "INSERT INTO customers SET?",
+    "INSERT INTO customers SET ?",
     formData,
     async (err, results) => {
       if (err) {
@@ -467,7 +470,6 @@ app.post("/api/customers", (req, res) => {
       } else {
         console.log("YES ça fonctionne côté client !!!!!!!!!!!!!");
         try {
-          //je mets dans mysql
           //j'envoie mon mail
           const sent = await sendMail(req.body);
           if (sent) {
@@ -483,6 +485,7 @@ app.post("/api/customers", (req, res) => {
   );
 });
 
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 // Récupération des données du formulaire guest de contactTatoueur
 //envoi du mail guest au tatoueur
 app.get("/api/guests", (req, res) => {
@@ -495,21 +498,22 @@ app.get("/api/guests", (req, res) => {
   });
 });
 
+
+//je mets dans mysql :
 app.post("/api/guests", (req, res) => {
   const formData = req.body;
   connection.query(
-    "INSERT INTO guests SET?",
+    "INSERT INTO guests SET ?",
     formData,
     async (err, results) => {
       if (err) {
-        console.log(err);
+        console.log("mon erreur ici: ", err);
         res
           .status(500)
           .send("erreur de récupération des données du formulaire Guest");
       } else {
         console.log("YES ça fonctionne côté guest !!!!!!!!!!!!!");
         try {
-          //je mets dans mysql
           //j'envoie mon mail
           const sent = await sendMailGuest(req.body);
           if (sent) {
@@ -523,19 +527,6 @@ app.post("/api/guests", (req, res) => {
       }
     }
   );
-});
-
-// Route pour l'envoi de Mails des clients avec sengrid : --------------------------------------------
-
-app.post("/api/project", async (req, res) => {
-  try {
-    const sent = await sendMail(req.body);
-    if (sent) {
-      res.send({ message: "email envoyé avec succès" });
-    }
-  } catch (error) {
-    throw new Error(error.message);
-  }
 });
 
 app.use('/*', (req,res) =>{

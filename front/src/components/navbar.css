@@ -1,5 +1,5 @@
 .styleNavbar {
-    background-color: #786B60;
+    background-color: #946036;
     position: relative;
     width: 100vw;
     box-shadow: 1px 1px 10px rgb(58, 58, 58);
@@ -10,12 +10,14 @@
     padding: 15px;
 }
 
-.headroom-wrapper {
-    height: 0 !important;
+a.loginLink {
+    position: fixed;
+    right: 20px;
+    font-size: 1.4em;
 }
 
-.loginLink {
-    color: rgb(182, 179, 176);
+.headroom-wrapper {
+    height: 0 !important;
 }
 
 .styleLink:hover, .loginLink:hover{
@@ -65,6 +67,14 @@
 
 
 @media screen and (max-width:768px) {
+    .styleNavbar {
+        background-color: #946036;
+        position: relative;
+        max-height: 100vh;
+        width: 100vw;
+        box-shadow: 1px 1px 10px rgb(58, 58, 58);
+    }
+
     .styleLink {
         margin-right: 0;
     }
@@ -83,7 +93,7 @@
     .mr-auto.navbar-nav {
         align-items: center;
         justify-content: space-around;
-        height: 65%;
+        height: 90vh;
     }
 
     nav.navbar.navbar-expand-md.navbar-light{
@@ -93,6 +103,8 @@
     a.loginLink.nav-link {
         padding: 1em 0;
         text-align: center;
+        position: static;
+        font-size: 1.4em;
     }
 
     .RSNavbar {

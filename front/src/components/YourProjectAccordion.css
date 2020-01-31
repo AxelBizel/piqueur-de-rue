@@ -1,6 +1,7 @@
 .FirstTitleLineProject {
     font-family: FalkinSerifItalicPERSONAL;
     font-size: 50px;
+    font-weight: 600;
     line-height: 1em;
     margin-left: 10%;
     color: rgb(97, 85, 74);
@@ -13,7 +14,7 @@
 .SecondTitleLineProject {
     font-family: South_Gardens_Personal_Use;
     font-size: 100px;
-    letter-spacing: 0 !important;
+    letter-spacing: 0;
     position: relative;
         right: 20px;
 }
@@ -21,10 +22,10 @@
 .ThirdTitleLineProject {
     font-family: FalkinSerifItalicPERSONAL;
     font-weight: 600;
-    font-size: 90px;
-    line-height: 1.2em;
+    font-size: 100px;
+    line-height: 1.3em;
     color: rgb(97, 85, 74);
-    letter-spacing: 0 !important;
+    letter-spacing: 0;
     position: relative;
         right: -10px;
         top: 5px;

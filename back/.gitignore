@@ -1,3 +1,8 @@
 /node_modules
 /config/conf.js
+<<<<<<< HEAD
 sengrid_api_key_env.js
+=======
+sengrid_api_key_env.js
+
+>>>>>>> dev
