@@ -103,6 +103,8 @@ a.loginLink {
     a.loginLink.nav-link {
         padding: 1em 0;
         text-align: center;
+        position: static;
+        font-size: 1.4em;
     }
 
     .RSNavbar {
