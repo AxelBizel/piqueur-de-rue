@@ -114,25 +114,31 @@ class FormulaireGuests extends Component {
               placeholder="Dîtes-nous en plus ici : "
             ></textarea>
 
-            <button className="buttonForm" type="submit">
-              Envoyer ma candidature
-            </button>
-          </form>
-        ) : (
-          <div>
-            <p>Votre demande a bien été envoyée</p>
-            <p>Nous vous répondrons dans les plus brefs délais</p>
-            <p>Thank you</p>
-            <NavItem>
-              <NavLink href="/" className="styleLink">
-                <FontAwesomeIcon icon={faHome} />
-              </NavLink>
-            </NavItem>
-          </div>
-        )}
-      </div>
-    );
-  }
+                    <input className="inputForm" name="pseudoG" type="text" onChange={this.handleChangeInputGuest} value={this.state.pseudoG} placeholder="Votre pseudo :" ></input>
+                    
+                    <input className="inputForm" name="phoneG" type="tel" onChange={this.handleChangeInputGuest} value={this.state.phoneG} size={10} minLength={1} maxLength={10} placeholder="Votre numéro de téléphone :" required></input>
+                    
+                    <input className="inputForm" name="emailG" type="email" onChange={this.handleChangeInputGuest} value={this.state.emailG} placeholder="Votre adresse mail :" required></input>
+                    
+                    <input className="inputForm" name="compteG" type="text" onChange={this.handleChangeInputGuest} value={this.state.compteG} placeholder="Où voir vos photos ?"></input>
+                    
+                    <textarea className="inputForm" name="storyG" rows="5" cols="33" onChange={this.handleChangeInputGuest} value={this.state.storyG} placeholder="Dîtes-nous en plus ici : ">
+                    </textarea>
+                    
+                    <button className="buttonForm" type="submit">
+                        Envoyer ma candidature
+                    </button>
+                </form>
+                ) : (
+                <div className="ModalSendConformationGuest">
+                    <p>Votre demande a bien été envoyée</p>
+                    <p>Nous vous répondrons dans les plus brefs délais</p>
+                    <p>Merci</p>
+                </div>
+                )}
+            </div>
+        );
+    }
 }
 
 export default FormulaireGuests;
