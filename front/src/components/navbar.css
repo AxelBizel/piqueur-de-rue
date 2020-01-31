@@ -10,12 +10,14 @@
     padding: 15px;
 }
 
-.headroom-wrapper {
-    height: 0 !important;
+a.loginLink {
+    position: fixed;
+    right: 20px;
+    font-size: 1.4em;
 }
 
-.loginLink {
-    color: rgb(182, 179, 176);
+.headroom-wrapper {
+    height: 0 !important;
 }
 
 .styleLink:hover, .loginLink:hover{
