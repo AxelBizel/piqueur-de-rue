@@ -55,23 +55,6 @@
     margin: 0;
 }
 
-.buttonContactProject {
-    padding: 1em;
-    border-radius: 3px;
-    font-size: 1.4em;
-    background-color: #7A6A5D;
-    border:1px solid rgba(0, 0, 0, 0.411);
-    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.774);
-    transition: 0.4s;
-    font-weight: 600;
-    margin: auto;
-}
-
-.buttonContactProject:hover {
-    border:1px solid rgba(0, 0, 0, 0);
-    box-shadow: none;
-    transition: 0.4s;
-}
 
 /* MODAL CSS */
 
