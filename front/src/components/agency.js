@@ -6,7 +6,7 @@ import "./agency.css";
 
 export default function Agency() {
 
-  return (
+  return (  
     <div>
       <h1 className="HeaderSection">
         <div className="FirstLineAgency" data-aos="fade-right">Une agence</div>
@@ -32,7 +32,7 @@ export default function Agency() {
                 </div>
               </Col>
               <Col xs="12" md="6">
-                <div className="aboutAgency" data-aos="fade-left">
+                <div className="aboutAgency2" data-aos="fade-left">
                   <p className="TextSub-Agency">
                     Pour que vous puissiez avoir le meilleur recul sur ce que pourra
                     rendre votre tatouage une fois terminé, nous réaliserons une
