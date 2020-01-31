@@ -18,9 +18,10 @@ a {
   text-decoration: none;
 }
 
-button {
-  color : white;  
-  border-radius: 3px;
+button, .btn  {
+  color : white !important;  
+  border-radius: 3px !important;
+  padding: 0.75rem 1rem !important;
 }
 
 .HeaderSection {
