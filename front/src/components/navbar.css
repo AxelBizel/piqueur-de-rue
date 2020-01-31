@@ -13,7 +13,7 @@
 a.loginLink {
     position: fixed;
     right: 20px;
-    font-size: 1.4em;
+    font-size: 1em;
 }
 
 .headroom-wrapper {
@@ -80,7 +80,7 @@ a.loginLink {
     }
 
     .loginLink {
-        font-size: 1.4em;
+        font-size: 1em;
     }
 
     .closeOutside {
@@ -104,7 +104,7 @@ a.loginLink {
         padding: 1em 0;
         text-align: center;
         position: static;
-        font-size: 1.4em;
+        font-size: 1em;
     }
 
     .RSNavbar {

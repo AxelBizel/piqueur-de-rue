@@ -7,8 +7,8 @@ const sgMail = require('@sendgrid/mail')
 const sendMail = async (customer) => {
   try {
     const msg1 = {
-      to: 'timmycarillo@gmac.com',
-      from: 'fredCarillo@piqueurderuetest.com',
+      to: 'timmycarillo@mac.com',
+      from: 'timmycarillo@mac.com',
       subject: 'Votre contact Client :',
       html: `${customer.firstname} ${customer.lastname} (${customer.age} ans) vous a envoyé son projet.
       emplacement souhaité du tatouage : ${customer.tattoolocation},

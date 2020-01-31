@@ -33,7 +33,6 @@ class FormulaireGuests extends Component {
   };
 
   handleSubmitFormGuest = event => {
-    console.log("Le formGuests a été soumis : ", this.state);
     event.preventDefault();
     let { guest } = this.state;
     axios

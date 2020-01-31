@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import "./modalFormTatoueurs.css";
 import FormulaireProject from "./FormulaireProject";
-import { Container, Row, Col } from "reactstrap";
+import { Container} from "reactstrap";
 
 
 class ModalFormProject extends Component {

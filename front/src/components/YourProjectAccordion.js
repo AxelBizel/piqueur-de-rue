@@ -76,7 +76,7 @@ class YourProjectAccordion extends Component {
     const { collapse, sections } = this.state;
 
     return (
-      <div>
+      <Container>
         <h1 className="HeaderSection">
           <div className="FirstTitleLineProject" data-aos="fade-right">
             Votre
@@ -88,53 +88,51 @@ class YourProjectAccordion extends Component {
             TATTOO
           </div>
         </h1>
-        <Container>
-          {sections.map((section, index) => {
-            return (
-              <Card style={{ marginBottom: "1rem" }} key={section.id}>
-                <CardHeader
-                  onClick={this.toggle}
-                  data-event={section.id}
+        {sections.map((section, index) => {
+          return (
+            <Card style={{ marginBottom: "1rem" }} key={section.id}>
+              <CardHeader
+                onClick={this.toggle}
+                data-event={section.id}
+                style={{
+                  margin: "0",
+                  cursor: "pointer",
+                  borderRadius: "3px",
+                  backgroundColor: "#ffffff",
+                  fontWeight: "100"
+                }}
+                className="accordionTitle"
+              >
+                {section.title}
+              </CardHeader>
+              <Collapse isOpen={collapse === section.id}>
+                <CardBody
                   style={{
-                    margin: "0",
-                    cursor:'pointer',
-                    borderRadius: "3px",
-                    backgroundColor: "#ffffff",
-                    fontWeight: "100"
+                    backgroundImage: `url(${section.img})`,
+                    height: "70vh",
+                    backgroundSize: "cover",
+                    display: "flex",
+                    flexDirection: "column",
+                    justifyContent: "flex-end"
                   }}
-                  className="accordionTitle"
                 >
-                  {section.title}
-                </CardHeader>
-                <Collapse isOpen={collapse === section.id}>
-                  <CardBody
-                    style={{
-                      backgroundImage: `url(${section.img})`,
-                      height: "70vh",
-                      backgroundSize: "cover",
-                      display: "flex",
-                      flexDirection: "column",
-                      justifyContent: "flex-end"
-                    }}
-                  >
-                    <Row>
-                      <Col xs="12" md="6"></Col>
-                      <Col xs="12" md="6">
-                        <div className="step">
-                          <p className="TextSub">{section.text}</p>
-                        </div>
-                      </Col>
-                    </Row>
-                  </CardBody>
-                </Collapse>
-              </Card>
-            );
-          })}
-          <div className="divButton">
-            <ButtonOpenFormProject />
-          </div>
-        </Container>
-      </div>
+                  <Row>
+                    <Col xs="12" md="6"></Col>
+                    <Col xs="12" md="6">
+                      <div className="step">
+                        <p className="TextSub">{section.text}</p>
+                      </div>
+                    </Col>
+                  </Row>
+                </CardBody>
+              </Collapse>
+            </Card>
+          );
+        })}
+        <div className="divButton">
+          <ButtonOpenFormProject />
+        </div>
+      </Container>
     );
   }
 }

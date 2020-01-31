@@ -40,7 +40,6 @@ export default class Login extends React.Component {
 
     async formSubmit(ev) {
         ev.preventDefault()
-        console.log(this.state)
         const { login, password } = this.state
         try {
             const result = await Axios.post(`${IPserver}/api/login`,
@@ -86,7 +85,7 @@ export default class Login extends React.Component {
 
                         <div id="formFooter" class="fadeIn fourth">
                             {/* <a class="underlineHover" href="#">Mot de passe oublié ?</a><br /> */}
-                            <a class="underlineHover" href="#" onClick={this.onReturn}>Retour</a>
+                            <a class="underlineHover" href="/" onClick={this.onReturn}>Retour</a>
                         </div>
                     </div>
                 </div>

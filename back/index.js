@@ -48,7 +48,6 @@ app.post(`/upload/portfolio/:id/avatar`, function(req, res) {
         type:'avatar',
         portfolio_id: `${req.params.id}`
       };
-      console.log(infoAvatar);
       connection.query("INSERT INTO images SET ?", infoAvatar);
       return res.status(200).send(req.file);
     }
@@ -468,7 +467,6 @@ app.post("/api/customers", (req, res) => {
           .status(500)
           .send("erreur de récupération des données du formulaire Client");
       } else {
-        console.log("YES ça fonctionne côté client !!!!!!!!!!!!!");
         try {
           //j'envoie mon mail
           const sent = await sendMail(req.body);
@@ -512,7 +510,6 @@ app.post("/api/guests", (req, res) => {
           .status(500)
           .send("erreur de récupération des données du formulaire Guest");
       } else {
-        console.log("YES ça fonctionne côté guest !!!!!!!!!!!!!");
         try {
           //j'envoie mon mail
           const sent = await sendMailGuest(req.body);

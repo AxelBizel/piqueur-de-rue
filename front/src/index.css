@@ -33,6 +33,15 @@ h5, h6, p, form{
   font-family: 'anodina_light';
 }
 
+.styleLink{
+  font-family: 'bariol_regular';
+}
+
+.loginLink{
+  font-family: 'bariol_regular';
+  color:lightgrey !important;
+}
+
 /* _________________BOUTONS___________________ */
 
 
