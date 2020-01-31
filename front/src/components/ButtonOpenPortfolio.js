@@ -34,7 +34,7 @@ class ButtonOpenPortfolio extends Component {
     return (
       <div>
         <button className="buttonPortfolio" onClick={this.openModal}>
-         {this.props.portfolio.pseudo}      
+         voir profil    
         </button>
         <ModalPortfolio
           portfolio={this.props.portfolio}

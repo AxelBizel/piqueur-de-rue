@@ -57,7 +57,7 @@ class ModalPortfolioGuest extends Component {
                             <h1 className="h1Portfolio">
                               {portfolio.pseudo}
                             </h1>
-                            <a href= {portfolio.insta} target='_blank'>
+                            <a href= {portfolio.insta} target='_blank' rel="noopener noreferrer">
                               <img
                                 src={insta}
                                 alt='instagram logo'

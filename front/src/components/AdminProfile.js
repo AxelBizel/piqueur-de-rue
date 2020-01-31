@@ -44,10 +44,8 @@ class AdminProfile extends Component {
           authorization: `bearer ${localStorage.getItem("token")}`
         }
       });
-      console.log("getPortfolio", result.data);
       this.setState({ portfolios: result.data });
     } catch (err) {
-      console.log(err);
     }
   };
 
@@ -59,16 +57,13 @@ class AdminProfile extends Component {
           authorization: `bearer ${localStorage.getItem("token")}`
         }
       });
-      console.log("getUser", result.data);
       this.setState({ users: result.data });
-      console.log ("user state", this.state.users)
     } catch (err) {
       console.log(err);
     }
   };
 
   async togglePortfolio(id, active) {
-    console.log("togglePortfolio", id, active);
     try {
       const result = await axios.put(
         `${IPserver}/api/portfolio/${id}`,
@@ -83,13 +78,11 @@ class AdminProfile extends Component {
 
 
   async toggleUser(id, active) {
-    console.log("toggleUser", id, active);
     try {
       const result = await axios.put(
         `${IPserver}/admin/users/${id}`,
         { active: !active }
       );
-      console.log(result.data);
       this.getUser();
     } catch (err) {
       console.log(err);
@@ -98,12 +91,10 @@ class AdminProfile extends Component {
   // Partie : Profile
 
   getProfile = async id => {
-    console.log("youpi", id);
     try {
       const result = await axios.get(
         `${IPserver}/api/portfolios/${id}`
       );
-      console.log("gg", result.data);
       this.setState({ selectedPortfolio: result.data[0] });
     } catch (err) {
       console.log(err);
@@ -151,7 +142,6 @@ class AdminProfile extends Component {
                         <CustomInput
                           key={`ci-${index}`}
                           onChange={() => {
-                            console.log(pf.id);
                             this.togglePortfolio(pf.id, pf.active);
                           }}
                           type="switch"
@@ -212,7 +202,6 @@ class AdminProfile extends Component {
                         <CustomInput
                           key={`user-${index}`}
                           onChange={() => {
-                            console.log(user.id);
                             this.toggleUser(user.id, user.active);
                           }}
                           type="switch"

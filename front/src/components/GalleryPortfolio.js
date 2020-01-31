@@ -32,7 +32,6 @@ class GalleryPortfolio extends Component {
       .then(res => {
         const imgData = res.data;
         this.setState({ img: imgData });
-        console.log(this.state);
         this.getImages();
       });
   }
