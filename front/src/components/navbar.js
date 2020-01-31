@@ -12,7 +12,7 @@ class Navbar extends React.Component {
         this.toggleNavbar = this.toggleNavbar.bind(this);
         this.closeNavbar = this.closeNavbar.bind(this);
         this.state = {
-        collapsed: true
+        collapsed: false
         };
     }
 
@@ -62,13 +62,18 @@ class Navbar extends React.Component {
                                 <NavItem>
                                     <NavLink onClick={this.closeNavbar} href="#footer" className="styleLink">Contactez-nous</NavLink>
                                 </NavItem>
+                                <NavItem>
+                                    <NavLink href="/login" className="loginLink">Login</NavLink>
+                                </NavItem>
+                                <NavItem>
+                                    <NavLink>
+                                        <div className="RSNavbar">
+                                            <a href="https://www.facebook.com/piqueurderue/" target="_blank"><i class="fa fa-facebook-square logoRSNavbar"></i></a>
+                                            <a href="https://www.instagram.com/piqueurderue/?hl=fr" target="_blank"><i class="fa fa-instagram logoRSNavbar"></i></a>
+                                        </div>
+                                </NavLink>
+                                </NavItem>
                             </Nav>
-                            <NavLink href="/login" className="loginLink">Login</NavLink>
-
-                            <NavLink><div className="RSNavbar">
-                  <a href="https://www.facebook.com/piqueurderue/" target="_blank"><i class="fa fa-facebook-square logoRSNavbar"></i></a>
-                  <a href="https://www.instagram.com/piqueurderue/?hl=fr" target="_blank"><i class="fa fa-instagram logoRSNavbar"></i></a>
-                </div></NavLink>
                         </div>
                     </Collapse>
                 </NavbarStrap>

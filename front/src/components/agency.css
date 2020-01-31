@@ -13,6 +13,8 @@
 }
 
 .FirstLineAgency {
+    margin: 40px 10px 5px 0px;
+    font-size: 65px;
     width: max-content;
     font-family: South_Gardens_Personal_Use;
 }
