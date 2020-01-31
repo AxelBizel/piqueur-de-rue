@@ -6,7 +6,15 @@
     margin-bottom: 3vh;
 }
 
-.TextSub-Agency {
+.aboutAgency2 {
+    border-radius: 3px;
+    padding: 5%;
+    color: black;
+    border: 1px solid rgba(0, 0, 0, 0.096);
+    margin-bottom: 3vh;
+}
+
+.TextSub-Agency {  
     font-size: 1em;
     text-align: justify;
     margin: 0;
@@ -47,5 +55,9 @@
     .ThirdLineAgency {
         font-size: 45px;
         transition: .3s;
+    }
+
+    .aboutAgency2 {
+        display: none;
     }
 }
