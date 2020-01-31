@@ -3,7 +3,8 @@ import './Formulaires.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faHome } from '@fortawesome/free-solid-svg-icons';
 import { NavItem, NavLink } from 'reactstrap';
-const IPserver = require("../conf/confIP");
+import {IPserver} from '../conf/confIP'
+
 
 const axios = require('axios');
 
@@ -36,14 +37,15 @@ getInitialState = () => ({
 
     handleSubmitFormGuest = (event) => {
         console.log('Le formGuests a été soumis : ', this.state);
+        event.preventDefault();
         let { guest } = this.state;
         axios
-            .post("${IPserver}/api/guests", guest)
-        this.setState({
-            guest: this.getInitialState(),
-            showConfirmation: true
-        })
-        event.preventDefault();
+            .post(`${IPserver}/api/guests`, guest)
+            .then(console.log("add guest on table guest ok"))
+                this.setState({
+                    guest: this.getInitialState(),
+                    showConfirmation: true
+                })
     } 
 
     render() {

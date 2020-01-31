@@ -157,7 +157,7 @@
 
   .inputForm,
   .textAreaForm {
-    width: 70vw !important;
+    /* width: 70vw !important; */
     border: 1px solid #ced4da;
   }
 
@@ -181,8 +181,4 @@
     padding: 0px;
     display: block;
   }
-}
-
-@media (max-width: 601px) {
- 
 }
