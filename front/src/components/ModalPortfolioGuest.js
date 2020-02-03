@@ -67,10 +67,10 @@ class ModalPortfolioGuest extends Component {
                           </div>
                         </CardTitle>
                         <CardText>
-                          <p className="textPresentation">
+                          <div className="textPresentation">
                             {portfolio.presentation}
-                          </p>
-                          <p className="GuestSubtitle">Disponibilités : <br/> du {portfolio.startdate} au {portfolio.enddate}.</p>
+                          </div>
+                          <div className="GuestSubtitle">Disponibilités : <br/> du {portfolio.startdate} au {portfolio.enddate}.</div>
                         </CardText>
                       </CardBody>
                     </Card>
