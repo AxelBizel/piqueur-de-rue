@@ -21,13 +21,14 @@ app.use(bodyParser.json());
 app.use(express.json());
 app.use(cors());
 app.use("/img", express.static(__dirname + "/img"));
+app.use(express.static("/home/PiqueurDeRue/piqueur-de-rue/front/build"));
+
 
 //ROUTES : Partie Authentification
 
-app.get("/", function(request, response) {
-  const user = {};
-  response.json(user);
-});
+/*app.get("/", function(request, response) {
+	response.sen
+});*/
 
 // File Upload
 
@@ -47,7 +48,6 @@ app.post(`/upload/portfolio/:id/avatar`, function(req, res) {
         type:'avatar',
         portfolio_id: `${req.params.id}`
       };
-      console.log(infoAvatar);
       connection.query("INSERT INTO images SET ?", infoAvatar);
       return res.status(200).send(req.file);
     }
@@ -86,7 +86,7 @@ app.post(`/upload/portfolio/:id/images`, function(req, res) {
 
 /////////
 
-app.post("/login", function(request, response) {
+app.post("/api/login", function(request, response) {
   console.log("login", request.body);
   const login = request.body.login;
   const password = request.body.password;
@@ -334,6 +334,7 @@ app.get("/api/portfolio/team/active", (req, res) => {
     "SELECT * from portfolio WHERE type='team' AND active='1'",
     (err, results) => {
       if (err) {
+	      console.log(err)
         res.status(500).send("Erreur lors de la récupération des portfolios");
       } else {
         res.json(results);
@@ -439,6 +440,8 @@ app.put("/admin/images/:id", (req, res) => {
   );
 });
 
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 // Récupération des données du formulaire client de contactTatoueur
 //envoi du mail client au tatoueur
 app.get("/api/customers", (req, res) => {
@@ -451,10 +454,11 @@ app.get("/api/customers", (req, res) => {
   });
 });
 
+//je mets dans mysql
 app.post("/api/customers", (req, res) => {
   const formData = req.body;
   connection.query(
-    "INSERT INTO customers SET?",
+    "INSERT INTO customers SET ?",
     formData,
     async (err, results) => {
       if (err) {
@@ -463,9 +467,7 @@ app.post("/api/customers", (req, res) => {
           .status(500)
           .send("erreur de récupération des données du formulaire Client");
       } else {
-        console.log("YES ça fonctionne côté client !!!!!!!!!!!!!");
         try {
-          //je mets dans mysql
           //j'envoie mon mail
           const sent = await sendMail(req.body);
           if (sent) {
@@ -481,6 +483,7 @@ app.post("/api/customers", (req, res) => {
   );
 });
 
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 // Récupération des données du formulaire guest de contactTatoueur
 //envoi du mail guest au tatoueur
 app.get("/api/guests", (req, res) => {
@@ -493,21 +496,21 @@ app.get("/api/guests", (req, res) => {
   });
 });
 
+
+//je mets dans mysql :
 app.post("/api/guests", (req, res) => {
   const formData = req.body;
   connection.query(
-    "INSERT INTO guests SET?",
+    "INSERT INTO guests SET ?",
     formData,
     async (err, results) => {
       if (err) {
-        console.log(err);
+        console.log("mon erreur ici: ", err);
         res
           .status(500)
           .send("erreur de récupération des données du formulaire Guest");
       } else {
-        console.log("YES ça fonctionne côté guest !!!!!!!!!!!!!");
         try {
-          //je mets dans mysql
           //j'envoie mon mail
           const sent = await sendMailGuest(req.body);
           if (sent) {
@@ -523,24 +526,11 @@ app.post("/api/guests", (req, res) => {
   );
 });
 
-// Route pour l'envoi de Mails des clients avec sengrid : --------------------------------------------
-
-app.post("/project", async (req, res) => {
-  try {
-    const sent = await sendMail(req.body);
-    if (sent) {
-      res.send({ message: "email envoyé avec succès" });
-    }
-  } catch (error) {
-    throw new Error(error.message);
-  }
+app.use('/*', (req,res) =>{
+    res.sendFile("/home/PiqueurDeRue/piqueur-de-rue/front/build/index.html")
 });
 
 //Server
-app.get("/", (request, response) => {
-  response.send("Bienvenue sur Express de piqueur de rue");
-});
-
 app.listen(portHttp, err => {
   if (err) {
     throw new Error("Something bad happened...");

@@ -6,7 +6,6 @@ import "./PortfolioSection.css";
 import "aos/dist/aos.css";
 import { IPserver } from "../conf/confIP";
 
-
 class PortfolioSection extends Component {
   constructor(props) {
     super(props);
@@ -27,7 +26,7 @@ class PortfolioSection extends Component {
     const { portfolios } = this.state;
     return (
       <div className="permanentArtists">
-        <div>
+        <Container>
           <h1 className="HeaderSection">
             <div className="FirstTitleLineTeam" data-aos="fade-right">
               Notre
@@ -36,10 +35,8 @@ class PortfolioSection extends Component {
               Team
             </div>
           </h1>
-        </div>
-        <Container>
 
-          <Row style={{ justifyContent: 'center' }}>
+          <Row style={{ justifyContent: "center" }}>
             {portfolios === null ? (
               <div className="Artists-Loader">
                 <Spinner type="grow" color="dark" />
@@ -48,26 +45,23 @@ class PortfolioSection extends Component {
                 <Spinner type="grow" color="dark" />
               </div>
             ) : (
-                portfolios.map((portfolio, index) => (
-                  <Col xs="12" md="6" lg="4">
-                    <div
-                      className="Artists"
-                      // data-aos-duration={index * 800}
-                      // data-aos="fade-up"
-                      key={`portfolio-${index}`}
-                      style={{
-                        margin: "2vh auto",
-                        backgroundImage:
-                          `url(${IPserver}/img/` +
-                          `${portfolio.id}` +
-                          `/portrait.jpg)`
-                      }}
-                    >
-                      <ButtonOpenPortfolio portfolio={portfolio} />
-                    </div>
-                  </Col>
-                ))
-              )}
+              portfolios.map((portfolio, index) => (
+                <Col xs="12" md="6" lg="4" key={`portfolio-${index}`}>
+                  <div
+                    className="Artists"
+                    style={{
+                      margin: "2vh auto",
+                      backgroundImage:
+                        `url(${IPserver}/img/` +
+                        `${portfolio.id}` +
+                        `/portrait.jpg)`
+                    }}
+                  >
+                    <ButtonOpenPortfolio portfolio={portfolio} />
+                  </div>
+                </Col>
+              ))
+            )}
           </Row>
         </Container>
       </div>

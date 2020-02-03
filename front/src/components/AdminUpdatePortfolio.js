@@ -52,7 +52,6 @@ class AdminUpdatePortfolio extends Component {
       {
         newPortfolio: { ...newPortfolio, [e.target.name]: e.target.value }
       },
-      () => console.log("ggss", this.state.newPortfolio)
     );
   };
 
@@ -128,7 +127,6 @@ class AdminUpdatePortfolio extends Component {
   };
 
   async toggleImg(id, active) {
-    console.log("togglePortfolio", id, active);
     try {
       const result = await axios.put(
         `${IPserver}/admin/images/${id}`,
@@ -337,6 +335,7 @@ class AdminUpdatePortfolio extends Component {
                         <img
                           src={`${IPserver}${img.path}`}
                           style={{ width: "100px", height: "100px" }}
+                          alt='realisation'
                         />
                         <CustomInput
                           key={`user-${index}`}

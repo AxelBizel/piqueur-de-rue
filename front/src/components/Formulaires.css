@@ -40,13 +40,17 @@
   background-color: #f25c66;
 }
 
-.FlexFormContainerGuests,
-.FlexFormContainerProject {
+.FlexFormContainerGuests {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  margin: 3rem 0;
+  margin: 2vh 0;
+  z-index: 90;
+}
+
+.FlexFormContainerProject {
+  margin: 2vh 0;
   z-index: 90;
 }
 
@@ -59,6 +63,7 @@
 .titleContactForm {
   text-align: center;
   font-size: 30px;
+  margin:2vh auto;
 }
 
 .FlexProject2 {
@@ -70,51 +75,48 @@
   justify-content: space-around;
 }
 
-.inputForm,
-.textAreaForm {
+.ModalSendConformationGuest {
+  height: 50vh;
+  font-weight: 600;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  font-size: 1.5em;
+}
+
+.ModalSendConformationProject {
+  height: 50vh;
+  font-weight: 600;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  font-size: 1.5em;
+}
+
+.inputForm{
   display: block;
-  margin: 3rem 0;
-  padding: 0.5em;
   border-radius: 0.5rem;
   width: 100% !important;
   border: 1px solid #ced4da;
-  align-items: flex-start;
   box-sizing: border-box;
   transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
-}
-
-.inputForm:focus,
-.textAreaForm:focus {
-  border-color: #7a6a5d;
-  box-shadow: none;
-  -webkit-box-shadow: none;
-}
-
-.inputForm {
   margin: 0.5em 0;
   padding: 10px;
   background-color: rgb(238, 238, 238);
 }
 
-/* Style buttons */
-
-.buttonForm {
-  background-color: #7a6a5d;
-  box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.774);
-  border: 1px solid rgba(0, 0, 0, 0.411);
-  transition: 0.4s;
-  font-weight: 600;
-  border-radius: 3px;
-  font-size: 1.2em;
-  color: white;
-  padding: 1em;
-  margin-top: 20px;
-}
-
-.buttonForm:hover {
+.inputForm:focus {
+  border-color: #7a6a5d;
   box-shadow: none;
   -webkit-box-shadow: none;
 }
+
+
+
 
 .MainModalGuestAndProject {
   display: flex;
@@ -124,10 +126,10 @@
   left: 50%;
   transform: translate(-50%, -50%);
   height: auto;
-  width: 70vw;
+  width: 80vw;
   background: white;
   z-index: 1;
-  padding: 0 50px;
+  padding: 0 2vw;
   border-radius: 40px 0px;
 }
 
@@ -157,7 +159,7 @@
 
   .inputForm,
   .textAreaForm {
-    width: 70vw !important;
+    /* width: 70vw !important; */
     border: 1px solid #ced4da;
   }
 
@@ -181,8 +183,4 @@
     padding: 0px;
     display: block;
   }
-}
-
-@media (max-width: 601px) {
- 
 }

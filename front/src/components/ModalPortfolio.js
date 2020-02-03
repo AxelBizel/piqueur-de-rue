@@ -9,18 +9,13 @@ import {
   CardBody,
   CardTitle,
 } from "reactstrap";
-// import ButtonOpenFormTatoueurs from "./ButtonOpenFormTatoueurs";
 import GalleryPortfolio from "./GalleryPortfolio";
 import {IPserver} from '../conf/confIP'
 
 
 
 class ModalPortfolio extends Component {
-  constructor(props) {
-    super(props);
-  }
-
-
+ 
   render() {
     const { showModal, portfolio } = this.props;
     return (
@@ -55,11 +50,11 @@ class ModalPortfolio extends Component {
                             <h1 className="h1Portfolio">
                               {portfolio.pseudo}
                             </h1>
-                            <a href= {portfolio.insta} target='_blank'>
+                            <a href= {portfolio.insta} target='_blank' rel="noopener noreferrer">
                               <img
                                 src={insta}
                                 alt='instagram logo'
-                                style={{ width: "36px", height: "36px" }}
+                                style={{ width: "36px", height: "36px", margin:'0 1vh' }}
                               />
                             </a>
                           </div>
@@ -71,7 +66,6 @@ class ModalPortfolio extends Component {
                           <p className="textPresentation">
                             {portfolio.presentation}
                           </p>
-                        {/* < ButtonOpenFormTatoueurs/> */}
                         </CardBody>
                       </CardBody>
                     </Card>

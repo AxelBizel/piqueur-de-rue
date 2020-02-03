@@ -1,21 +1,18 @@
 .styleNavbar {
-    background-color: #786B60;
+    background-color: #946036;
     position: relative;
     width: 100vw;
     box-shadow: 1px 1px 10px rgb(58, 58, 58);
 }
 
-.navbar-light .navbar-toggler {
-    border: none;
-    padding: 15px;
+a.loginLink {
+    position: fixed;
+    right: 20px;
+    font-size: 1em;
 }
 
 .headroom-wrapper {
     height: 0 !important;
-}
-
-.loginLink {
-    color: rgb(182, 179, 176);
 }
 
 .styleLink:hover, .loginLink:hover{
@@ -24,7 +21,7 @@
 }
 
 .styleLink {
-    font-size: 1.4em;
+    font-size: 1.1em;
     margin-right: 1vw;
     color: rgb(231, 231, 231) !important;
     transition: 0.1s;
@@ -64,13 +61,27 @@
 }
 
 
-@media screen and (max-width:768px) {
+@media screen and (max-width:600px) {
+    .navbar-light .navbar-toggler {
+        border: none;
+        padding: 15px;
+    }
+
+    .styleNavbar {
+        background-color: #946036;
+        position: relative;
+        max-height: 100vh;
+        width: 100vw;
+        box-shadow: 1px 1px 10px rgb(58, 58, 58);
+    }
+
     .styleLink {
+        font-size: 1.4em;
         margin-right: 0;
     }
 
     .loginLink {
-        font-size: 1.4em;
+        font-size: 1em;
     }
 
     .closeOutside {
@@ -83,7 +94,7 @@
     .mr-auto.navbar-nav {
         align-items: center;
         justify-content: space-around;
-        height: 65%;
+        height: 90vh;
     }
 
     nav.navbar.navbar-expand-md.navbar-light{
@@ -93,6 +104,8 @@
     a.loginLink.nav-link {
         padding: 1em 0;
         text-align: center;
+        position: static;
+        font-size: 1em;
     }
 
     .RSNavbar {

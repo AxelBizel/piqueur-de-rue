@@ -57,7 +57,7 @@ class ModalPortfolioGuest extends Component {
                             <h1 className="h1Portfolio">
                               {portfolio.pseudo}
                             </h1>
-                            <a href= {portfolio.insta} target='_blank'>
+                            <a href= {portfolio.insta} target='_blank' rel="noopener noreferrer">
                               <img
                                 src={insta}
                                 alt='instagram logo'
@@ -67,10 +67,10 @@ class ModalPortfolioGuest extends Component {
                           </div>
                         </CardTitle>
                         <CardText>
-                          <p className="textPresentation">
+                          <div className="textPresentation">
                             {portfolio.presentation}
-                          </p>
-                          <p className="GuestSubtitle">Disponibilités : <br/> du {portfolio.startdate} au {portfolio.enddate}.</p>
+                          </div>
+                          <div className="GuestSubtitle">Disponibilités : <br/> du {portfolio.startdate} au {portfolio.enddate}.</div>
                         </CardText>
                       </CardBody>
                     </Card>

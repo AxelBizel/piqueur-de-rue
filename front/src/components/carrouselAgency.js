@@ -10,18 +10,23 @@ import './carrouselAgency.css'
 const items = [
   {
     src: `${image1}`,
+    caption:''
   },
   {
     src: `${image2}`,
+    caption:''
   },
   {
     src: `${image3}`,
+    caption:''
   },
   {
     src: `${image4}`,
+    caption:''
   },
   {
     src: `${image5}`,
+    caption:''
   }
 ];
 

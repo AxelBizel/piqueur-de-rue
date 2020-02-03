@@ -47,7 +47,6 @@ class AdminAddPortfolio extends Component {
       {
         newPortfolio: { ...newPortfolio, [e.target.name]: e.target.value }
       },
-      () => console.log("ggss", this.state.newPortfolio)
     );
   };
 
@@ -71,7 +70,6 @@ class AdminAddPortfolio extends Component {
       selectedAvatar: event.target.files[0],
       loaded: 0
     });
-    console.log(event.target.files[0]);
   };
 
   imageHandlerMultiple = event => {
@@ -93,7 +91,6 @@ class AdminAddPortfolio extends Component {
       )
       .then(res => {
         // then print response status
-        console.log(res.statusText);
       });
   };
 
@@ -112,7 +109,6 @@ class AdminAddPortfolio extends Component {
       )
       .then(res => {
         // then print response status
-        console.log(res.statusText);
       });
   };
 

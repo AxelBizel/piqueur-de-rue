@@ -42,7 +42,6 @@ class AdminUpdateUsers extends Component {
       {
         newUser: { ...newUser, [e.target.name]: e.target.value }
       },
-      () => console.log("ggss", this.state.newUser)
     );
   };
 
