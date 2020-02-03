@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import "./modalFormTatoueurs.css";
+import "./Formulaires.css";
 import FormulaireProject from "./FormulaireProject";
 import { Container} from "reactstrap";
 
