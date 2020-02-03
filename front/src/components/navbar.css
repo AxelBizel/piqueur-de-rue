@@ -61,7 +61,7 @@ a.loginLink {
 }
 
 
-@media screen and (max-width:768px) {
+@media screen and (max-width:600px) {
     .navbar-light .navbar-toggler {
         border: none;
         padding: 15px;
