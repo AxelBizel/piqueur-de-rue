@@ -1,63 +1,61 @@
-.aboutAgency, .aboutAgency2 {
-    border-radius: 3px;
-    padding: 5%;
-    color: black;
-    border: 1px solid rgba(0, 0, 0, 0.096);
-    margin-bottom: 3vh;
+.aboutAgency,
+.aboutAgency2 {
+  border-radius: 3px;
+  padding: 5%;
+  color: black;
+  border: 1px solid rgba(0, 0, 0, 0.096);
+  margin-bottom: 3vh;
 }
 
-.TextSub-Agency {  
-    font-size: 1em;
-    text-align: justify;
-    margin: 0;
+.TextSub-Agency {
+  font-size: 1em;
+  text-align: justify;
+  margin: 0;
 }
 
 .FirstLineAgency {
-    margin: 40px 10px 5px 0px;
-    font-size: 80px;
-    margin-bottom: 15px;
-    width: max-content;
-    font-family: South_Gardens_Personal_Use;
+  padding: 45px 0px 0px 0px;
+  font-size: 80px;
+  margin-bottom: 15px;
+  font-family: South_Gardens_Personal_Use;
+  width: max-content;
 }
 
 .SecondLineAgency {
-    width: max-content;
-    font-family: FalkinSerifItalicPERSONAL;
-    font-weight: 600;
-    font-size: 95px;
-    animation: slidein2 1s;
-    -webkit-animation: slidein2 1s;
+  font-family: FalkinSerifItalicPERSONAL;
+  font-weight: 600;
+  font-size: 95px;
+  width: max-content;
 }
 
 .ThirdLineAgency {
-    width: max-content;
-    font-family: FalkinSerifItalicPERSONAL;
-    font-size: 50px;
-    line-height: 0.9em;
-    color: rgb(97, 85, 74);
-    letter-spacing: 0 !important;
-    animation: slidein3 1s;
-    -webkit-animation: slidein3 1s;
+  width: max-content;
+  font-family: FalkinSerifItalicPERSONAL;
+  font-size: 50px;
+  line-height: 0.9em;
+  color: rgb(97, 85, 74);
+  letter-spacing: 0 !important;
 }
 
-
 @media (max-width: 768px) {
-    .FirstLineAgency {
-        font-size: 60px;
-        margin-bottom: 0;
-    }
+  .FirstLineAgency {
+    font-size: 60px;
+    margin-bottom: 0;
+  }
 
-    .SecondLineAgency {
-        font-size: 60px;
-        transition: .3s;
-    }
-    
-    .ThirdLineAgency {
-        font-size: 40px;
-        transition: .3s;
-    }
+  .SecondLineAgency {
+    font-size: 60px;
+    transition: 0.3s;
+  }
 
-    .aboutAgency2 {
-        display: none;
-    }
+  .ThirdLineAgency {
+    font-size: 40px;
+    transition: 0.3s;
+  }
+}
+
+@media (max-width: 600px) {
+  .aboutAgency2 {
+    display: none;
+  }
 }
