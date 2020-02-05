@@ -20,8 +20,6 @@
 
 👤 **Axel Bizel / Morgane Mottey / Charlotte Dieleman / Ludovic Mazet**
 
-* Website: https://github.com/
-* Twitter: [@AxelBizel](https://twitter.com/AxelBizel)
 * Github: [@AxelBizel \/ morganemottey \/ Cha-dieleman \/ Signupz](https://github.com/AxelBizel \/ https://github.com/morganemottey \/ https://github.com/Cha-dieleman \/ https://github.com/Signupz)
 * LinkedIn: [@Axel BIZEL \/ Morgane Mottey \/ Charlotte Dieleman \/ Ludovic Mazet](https://www.linkedin.com/in/axel-bizel \/ https://www.linkedin.com/in/morgane-mottey-9a3126b5/ \/ https://www.linkedin.com/in/charlotte-dieleman-aa1320198/ \/ https://www.linkedin.com/in/ludovic-mazet/)
 
