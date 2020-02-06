@@ -1,5 +1,6 @@
 const express = require("express");
 const app = express();
+const server = require('./config/conf');
 const portHttp = require('./config/conf').portHttp;
 const connection = require("./config/conf").connection;
 const bodyParser = require("body-parser");
@@ -9,11 +10,14 @@ const cors = require("cors");
 const { sendMail, sendMailGuest } = require("./mail");
 const { avatarStorage, imagesStorage } = require("./fileupload");
 const http = require("http");
+const https = require("https");
 const fs = require("fs");
 const multer = require("multer");
 const avatarUpload = multer({ storage: avatarStorage }).single("file");
 const imagesUpload = multer({ storage: imagesStorage }).array("files");
+const forceSSL = require('express-force-ssl');
 
+app.use(forceSSL)
 // Middlewares
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -538,3 +542,17 @@ app.listen(portHttp, err => {
 
   console.log(`Server is listening on ${portHttp}`);
 });
+
+
+if (server.portHttps) {
+  const httpsoptions = {
+    key: fs.readFileSync(server.key),
+    cert: fs.readFileSync(server.cert),
+    ca: fs.readFileSync(server.chain),
+
+  };
+  const httpsServer = https.createServer(httpsoptions, app);
+  httpsServer.listen(server.portHttps, () => {
+    console.log(`https server listen on port ${httpsServer.address().port}`);
+  });
+}
